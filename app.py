@@ -31,6 +31,21 @@ class Election(db.Model):
     def __repr__(self):
         return f"Election('{self.election_id}', '{self.election_date}', '{self.is_over}'"
 
+class Casted_Vote(db.Model):
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), nullable=False)
+    voter_id = db.Column(db.Integer, db.ForeignKey('voter.voter_id'), nullable=False)
+    candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), nullable=False)
+
+    def __repr__(self):
+        return f"Casted_Vote('{self.election_id}', '{self.voter_id}', '{self.candidate_id}')"
+
+class Voter_List(db.Model):
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), nullable=False)
+    voter_id = db.Column(db.Integer, db.ForeignKey('voter.voter_id'), nullable=False)
+
+    def __repr__(self):
+        return f"Voter_List('{self.election_id}', '{self.voter_id}')"
+
 class Department(db.Model):
     dept_code = db.Column(db.String(5), primary_key=True, nullable=False)
     dept_name = db.Column(db.String(20), unique=True, nullable=False)
@@ -38,7 +53,6 @@ class Department(db.Model):
     def __repr__(self):
         return f"Department('{self.dept_code}', '{self.dept_name}')"
 
-class Casted_Vote(db.Model):
 
 @app.route("/")
 def hello_world():
