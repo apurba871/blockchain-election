@@ -32,16 +32,16 @@ class Election(db.Model):
         return f"Election('{self.election_id}', '{self.election_date}', '{self.is_over}'"
 
 class Casted_Vote(db.Model):
-    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), nullable=False)
-    voter_id = db.Column(db.Integer, db.ForeignKey('voter.voter_id'), nullable=False)
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
+    voter_id = db.Column(db.Integer, db.ForeignKey('voter.voter_id'), primary_key=True, nullable=False)
     candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), nullable=False)
 
     def __repr__(self):
         return f"Casted_Vote('{self.election_id}', '{self.voter_id}', '{self.candidate_id}')"
 
 class Voter_List(db.Model):
-    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), nullable=False)
-    voter_id = db.Column(db.Integer, db.ForeignKey('voter.voter_id'), nullable=False)
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
+    voter_id = db.Column(db.Integer, db.ForeignKey('voter.voter_id'), primary_key=True, nullable=False)
 
     def __repr__(self):
         return f"Voter_List('{self.election_id}', '{self.voter_id}')"
