@@ -14,7 +14,13 @@ class Voter(db.Model):
     def __repr__(self):
         return f"Voter('{self.voter_id}', '{self.voter_name}')"
 
+class Candidate(db.Model):
+    candidate_id = db.Column(db.String(5), primary_key=True, nullable=False)
+    candidate_name = db.Column(db.String(30), unique=True, nullable=False)
+    voters = db.relationship('Voter', backref='vote', lazy=True)
 
+    def __repr__(self):
+        return f"Candidate('{self.candidate_id}', '{self.candidate_name}')"
 
 @app.route("/")
 def hello_world():
