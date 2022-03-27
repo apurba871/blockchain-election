@@ -1,4 +1,5 @@
 import mysql.connector
+import json
 import os
 
 mydb = mysql.connector.connect(
@@ -23,16 +24,22 @@ for file in file_list:
     with open(current_file, 'r') as f:
         for line in f:
             voter_id += 1
-
-            record = line[1:-2].split(', ')
-            name = record[0][record[0].find(':') + 1 : ]
-            roll = record[1][record[1].find(':') + 1 : ]
-            current_year = record[2][record[2].find(':') + 1 : ]
-            registration_number = record[3][record[3].find(':') + 1 : ]
-            department = record[4][record[4].find(':') + 1 : ][2:-1]
+            record = json.loads(line)
+            name = record["Name"]
+            roll = record["Roll"]
+            current_year = record["Current Year"]
+            registration_number = record["Registration Number"]
+            department = record["Department"]
+            # record = line[1:-2].split(', ')
+            # name = record[0][record[0].find(':') + 1 : ]
+            # roll = record[1][record[1].find(':') + 1 : ]
+            # current_year = record[2][record[2].find(':') + 1 : ]
+            # registration_number = record[3][record[3].find(':') + 1 : ]
+            # department = record[4][record[4].find(':') + 1 : ][2:-1]
+            
             # print(name, roll, current_year, registration_number, department)
             # print(department)
-
+            # input()
             my_cursor.execute("INSERT INTO voter (voter_id, voter_cin, voter_name, dept_code) VALUES (%s, %s, %s, %s)", (voter_id, roll, name, department))
 mydb.commit()
 print("Success, total voters: ", voter_id)
