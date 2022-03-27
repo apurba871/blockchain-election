@@ -1,0 +1,55 @@
+{"Name": "Abdur Rauf Shaikh", "Roll": "2-14-16-0402", "Current Year": "2", "Registration Number": "A01-1142-0694-16", "Department": "STSA"}
+{"Name": "Saikat Ghosh", "Roll": "2-14-16-0403", "Current Year": "2", "Registration Number": "A01-1112-0695-16", "Department": "STSA"}
+{"Name": "Sreya Sarkar", "Roll": "2-14-16-0406", "Current Year": "2", "Registration Number": "A01-2122-0696-16", "Department": "STSA"}
+{"Name": "Sweata Sen", "Roll": "2-14-16-0407", "Current Year": "2", "Registration Number": "A01-2112-0697-16", "Department": "STSA"}
+{"Name": "Ritwika Hajra", "Roll": "2-14-16-0408", "Current Year": "2", "Registration Number": "A01-2112-0698-16", "Department": "STSA"}
+{"Name": "Subham Thakur", "Roll": "2-14-16-0409", "Current Year": "2", "Registration Number": "A01-1122-0699-16", "Department": "STSA"}
+{"Name": "Susmit Saha", "Roll": "2-14-16-0410", "Current Year": "2", "Registration Number": "A01-1112-0700-16", "Department": "STSA"}
+{"Name": "Subhadeep Chaudhuri", "Roll": "2-14-16-0411", "Current Year": "2", "Registration Number": "A01-1112-0701-16", "Department": "STSA"}
+{"Name": "Swarnali Raha", "Roll": "2-14-16-0412", "Current Year": "2", "Registration Number": "A01-2142-0702-16", "Department": "STSA"}
+{"Name": "Saptarshi Roy", "Roll": "2-14-16-0414", "Current Year": "2", "Registration Number": "A01-1112-0703-16", "Department": "STSA"}
+{"Name": "Debarshi Maiti", "Roll": "2-14-16-0415", "Current Year": "2", "Registration Number": "A01-1112-0704-16", "Department": "STSA"}
+{"Name": "Sayantani Sarkar", "Roll": "2-14-16-0416", "Current Year": "2", "Registration Number": "A01-2112-0705-16", "Department": "STSA"}
+{"Name": "Joel Joy", "Roll": "2-14-16-0418", "Current Year": "2", "Registration Number": "A01-1112-0706-16", "Department": "STSA"}
+{"Name": "Sangeeta Saha", "Roll": "2-14-16-0419", "Current Year": "2", "Registration Number": "A01-2112-0707-16", "Department": "STSA"}
+{"Name": "Sumedha Ghosh", "Roll": "2-14-16-0421", "Current Year": "2", "Registration Number": "A01-2112-0708-16", "Department": "STSA"}
+{"Name": "Suraj Maiti", "Roll": "2-14-16-0422", "Current Year": "2", "Registration Number": "A01-1112-0709-16", "Department": "STSA"}
+{"Name": "Rishita Chakraborty", "Roll": "2-14-16-0423", "Current Year": "2", "Registration Number": "A01-2112-0710-16", "Department": "STSA"}
+{"Name": "Sanjeet Minz", "Roll": "2-14-16-0425", "Current Year": "2", "Registration Number": "A01-1112-0711-16", "Department": "STSA"}
+{"Name": "Shalom Joy Anthony", "Roll": "2-14-16-0427", "Current Year": "2", "Registration Number": "A01-1112-0712-16", "Department": "STSA"}
+{"Name": "Souradeep Bhukta", "Roll": "2-14-16-0431", "Current Year": "2", "Registration Number": "A01-1112-0713-16", "Department": "STSA"}
+{"Name": "Nelson Phillips", "Roll": "2-14-16-0432", "Current Year": "2", "Registration Number": "A01-1112-0714-16", "Department": "STSA"}
+{"Name": "Shamriddha De", "Roll": "2-14-16-0434", "Current Year": "2", "Registration Number": "A01-1112-0715-16", "Department": "STSA"}
+{"Name": "Ashwini Lakra", "Roll": "2-14-16-0435", "Current Year": "2", "Registration Number": "A01-2132-0716-16", "Department": "STSA"}
+{"Name": "Subhrangshu Bit", "Roll": "2-14-16-0436", "Current Year": "2", "Registration Number": "A01-1112-0717-16", "Department": "STSA"}
+{"Name": "Abhiroop Chowdhury", "Roll": "2-14-16-0437", "Current Year": "2", "Registration Number": "A01-1112-0718-16", "Department": "STSA"}
+{"Name": "Dilshad Imon", "Roll": "2-14-16-0438", "Current Year": "2", "Registration Number": "A01-1112-0719-16", "Department": "STSA"}
+{"Name": "Dipra Mallick", "Roll": "2-14-16-0441", "Current Year": "2", "Registration Number": "A01-1112-0720-16", "Department": "STSA"}
+{"Name": "Arunima Rakshit", "Roll": "2-14-16-0443", "Current Year": "2", "Registration Number": "A01-2112-0721-16", "Department": "STSA"}
+{"Name": "Rishav Chatterjee", "Roll": "2-14-16-0446", "Current Year": "2", "Registration Number": "A01-1112-0722-16", "Department": "STSA"}
+{"Name": "Avirup Chakrabarty", "Roll": "2-14-16-0448", "Current Year": "2", "Registration Number": "A01-1112-0723-16", "Department": "STSA"}
+{"Name": "Soumya Mukherjee", "Roll": "2-14-16-0449", "Current Year": "2", "Registration Number": "A01-1112-0724-16", "Department": "STSA"}
+{"Name": "Prokarso Chattopadhyay", "Roll": "2-14-16-0450", "Current Year": "2", "Registration Number": "A01-1112-0725-16", "Department": "STSA"}
+{"Name": "Archi Roy", "Roll": "2-14-16-0451", "Current Year": "2", "Registration Number": "A01-2112-0726-16", "Department": "STSA"}
+{"Name": "Sramana Routh", "Roll": "2-14-16-0452", "Current Year": "2", "Registration Number": "A01-2112-0727-16", "Department": "STSA"}
+{"Name": "Subhajit Das", "Roll": "2-14-16-0453", "Current Year": "2", "Registration Number": "A01-1112-0728-16", "Department": "STSA"}
+{"Name": "Umarta Das", "Roll": "2-14-16-0454", "Current Year": "2", "Registration Number": "A01-1112-0729-16", "Department": "STSA"}
+{"Name": "Shibendu Sanyal", "Roll": "2-14-16-0455", "Current Year": "2", "Registration Number": "A01-1112-0730-16", "Department": "STSA"}
+{"Name": "Samudranil Basak", "Roll": "2-14-16-0456", "Current Year": "2", "Registration Number": "A01-1112-0731-16", "Department": "STSA"}
+{"Name": "Asmita Bhandari", "Roll": "2-14-16-0457", "Current Year": "2", "Registration Number": "A01-2112-0732-16", "Department": "STSA"}
+{"Name": "Sreejay Bera", "Roll": "2-14-16-0458", "Current Year": "2", "Registration Number": "A01-1112-0733-16", "Department": "STSA"}
+{"Name": "Sagnik Acharyya", "Roll": "2-14-16-0459", "Current Year": "2", "Registration Number": "A01-1112-0734-16", "Department": "STSA"}
+{"Name": "Sreejita Das", "Roll": "2-14-16-0460", "Current Year": "2", "Registration Number": "A01-2112-0735-16", "Department": "STSA"}
+{"Name": "Tathagata Bardhan", "Roll": "2-14-16-0461", "Current Year": "2", "Registration Number": "A01-1112-0736-16", "Department": "STSA"}
+{"Name": "Swaraj Bose", "Roll": "2-14-16-0462", "Current Year": "2", "Registration Number": "A01-1112-0737-16", "Department": "STSA"}
+{"Name": "Pratyusha Ghosh", "Roll": "2-14-16-0463", "Current Year": "2", "Registration Number": "A01-2142-0738-16", "Department": "STSA"}
+{"Name": "Saptarshi Majumder", "Roll": "2-14-16-0465", "Current Year": "2", "Registration Number": "A01-1112-0739-16", "Department": "STSA"}
+{"Name": "Nk Archak", "Roll": "2-14-16-0466", "Current Year": "2", "Registration Number": "A01-1112-0740-16", "Department": "STSA"}
+{"Name": "Sujoy Kumar Bhadra", "Roll": "2-14-16-0467", "Current Year": "2", "Registration Number": "A01-1112-0741-16", "Department": "STSA"}
+{"Name": "Henna Bobo Palta", "Roll": "2-14-16-0468", "Current Year": "2", "Registration Number": "A01-2112-0742-16", "Department": "STSA"}
+{"Name": "Kathakali Banerjee", "Roll": "2-14-16-0469", "Current Year": "2", "Registration Number": "A01-2112-0743-16", "Department": "STSA"}
+{"Name": "Arnab Roy", "Roll": "1-14-16-0470", "Current Year": "1", "Registration Number": "A01-1112-0744-16", "Department": "STSA"}
+{"Name": "Shourya Sankha Mishra", "Roll": "2-14-16-0472", "Current Year": "2", "Registration Number": "A01-1112-0745-16", "Department": "STSA"}
+{"Name": "Noel Joy Shah", "Roll": "1-14-16-0474", "Current Year": "1", "Registration Number": "A01-1112-0747-16", "Department": "STSA"}
+{"Name": "Abhishek Masih", "Roll": "1-14-16-0475", "Current Year": "1", "Registration Number": "A01-1112-0748-16", "Department": "STSA"}
+{"Name": "Shilajit Dasgupta", "Roll": "2-14-16-0476", "Current Year": "2", "Registration Number": "A01-1112-0749-16", "Department": "STSA"}

@@ -1,0 +1,52 @@
+{"Name": "Swarnavo Chakraborty", "Roll": "2-05-16-0901", "Current Year": "2", "Registration Number": "A01-1112-2447-16", "Department": "BMBT"}
+{"Name": "Parama Mitra", "Roll": "2-05-16-0902", "Current Year": "2", "Registration Number": "A01-2112-2448-16", "Department": "BMBT"}
+{"Name": "Anik Das", "Roll": "2-05-16-0903", "Current Year": "2", "Registration Number": "A01-1112-2449-16", "Department": "BMBT"}
+{"Name": "Sayanti Acharya", "Roll": "2-05-16-0904", "Current Year": "2", "Registration Number": "A01-2112-2450-16", "Department": "BMBT"}
+{"Name": "Debasmita Biswas", "Roll": "2-05-16-0905", "Current Year": "2", "Registration Number": "A01-2112-2451-16", "Department": "BMBT"}
+{"Name": "Atreyi Dutta", "Roll": "2-05-16-0908", "Current Year": "2", "Registration Number": "A01-2112-2452-16", "Department": "BMBT"}
+{"Name": "Priyabrata Singha", "Roll": "2-05-16-0909", "Current Year": "2", "Registration Number": "A01-1112-2453-16", "Department": "BMBT"}
+{"Name": "Debarati Sanyal", "Roll": "2-05-16-0911", "Current Year": "2", "Registration Number": "A01-2112-2454-16", "Department": "BMBT"}
+{"Name": "Sampurna Pal", "Roll": "2-05-16-0913", "Current Year": "2", "Registration Number": "A01-2142-2455-16", "Department": "BMBT"}
+{"Name": "Abhirup Biswas", "Roll": "2-05-16-0914", "Current Year": "2", "Registration Number": "A01-1112-2456-16", "Department": "BMBT"}
+{"Name": "Asmita Singhania", "Roll": "2-05-16-0916", "Current Year": "2", "Registration Number": "A01-2112-2457-16", "Department": "BMBT"}
+{"Name": "Ritaja Chattopadhyay", "Roll": "2-05-16-0917", "Current Year": "2", "Registration Number": "A01-2112-2458-16", "Department": "BMBT"}
+{"Name": "Attrayee Chakraborty", "Roll": "2-05-16-0918", "Current Year": "2", "Registration Number": "A01-2112-2459-16", "Department": "BMBT"}
+{"Name": "Rituparna Bhowmik", "Roll": "2-05-16-0919", "Current Year": "2", "Registration Number": "A01-2112-2460-16", "Department": "BMBT"}
+{"Name": "Mahima Dey", "Roll": "2-05-16-0920", "Current Year": "2", "Registration Number": "A01-2112-2461-16", "Department": "BMBT"}
+{"Name": "Rounak Banerjee", "Roll": "2-05-16-0921", "Current Year": "2", "Registration Number": "A01-1112-2462-16", "Department": "BMBT"}
+{"Name": "Gargi Dey", "Roll": "2-05-16-0922", "Current Year": "2", "Registration Number": "A01-2112-2463-16", "Department": "BMBT"}
+{"Name": "Arpita Mandal", "Roll": "2-05-16-0924", "Current Year": "2", "Registration Number": "A01-2112-2464-16", "Department": "BMBT"}
+{"Name": "Sudipti Shaw", "Roll": "2-05-16-0926", "Current Year": "2", "Registration Number": "A01-2112-2465-16", "Department": "BMBT"}
+{"Name": "Srina Ray", "Roll": "1-05-16-0928", "Current Year": "1", "Registration Number": "A01-2112-2466-16", "Department": "BMBT"}
+{"Name": "Ankita Bhattacharyya", "Roll": "2-05-16-0930", "Current Year": "2", "Registration Number": "A01-2112-2467-16", "Department": "BMBT"}
+{"Name": "Shubhomita Mallick", "Roll": "2-05-16-0931", "Current Year": "2", "Registration Number": "A01-2112-2468-16", "Department": "BMBT"}
+{"Name": "Saptarshi Mridha", "Roll": "2-05-16-0932", "Current Year": "2", "Registration Number": "A01-1122-2469-16", "Department": "BMBT"}
+{"Name": "Emily Mree", "Roll": "2-05-16-0933", "Current Year": "2", "Registration Number": "A01-2132-2470-16", "Department": "BMBT"}
+{"Name": "Pratik Mallick", "Roll": "2-05-16-0934", "Current Year": "2", "Registration Number": "A01-1112-2471-16", "Department": "BMBT"}
+{"Name": "Suharto Banerjee", "Roll": "2-05-16-0935", "Current Year": "2", "Registration Number": "A01-1112-2472-16", "Department": "BMBT"}
+{"Name": "Sagnik Nandy", "Roll": "2-05-16-0937", "Current Year": "2", "Registration Number": "A01-1142-2474-16", "Department": "BMBT"}
+{"Name": "Spriha Ghosh", "Roll": "2-05-16-0939", "Current Year": "2", "Registration Number": "A01-2112-2475-16", "Department": "BMBT"}
+{"Name": "Prakash Karmakar", "Roll": "2-05-16-0940", "Current Year": "2", "Registration Number": "A01-1142-2476-16", "Department": "BMBT"}
+{"Name": "Vaidehi Roy Chowdhury", "Roll": "2-05-16-0942", "Current Year": "2", "Registration Number": "A01-2112-2477-16", "Department": "BMBT"}
+{"Name": "Jayanta Paul", "Roll": "2-05-16-0943", "Current Year": "2", "Registration Number": "A01-1112-2478-16", "Department": "BMBT"}
+{"Name": "Shubhraneel Saha", "Roll": "2-05-16-0945", "Current Year": "2", "Registration Number": "A01-1112-2479-16", "Department": "BMBT"}
+{"Name": "Prema Mondal", "Roll": "1-05-16-0947", "Current Year": "1", "Registration Number": "A01-2112-2480-16", "Department": "BMBT"}
+{"Name": "Gaurab Aditya Dhar", "Roll": "2-05-16-0949", "Current Year": "2", "Registration Number": "A01-1112-2481-16", "Department": "BMBT"}
+{"Name": "Srija Chakraborty", "Roll": "2-05-16-0950", "Current Year": "2", "Registration Number": "A01-2112-2482-16", "Department": "BMBT"}
+{"Name": "Soumi Chatterjee", "Roll": "2-05-16-0951", "Current Year": "2", "Registration Number": "A01-2112-2483-16", "Department": "BMBT"}
+{"Name": "Anasuya Chatterjee", "Roll": "2-05-16-0953", "Current Year": "2", "Registration Number": "A01-2112-2484-16", "Department": "BMBT"}
+{"Name": "Gargi Mandal", "Roll": "2-05-16-0954", "Current Year": "2", "Registration Number": "A01-2112-2485-16", "Department": "BMBT"}
+{"Name": "Saikat Bhattacharjee", "Roll": "2-05-16-0955", "Current Year": "2", "Registration Number": "A01-1112-2486-16", "Department": "BMBT"}
+{"Name": "Saptashwa Chakrabarti", "Roll": "2-05-16-0957", "Current Year": "2", "Registration Number": "A01-1112-2487-16", "Department": "BMBT"}
+{"Name": "Amrapali Datta", "Roll": "2-05-16-0958", "Current Year": "2", "Registration Number": "A01-2112-2488-16", "Department": "BMBT"}
+{"Name": "Anushka Ghosh", "Roll": "2-05-16-0959", "Current Year": "2", "Registration Number": "A01-2112-2489-16", "Department": "BMBT"}
+{"Name": "Dyuti Basu Choudhury", "Roll": "2-05-16-0960", "Current Year": "2", "Registration Number": "A01-2112-2490-16", "Department": "BMBT"}
+{"Name": "Gunjan Bakshi", "Roll": "2-05-16-0961", "Current Year": "2", "Registration Number": "A01-1112-2491-16", "Department": "BMBT"}
+{"Name": "Kinjal Prasant Kothary", "Roll": "2-05-16-0962", "Current Year": "2", "Registration Number": "A01-2112-2492-16", "Department": "BMBT"}
+{"Name": "Akanksha Ghoshal", "Roll": "2-05-16-0963", "Current Year": "2", "Registration Number": "A01-2112-2493-16", "Department": "BMBT"}
+{"Name": "Meheli Banerjee", "Roll": "2-05-16-0964", "Current Year": "2", "Registration Number": "A01-2112-2494-16", "Department": "BMBT"}
+{"Name": "Avipsa Dey", "Roll": "2-05-16-0965", "Current Year": "2", "Registration Number": "A01-2112-2495-16", "Department": "BMBT"}
+{"Name": "Debsruti Dasgupta", "Roll": "2-05-16-0966", "Current Year": "2", "Registration Number": "A01-2112-2496-16", "Department": "BMBT"}
+{"Name": "Rimi Ghosh", "Roll": "1-05-16-0967", "Current Year": "1", "Registration Number": "A01-2112-2497-16", "Department": "BMBT"}
+{"Name": "Pritish Das", "Roll": "2-05-16-0968", "Current Year": "2", "Registration Number": "A01-1112-2498-16", "Department": "BMBT"}
+{"Name": "Radheka Bhaduri", "Roll": "2-05-16-0970", "Current Year": "2", "Registration Number": "A01-2112-2499-16", "Department": "BMBT"}

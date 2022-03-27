@@ -1,0 +1,79 @@
+{"Name": "H Khanreila", "Roll": "2-09-16-0302", "Current Year": "2", "Registration Number": "A01-2132-0283-16", "Department": "BAGG"}
+{"Name": "Jayshree Naskar", "Roll": "2-09-16-0303", "Current Year": "2", "Registration Number": "A01-2112-0284-16", "Department": "BAGG"}
+{"Name": "Genevieve Ruth Savyell", "Roll": "2-09-16-0304", "Current Year": "2", "Registration Number": "A01-2112-0285-16", "Department": "BAGG"}
+{"Name": "Samantha Rebecca Marcar", "Roll": "2-09-16-0305", "Current Year": "2", "Registration Number": "A01-2112-0286-16", "Department": "BAGG"}
+{"Name": "Monica Robert", "Roll": "2-09-16-0306", "Current Year": "2", "Registration Number": "A01-2112-0287-16", "Department": "BAGG"}
+{"Name": "Zenthiankim Phiamphu", "Roll": "2-09-16-0307", "Current Year": "2", "Registration Number": "A01-2132-0288-16", "Department": "BAGG"}
+{"Name": "Sharon Mable Emmanuel", "Roll": "2-09-16-0308", "Current Year": "2", "Registration Number": "A01-2112-0289-16", "Department": "BAGG"}
+{"Name": "Craig Andrew Boila Gomes", "Roll": "2-09-16-0309", "Current Year": "2", "Registration Number": "A01-1112-0290-16", "Department": "BAGG"}
+{"Name": "J Lalthafamkima", "Roll": "2-09-16-0310", "Current Year": "2", "Registration Number": "A01-1132-0291-16", "Department": "BAGG"}
+{"Name": "Francis Dennis Alpin", "Roll": "2-09-16-0312", "Current Year": "2", "Registration Number": "A01-1112-0292-16", "Department": "BAGG"}
+{"Name": "Meigailung Gangmei", "Roll": "2-09-16-0314", "Current Year": "2", "Registration Number": "A01-1132-0293-16", "Department": "BAGG"}
+{"Name": "Iola Agnes D'Cruz", "Roll": "2-09-16-0315", "Current Year": "2", "Registration Number": "A01-2112-0294-16", "Department": "BAGG"}
+{"Name": "Rohlua Renthlei", "Roll": "2-09-16-0316", "Current Year": "2", "Registration Number": "A01-1132-0295-16", "Department": "BAGG"}
+{"Name": "Venita Marianne D'Souza", "Roll": "2-09-16-0317", "Current Year": "2", "Registration Number": "A01-2112-0296-16", "Department": "BAGG"}
+{"Name": "Kuldeep Topno", "Roll": "2-09-16-0318", "Current Year": "2", "Registration Number": "A01-1132-0297-16", "Department": "BAGG"}
+{"Name": "Shekinah Tinchingthem", "Roll": "2-09-16-0319", "Current Year": "2", "Registration Number": "A01-2132-0298-16", "Department": "BAGG"}
+{"Name": "Sean Michael Betreen", "Roll": "1-09-16-0320", "Current Year": "1", "Registration Number": "A01-1112-0299-16", "Department": "BAGG"}
+{"Name": "Aman Kumar Rajak", "Roll": "2-09-16-0322", "Current Year": "2", "Registration Number": "A01-1122-0300-16", "Department": "BAGG"}
+{"Name": "Yimjungnaro Changkija", "Roll": "2-09-16-0323", "Current Year": "2", "Registration Number": "A01-2132-0301-16", "Department": "BAGG"}
+{"Name": "Rebecca Rajan", "Roll": "2-09-16-0324", "Current Year": "2", "Registration Number": "A01-2112-0302-16", "Department": "BAGG"}
+{"Name": "Sein Wei Leen Alias Kervin", "Roll": "2-09-16-0325", "Current Year": "2", "Registration Number": "A01-1112-0303-16", "Department": "BAGG"}
+{"Name": "Bapi Roy", "Roll": "2-09-16-0326", "Current Year": "2", "Registration Number": "A01-1122-0304-16", "Department": "BAGG"}
+{"Name": "Anand Tigga", "Roll": "2-09-16-0327", "Current Year": "2", "Registration Number": "A01-1132-0305-16", "Department": "BAGG"}
+{"Name": "Mridul Vaibhav", "Roll": "2-09-16-0328", "Current Year": "2", "Registration Number": "A01-1142-0306-16", "Department": "BAGG"}
+{"Name": "Wehzan Ansar", "Roll": "2-09-16-0329", "Current Year": "2", "Registration Number": "A01-1112-0307-16", "Department": "BAGG"}
+{"Name": "Atoka S Yepthomi", "Roll": "2-09-16-0330", "Current Year": "2", "Registration Number": "A01-1132-0308-16", "Department": "BAGG"}
+{"Name": "Aman Karmakar", "Roll": "2-09-16-0331", "Current Year": "2", "Registration Number": "A01-1122-0309-16", "Department": "BAGG"}
+{"Name": "Indira Tudu", "Roll": "2-09-16-0332", "Current Year": "2", "Registration Number": "A01-2132-0310-16", "Department": "BAGG"}
+{"Name": "Dipika Tigga", "Roll": "2-09-16-0333", "Current Year": "2", "Registration Number": "A01-2112-0311-16", "Department": "BAGG"}
+{"Name": "Nidhi Xalxo", "Roll": "2-09-16-0334", "Current Year": "2", "Registration Number": "A01-2132-0312-16", "Department": "BAGG"}
+{"Name": "Tenzin Gyatso Sherpa", "Roll": "2-09-16-0335", "Current Year": "2", "Registration Number": "A01-1132-0313-16", "Department": "BAGG"}
+{"Name": "Leah Basumatary", "Roll": "2-09-16-0336", "Current Year": "2", "Registration Number": "A01-2132-0314-16", "Department": "BAGG"}
+{"Name": "Mark Joylison Smith", "Roll": "2-09-16-0337", "Current Year": "2", "Registration Number": "A01-1112-0315-16", "Department": "BAGG"}
+{"Name": "Emanuel Ekka", "Roll": "2-09-16-0338", "Current Year": "2", "Registration Number": "A01-1132-0316-16", "Department": "BAGG"}
+{"Name": "Agatha Cynthia Gomes", "Roll": "2-09-16-0339", "Current Year": "2", "Registration Number": "A01-2112-0317-16", "Department": "BAGG"}
+{"Name": "Kalpana Gomes", "Roll": "2-09-16-0340", "Current Year": "2", "Registration Number": "A01-2112-0318-16", "Department": "BAGG"}
+{"Name": "Saswati Bar", "Roll": "2-09-16-0341", "Current Year": "2", "Registration Number": "A01-2142-0319-16", "Department": "BAGG"}
+{"Name": "Yatharth", "Roll": "2-09-16-0342", "Current Year": "2", "Registration Number": "A01-1112-0320-16", "Department": "BAGG"}
+{"Name": "Teresa Baghuar", "Roll": "2-09-16-0343", "Current Year": "2", "Registration Number": "A01-2142-0321-16", "Department": "BAGG"}
+{"Name": "Reshma Toppo", "Roll": "2-09-16-0344", "Current Year": "2", "Registration Number": "A01-2132-0322-16", "Department": "BAGG"}
+{"Name": "Meenu Priyanka Kullu", "Roll": "2-09-16-0345", "Current Year": "2", "Registration Number": "A01-2112-0323-16", "Department": "BAGG"}
+{"Name": "Aakash Joseph Mallick", "Roll": "1-09-16-1346", "Current Year": "1", "Registration Number": "A01-1112-0324-16", "Department": "BAGG"}
+{"Name": "Pem Tshering Yolmo", "Roll": "2-09-16-0347", "Current Year": "2", "Registration Number": "A01-1132-0325-16", "Department": "BAGG"}
+{"Name": "Minati Manjusha Tigga", "Roll": "2-09-16-0348", "Current Year": "2", "Registration Number": "A01-2132-0326-16", "Department": "BAGG"}
+{"Name": "Sushma Budding", "Roll": "2-09-16-0349", "Current Year": "2", "Registration Number": "A01-2132-0327-16", "Department": "BAGG"}
+{"Name": "Rebecca Vanlalrinhlui Vuite", "Roll": "2-09-16-0350", "Current Year": "2", "Registration Number": "A01-2132-0328-16", "Department": "BAGG"}
+{"Name": "Langpoklakpam Russell Meitei", "Roll": "2-09-16-0351", "Current Year": "2", "Registration Number": "A01-1142-0329-16", "Department": "BAGG"}
+{"Name": "Rebecca Priyanka Lal", "Roll": "2-09-16-0352", "Current Year": "2", "Registration Number": "A01-2112-0330-16", "Department": "BAGG"}
+{"Name": "Julie Soren", "Roll": "2-09-16-0353", "Current Year": "2", "Registration Number": "A01-2132-0331-16", "Department": "BAGG"}
+{"Name": "Isha Sarkar", "Roll": "2-09-16-0354", "Current Year": "2", "Registration Number": "A01-2112-0332-16", "Department": "BAGG"}
+{"Name": "Rk. Lalrinnunga", "Roll": "2-09-16-0355", "Current Year": "2", "Registration Number": "A01-1132-0333-16", "Department": "BAGG"}
+{"Name": "Abhimanyu Sharma", "Roll": "2-09-16-0356", "Current Year": "2", "Registration Number": "A01-1112-0334-16", "Department": "BAGG"}
+{"Name": "Simon Pralay Rozario", "Roll": "2-09-16-0357", "Current Year": "2", "Registration Number": "A01-1112-0335-16", "Department": "BAGG"}
+{"Name": "Francesca Geraldine Alphonso", "Roll": "2-09-16-0358", "Current Year": "2", "Registration Number": "A01-2112-0336-16", "Department": "BAGG"}
+{"Name": "Charlotte Ann Scott", "Roll": "2-09-16-0359", "Current Year": "2", "Registration Number": "A01-2112-0337-16", "Department": "BAGG"}
+{"Name": "Voshan Christopher Williams", "Roll": "2-09-16-0360", "Current Year": "2", "Registration Number": "A01-1112-0338-16", "Department": "BAGG"}
+{"Name": "Kepler Anthony Williams", "Roll": "2-09-16-0361", "Current Year": "2", "Registration Number": "A01-1112-0339-16", "Department": "BAGG"}
+{"Name": "Irfan Akhtar", "Roll": "2-09-16-0362", "Current Year": "2", "Registration Number": "A01-1112-0340-16", "Department": "BAGG"}
+{"Name": "Christina Josephine Paul", "Roll": "2-09-16-0365", "Current Year": "2", "Registration Number": "A01-2112-0341-16", "Department": "BAGG"}
+{"Name": "Md Zunaid", "Roll": "2-09-16-0366", "Current Year": "2", "Registration Number": "A01-1112-0342-16", "Department": "BAGG"}
+{"Name": "Stephen Gorden Dreego", "Roll": "2-09-16-0367", "Current Year": "2", "Registration Number": "A01-1112-0343-16", "Department": "BAGG"}
+{"Name": "Alice Xalxo", "Roll": "2-09-16-0368", "Current Year": "2", "Registration Number": "A01-2132-0344-16", "Department": "BAGG"}
+{"Name": "Anugrah Praveen Baxla", "Roll": "2-09-16-0369", "Current Year": "2", "Registration Number": "A01-1132-0345-16", "Department": "BAGG"}
+{"Name": "Pieta Alisha Biswas", "Roll": "2-09-16-0370", "Current Year": "2", "Registration Number": "A01-2112-0346-16", "Department": "BAGG"}
+{"Name": "Diana Emilius", "Roll": "2-09-16-0371", "Current Year": "2", "Registration Number": "A01-2112-0347-16", "Department": "BAGG"}
+{"Name": "H. Hang Lian Kham", "Roll": "2-09-16-0372", "Current Year": "2", "Registration Number": "A01-1132-0348-16", "Department": "BAGG"}
+{"Name": "Yoel Pariyar", "Roll": "2-09-16-0373", "Current Year": "2", "Registration Number": "A01-1142-0349-16", "Department": "BAGG"}
+{"Name": "Rhea Nicolette Jordan", "Roll": "2-09-16-0374", "Current Year": "2", "Registration Number": "A01-2112-0350-16", "Department": "BAGG"}
+{"Name": "Juhi Khatoon", "Roll": "2-09-16-0375", "Current Year": "2", "Registration Number": "A01-2142-0351-16", "Department": "BAGG"}
+{"Name": "Ian Anthony Khan", "Roll": "2-09-16-0376", "Current Year": "2", "Registration Number": "A01-1112-0352-16", "Department": "BAGG"}
+{"Name": "Melissa Nakita Alford", "Roll": "2-09-16-0377", "Current Year": "2", "Registration Number": "A01-2112-0353-16", "Department": "BAGG"}
+{"Name": "Arnold Michael Figrade", "Roll": "2-09-16-0378", "Current Year": "2", "Registration Number": "A01-1112-0354-16", "Department": "BAGG"}
+{"Name": "Aquilina Varsha Baptist", "Roll": "2-09-16-0379", "Current Year": "2", "Registration Number": "A01-2112-0355-16", "Department": "BAGG"}
+{"Name": "Swagato Gangopadhyay", "Roll": "2-09-16-0380", "Current Year": "2", "Registration Number": "A01-1112-0356-16", "Department": "BAGG"}
+{"Name": "Prayash Pradhan", "Roll": "2-09-16-0381", "Current Year": "2", "Registration Number": "A01-1142-0357-16", "Department": "BAGG"}
+{"Name": "Rudolf Lepcha", "Roll": "2-09-16-0382", "Current Year": "2", "Registration Number": "A01-1132-0358-16", "Department": "BAGG"}
+{"Name": "Luit Jyoti Pegu", "Roll": "2-09-16-0383", "Current Year": "2", "Registration Number": "A01-1132-0359-16", "Department": "BAGG"}
+{"Name": "Aakash Brian Dave", "Roll": "2-09-16-0384", "Current Year": "2", "Registration Number": "A01-1112-0360-16", "Department": "BAGG"}
+{"Name": "Brandon Chater", "Roll": "2-09-16-0385", "Current Year": "2", "Registration Number": "A01-1112-0361-16", "Department": "BAGG"}

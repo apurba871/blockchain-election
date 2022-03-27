@@ -1,0 +1,57 @@
+{"Name": "Rajyasree Sarkar", "Roll": "2-25-16-0401", "Current Year": "2", "Registration Number": "A01-2112-2390-16", "Department": "MMFI"}
+{"Name": "Ayushman Chowdhury", "Roll": "2-25-16-0402", "Current Year": "2", "Registration Number": "A01-1112-2391-16", "Department": "MMFI"}
+{"Name": "Arya Ganguli", "Roll": "2-25-16-0403", "Current Year": "2", "Registration Number": "A01-1112-2392-16", "Department": "MMFI"}
+{"Name": "Torsha Chowdhury", "Roll": "2-25-16-0404", "Current Year": "2", "Registration Number": "A01-2132-2393-16", "Department": "MMFI"}
+{"Name": "Adrita Ghosh", "Roll": "2-25-16-0405", "Current Year": "2", "Registration Number": "A01-2112-2394-16", "Department": "MMFI"}
+{"Name": "Muntaha Rubab Alameer", "Roll": "2-25-16-0406", "Current Year": "2", "Registration Number": "A01-2112-2395-16", "Department": "MMFI"}
+{"Name": "Ayantika Kundu", "Roll": "2-25-16-0407", "Current Year": "2", "Registration Number": "A01-2112-2396-16", "Department": "MMFI"}
+{"Name": "Swarnima Das", "Roll": "2-25-16-0408", "Current Year": "2", "Registration Number": "A01-2112-2397-16", "Department": "MMFI"}
+{"Name": "Sudakshina Das", "Roll": "2-25-16-0409", "Current Year": "2", "Registration Number": "A01-2112-2398-16", "Department": "MMFI"}
+{"Name": "Ritabrata Ghosh", "Roll": "2-25-16-0410", "Current Year": "2", "Registration Number": "A01-1112-2399-16", "Department": "MMFI"}
+{"Name": "Sayan Mondal", "Roll": "2-25-16-0411", "Current Year": "2", "Registration Number": "A01-1122-2400-16", "Department": "MMFI"}
+{"Name": "Maitreyee Mukherjee", "Roll": "2-25-16-0412", "Current Year": "2", "Registration Number": "A01-2112-2401-16", "Department": "MMFI"}
+{"Name": "Aneisha Douglas", "Roll": "2-25-16-0413", "Current Year": "2", "Registration Number": "A01-2112-2402-16", "Department": "MMFI"}
+{"Name": "Sayok Das", "Roll": "2-25-16-0414", "Current Year": "2", "Registration Number": "A01-1122-2403-16", "Department": "MMFI"}
+{"Name": "Sorbottama Tat", "Roll": "2-25-16-0415", "Current Year": "2", "Registration Number": "A01-2112-2404-16", "Department": "MMFI"}
+{"Name": "Mahasweta Mukherjee", "Roll": "2-25-16-0416", "Current Year": "2", "Registration Number": "A01-2112-2405-16", "Department": "MMFI"}
+{"Name": "Shatabdi Pattnaik", "Roll": "2-25-16-0417", "Current Year": "2", "Registration Number": "A01-2112-2406-16", "Department": "MMFI"}
+{"Name": "Minerva Ghosh", "Roll": "1-25-16-0418", "Current Year": "1", "Registration Number": "A01-2112-2407-16", "Department": "MMFI"}
+{"Name": "Shouvik Mandal", "Roll": "2-25-16-0419", "Current Year": "2", "Registration Number": "A01-1122-2408-16", "Department": "MMFI"}
+{"Name": "Shuchismita Bhattacharyya", "Roll": "2-25-16-0421", "Current Year": "2", "Registration Number": "A01-2112-2409-16", "Department": "MMFI"}
+{"Name": "Mahasweta Pattrea", "Roll": "2-25-16-0422", "Current Year": "2", "Registration Number": "A01-2112-2410-16", "Department": "MMFI"}
+{"Name": "Adrita Ghosh", "Roll": "2-25-16-0423", "Current Year": "2", "Registration Number": "A01-2112-2411-16", "Department": "MMFI"}
+{"Name": "Soumita Nag", "Roll": "2-25-16-0424", "Current Year": "2", "Registration Number": "A01-2112-2412-16", "Department": "MMFI"}
+{"Name": "Souhittyo Sinha", "Roll": "2-25-16-0425", "Current Year": "2", "Registration Number": "A01-1112-2413-16", "Department": "MMFI"}
+{"Name": "Sagorika Sen", "Roll": "2-25-16-0426", "Current Year": "2", "Registration Number": "A01-2112-2414-16", "Department": "MMFI"}
+{"Name": "Abira Guha", "Roll": "2-25-16-0427", "Current Year": "2", "Registration Number": "A01-2112-2415-16", "Department": "MMFI"}
+{"Name": "Koyel Dutta", "Roll": "2-25-16-0428", "Current Year": "2", "Registration Number": "A01-2112-2416-16", "Department": "MMFI"}
+{"Name": "Ritu Chowdhury", "Roll": "2-25-16-0430", "Current Year": "2", "Registration Number": "A01-2112-2417-16", "Department": "MMFI"}
+{"Name": "Ranishree Ray", "Roll": "2-25-16-0431", "Current Year": "2", "Registration Number": "A01-2112-2418-16", "Department": "MMFI"}
+{"Name": "Angela Kundu", "Roll": "2-25-16-0432", "Current Year": "2", "Registration Number": "A01-2112-2419-16", "Department": "MMFI"}
+{"Name": "Arjun Singh", "Roll": "2-25-16-0433", "Current Year": "2", "Registration Number": "A01-1112-2420-16", "Department": "MMFI"}
+{"Name": "Purnima Ghosh", "Roll": "2-25-16-0434", "Current Year": "2", "Registration Number": "A01-2112-2421-16", "Department": "MMFI"}
+{"Name": "Debroop Chakrabarty", "Roll": "2-25-16-0435", "Current Year": "2", "Registration Number": "A01-1112-2422-16", "Department": "MMFI"}
+{"Name": "Arunava Chakrabarty", "Roll": "2-25-16-0436", "Current Year": "2", "Registration Number": "A01-1112-2423-16", "Department": "MMFI"}
+{"Name": "Mainak Baidya", "Roll": "2-25-16-0437", "Current Year": "2", "Registration Number": "A01-1112-2424-16", "Department": "MMFI"}
+{"Name": "Angus Dion Makhal", "Roll": "2-25-16-0439", "Current Year": "2", "Registration Number": "A01-1112-2425-16", "Department": "MMFI"}
+{"Name": "Sandihok Rymbai", "Roll": "2-25-16-0440", "Current Year": "2", "Registration Number": "A01-1112-2426-16", "Department": "MMFI"}
+{"Name": "Soham Das", "Roll": "2-25-16-0441", "Current Year": "2", "Registration Number": "A01-1112-2427-16", "Department": "MMFI"}
+{"Name": "Shweta Chakraborty", "Roll": "2-25-16-0442", "Current Year": "2", "Registration Number": "A01-2112-2428-16", "Department": "MMFI"}
+{"Name": "Arkamita Bera", "Roll": "2-25-16-0443", "Current Year": "2", "Registration Number": "A01-2112-2429-16", "Department": "MMFI"}
+{"Name": "Sayantan Chatterjee", "Roll": "2-25-16-0444", "Current Year": "2", "Registration Number": "A01-1112-2430-16", "Department": "MMFI"}
+{"Name": "Prajna Ghosh", "Roll": "2-25-16-0445", "Current Year": "2", "Registration Number": "A01-2112-2431-16", "Department": "MMFI"}
+{"Name": "Iman Chatterjee", "Roll": "2-25-16-0446", "Current Year": "2", "Registration Number": "A01-1112-2432-16", "Department": "MMFI"}
+{"Name": "Md Washim Seeraaz", "Roll": "2-25-16-0447", "Current Year": "2", "Registration Number": "A01-1142-2433-16", "Department": "MMFI"}
+{"Name": "Shristi Rani", "Roll": "2-25-16-0448", "Current Year": "2", "Registration Number": "A01-2142-2434-16", "Department": "MMFI"}
+{"Name": "Prithviraj Sarkar", "Roll": "2-25-16-0449", "Current Year": "2", "Registration Number": "A01-1112-2435-16", "Department": "MMFI"}
+{"Name": "Auritro Som", "Roll": "2-25-16-0450", "Current Year": "2", "Registration Number": "A01-1142-2436-16", "Department": "MMFI"}
+{"Name": "Sarvesh Ayush Srivastava", "Roll": "2-25-16-0452", "Current Year": "2", "Registration Number": "A01-1112-2437-16", "Department": "MMFI"}
+{"Name": "Joydeep Chatterjee", "Roll": "2-25-16-0453", "Current Year": "2", "Registration Number": "A01-1112-2438-16", "Department": "MMFI"}
+{"Name": "Sejal Malhotra", "Roll": "2-25-16-0454", "Current Year": "2", "Registration Number": "A01-2112-2439-16", "Department": "MMFI"}
+{"Name": "Sunandan Bhunia", "Roll": "2-25-16-0455", "Current Year": "2", "Registration Number": "A01-1112-2440-16", "Department": "MMFI"}
+{"Name": "Rupsha Chatterjee", "Roll": "2-25-16-0456", "Current Year": "2", "Registration Number": "A01-2112-2441-16", "Department": "MMFI"}
+{"Name": "Prithwish Roy", "Roll": "2-25-16-0457", "Current Year": "2", "Registration Number": "A01-1112-2442-16", "Department": "MMFI"}
+{"Name": "Pritam Biswas", "Roll": "2-25-16-0458", "Current Year": "2", "Registration Number": "A01-1112-2443-16", "Department": "MMFI"}
+{"Name": "Mathew Francis", "Roll": "2-25-16-0459", "Current Year": "2", "Registration Number": "A01-1112-2444-16", "Department": "MMFI"}
+{"Name": "S Albert", "Roll": "2-25-16-0460", "Current Year": "2", "Registration Number": "A01-1142-2445-16", "Department": "MMFI"}
+{"Name": "Kamakshi Pasari", "Roll": "2-25-16-0461", "Current Year": "2", "Registration Number": "A01-2112-2446-16", "Department": "MMFI"}

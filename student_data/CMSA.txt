@@ -1,0 +1,64 @@
+{"Name": "Priyadarshi Roy", "Roll": "2-15-16-0501", "Current Year": "2", "Registration Number": "A01-1112-0750-16", "Department": "CMSA"}
+{"Name": "Barnali Majumdar", "Roll": "2-15-16-0503", "Current Year": "2", "Registration Number": "A01-2112-0751-16", "Department": "CMSA"}
+{"Name": "Anne Hilarian", "Roll": "2-15-16-0504", "Current Year": "2", "Registration Number": "A01-2112-0752-16", "Department": "CMSA"}
+{"Name": "Soumyajit Ghosh", "Roll": "2-15-16-0506", "Current Year": "2", "Registration Number": "A01-1112-0753-16", "Department": "CMSA"}
+{"Name": "Shreya Banerjee", "Roll": "2-15-16-0507", "Current Year": "2", "Registration Number": "A01-2112-0754-16", "Department": "CMSA"}
+{"Name": "Jimut Bahan Pal", "Roll": "2-15-16-0508", "Current Year": "2", "Registration Number": "A01-1112-0755-16", "Department": "CMSA"}
+{"Name": "Drishti Doshi", "Roll": "2-15-16-0509", "Current Year": "2", "Registration Number": "A01-2112-0756-16", "Department": "CMSA"}
+{"Name": "Deep Kumar Ganguly", "Roll": "2-15-16-0510", "Current Year": "2", "Registration Number": "A01-1112-0757-16", "Department": "CMSA"}
+{"Name": "Sawon Bhattacharya", "Roll": "2-15-16-0511", "Current Year": "2", "Registration Number": "A01-1112-0758-16", "Department": "CMSA"}
+{"Name": "Inteshab Nehal", "Roll": "2-15-16-0512", "Current Year": "2", "Registration Number": "A01-1112-0759-16", "Department": "CMSA"}
+{"Name": "Angsul Sadhukhan", "Roll": "2-15-16-0513", "Current Year": "2", "Registration Number": "A01-1142-0760-16", "Department": "CMSA"}
+{"Name": "Kingshuk Mukherjee", "Roll": "2-15-16-0514", "Current Year": "2", "Registration Number": "A01-1112-0761-16", "Department": "CMSA"}
+{"Name": "Anubhav Kumar Roy", "Roll": "2-15-16-0517", "Current Year": "2", "Registration Number": "A01-1112-0762-16", "Department": "CMSA"}
+{"Name": "Soumyadeep Basu", "Roll": "1-15-16-0519", "Current Year": "1", "Registration Number": "A01-1112-0763-16", "Department": "CMSA"}
+{"Name": "Ankana Bhattacharyya", "Roll": "2-15-16-0520", "Current Year": "2", "Registration Number": "A01-2112-0764-16", "Department": "CMSA"}
+{"Name": "Upasana Roy", "Roll": "2-15-16-0521", "Current Year": "2", "Registration Number": "A01-2112-0765-16", "Department": "CMSA"}
+{"Name": "Suchandra Datta", "Roll": "2-15-16-0522", "Current Year": "2", "Registration Number": "A01-2112-0766-16", "Department": "CMSA"}
+{"Name": "Arjya Chandra", "Roll": "2-15-16-0524", "Current Year": "2", "Registration Number": "A01-1112-0767-16", "Department": "CMSA"}
+{"Name": "Kundan Saha", "Roll": "2-15-16-0525", "Current Year": "2", "Registration Number": "A01-1122-0768-16", "Department": "CMSA"}
+{"Name": "Ayan Mukherjee", "Roll": "2-15-16-0527", "Current Year": "2", "Registration Number": "A01-1112-0769-16", "Department": "CMSA"}
+{"Name": "Shilposree Tarafdar", "Roll": "2-15-16-0528", "Current Year": "2", "Registration Number": "A01-2112-0770-16", "Department": "CMSA"}
+{"Name": "Rajarsi Saha", "Roll": "2-15-16-0529", "Current Year": "2", "Registration Number": "A01-1122-0771-16", "Department": "CMSA"}
+{"Name": "Nitin Gupta", "Roll": "2-15-16-0530", "Current Year": "2", "Registration Number": "A01-1112-0772-16", "Department": "CMSA"}
+{"Name": "Piu Biswas", "Roll": "2-15-16-0532", "Current Year": "2", "Registration Number": "A01-2122-0773-16", "Department": "CMSA"}
+{"Name": "Soumili Dey", "Roll": "2-15-16-0533", "Current Year": "2", "Registration Number": "A01-2112-0774-16", "Department": "CMSA"}
+{"Name": "Rohan Das", "Roll": "2-15-16-0534", "Current Year": "2", "Registration Number": "A01-1122-0775-16", "Department": "CMSA"}
+{"Name": "Souptik Kumar Majumdar", "Roll": "2-15-16-0535", "Current Year": "2", "Registration Number": "A01-1112-0776-16", "Department": "CMSA"}
+{"Name": "Dinantika Sadhukhan", "Roll": "1-15-16-0536", "Current Year": "1", "Registration Number": "A01-2142-0777-16", "Department": "CMSA"}
+{"Name": "Saikat Mitra", "Roll": "2-15-16-0543", "Current Year": "2", "Registration Number": "A01-1112-0778-16", "Department": "CMSA"}
+{"Name": "Sohini Bhattacharya", "Roll": "2-15-16-0550", "Current Year": "2", "Registration Number": "A01-2112-0779-16", "Department": "CMSA"}
+{"Name": "Jonathan Halder", "Roll": "2-15-16-0551", "Current Year": "2", "Registration Number": "A01-1112-0780-16", "Department": "CMSA"}
+{"Name": "Faisal Ahmed", "Roll": "2-15-16-0553", "Current Year": "2", "Registration Number": "A01-1112-0781-16", "Department": "CMSA"}
+{"Name": "Attreyee Bhattacharjee", "Roll": "2-15-16-0554", "Current Year": "2", "Registration Number": "A01-2112-0782-16", "Department": "CMSA"}
+{"Name": "Aniruddh Kotecha", "Roll": "2-15-16-0555", "Current Year": "2", "Registration Number": "A01-1112-0783-16", "Department": "CMSA"}
+{"Name": "Shreshtha Sarkar", "Roll": "2-15-16-0561", "Current Year": "2", "Registration Number": "A01-2112-0784-16", "Department": "CMSA"}
+{"Name": "Sanchari Kar Chowdhury", "Roll": "2-15-16-0562", "Current Year": "2", "Registration Number": "A01-2112-0785-16", "Department": "CMSA"}
+{"Name": "Angana Banerjee", "Roll": "2-15-16-0564", "Current Year": "2", "Registration Number": "A01-2112-0786-16", "Department": "CMSA"}
+{"Name": "Krishna Pramanik", "Roll": "2-15-16-0565", "Current Year": "2", "Registration Number": "A01-2112-0787-16", "Department": "CMSA"}
+{"Name": "Rahul Gupta", "Roll": "2-15-16-0566", "Current Year": "2", "Registration Number": "A01-1112-0788-16", "Department": "CMSA"}
+{"Name": "Arthita Dey", "Roll": "2-15-16-0567", "Current Year": "2", "Registration Number": "A01-2112-0789-16", "Department": "CMSA"}
+{"Name": "Sabarna Nandy", "Roll": "2-15-16-0568", "Current Year": "2", "Registration Number": "A01-1112-0790-16", "Department": "CMSA"}
+{"Name": "Tejash Datta", "Roll": "2-15-16-0569", "Current Year": "2", "Registration Number": "A01-1112-0791-16", "Department": "CMSA"}
+{"Name": "Meghasree Sengupta", "Roll": "2-15-16-0570", "Current Year": "2", "Registration Number": "A01-2112-0792-16", "Department": "CMSA"}
+{"Name": "Samiran Dey", "Roll": "2-15-16-0571", "Current Year": "2", "Registration Number": "A01-1112-0793-16", "Department": "CMSA"}
+{"Name": "Shreyansha Ranjan", "Roll": "1-15-16-0574", "Current Year": "1", "Registration Number": "A01-2112-0794-16", "Department": "CMSA"}
+{"Name": "Rittik Bose", "Roll": "2-15-16-0575", "Current Year": "2", "Registration Number": "A01-1112-0795-16", "Department": "CMSA"}
+{"Name": "Rishabh Tiwari", "Roll": "2-15-16-0576", "Current Year": "2", "Registration Number": "A01-1112-0796-16", "Department": "CMSA"}
+{"Name": "Prasanna Khemka", "Roll": "2-15-16-0577", "Current Year": "2", "Registration Number": "A01-2112-0797-16", "Department": "CMSA"}
+{"Name": "Ritam Ray", "Roll": "2-15-16-0578", "Current Year": "2", "Registration Number": "A01-1112-0798-16", "Department": "CMSA"}
+{"Name": "Bikash Pandey", "Roll": "2-15-16-0579", "Current Year": "2", "Registration Number": "A01-1112-0799-16", "Department": "CMSA"}
+{"Name": "Sourish Bhattacharyya", "Roll": "2-15-16-0581", "Current Year": "2", "Registration Number": "A01-1112-0800-16", "Department": "CMSA"}
+{"Name": "Arion Mitra", "Roll": "2-15-16-0584", "Current Year": "2", "Registration Number": "A01-1112-0801-16", "Department": "CMSA"}
+{"Name": "Abhradeep Dey", "Roll": "2-15-16-0585", "Current Year": "2", "Registration Number": "A01-1112-0802-16", "Department": "CMSA"}
+{"Name": "Adityam Ghosh", "Roll": "2-15-16-0586", "Current Year": "2", "Registration Number": "A01-1112-0803-16", "Department": "CMSA"}
+{"Name": "Anirban Dutta", "Roll": "2-15-16-0588", "Current Year": "2", "Registration Number": "A01-1112-0804-16", "Department": "CMSA"}
+{"Name": "Shreya Sanyal", "Roll": "2-15-16-0591", "Current Year": "2", "Registration Number": "A01-2112-0805-16", "Department": "CMSA"}
+{"Name": "Souvik Ghosh", "Roll": "2-15-16-0592", "Current Year": "2", "Registration Number": "A01-1112-0806-16", "Department": "CMSA"}
+{"Name": "Deyashini Bhattacharya", "Roll": "2-15-16-0593", "Current Year": "2", "Registration Number": "A01-2112-0807-16", "Department": "CMSA"}
+{"Name": "Indranil Das", "Roll": "2-15-16-0594", "Current Year": "2", "Registration Number": "A01-1112-0808-16", "Department": "CMSA"}
+{"Name": "Ankita Biswas", "Roll": "2-15-16-0595", "Current Year": "2", "Registration Number": "A01-2122-0809-16", "Department": "CMSA"}
+{"Name": "Bodhisattwa Saha", "Roll": "2-15-16-0596", "Current Year": "2", "Registration Number": "A01-1112-0810-16", "Department": "CMSA"}
+{"Name": "Akash Manna", "Roll": "2-15-16-0597", "Current Year": "2", "Registration Number": "A01-1112-0811-16", "Department": "CMSA"}
+{"Name": "Upasana Chatterjee", "Roll": "1-15-16-0599", "Current Year": "1", "Registration Number": "A01-2112-0812-16", "Department": "CMSA"}
+{"Name": "Sanjana De", "Roll": "2-15-16-5001", "Current Year": "2", "Registration Number": "A01-2112-0813-16", "Department": "CMSA"}

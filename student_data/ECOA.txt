@@ -1,0 +1,71 @@
+{"Name": "Nevin Paul Jose", "Roll": "2-12-16-0201", "Current Year": "2", "Registration Number": "A01-1112-0584-16", "Department": "ECOA"}
+{"Name": "Sejuti Sarkar", "Roll": "2-12-16-0202", "Current Year": "2", "Registration Number": "A01-2122-0585-16", "Department": "ECOA"}
+{"Name": "Emanwel Paul Dcruze", "Roll": "2-12-16-0203", "Current Year": "2", "Registration Number": "A01-1112-0586-16", "Department": "ECOA"}
+{"Name": "Jeyan Fernando", "Roll": "2-12-16-0204", "Current Year": "2", "Registration Number": "A01-1112-0587-16", "Department": "ECOA"}
+{"Name": "Aupamik Chakraborty", "Roll": "2-12-16-0206", "Current Year": "2", "Registration Number": "A01-1112-0588-16", "Department": "ECOA"}
+{"Name": "Shreyosi Bose", "Roll": "2-12-16-0208", "Current Year": "2", "Registration Number": "A01-2112-0589-16", "Department": "ECOA"}
+{"Name": "Khushboo Gupta", "Roll": "2-12-16-0210", "Current Year": "2", "Registration Number": "A01-2112-0590-16", "Department": "ECOA"}
+{"Name": "Jessica Chou", "Roll": "2-12-16-0211", "Current Year": "2", "Registration Number": "A01-2112-0591-16", "Department": "ECOA"}
+{"Name": "Naman Madhogarhia", "Roll": "2-12-16-0212", "Current Year": "2", "Registration Number": "A01-1112-0592-16", "Department": "ECOA"}
+{"Name": "Ravisha Blake", "Roll": "2-12-16-0213", "Current Year": "2", "Registration Number": "A01-2112-0593-16", "Department": "ECOA"}
+{"Name": "Sagar Majumdar", "Roll": "2-12-16-0215", "Current Year": "2", "Registration Number": "A01-1112-0594-16", "Department": "ECOA"}
+{"Name": "Sanchi Agrawal", "Roll": "2-12-16-0216", "Current Year": "2", "Registration Number": "A01-2112-0595-16", "Department": "ECOA"}
+{"Name": "Pratik Mohta", "Roll": "2-12-16-0217", "Current Year": "2", "Registration Number": "A01-1112-0596-16", "Department": "ECOA"}
+{"Name": "Siddhant Agarwal", "Roll": "2-12-16-0218", "Current Year": "2", "Registration Number": "A01-1112-0597-16", "Department": "ECOA"}
+{"Name": "Srijan Singh", "Roll": "2-12-16-0219", "Current Year": "2", "Registration Number": "A01-2112-0598-16", "Department": "ECOA"}
+{"Name": "Tiyasa Das", "Roll": "2-12-16-0220", "Current Year": "2", "Registration Number": "A01-2112-0599-16", "Department": "ECOA"}
+{"Name": "Rishav Ray Kumam", "Roll": "2-12-16-0221", "Current Year": "2", "Registration Number": "A01-1122-0600-16", "Department": "ECOA"}
+{"Name": "Debdut Mukherjee", "Roll": "2-12-16-0222", "Current Year": "2", "Registration Number": "A01-1112-0601-16", "Department": "ECOA"}
+{"Name": "Hirakjyoti Basak", "Roll": "2-12-16-0223", "Current Year": "2", "Registration Number": "A01-1112-0602-16", "Department": "ECOA"}
+{"Name": "Megha Bagaria", "Roll": "2-12-16-0224", "Current Year": "2", "Registration Number": "A01-2112-0603-16", "Department": "ECOA"}
+{"Name": "Senjuti Karmakar", "Roll": "2-12-16-0225", "Current Year": "2", "Registration Number": "A01-2112-0604-16", "Department": "ECOA"}
+{"Name": "Vinayak Shah", "Roll": "2-12-16-0229", "Current Year": "2", "Registration Number": "A01-1112-0605-16", "Department": "ECOA"}
+{"Name": "Oishik Bandyopadhyay", "Roll": "2-12-16-0233", "Current Year": "2", "Registration Number": "A01-1112-0606-16", "Department": "ECOA"}
+{"Name": "Rajsree Dutta", "Roll": "2-12-16-0234", "Current Year": "2", "Registration Number": "A01-2112-0607-16", "Department": "ECOA"}
+{"Name": "Saha Tanaya Amit", "Roll": "2-12-16-0236", "Current Year": "2", "Registration Number": "A01-2112-0608-16", "Department": "ECOA"}
+{"Name": "Manisha Baishnabi Patnayak", "Roll": "2-12-16-0239", "Current Year": "2", "Registration Number": "A01-2112-0609-16", "Department": "ECOA"}
+{"Name": "Hemant Kumar Malani", "Roll": "2-12-16-0240", "Current Year": "2", "Registration Number": "A01-1112-0610-16", "Department": "ECOA"}
+{"Name": "Meghna Rosa Thomas", "Roll": "2-12-16-0241", "Current Year": "2", "Registration Number": "A01-2112-0611-16", "Department": "ECOA"}
+{"Name": "Neyalee Das", "Roll": "2-12-16-0242", "Current Year": "2", "Registration Number": "A01-2112-0612-16", "Department": "ECOA"}
+{"Name": "Raechel Anthony", "Roll": "2-12-16-0245", "Current Year": "2", "Registration Number": "A01-2112-0613-16", "Department": "ECOA"}
+{"Name": "Jyotirmoy Nath", "Roll": "2-12-16-0248", "Current Year": "2", "Registration Number": "A01-1112-0614-16", "Department": "ECOA"}
+{"Name": "Vandana Agarwal", "Roll": "2-12-16-0249", "Current Year": "2", "Registration Number": "A01-2112-0615-16", "Department": "ECOA"}
+{"Name": "Shirsha Saha", "Roll": "2-12-16-0250", "Current Year": "2", "Registration Number": "A01-2112-0616-16", "Department": "ECOA"}
+{"Name": "Abhimanyu Sahni", "Roll": "2-12-16-0251", "Current Year": "2", "Registration Number": "A01-1112-0617-16", "Department": "ECOA"}
+{"Name": "Ajay Simmy Manuel", "Roll": "2-12-16-0252", "Current Year": "2", "Registration Number": "A01-1112-0618-16", "Department": "ECOA"}
+{"Name": "Vedant Agarwal", "Roll": "2-12-16-0255", "Current Year": "2", "Registration Number": "A01-1112-0619-16", "Department": "ECOA"}
+{"Name": "Vrinda Periwal", "Roll": "2-12-16-0257", "Current Year": "2", "Registration Number": "A01-2112-0620-16", "Department": "ECOA"}
+{"Name": "Tamanna Bharuka", "Roll": "2-12-16-0258", "Current Year": "2", "Registration Number": "A01-2112-0621-16", "Department": "ECOA"}
+{"Name": "Adrija Saha", "Roll": "2-12-16-0259", "Current Year": "2", "Registration Number": "A01-2112-0622-16", "Department": "ECOA"}
+{"Name": "Ronit Kumar Lenka", "Roll": "2-12-16-0260", "Current Year": "2", "Registration Number": "A01-1112-0623-16", "Department": "ECOA"}
+{"Name": "Ananya Sengupta", "Roll": "2-12-16-0261", "Current Year": "2", "Registration Number": "A01-2112-0624-16", "Department": "ECOA"}
+{"Name": "Rudrani Dutta", "Roll": "2-12-16-0262", "Current Year": "2", "Registration Number": "A01-2112-0625-16", "Department": "ECOA"}
+{"Name": "Mongal Hembrom", "Roll": "2-12-16-0263", "Current Year": "2", "Registration Number": "A01-1112-0626-16", "Department": "ECOA"}
+{"Name": "Shreya Jaluka", "Roll": "2-12-16-0264", "Current Year": "2", "Registration Number": "A01-2112-0627-16", "Department": "ECOA"}
+{"Name": "Nekita Jalan", "Roll": "2-12-16-0265", "Current Year": "2", "Registration Number": "A01-2112-0628-16", "Department": "ECOA"}
+{"Name": "Aayushi Chandalia", "Roll": "2-12-16-0266", "Current Year": "2", "Registration Number": "A01-2112-0629-16", "Department": "ECOA"}
+{"Name": "Pratik Jayesh Sanghvi", "Roll": "2-12-16-0267", "Current Year": "2", "Registration Number": "A01-1112-0630-16", "Department": "ECOA"}
+{"Name": "Jyotika Trivedi", "Roll": "2-12-16-0268", "Current Year": "2", "Registration Number": "A01-2112-0631-16", "Department": "ECOA"}
+{"Name": "Devanshi Prasad", "Roll": "1-12-16-0269", "Current Year": "1", "Registration Number": "A01-2112-0632-16", "Department": "ECOA"}
+{"Name": "Chirag Choudhry", "Roll": "2-12-16-0270", "Current Year": "2", "Registration Number": "A01-1112-0633-16", "Department": "ECOA"}
+{"Name": "Mehal Poddar", "Roll": "2-12-16-0271", "Current Year": "2", "Registration Number": "A01-2112-0634-16", "Department": "ECOA"}
+{"Name": "Catherine Sunil", "Roll": "2-12-16-0272", "Current Year": "2", "Registration Number": "A01-2112-0635-16", "Department": "ECOA"}
+{"Name": "Navya Singhania", "Roll": "2-12-16-0273", "Current Year": "2", "Registration Number": "A01-2112-0636-16", "Department": "ECOA"}
+{"Name": "Biswajeet Mohanty", "Roll": "2-12-16-0274", "Current Year": "2", "Registration Number": "A01-1112-0637-16", "Department": "ECOA"}
+{"Name": "Mrinal Shah", "Roll": "2-12-16-0275", "Current Year": "2", "Registration Number": "A01-1112-0638-16", "Department": "ECOA"}
+{"Name": "Kritika Jalan", "Roll": "2-12-16-0276", "Current Year": "2", "Registration Number": "A01-2112-0639-16", "Department": "ECOA"}
+{"Name": "Diptayan Ghosh", "Roll": "2-12-16-0277", "Current Year": "2", "Registration Number": "A01-1112-0640-16", "Department": "ECOA"}
+{"Name": "Manveena Agrawal", "Roll": "2-12-16-0278", "Current Year": "2", "Registration Number": "A01-2112-0641-16", "Department": "ECOA"}
+{"Name": "Jitesh Gupta", "Roll": "2-12-16-0279", "Current Year": "2", "Registration Number": "A01-1112-0642-16", "Department": "ECOA"}
+{"Name": "Arannya Misra", "Roll": "2-12-16-0280", "Current Year": "2", "Registration Number": "A01-1112-0643-16", "Department": "ECOA"}
+{"Name": "Swarupjit Palit", "Roll": "2-12-16-0281", "Current Year": "2", "Registration Number": "A01-1112-0644-16", "Department": "ECOA"}
+{"Name": "Arkarup Basu Mallik", "Roll": "2-12-16-0282", "Current Year": "2", "Registration Number": "A01-1112-0645-16", "Department": "ECOA"}
+{"Name": "Suhani Sureka", "Roll": "2-12-16-0283", "Current Year": "2", "Registration Number": "A01-2112-0646-16", "Department": "ECOA"}
+{"Name": "Vidhi Ganeriwal", "Roll": "2-12-16-0284", "Current Year": "2", "Registration Number": "A01-2112-0647-16", "Department": "ECOA"}
+{"Name": "Riya Tibrewal", "Roll": "2-12-16-0285", "Current Year": "2", "Registration Number": "A01-2112-0648-16", "Department": "ECOA"}
+{"Name": "Vrinda Ruia", "Roll": "2-12-16-0286", "Current Year": "2", "Registration Number": "A01-2112-0649-16", "Department": "ECOA"}
+{"Name": "Yash Poddar", "Roll": "2-12-16-0287", "Current Year": "2", "Registration Number": "A01-1112-0650-16", "Department": "ECOA"}
+{"Name": "Navya Agarwal", "Roll": "2-12-16-0288", "Current Year": "2", "Registration Number": "A01-2112-0651-16", "Department": "ECOA"}
+{"Name": "Aditi Garg", "Roll": "2-12-16-0289", "Current Year": "2", "Registration Number": "A01-2112-0652-16", "Department": "ECOA"}
+{"Name": "Bhavana Bothra", "Roll": "2-12-16-0290", "Current Year": "2", "Registration Number": "A01-2112-0653-16", "Department": "ECOA"}
+{"Name": "Kirti Agiwal", "Roll": "2-12-16-0291", "Current Year": "2", "Registration Number": "A01-2112-0654-16", "Department": "ECOA"}

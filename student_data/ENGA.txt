@@ -1,0 +1,59 @@
+{"Name": "Susanna Hamesha Sohkhia", "Roll": "2-06-16-0001", "Current Year": "2", "Registration Number": "A01-2212-0096-16", "Department": "ENGA"}
+{"Name": "Debabarnine Bhattacharya", "Roll": "2-06-16-0002", "Current Year": "2", "Registration Number": "A01-2112-0097-16", "Department": "ENGA"}
+{"Name": "Madhurima Bharadwaj", "Roll": "2-06-16-0003", "Current Year": "2", "Registration Number": "A01-2112-0098-16", "Department": "ENGA"}
+{"Name": "Sayantika Raul", "Roll": "2-06-16-0004", "Current Year": "2", "Registration Number": "A01-2112-0099-16", "Department": "ENGA"}
+{"Name": "Aishwarya Sharma", "Roll": "2-06-16-0005", "Current Year": "2", "Registration Number": "A01-2112-0100-16", "Department": "ENGA"}
+{"Name": "Sinchan Chatterjee", "Roll": "2-06-16-0006", "Current Year": "2", "Registration Number": "A01-1112-0101-16", "Department": "ENGA"}
+{"Name": "Saahil Agnelo Periwal", "Roll": "2-06-16-0007", "Current Year": "2", "Registration Number": "A01-1112-0102-16", "Department": "ENGA"}
+{"Name": "Soumi Ganguly", "Roll": "2-06-16-0008", "Current Year": "2", "Registration Number": "A01-2112-0103-16", "Department": "ENGA"}
+{"Name": "Sohini Dasgupta", "Roll": "2-06-16-0009", "Current Year": "2", "Registration Number": "A01-2112-0104-16", "Department": "ENGA"}
+{"Name": "Dipti Jha", "Roll": "2-06-16-0010", "Current Year": "2", "Registration Number": "A01-2112-0105-16", "Department": "ENGA"}
+{"Name": "Anapurba Naskar", "Roll": "2-06-16-0011", "Current Year": "2", "Registration Number": "A01-2122-0106-16", "Department": "ENGA"}
+{"Name": "Upasya Bhowal", "Roll": "2-06-16-0012", "Current Year": "2", "Registration Number": "A01-2112-0107-16", "Department": "ENGA"}
+{"Name": "Damayanti Ray", "Roll": "2-06-16-0013", "Current Year": "2", "Registration Number": "A01-2112-0108-16", "Department": "ENGA"}
+{"Name": "Kimberly Ann David", "Roll": "2-06-16-0014", "Current Year": "2", "Registration Number": "A01-2112-0109-16", "Department": "ENGA"}
+{"Name": "Aryama Bej", "Roll": "1-06-16-0015", "Current Year": "1", "Registration Number": "A01-2112-0110-16", "Department": "ENGA"}
+{"Name": "Sneha Bimal", "Roll": "2-06-16-0016", "Current Year": "2", "Registration Number": "A01-2112-0111-16", "Department": "ENGA"}
+{"Name": "Carissa Ann Abraham", "Roll": "2-06-16-0019", "Current Year": "2", "Registration Number": "A01-2112-0112-16", "Department": "ENGA"}
+{"Name": "Sreejita Dey", "Roll": "2-06-16-0020", "Current Year": "2", "Registration Number": "A01-2112-0113-16", "Department": "ENGA"}
+{"Name": "Sasha Salvador", "Roll": "2-06-16-0021", "Current Year": "2", "Registration Number": "A01-2112-0114-16", "Department": "ENGA"}
+{"Name": "Sophia Roy", "Roll": "2-06-16-0022", "Current Year": "2", "Registration Number": "A01-2112-0115-16", "Department": "ENGA"}
+{"Name": "Ashmita Biswas", "Roll": "2-06-16-0023", "Current Year": "2", "Registration Number": "A01-2112-0116-16", "Department": "ENGA"}
+{"Name": "Shalini Sinha", "Roll": "2-06-16-0024", "Current Year": "2", "Registration Number": "A01-2112-0117-16", "Department": "ENGA"}
+{"Name": "Srija Mondal", "Roll": "2-06-16-0025", "Current Year": "2", "Registration Number": "A01-2112-0118-16", "Department": "ENGA"}
+{"Name": "Christabel Anisha D'Gama", "Roll": "2-06-16-0029", "Current Year": "2", "Registration Number": "A01-2112-0119-16", "Department": "ENGA"}
+{"Name": "Bagmita Gogoi", "Roll": "2-06-16-0030", "Current Year": "2", "Registration Number": "A01-2142-0120-16", "Department": "ENGA"}
+{"Name": "Ria Biswas", "Roll": "2-06-16-0031", "Current Year": "2", "Registration Number": "A01-2122-0121-16", "Department": "ENGA"}
+{"Name": "Fatima Neha Thakuri", "Roll": "2-06-16-0032", "Current Year": "2", "Registration Number": "A01-2112-0122-16", "Department": "ENGA"}
+{"Name": "Aditi Singh", "Roll": "2-06-16-0033", "Current Year": "2", "Registration Number": "A01-2112-0123-16", "Department": "ENGA"}
+{"Name": "Priyam Marik", "Roll": "2-06-16-0035", "Current Year": "2", "Registration Number": "A01-1112-0124-16", "Department": "ENGA"}
+{"Name": "Sanchari Ray", "Roll": "2-06-16-0038", "Current Year": "2", "Registration Number": "A01-2122-0125-16", "Department": "ENGA"}
+{"Name": "Allina Riyanka Ghosh", "Roll": "2-06-16-0041", "Current Year": "2", "Registration Number": "A01-2112-0126-16", "Department": "ENGA"}
+{"Name": "Catherine Nisha Halder", "Roll": "2-06-16-0043", "Current Year": "2", "Registration Number": "A01-2112-0127-16", "Department": "ENGA"}
+{"Name": "Sohinee Basu", "Roll": "2-06-16-0044", "Current Year": "2", "Registration Number": "A01-2112-0128-16", "Department": "ENGA"}
+{"Name": "Olive Anand", "Roll": "2-06-16-0045", "Current Year": "2", "Registration Number": "A01-2112-0129-16", "Department": "ENGA"}
+{"Name": "Rosy Veronica Lambert", "Roll": "2-06-16-0046", "Current Year": "2", "Registration Number": "A01-2112-0130-16", "Department": "ENGA"}
+{"Name": "Dibyangee Saha", "Roll": "2-06-16-0047", "Current Year": "2", "Registration Number": "A01-2112-0131-16", "Department": "ENGA"}
+{"Name": "Jayant Nariala", "Roll": "2-06-16-0048", "Current Year": "2", "Registration Number": "A01-1122-0132-16", "Department": "ENGA"}
+{"Name": "Sabita Sarkar", "Roll": "2-06-16-0049", "Current Year": "2", "Registration Number": "A01-2112-0133-16", "Department": "ENGA"}
+{"Name": "Surangana Bandyopadhyay", "Roll": "2-06-16-0050", "Current Year": "2", "Registration Number": "A01-2112-0134-16", "Department": "ENGA"}
+{"Name": "Gargi Chakraborti", "Roll": "2-06-16-0051", "Current Year": "2", "Registration Number": "A01-2112-0135-16", "Department": "ENGA"}
+{"Name": "Nilanjita Ganguly", "Roll": "2-06-16-0053", "Current Year": "2", "Registration Number": "A01-2112-0136-16", "Department": "ENGA"}
+{"Name": "Anurag Mukhia", "Roll": "2-06-16-0054", "Current Year": "2", "Registration Number": "A01-1142-0137-16", "Department": "ENGA"}
+{"Name": "Sampriti Baksi", "Roll": "1-06-16-0055", "Current Year": "1", "Registration Number": "A01-2112-0138-16", "Department": "ENGA"}
+{"Name": "Trinetra Paul", "Roll": "2-06-16-0057", "Current Year": "2", "Registration Number": "A01-2112-0140-16", "Department": "ENGA"}
+{"Name": "Karishma Hazel Gomes", "Roll": "2-06-16-0058", "Current Year": "2", "Registration Number": "A01-2112-0141-16", "Department": "ENGA"}
+{"Name": "Vishwajeet Samuel Gain", "Roll": "2-06-16-0059", "Current Year": "2", "Registration Number": "A01-1112-0142-16", "Department": "ENGA"}
+{"Name": "Stephen Dass", "Roll": "2-06-16-0060", "Current Year": "2", "Registration Number": "A01-1112-0143-16", "Department": "ENGA"}
+{"Name": "Arkatapa Roy", "Roll": "2-06-16-0061", "Current Year": "2", "Registration Number": "A01-2112-0144-16", "Department": "ENGA"}
+{"Name": "Agnisha Banerjee", "Roll": "2-06-16-0062", "Current Year": "2", "Registration Number": "A01-2112-0145-16", "Department": "ENGA"}
+{"Name": "Mahashweta Chakravarti", "Roll": "2-06-16-0063", "Current Year": "2", "Registration Number": "A01-2112-0146-16", "Department": "ENGA"}
+{"Name": "Shabana Nasreen", "Roll": "2-06-16-0064", "Current Year": "2", "Registration Number": "A01-2112-0147-16", "Department": "ENGA"}
+{"Name": "Dania Manzoor", "Roll": "2-06-16-0065", "Current Year": "2", "Registration Number": "A01-2112-0148-16", "Department": "ENGA"}
+{"Name": "Debali Sikder", "Roll": "2-06-16-0067", "Current Year": "2", "Registration Number": "A01-2112-0149-16", "Department": "ENGA"}
+{"Name": "Subham Behera", "Roll": "2-06-16-0068", "Current Year": "2", "Registration Number": "A01-1142-0150-16", "Department": "ENGA"}
+{"Name": "Minnu Jose", "Roll": "2-06-16-0069", "Current Year": "2", "Registration Number": "A01-2112-0151-16", "Department": "ENGA"}
+{"Name": "Ayan Mondal", "Roll": "2-06-16-0070", "Current Year": "2", "Registration Number": "A01-1122-0152-16", "Department": "ENGA"}
+{"Name": "Yeerina Debnath", "Roll": "2-06-16-0071", "Current Year": "2", "Registration Number": "A01-2112-0153-16", "Department": "ENGA"}
+{"Name": "Rimsha Hasan", "Roll": "2-06-16-0072", "Current Year": "2", "Registration Number": "A01-2112-0154-16", "Department": "ENGA"}
+{"Name": "Tiasha Bhattacharjee", "Roll": "2-06-16-0073", "Current Year": "2", "Registration Number": "A01-2112-0155-16", "Department": "ENGA"}

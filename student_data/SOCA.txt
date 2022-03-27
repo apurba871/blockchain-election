@@ -1,0 +1,68 @@
+{"Name": "Ivanna Marie John Bagul", "Roll": "2-08-16-0201", "Current Year": "2", "Registration Number": "A01-2112-0215-16", "Department": "SOCA"}
+{"Name": "Avipsha Ghosh", "Roll": "2-08-16-0202", "Current Year": "2", "Registration Number": "A01-2112-0216-16", "Department": "SOCA"}
+{"Name": "Celeste Maria Williams", "Roll": "2-08-16-0204", "Current Year": "2", "Registration Number": "A01-2112-0217-16", "Department": "SOCA"}
+{"Name": "Sayoni Santara", "Roll": "2-08-16-0206", "Current Year": "2", "Registration Number": "A01-2112-0218-16", "Department": "SOCA"}
+{"Name": "Ahana Sen Gupta", "Roll": "2-08-16-0208", "Current Year": "2", "Registration Number": "A01-2112-0219-16", "Department": "SOCA"}
+{"Name": "Debankita Saha", "Roll": "2-08-16-0210", "Current Year": "2", "Registration Number": "A01-2112-0220-16", "Department": "SOCA"}
+{"Name": "Shreyoshi Ghosh", "Roll": "2-08-16-0212", "Current Year": "2", "Registration Number": "A01-2112-0221-16", "Department": "SOCA"}
+{"Name": "Maddu Sumanjali", "Roll": "2-08-16-0213", "Current Year": "2", "Registration Number": "A01-2142-0222-16", "Department": "SOCA"}
+{"Name": "Blaine Axel Knight", "Roll": "2-08-16-0214", "Current Year": "2", "Registration Number": "A01-1112-0223-16", "Department": "SOCA"}
+{"Name": "Adrija Choudhury", "Roll": "2-08-16-0215", "Current Year": "2", "Registration Number": "A01-2112-0224-16", "Department": "SOCA"}
+{"Name": "Sarahlyn A Cook", "Roll": "2-08-16-0217", "Current Year": "2", "Registration Number": "A01-2112-0225-16", "Department": "SOCA"}
+{"Name": "Anoushka George", "Roll": "2-08-16-0218", "Current Year": "2", "Registration Number": "A01-2112-0226-16", "Department": "SOCA"}
+{"Name": "Rosanne Cynthia Miles", "Roll": "2-08-16-0219", "Current Year": "2", "Registration Number": "A01-2112-0227-16", "Department": "SOCA"}
+{"Name": "Srijoni Mitra", "Roll": "2-08-16-0221", "Current Year": "2", "Registration Number": "A01-2112-0228-16", "Department": "SOCA"}
+{"Name": "Krithi Maria Rebello", "Roll": "2-08-16-0222", "Current Year": "2", "Registration Number": "A01-2112-0229-16", "Department": "SOCA"}
+{"Name": "Meghjit Sengupta", "Roll": "2-08-16-0224", "Current Year": "2", "Registration Number": "A01-1112-0230-16", "Department": "SOCA"}
+{"Name": "Joyoti Chowdhury", "Roll": "2-08-16-0225", "Current Year": "2", "Registration Number": "A01-2112-0231-16", "Department": "SOCA"}
+{"Name": "Nishan Hojai", "Roll": "2-08-16-0226", "Current Year": "2", "Registration Number": "A01-1132-0232-16", "Department": "SOCA"}
+{"Name": "Ankita Kashyap", "Roll": "2-08-16-0227", "Current Year": "2", "Registration Number": "A01-2112-0233-16", "Department": "SOCA"}
+{"Name": "Saphinangiar Bethesda M Pyngrope", "Roll": "2-08-16-0228", "Current Year": "2", "Registration Number": "A01-2132-0234-16", "Department": "SOCA"}
+{"Name": "Bibha Anjli Baghwar", "Roll": "2-08-16-0230", "Current Year": "2", "Registration Number": "A01-2132-0235-16", "Department": "SOCA"}
+{"Name": "Suparna Dey", "Roll": "2-08-16-0231", "Current Year": "2", "Registration Number": "A01-2112-0236-16", "Department": "SOCA"}
+{"Name": "Sneha Sarkar", "Roll": "2-08-16-0233", "Current Year": "2", "Registration Number": "A01-2112-0237-16", "Department": "SOCA"}
+{"Name": "Venetia Mary Dcruz", "Roll": "2-08-16-0234", "Current Year": "2", "Registration Number": "A01-2112-0238-16", "Department": "SOCA"}
+{"Name": "Urbee Bhowmik", "Roll": "2-08-16-0235", "Current Year": "2", "Registration Number": "A01-2112-0239-16", "Department": "SOCA"}
+{"Name": "Fiona Catherine Jerry", "Roll": "2-08-16-0236", "Current Year": "2", "Registration Number": "A01-2112-0240-16", "Department": "SOCA"}
+{"Name": "Hoineikim Doungel", "Roll": "2-08-16-0237", "Current Year": "2", "Registration Number": "A01-2132-0241-16", "Department": "SOCA"}
+{"Name": "Arshia Dutta", "Roll": "1-08-16-0238", "Current Year": "1", "Registration Number": "A01-2112-0242-16", "Department": "SOCA"}
+{"Name": "Basudha Bhattacharya", "Roll": "2-08-16-0239", "Current Year": "2", "Registration Number": "A01-2112-0243-16", "Department": "SOCA"}
+{"Name": "Kritika Chakraborty", "Roll": "2-08-16-0242", "Current Year": "2", "Registration Number": "A01-2112-0244-16", "Department": "SOCA"}
+{"Name": "Sneha Ray", "Roll": "2-08-16-0244", "Current Year": "2", "Registration Number": "A01-2122-0245-16", "Department": "SOCA"}
+{"Name": "Neha Anna Anthony", "Roll": "2-08-16-0245", "Current Year": "2", "Registration Number": "A01-2112-0246-16", "Department": "SOCA"}
+{"Name": "Teesta Sengupta", "Roll": "2-08-16-0246", "Current Year": "2", "Registration Number": "A01-2112-0247-16", "Department": "SOCA"}
+{"Name": "Jocelyne Diana Anthony", "Roll": "2-08-16-0247", "Current Year": "2", "Registration Number": "A01-2112-0248-16", "Department": "SOCA"}
+{"Name": "Sayantani Ghosh", "Roll": "2-08-16-0248", "Current Year": "2", "Registration Number": "A01-2112-0249-16", "Department": "SOCA"}
+{"Name": "Rajarshi Sinha", "Roll": "2-08-16-0249", "Current Year": "2", "Registration Number": "A01-1112-0250-16", "Department": "SOCA"}
+{"Name": "Jit Kumar Mondol", "Roll": "2-08-16-0250", "Current Year": "2", "Registration Number": "A01-1112-0251-16", "Department": "SOCA"}
+{"Name": "Yashfeen Adil", "Roll": "2-08-16-0251", "Current Year": "2", "Registration Number": "A01-2112-0252-16", "Department": "SOCA"}
+{"Name": "Sudatta Ghosh", "Roll": "2-08-16-0252", "Current Year": "2", "Registration Number": "A01-2112-0253-16", "Department": "SOCA"}
+{"Name": "Yashodhara Chowdhury", "Roll": "2-08-16-0253", "Current Year": "2", "Registration Number": "A01-2112-0254-16", "Department": "SOCA"}
+{"Name": "Avipsha Mitra", "Roll": "2-08-16-0254", "Current Year": "2", "Registration Number": "A01-2112-0255-16", "Department": "SOCA"}
+{"Name": "Somdatta Mukherjee", "Roll": "2-08-16-0255", "Current Year": "2", "Registration Number": "A01-2112-0256-16", "Department": "SOCA"}
+{"Name": "Trishita Mukherjee", "Roll": "2-08-16-0256", "Current Year": "2", "Registration Number": "A01-2112-0257-16", "Department": "SOCA"}
+{"Name": "Sampurna Basu", "Roll": "2-08-16-0257", "Current Year": "2", "Registration Number": "A01-2112-0258-16", "Department": "SOCA"}
+{"Name": "Kavita Gupta", "Roll": "2-08-16-0258", "Current Year": "2", "Registration Number": "A01-2112-0259-16", "Department": "SOCA"}
+{"Name": "Sreekanya Mukhopadhyay", "Roll": "2-08-16-0259", "Current Year": "2", "Registration Number": "A01-2112-0260-16", "Department": "SOCA"}
+{"Name": "Subhechcha Sarkar", "Roll": "2-08-16-0260", "Current Year": "2", "Registration Number": "A01-2112-0261-16", "Department": "SOCA"}
+{"Name": "Shubhlaxmi Ray", "Roll": "2-08-16-0261", "Current Year": "2", "Registration Number": "A01-2112-0262-16", "Department": "SOCA"}
+{"Name": "Vedika Bothra", "Roll": "2-08-16-0262", "Current Year": "2", "Registration Number": "A01-2112-0263-16", "Department": "SOCA"}
+{"Name": "R Dhakshayani", "Roll": "2-08-16-0264", "Current Year": "2", "Registration Number": "A01-2122-0264-16", "Department": "SOCA"}
+{"Name": "Sharanya Mitra", "Roll": "2-08-16-0265", "Current Year": "2", "Registration Number": "A01-2112-0265-16", "Department": "SOCA"}
+{"Name": "Anushka Lahiri", "Roll": "2-08-16-0266", "Current Year": "2", "Registration Number": "A01-2112-0266-16", "Department": "SOCA"}
+{"Name": "Simran Das", "Roll": "2-08-16-0267", "Current Year": "2", "Registration Number": "A01-2112-0267-16", "Department": "SOCA"}
+{"Name": "Arishuzzaman Khan", "Roll": "2-08-16-0268", "Current Year": "2", "Registration Number": "A01-1112-0268-16", "Department": "SOCA"}
+{"Name": "Lalmuanpuia", "Roll": "2-08-16-0269", "Current Year": "2", "Registration Number": "A01-1132-0269-16", "Department": "SOCA"}
+{"Name": "Joshua Benjamin", "Roll": "2-08-16-0270", "Current Year": "2", "Registration Number": "A01-1112-0270-16", "Department": "SOCA"}
+{"Name": "Linda Senorita Wainwright", "Roll": "2-08-16-0272", "Current Year": "2", "Registration Number": "A01-2112-0271-16", "Department": "SOCA"}
+{"Name": "Zennia Nevella Bacon", "Roll": "2-08-16-0273", "Current Year": "2", "Registration Number": "A01-2112-0272-16", "Department": "SOCA"}
+{"Name": "Vidisha Datta", "Roll": "2-08-16-0274", "Current Year": "2", "Registration Number": "A01-2112-0273-16", "Department": "SOCA"}
+{"Name": "Gwyneth Frrancis", "Roll": "2-08-16-0275", "Current Year": "2", "Registration Number": "A01-2112-0274-16", "Department": "SOCA"}
+{"Name": "Pragya N. Barla", "Roll": "2-08-16-0276", "Current Year": "2", "Registration Number": "A01-2112-0275-16", "Department": "SOCA"}
+{"Name": "Roshmita Das Gupta", "Roll": "2-08-16-0277", "Current Year": "2", "Registration Number": "A01-2112-0276-16", "Department": "SOCA"}
+{"Name": "Sharon Carolina Samuel", "Roll": "2-08-16-0278", "Current Year": "2", "Registration Number": "A01-2112-0277-16", "Department": "SOCA"}
+{"Name": "Sophia Priyanka Alam", "Roll": "2-08-16-0279", "Current Year": "2", "Registration Number": "A01-2112-0278-16", "Department": "SOCA"}
+{"Name": "Srijeeta Das", "Roll": "2-08-16-0280", "Current Year": "2", "Registration Number": "A01-2122-0279-16", "Department": "SOCA"}
+{"Name": "Meghna Mukherjee", "Roll": "2-08-16-0281", "Current Year": "2", "Registration Number": "A01-2112-0280-16", "Department": "SOCA"}
+{"Name": "Irfan Dagman", "Roll": "1-08-16-1282", "Current Year": "1", "Registration Number": "A01-1112-0281-16", "Department": "SOCA"}
+{"Name": "Derosario Mizael Paul Xavier", "Roll": "2-08-16-0283", "Current Year": "2", "Registration Number": "A01-1112-0282-16", "Department": "SOCA"}

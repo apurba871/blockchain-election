@@ -1,0 +1,57 @@
+{"Name": "Pranjal Mondal", "Roll": "2-07-16-0101", "Current Year": "2", "Registration Number": "A01-1122-0156-16", "Department": "PLSA"}
+{"Name": "Ashrita V Pai", "Roll": "2-07-16-0102", "Current Year": "2", "Registration Number": "A01-2112-0157-16", "Department": "PLSA"}
+{"Name": "Nishanta Goswami", "Roll": "2-07-16-0103", "Current Year": "2", "Registration Number": "A01-1112-0158-16", "Department": "PLSA"}
+{"Name": "Kungpuilu Pamei", "Roll": "2-07-16-0104", "Current Year": "2", "Registration Number": "A01-2132-0159-16", "Department": "PLSA"}
+{"Name": "Nigel Savio Menezes", "Roll": "2-07-16-0107", "Current Year": "2", "Registration Number": "A01-1112-0160-16", "Department": "PLSA"}
+{"Name": "Shailja Sharma", "Roll": "2-07-16-0108", "Current Year": "2", "Registration Number": "A01-2112-0161-16", "Department": "PLSA"}
+{"Name": "Arundhati Singh Tiwari", "Roll": "2-07-16-0109", "Current Year": "2", "Registration Number": "A01-2112-0162-16", "Department": "PLSA"}
+{"Name": "Jullian Ripchey Rai", "Roll": "2-07-16-0112", "Current Year": "2", "Registration Number": "A01-1142-0163-16", "Department": "PLSA"}
+{"Name": "Sambuddha Bhattacharjee", "Roll": "2-07-16-0113", "Current Year": "2", "Registration Number": "A01-1112-0164-16", "Department": "PLSA"}
+{"Name": "Ankita - Minj", "Roll": "2-07-16-0115", "Current Year": "2", "Registration Number": "A01-2132-0165-16", "Department": "PLSA"}
+{"Name": "Anchal Bhowmick", "Roll": "2-07-16-0116", "Current Year": "2", "Registration Number": "A01-2112-0166-16", "Department": "PLSA"}
+{"Name": "Trishita Mandal", "Roll": "2-07-16-0117", "Current Year": "2", "Registration Number": "A01-2122-0167-16", "Department": "PLSA"}
+{"Name": "Agamya Tessy Rockychan", "Roll": "2-07-16-0118", "Current Year": "2", "Registration Number": "A01-2112-0168-16", "Department": "PLSA"}
+{"Name": "Rakesh Anthony Chettri", "Roll": "2-07-16-0119", "Current Year": "2", "Registration Number": "A01-1112-0169-16", "Department": "PLSA"}
+{"Name": "Barsha Sethia", "Roll": "2-07-16-0120", "Current Year": "2", "Registration Number": "A01-2112-0170-16", "Department": "PLSA"}
+{"Name": "Sonam Thargay Dukpa", "Roll": "2-07-16-0121", "Current Year": "2", "Registration Number": "A01-1132-0171-16", "Department": "PLSA"}
+{"Name": "Christine Prathika", "Roll": "2-07-16-0122", "Current Year": "2", "Registration Number": "A01-2142-0172-16", "Department": "PLSA"}
+{"Name": "Safia Tako", "Roll": "2-07-16-0123", "Current Year": "2", "Registration Number": "A01-2132-0173-16", "Department": "PLSA"}
+{"Name": "Kishor Kumar Hembram", "Roll": "2-07-16-0124", "Current Year": "2", "Registration Number": "A01-1132-0174-16", "Department": "PLSA"}
+{"Name": "Srishti Dianateresa Negal", "Roll": "2-07-16-0125", "Current Year": "2", "Registration Number": "A01-2112-0175-16", "Department": "PLSA"}
+{"Name": "Daniel Ruben Nair", "Roll": "2-07-16-0126", "Current Year": "2", "Registration Number": "A01-1112-0176-16", "Department": "PLSA"}
+{"Name": "Aman Hiranandani", "Roll": "2-07-16-0127", "Current Year": "2", "Registration Number": "A01-1112-0177-16", "Department": "PLSA"}
+{"Name": "Rima Singh", "Roll": "2-07-16-0128", "Current Year": "2", "Registration Number": "A01-2112-0178-16", "Department": "PLSA"}
+{"Name": "Davis Vavachan", "Roll": "2-07-16-0129", "Current Year": "2", "Registration Number": "A01-1112-0179-16", "Department": "PLSA"}
+{"Name": "Monica Gogoi", "Roll": "2-07-16-0130", "Current Year": "2", "Registration Number": "A01-2142-0180-16", "Department": "PLSA"}
+{"Name": "Chumpi Yomcha", "Roll": "2-07-16-0131", "Current Year": "2", "Registration Number": "A01-2132-0181-16", "Department": "PLSA"}
+{"Name": "Navamika Chettri", "Roll": "2-07-16-0132", "Current Year": "2", "Registration Number": "A01-2112-0182-16", "Department": "PLSA"}
+{"Name": "Ishita Roy Chowdhury", "Roll": "2-07-16-0133", "Current Year": "2", "Registration Number": "A01-2112-0183-16", "Department": "PLSA"}
+{"Name": "Pathikrit Das", "Roll": "2-07-16-0134", "Current Year": "2", "Registration Number": "A01-1112-0184-16", "Department": "PLSA"}
+{"Name": "Kinzom Ongmu Dukpa", "Roll": "2-07-16-0135", "Current Year": "2", "Registration Number": "A01-2132-0185-16", "Department": "PLSA"}
+{"Name": "Sayantani Biswas", "Roll": "2-07-16-0136", "Current Year": "2", "Registration Number": "A01-2122-0186-16", "Department": "PLSA"}
+{"Name": "Dichen Youden Lama", "Roll": "2-07-16-0137", "Current Year": "2", "Registration Number": "A01-2132-0187-16", "Department": "PLSA"}
+{"Name": "Debasmeeta Das", "Roll": "2-07-16-0138", "Current Year": "2", "Registration Number": "A01-2122-0188-16", "Department": "PLSA"}
+{"Name": "Ameya Lama", "Roll": "2-07-16-0139", "Current Year": "2", "Registration Number": "A01-2132-0189-16", "Department": "PLSA"}
+{"Name": "Aatrayee Chatterjee", "Roll": "2-07-16-0140", "Current Year": "2", "Registration Number": "A01-2112-0190-16", "Department": "PLSA"}
+{"Name": "Avik Sarkar", "Roll": "2-07-16-0141", "Current Year": "2", "Registration Number": "A01-1122-0191-16", "Department": "PLSA"}
+{"Name": "Rikdeep Mondal", "Roll": "1-07-16-0142", "Current Year": "1", "Registration Number": "A01-1122-0192-16", "Department": "PLSA"}
+{"Name": "Tabassum Akhtar", "Roll": "2-07-16-0143", "Current Year": "2", "Registration Number": "A01-2112-0193-16", "Department": "PLSA"}
+{"Name": "Manisha Pandey", "Roll": "2-07-16-0144", "Current Year": "2", "Registration Number": "A01-2112-0194-16", "Department": "PLSA"}
+{"Name": "Sanjib Das", "Roll": "2-07-16-0145", "Current Year": "2", "Registration Number": "A01-1112-0195-16", "Department": "PLSA"}
+{"Name": "Priyadarshika Mary Bose", "Roll": "2-07-16-0146", "Current Year": "2", "Registration Number": "A01-2112-0196-16", "Department": "PLSA"}
+{"Name": "Erick Minj", "Roll": "2-07-16-0147", "Current Year": "2", "Registration Number": "A01-1132-0197-16", "Department": "PLSA"}
+{"Name": "Aman Pandey", "Roll": "2-07-16-0148", "Current Year": "2", "Registration Number": "A01-1112-0198-16", "Department": "PLSA"}
+{"Name": "Daniel Dane Lalruatzela", "Roll": "2-07-16-0149", "Current Year": "2", "Registration Number": "A01-1132-0199-16", "Department": "PLSA"}
+{"Name": "Reuben Lalrindika Pachuau", "Roll": "2-07-16-0150", "Current Year": "2", "Registration Number": "A01-1132-0200-16", "Department": "PLSA"}
+{"Name": "Tuhin Chaki", "Roll": "2-07-16-0151", "Current Year": "2", "Registration Number": "A01-1112-0201-16", "Department": "PLSA"}
+{"Name": "Seychen Tamang", "Roll": "2-07-16-0152", "Current Year": "2", "Registration Number": "A01-2132-0202-16", "Department": "PLSA"}
+{"Name": "Sameeran Rongong Lepcha", "Roll": "2-07-16-0153", "Current Year": "2", "Registration Number": "A01-1132-0203-16", "Department": "PLSA"}
+{"Name": "Anna Pandi Chettri", "Roll": "2-07-16-0154", "Current Year": "2", "Registration Number": "A01-2112-0204-16", "Department": "PLSA"}
+{"Name": "Anoushkha Prasad", "Roll": "2-07-16-0155", "Current Year": "2", "Registration Number": "A01-2112-0205-16", "Department": "PLSA"}
+{"Name": "Agasa Chegam Ch Marak", "Roll": "2-07-16-0156", "Current Year": "2", "Registration Number": "A01-1132-0206-16", "Department": "PLSA"}
+{"Name": "Nainika Sarda", "Roll": "2-07-16-0157", "Current Year": "2", "Registration Number": "A01-2112-0207-16", "Department": "PLSA"}
+{"Name": "Stephen Mulholland", "Roll": "2-07-16-0160", "Current Year": "2", "Registration Number": "A01-1112-0208-16", "Department": "PLSA"}
+{"Name": "Joan John", "Roll": "2-07-16-0161", "Current Year": "2", "Registration Number": "A01-2132-0209-16", "Department": "PLSA"}
+{"Name": "Arunima Mondal", "Roll": "2-07-16-0162", "Current Year": "2", "Registration Number": "A01-2112-0210-16", "Department": "PLSA"}
+{"Name": "Ritwik Rishav", "Roll": "2-07-16-0164", "Current Year": "2", "Registration Number": "A01-1112-0212-16", "Department": "PLSA"}
+{"Name": "Jyotsana Tripathi", "Roll": "2-07-16-0165", "Current Year": "2", "Registration Number": "A01-2112-0213-16", "Department": "PLSA"}

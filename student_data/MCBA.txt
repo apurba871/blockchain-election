@@ -1,0 +1,57 @@
+{"Name": "Anandika Misra", "Roll": "1-16-16-0601", "Current Year": "1", "Registration Number": "A01-2112-0815-16", "Department": "MCBA"}
+{"Name": "Subhayan Paul", "Roll": "2-16-16-0602", "Current Year": "2", "Registration Number": "A01-1112-0816-16", "Department": "MCBA"}
+{"Name": "Preyashi Karmakar", "Roll": "2-16-16-0603", "Current Year": "2", "Registration Number": "A01-2112-0817-16", "Department": "MCBA"}
+{"Name": "Ambalika Chowdhury", "Roll": "2-16-16-0604", "Current Year": "2", "Registration Number": "A01-2112-0818-16", "Department": "MCBA"}
+{"Name": "Sayani Podder", "Roll": "2-16-16-0607", "Current Year": "2", "Registration Number": "A01-2112-0819-16", "Department": "MCBA"}
+{"Name": "Mohini Basu", "Roll": "2-16-16-0609", "Current Year": "2", "Registration Number": "A01-2112-0820-16", "Department": "MCBA"}
+{"Name": "Jessica Li Maan Chen", "Roll": "2-16-16-0610", "Current Year": "2", "Registration Number": "A01-2112-0821-16", "Department": "MCBA"}
+{"Name": "Satwik Majumder", "Roll": "2-16-16-0611", "Current Year": "2", "Registration Number": "A01-1112-0822-16", "Department": "MCBA"}
+{"Name": "Sharmi Choudhury", "Roll": "2-16-16-0612", "Current Year": "2", "Registration Number": "A01-2112-0823-16", "Department": "MCBA"}
+{"Name": "Atreyi Shome", "Roll": "2-16-16-0613", "Current Year": "2", "Registration Number": "A01-2112-0824-16", "Department": "MCBA"}
+{"Name": "Mayumi Mandal", "Roll": "2-16-16-0614", "Current Year": "2", "Registration Number": "A01-2122-0825-16", "Department": "MCBA"}
+{"Name": "Kaustav Majumder", "Roll": "2-16-16-0617", "Current Year": "2", "Registration Number": "A01-1112-0826-16", "Department": "MCBA"}
+{"Name": "Eshika Halder", "Roll": "2-16-16-0618", "Current Year": "2", "Registration Number": "A01-2122-0827-16", "Department": "MCBA"}
+{"Name": "Sanjit Sen", "Roll": "2-16-16-0622", "Current Year": "2", "Registration Number": "A01-1112-0828-16", "Department": "MCBA"}
+{"Name": "Sombuddha Roy Bhowmick", "Roll": "2-16-16-0629", "Current Year": "2", "Registration Number": "A01-1112-0829-16", "Department": "MCBA"}
+{"Name": "Debapratim Sil", "Roll": "2-16-16-0630", "Current Year": "2", "Registration Number": "A01-1112-0830-16", "Department": "MCBA"}
+{"Name": "Debapriya Roy", "Roll": "2-16-16-0631", "Current Year": "2", "Registration Number": "A01-2112-0831-16", "Department": "MCBA"}
+{"Name": "Diptatanu Das", "Roll": "1-16-16-0632", "Current Year": "1", "Registration Number": "A01-1112-0832-16", "Department": "MCBA"}
+{"Name": "Avipsha Datta", "Roll": "2-16-16-0633", "Current Year": "2", "Registration Number": "A01-2112-0833-16", "Department": "MCBA"}
+{"Name": "Arunima Acharya", "Roll": "2-16-16-0634", "Current Year": "2", "Registration Number": "A01-2112-0834-16", "Department": "MCBA"}
+{"Name": "Arpan Banerjee", "Roll": "2-16-16-0636", "Current Year": "2", "Registration Number": "A01-1112-0835-16", "Department": "MCBA"}
+{"Name": "Sailanki Nandy", "Roll": "2-16-16-0637", "Current Year": "2", "Registration Number": "A01-2112-0836-16", "Department": "MCBA"}
+{"Name": "Priyanka Das", "Roll": "2-16-16-0638", "Current Year": "2", "Registration Number": "A01-2112-0837-16", "Department": "MCBA"}
+{"Name": "Senjuti Saha", "Roll": "2-16-16-0639", "Current Year": "2", "Registration Number": "A01-2112-0838-16", "Department": "MCBA"}
+{"Name": "Sathi Panda Mahapatra", "Roll": "2-16-16-0640", "Current Year": "2", "Registration Number": "A01-2112-0839-16", "Department": "MCBA"}
+{"Name": "Rhitama Gangopadhyay", "Roll": "2-16-16-0641", "Current Year": "2", "Registration Number": "A01-2112-0840-16", "Department": "MCBA"}
+{"Name": "Asmita Chatterjee", "Roll": "2-16-16-0642", "Current Year": "2", "Registration Number": "A01-2112-0841-16", "Department": "MCBA"}
+{"Name": "Antara Biswas", "Roll": "2-16-16-0644", "Current Year": "2", "Registration Number": "A01-2122-0842-16", "Department": "MCBA"}
+{"Name": "Richa Anamika Bara", "Roll": "2-16-16-0645", "Current Year": "2", "Registration Number": "A01-2132-0843-16", "Department": "MCBA"}
+{"Name": "Shinjini Ghosh", "Roll": "2-16-16-0646", "Current Year": "2", "Registration Number": "A01-2112-0844-16", "Department": "MCBA"}
+{"Name": "Saheli Dey", "Roll": "2-16-16-0648", "Current Year": "2", "Registration Number": "A01-2112-0845-16", "Department": "MCBA"}
+{"Name": "Anwesha Das", "Roll": "2-16-16-0649", "Current Year": "2", "Registration Number": "A01-2122-0846-16", "Department": "MCBA"}
+{"Name": "Souvik Banerjee", "Roll": "2-16-16-0651", "Current Year": "2", "Registration Number": "A01-1112-0847-16", "Department": "MCBA"}
+{"Name": "Aditya Basu", "Roll": "2-16-16-0652", "Current Year": "2", "Registration Number": "A01-1112-0848-16", "Department": "MCBA"}
+{"Name": "Agnibha Pal", "Roll": "1-16-16-0653", "Current Year": "1", "Registration Number": "A01-1112-0849-16", "Department": "MCBA"}
+{"Name": "Basabdatta Chakraborty", "Roll": "2-16-16-0655", "Current Year": "2", "Registration Number": "A01-2112-0850-16", "Department": "MCBA"}
+{"Name": "Madhura Mondal", "Roll": "2-16-16-0656", "Current Year": "2", "Registration Number": "A01-2112-0851-16", "Department": "MCBA"}
+{"Name": "Saahil Pramanick", "Roll": "2-16-16-0657", "Current Year": "2", "Registration Number": "A01-1112-0852-16", "Department": "MCBA"}
+{"Name": "Pritha Dasgupta", "Roll": "2-16-16-0659", "Current Year": "2", "Registration Number": "A01-2112-0853-16", "Department": "MCBA"}
+{"Name": "Srijan Bhattacharya", "Roll": "2-16-16-0660", "Current Year": "2", "Registration Number": "A01-1112-0854-16", "Department": "MCBA"}
+{"Name": "Lona Sarkar", "Roll": "2-16-16-0661", "Current Year": "2", "Registration Number": "A01-2112-0855-16", "Department": "MCBA"}
+{"Name": "Ratnesh Sah", "Roll": "2-16-16-0662", "Current Year": "2", "Registration Number": "A01-1112-0856-16", "Department": "MCBA"}
+{"Name": "Kishalay Ray", "Roll": "2-16-16-0664", "Current Year": "2", "Registration Number": "A01-1112-0857-16", "Department": "MCBA"}
+{"Name": "Ashmita Chatterjee", "Roll": "2-16-16-0665", "Current Year": "2", "Registration Number": "A01-2112-0858-16", "Department": "MCBA"}
+{"Name": "Samiparna Chakraborty", "Roll": "2-16-16-0666", "Current Year": "2", "Registration Number": "A01-2112-0859-16", "Department": "MCBA"}
+{"Name": "R Aneesh", "Roll": "2-16-16-0667", "Current Year": "2", "Registration Number": "A01-1112-0860-16", "Department": "MCBA"}
+{"Name": "Smritiparna De", "Roll": "2-16-16-0669", "Current Year": "2", "Registration Number": "A01-2112-0861-16", "Department": "MCBA"}
+{"Name": "Nidhi Ray", "Roll": "2-16-16-0670", "Current Year": "2", "Registration Number": "A01-2112-0862-16", "Department": "MCBA"}
+{"Name": "Uddipta Roy", "Roll": "1-16-16-0671", "Current Year": "1", "Registration Number": "A01-1112-0863-16", "Department": "MCBA"}
+{"Name": "Sagar Keshri", "Roll": "2-16-16-0672", "Current Year": "2", "Registration Number": "A01-1112-0864-16", "Department": "MCBA"}
+{"Name": "Dyotak Chandra", "Roll": "2-16-16-0673", "Current Year": "2", "Registration Number": "A01-1112-0865-16", "Department": "MCBA"}
+{"Name": "Dwaipayan Basu", "Roll": "2-16-16-0674", "Current Year": "2", "Registration Number": "A01-1112-0866-16", "Department": "MCBA"}
+{"Name": "Twisha Chatterjee", "Roll": "2-16-16-0675", "Current Year": "2", "Registration Number": "A01-2112-0867-16", "Department": "MCBA"}
+{"Name": "Namrata Bhaumik", "Roll": "1-16-16-0676", "Current Year": "1", "Registration Number": "A01-2112-0868-16", "Department": "MCBA"}
+{"Name": "Souhardya Sarkar", "Roll": "2-16-16-0678", "Current Year": "2", "Registration Number": "A01-1112-0869-16", "Department": "MCBA"}
+{"Name": "Pratiksha Panda", "Roll": "2-16-16-0680", "Current Year": "2", "Registration Number": "A01-2112-0870-16", "Department": "MCBA"}
+{"Name": "Vidhi Agarwal", "Roll": "2-16-16-0682", "Current Year": "2", "Registration Number": "A01-2112-0871-16", "Department": "MCBA"}

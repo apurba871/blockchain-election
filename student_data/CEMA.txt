@@ -1,0 +1,39 @@
+{"Name": "Aritra Roy", "Roll": "2-13-16-0302", "Current Year": "2", "Registration Number": "A01-1112-0655-16", "Department": "CEMA"}
+{"Name": "Tashi Pintso Bhutia", "Roll": "2-13-16-0303", "Current Year": "2", "Registration Number": "A01-1132-0656-16", "Department": "CEMA"}
+{"Name": "Nausheen Sayla", "Roll": "1-13-16-0305", "Current Year": "1", "Registration Number": "A01-2112-0657-16", "Department": "CEMA"}
+{"Name": "Kuntal Ghosh", "Roll": "2-13-16-0308", "Current Year": "2", "Registration Number": "A01-1112-0658-16", "Department": "CEMA"}
+{"Name": "Rittika Chatterjee", "Roll": "2-13-16-0309", "Current Year": "2", "Registration Number": "A01-2112-0659-16", "Department": "CEMA"}
+{"Name": "Debarshi Banerjee", "Roll": "2-13-16-0311", "Current Year": "2", "Registration Number": "A01-1112-0660-16", "Department": "CEMA"}
+{"Name": "Navoneel Sen", "Roll": "2-13-16-0314", "Current Year": "2", "Registration Number": "A01-1112-0661-16", "Department": "CEMA"}
+{"Name": "Pratyush Bhattacharjya", "Roll": "2-13-16-0315", "Current Year": "2", "Registration Number": "A01-1112-0662-16", "Department": "CEMA"}
+{"Name": "Annapurba Datta", "Roll": "2-13-16-0317", "Current Year": "2", "Registration Number": "A01-2112-0663-16", "Department": "CEMA"}
+{"Name": "Debjit Pramanik", "Roll": "2-13-16-0323", "Current Year": "2", "Registration Number": "A01-1142-0664-16", "Department": "CEMA"}
+{"Name": "Tamanna Sultana", "Roll": "2-13-16-0327", "Current Year": "2", "Registration Number": "A01-2112-0665-16", "Department": "CEMA"}
+{"Name": "Bibaswan Chatterjee", "Roll": "2-13-16-0331", "Current Year": "2", "Registration Number": "A01-1112-0666-16", "Department": "CEMA"}
+{"Name": "Debajyoti Samanta", "Roll": "2-13-16-0333", "Current Year": "2", "Registration Number": "A01-1112-0667-16", "Department": "CEMA"}
+{"Name": "Raibat Sarker", "Roll": "1-13-16-0334", "Current Year": "1", "Registration Number": "A01-1112-0668-16", "Department": "CEMA"}
+{"Name": "Gourab Biswas", "Roll": "2-13-16-0339", "Current Year": "2", "Registration Number": "A01-1122-0669-16", "Department": "CEMA"}
+{"Name": "Abhishek Ghosh", "Roll": "1-13-16-0340", "Current Year": "1", "Registration Number": "A01-1112-0670-16", "Department": "CEMA"}
+{"Name": "Dipanjana Patra", "Roll": "2-13-16-0343", "Current Year": "2", "Registration Number": "A01-2112-0671-16", "Department": "CEMA"}
+{"Name": "Shreya Dhar", "Roll": "2-13-16-0344", "Current Year": "2", "Registration Number": "A01-2112-0672-16", "Department": "CEMA"}
+{"Name": "Arijit Bhadra", "Roll": "1-13-16-0345", "Current Year": "1", "Registration Number": "A01-1112-0673-16", "Department": "CEMA"}
+{"Name": "Chirag Arora", "Roll": "2-13-16-0347", "Current Year": "2", "Registration Number": "A01-1112-0674-16", "Department": "CEMA"}
+{"Name": "Monishankar Biswas", "Roll": "2-13-16-0349", "Current Year": "2", "Registration Number": "A01-1142-0675-16", "Department": "CEMA"}
+{"Name": "Triasha Pal", "Roll": "2-13-16-0351", "Current Year": "2", "Registration Number": "A01-2112-0676-16", "Department": "CEMA"}
+{"Name": "Sanhita Pal", "Roll": "2-13-16-0353", "Current Year": "2", "Registration Number": "A01-2112-0677-16", "Department": "CEMA"}
+{"Name": "Anustup Mukherjee", "Roll": "2-13-16-0355", "Current Year": "2", "Registration Number": "A01-1112-0678-16", "Department": "CEMA"}
+{"Name": "Ditsa Dutta", "Roll": "2-13-16-0356", "Current Year": "2", "Registration Number": "A01-2112-0679-16", "Department": "CEMA"}
+{"Name": "Baishali Mazumder", "Roll": "2-13-16-0357", "Current Year": "2", "Registration Number": "A01-2112-0680-16", "Department": "CEMA"}
+{"Name": "Dipanwita Banerjee", "Roll": "2-13-16-0358", "Current Year": "2", "Registration Number": "A01-2112-0681-16", "Department": "CEMA"}
+{"Name": "Payel Parvin", "Roll": "2-13-16-0359", "Current Year": "2", "Registration Number": "A01-2112-0682-16", "Department": "CEMA"}
+{"Name": "Md Nizamul Haque", "Roll": "1-13-16-0360", "Current Year": "1", "Registration Number": "A01-1142-0683-16", "Department": "CEMA"}
+{"Name": "Tiyasha Biswas", "Roll": "2-13-16-0362", "Current Year": "2", "Registration Number": "A01-2112-0684-16", "Department": "CEMA"}
+{"Name": "Satyaki Mandal", "Roll": "2-13-16-0364", "Current Year": "2", "Registration Number": "A01-1122-0685-16", "Department": "CEMA"}
+{"Name": "Onaiza Abid", "Roll": "2-13-16-0365", "Current Year": "2", "Registration Number": "A01-2112-0686-16", "Department": "CEMA"}
+{"Name": "Sayan Adak", "Roll": "2-13-16-0369", "Current Year": "2", "Registration Number": "A01-1112-0687-16", "Department": "CEMA"}
+{"Name": "Arijit Pattanayak", "Roll": "2-13-16-0370", "Current Year": "2", "Registration Number": "A01-1112-0688-16", "Department": "CEMA"}
+{"Name": "Ushnish Chakraborty", "Roll": "2-13-16-0371", "Current Year": "2", "Registration Number": "A01-1112-0689-16", "Department": "CEMA"}
+{"Name": "Madhurima Jana", "Roll": "2-13-16-0372", "Current Year": "2", "Registration Number": "A01-2112-0690-16", "Department": "CEMA"}
+{"Name": "Avik Kumar Ojha", "Roll": "2-13-16-0373", "Current Year": "2", "Registration Number": "A01-1112-0691-16", "Department": "CEMA"}
+{"Name": "Poulami Chakraborty", "Roll": "2-13-16-0374", "Current Year": "2", "Registration Number": "A01-2112-0692-16", "Department": "CEMA"}
+{"Name": "Nino Nimang Bomjan", "Roll": "2-13-16-0375", "Current Year": "2", "Registration Number": "A01-1132-0693-16", "Department": "CEMA"}

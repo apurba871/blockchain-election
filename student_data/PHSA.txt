@@ -1,0 +1,48 @@
+{"Name": "Pritam Kumar Bangal", "Roll": "2-11-16-0101", "Current Year": "2", "Registration Number": "A01-1112-0536-16", "Department": "PHSA"}
+{"Name": "Ankita Ghosh", "Roll": "2-11-16-0103", "Current Year": "2", "Registration Number": "A01-2142-0537-16", "Department": "PHSA"}
+{"Name": "Biyanka Ray", "Roll": "2-11-16-0104", "Current Year": "2", "Registration Number": "A01-2122-0538-16", "Department": "PHSA"}
+{"Name": "Anubi Mallick", "Roll": "2-11-16-0106", "Current Year": "2", "Registration Number": "A01-2112-0539-16", "Department": "PHSA"}
+{"Name": "Prateek Giri", "Roll": "2-11-16-0107", "Current Year": "2", "Registration Number": "A01-1112-0540-16", "Department": "PHSA"}
+{"Name": "Sandipan Saha", "Roll": "2-11-16-0109", "Current Year": "2", "Registration Number": "A01-1112-0541-16", "Department": "PHSA"}
+{"Name": "Subharthi Dasgupta", "Roll": "2-11-16-0111", "Current Year": "2", "Registration Number": "A01-1112-0542-16", "Department": "PHSA"}
+{"Name": "Soham Sen", "Roll": "2-11-16-0112", "Current Year": "2", "Registration Number": "A01-1112-0543-16", "Department": "PHSA"}
+{"Name": "Rounak Chatterjee", "Roll": "2-11-16-0113", "Current Year": "2", "Registration Number": "A01-1112-0544-16", "Department": "PHSA"}
+{"Name": "Ayon Tarafdar", "Roll": "2-11-16-0116", "Current Year": "2", "Registration Number": "A01-1112-0545-16", "Department": "PHSA"}
+{"Name": "Subhrangshu Roy", "Roll": "2-11-16-0118", "Current Year": "2", "Registration Number": "A01-1112-0546-16", "Department": "PHSA"}
+{"Name": "Sudipto Saha Roy", "Roll": "2-11-16-0119", "Current Year": "2", "Registration Number": "A01-1112-0547-16", "Department": "PHSA"}
+{"Name": "Sourav Singha", "Roll": "2-11-16-0125", "Current Year": "2", "Registration Number": "A01-1112-0548-16", "Department": "PHSA"}
+{"Name": "Moumita Paul", "Roll": "2-11-16-0127", "Current Year": "2", "Registration Number": "A01-2112-0549-16", "Department": "PHSA"}
+{"Name": "Koyena Bose", "Roll": "2-11-16-0128", "Current Year": "2", "Registration Number": "A01-2112-0550-16", "Department": "PHSA"}
+{"Name": "Akash Kumar Saha", "Roll": "2-11-16-0129", "Current Year": "2", "Registration Number": "A01-1112-0551-16", "Department": "PHSA"}
+{"Name": "Debapriyo Chowdhury", "Roll": "2-11-16-0133", "Current Year": "2", "Registration Number": "A01-1112-0552-16", "Department": "PHSA"}
+{"Name": "Devyani Das", "Roll": "2-11-16-0135", "Current Year": "2", "Registration Number": "A01-2112-0553-16", "Department": "PHSA"}
+{"Name": "Swagatam Haldar", "Roll": "2-11-16-0136", "Current Year": "2", "Registration Number": "A01-1112-0554-16", "Department": "PHSA"}
+{"Name": "Sugata Paul", "Roll": "2-11-16-0137", "Current Year": "2", "Registration Number": "A01-2142-0555-16", "Department": "PHSA"}
+{"Name": "Sulagna Dutta", "Roll": "2-11-16-0138", "Current Year": "2", "Registration Number": "A01-2112-0556-16", "Department": "PHSA"}
+{"Name": "Aditya Kumar Dutta", "Roll": "2-11-16-0139", "Current Year": "2", "Registration Number": "A01-1112-0557-16", "Department": "PHSA"}
+{"Name": "Archana Maji", "Roll": "2-11-16-0140", "Current Year": "2", "Registration Number": "A01-2122-0558-16", "Department": "PHSA"}
+{"Name": "Suprio Haldar", "Roll": "2-11-16-0144", "Current Year": "2", "Registration Number": "A01-1142-0559-16", "Department": "PHSA"}
+{"Name": "Reynold Lepcha", "Roll": "2-11-16-0147", "Current Year": "2", "Registration Number": "A01-1132-0560-16", "Department": "PHSA"}
+{"Name": "Amartya Ghosh", "Roll": "2-11-16-0148", "Current Year": "2", "Registration Number": "A01-1112-0561-16", "Department": "PHSA"}
+{"Name": "Ingita Banerjee", "Roll": "2-11-16-0150", "Current Year": "2", "Registration Number": "A01-2112-0562-16", "Department": "PHSA"}
+{"Name": "Abhik Bhattacharjee", "Roll": "2-11-16-0152", "Current Year": "2", "Registration Number": "A01-1112-0563-16", "Department": "PHSA"}
+{"Name": "Geo Thomas", "Roll": "2-11-16-0165", "Current Year": "2", "Registration Number": "A01-1112-0564-16", "Department": "PHSA"}
+{"Name": "Gulshad Ahmad", "Roll": "2-11-16-0166", "Current Year": "2", "Registration Number": "A01-1112-0565-16", "Department": "PHSA"}
+{"Name": "Pavel Sarkar", "Roll": "2-11-16-0169", "Current Year": "2", "Registration Number": "A01-1112-0566-16", "Department": "PHSA"}
+{"Name": "Satyajit Dinda", "Roll": "2-11-16-0171", "Current Year": "2", "Registration Number": "A01-1112-0567-16", "Department": "PHSA"}
+{"Name": "Shayantani Ghosh", "Roll": "2-11-16-0173", "Current Year": "2", "Registration Number": "A01-2112-0568-16", "Department": "PHSA"}
+{"Name": "Riya Kamilya", "Roll": "2-11-16-0174", "Current Year": "2", "Registration Number": "A01-2112-0569-16", "Department": "PHSA"}
+{"Name": "Nilayan Paul", "Roll": "2-11-16-0175", "Current Year": "2", "Registration Number": "A01-1112-0570-16", "Department": "PHSA"}
+{"Name": "Agnibeena Chatterjee", "Roll": "2-11-16-0176", "Current Year": "2", "Registration Number": "A01-2112-0571-16", "Department": "PHSA"}
+{"Name": "Ankita Sengupta", "Roll": "2-11-16-0177", "Current Year": "2", "Registration Number": "A01-2112-0572-16", "Department": "PHSA"}
+{"Name": "Chandan Kumar Bera", "Roll": "2-11-16-0178", "Current Year": "2", "Registration Number": "A01-1112-0573-16", "Department": "PHSA"}
+{"Name": "Akash Shaw", "Roll": "2-11-16-0180", "Current Year": "2", "Registration Number": "A01-1112-0574-16", "Department": "PHSA"}
+{"Name": "Priyonkoor Hesh", "Roll": "2-11-16-0181", "Current Year": "2", "Registration Number": "A01-1112-0575-16", "Department": "PHSA"}
+{"Name": "Addrish Nandi", "Roll": "1-11-16-0182", "Current Year": "1", "Registration Number": "A01-1112-0576-16", "Department": "PHSA"}
+{"Name": "Alapan Bera", "Roll": "2-11-16-0185", "Current Year": "2", "Registration Number": "A01-1112-0577-16", "Department": "PHSA"}
+{"Name": "Sara Maliha", "Roll": "2-11-16-0186", "Current Year": "2", "Registration Number": "A01-2112-0578-16", "Department": "PHSA"}
+{"Name": "Pratyusha Chowdhury", "Roll": "2-11-16-0187", "Current Year": "2", "Registration Number": "A01-2112-0579-16", "Department": "PHSA"}
+{"Name": "Pallabi Mondal", "Roll": "2-11-16-0188", "Current Year": "2", "Registration Number": "A01-2142-0580-16", "Department": "PHSA"}
+{"Name": "Rajdip Biswas", "Roll": "1-11-16-0190", "Current Year": "1", "Registration Number": "A01-1142-0581-16", "Department": "PHSA"}
+{"Name": "Arittri Mallick", "Roll": "2-11-16-0191", "Current Year": "2", "Registration Number": "A01-2112-0582-16", "Department": "PHSA"}
+{"Name": "Salmoli Ghosh", "Roll": "2-11-16-0192", "Current Year": "2", "Registration Number": "A01-2112-0583-16", "Department": "PHSA"}
