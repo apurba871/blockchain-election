@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/election'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/election'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/users'
 db = SQLAlchemy(app)
 
 class Voter(db.Model):
@@ -48,7 +49,7 @@ class Voter_List(db.Model):
 
 class Department(db.Model):
     dept_code = db.Column(db.String(5), primary_key=True, nullable=False)
-    dept_name = db.Column(db.String(20), unique=True, nullable=False)
+    dept_name = db.Column(db.String(50), unique=True, nullable=False)
 
     def __repr__(self):
         return f"Department('{self.dept_code}', '{self.dept_name}')"
@@ -58,4 +59,5 @@ class Department(db.Model):
 def hello_world():
     return "<p>Hello, World!</p>"
 
-app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
