@@ -48,7 +48,7 @@ class Voter_List(db.Model):
         return f"Voter_List('{self.election_id}', '{self.voter_id}')"
 
 class Department(db.Model):
-    dept_code = db.Column(db.String(5), primary_key=True, nullable=False)
+    dept_code = db.Column(db.String(6), primary_key=True, nullable=False)
     dept_name = db.Column(db.String(50), unique=True, nullable=False)
 
     def __repr__(self):
