@@ -61,27 +61,27 @@ def index():
 
 @app.route("/voter/<int:id>")
 def voter(id):
-    return render_template("voter.html", id)
+    return render_template("voter.html", voter_id=id)
 
 @app.route("/candidate/<int:id>")
 def candidate(id):
-    return render_template("candidate.html", id)
+    return render_template("candidate.html", candidate_id=id)
 
 @app.route("/admin")
 def admin():
     return render_template("admin.html")
 
 @app.errorhandler(404)
-def page_not_found():
-    return make_response(render_template("404.html"), 404)
+def page_not_found(e):
+    return render_template("404.html"), 404
 
 @app.errorhandler(400)
-def bad_request():
-    return make_response(render_template("400.html"), 400)
+def bad_request(e):
+    return render_template("400.html"), 400
 
 @app.errorhandler(500)
-def server_error():
-    return make_response(render_template("500.html"), 500)
+def server_error(e):
+    return render_template("500.html"), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
