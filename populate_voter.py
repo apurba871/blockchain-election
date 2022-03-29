@@ -16,7 +16,11 @@ file_list = ['BAGG.txt', 'BMBT.txt', 'BNGA.txt',
              'CEMA.txt', 'CMSA.txt', 'ECOA.txt',
              'ENGA.txt', 'MCBA.txt', 'MCVA.txt',
              'MMFI.txt', 'MTMA.txt', 'PHSA.txt',
-             'PLSA.txt', 'SOCA.txt', 'STSA.txt']
+             'PLSA.txt', 'SOCA.txt', 'STSA.txt',
+             'BOBA.txt', 'CMEA.txt', 'CMSL.txt',
+             'COMA.txt', 'EDUC.txt', 'HISA.txt',
+             'MCMF.txt', 'MCMM.txt', 'MCMS.txt',
+             'MMCB.txt', 'MPHY.txt']
 
 abs_path = os.path.dirname(os.path.abspath(__file__))
 for file in file_list:
