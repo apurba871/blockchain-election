@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, make_response
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -56,8 +56,32 @@ class Department(db.Model):
 
 
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def index():
+    return render_template("index.html")
+
+@app.route("/voter/<int:id>")
+def voter(id):
+    return render_template("voter.html", id)
+
+@app.route("/candidate/<int:id>")
+def candidate(id):
+    return render_template("candidate.html", id)
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html")
+
+@app.errorhandler(404)
+def page_not_found():
+    return make_response(render_template("404.html"), 404)
+
+@app.errorhandler(400)
+def bad_request():
+    return make_response(render_template("400.html"), 400)
+
+@app.errorhandler(500)
+def server_error():
+    return make_response(render_template("500.html"), 500)
 
 if __name__ == '__main__':
     app.run(debug=True)
