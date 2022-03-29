@@ -1,0 +1,16 @@
+{"Name": "Pritha Chakraborty", "Roll": "2-72-16-0005", "Current Year": "2", "Registration Number": "A01-2112-0045-16", "Department": "MCMS"}
+{"Name": "Debangshu Chakraborty", "Roll": "2-72-16-0015", "Current Year": "2", "Registration Number": "A01-1112-0046-16", "Department": "MCMS"}
+{"Name": "Sritama Das", "Roll": "2-72-16-0019", "Current Year": "2", "Registration Number": "A01-2122-0047-16", "Department": "MCMS"}
+{"Name": "Saptarshee Bhowmick", "Roll": "2-72-16-0022", "Current Year": "2", "Registration Number": "A01-1112-0048-16", "Department": "MCMS"}
+{"Name": "Avijit Naskar", "Roll": "1-72-16-0024", "Current Year": "1", "Registration Number": "A01-1112-0049-16", "Department": "MCMS"}
+{"Name": "Antara Mondal", "Roll": "2-72-16-0025", "Current Year": "2", "Registration Number": "A01-2142-0050-16", "Department": "MCMS"}
+{"Name": "Sandipan Bhattacharjee", "Roll": "2-72-16-0029", "Current Year": "2", "Registration Number": "A01-1112-0051-16", "Department": "MCMS"}
+{"Name": "Saurabh Kumar Thapa", "Roll": "1-72-16-0032", "Current Year": "1", "Registration Number": "A01-1112-0052-16", "Department": "MCMS"}
+{"Name": "Sk Julfikar Ali", "Roll": "1-72-16-0033", "Current Year": "1", "Registration Number": "A01-1112-0053-16", "Department": "MCMS"}
+{"Name": "Vikash Kumar Jha", "Roll": "2-72-16-0035", "Current Year": "2", "Registration Number": "A01-1112-0054-16", "Department": "MCMS"}
+{"Name": "Sarvesh Edwin Kujur", "Roll": "2-72-16-0047", "Current Year": "2", "Registration Number": "A01-1132-0056-16", "Department": "MCMS"}
+{"Name": "Kasturi Chakraborty", "Roll": "2-72-16-0055", "Current Year": "2", "Registration Number": "A01-2112-0057-16", "Department": "MCMS"}
+{"Name": "Priyanka Paul", "Roll": "2-72-16-0062", "Current Year": "2", "Registration Number": "A01-2112-0058-16", "Department": "MCMS"}
+{"Name": "Souvanik Saha", "Roll": "2-72-16-0063", "Current Year": "2", "Registration Number": "A01-1112-0059-16", "Department": "MCMS"}
+{"Name": "Sudipto Gorai", "Roll": "2-72-16-0064", "Current Year": "2", "Registration Number": "A01-1112-0060-16", "Department": "MCMS"}
+{"Name": "Ankita Ghosh", "Roll": "2-72-16-0065", "Current Year": "2", "Registration Number": "A01-2112-0061-16", "Department": "MCMS"}

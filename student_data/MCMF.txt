@@ -1,0 +1,12 @@
+{"Name": "Jaymol Mary Joseph", "Roll": "2-76-16-0003", "Current Year": "2", "Registration Number": "A01-2112-0071-16", "Department": "MCMF"}
+{"Name": "Priyanka Nag", "Roll": "2-76-16-0008", "Current Year": "2", "Registration Number": "A01-2122-0072-16", "Department": "MCMF"}
+{"Name": "Mitali", "Roll": "1-76-16-0018", "Current Year": "1", "Registration Number": "A01-2112-0073-16", "Department": "MCMF"}
+{"Name": "Megha Tulsyan", "Roll": "2-76-16-0022", "Current Year": "2", "Registration Number": "A01-2112-0074-16", "Department": "MCMF"}
+{"Name": "Kanupriya Bagri", "Roll": "2-76-16-0024", "Current Year": "2", "Registration Number": "A01-2112-0075-16", "Department": "MCMF"}
+{"Name": "Anamika Tiwary", "Roll": "2-76-16-0026", "Current Year": "2", "Registration Number": "A01-2112-0076-16", "Department": "MCMF"}
+{"Name": "Niranjan Minj", "Roll": "2-76-16-0027", "Current Year": "2", "Registration Number": "A01-1132-0077-16", "Department": "MCMF"}
+{"Name": "Aashna Singhania", "Roll": "2-76-16-0029", "Current Year": "2", "Registration Number": "A01-2112-0078-16", "Department": "MCMF"}
+{"Name": "Aman Agarwal", "Roll": "2-76-16-0030", "Current Year": "2", "Registration Number": "A01-1112-0079-16", "Department": "MCMF"}
+{"Name": "A. Britto", "Roll": "2-76-16-0033", "Current Year": "2", "Registration Number": "A01-1112-0080-16", "Department": "MCMF"}
+{"Name": "Nikita Minz", "Roll": "2-76-16-0034", "Current Year": "2", "Registration Number": "A01-2132-0081-16", "Department": "MCMF"}
+{"Name": "Supratik Biswas", "Roll": "2-76-16-0041", "Current Year": "2", "Registration Number": "A01-1112-0082-16", "Department": "MCMF"}

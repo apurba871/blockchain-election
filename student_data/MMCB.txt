@@ -1,0 +1,5 @@
+{"Name": "Sanjukta Goswami", "Roll": "2-21-16-0017", "Current Year": "2", "Registration Number": "A01-2112-0091-16", "Department": "MMCB"}
+{"Name": "Anirban Roy", "Roll": "2-21-16-0019", "Current Year": "2", "Registration Number": "A01-1112-0092-16", "Department": "MMCB"}
+{"Name": "Shrabani Roy", "Roll": "2-21-16-0022", "Current Year": "2", "Registration Number": "A01-2112-0093-16", "Department": "MMCB"}
+{"Name": "Rohan Chatterjee", "Roll": "2-21-16-0032", "Current Year": "2", "Registration Number": "A01-1112-0094-16", "Department": "MMCB"}
+{"Name": "Deepabali Ghosal", "Roll": "2-21-16-0042", "Current Year": "2", "Registration Number": "A01-2112-0095-16", "Department": "MMCB"}

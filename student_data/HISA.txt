@@ -1,0 +1,30 @@
+{"Name": "Abhisek Panja", "Roll": "2-24-16-6701", "Current Year": "2", "Registration Number": "A01-1112-0439-16", "Department": "HISA"}
+{"Name": "Chandra Kanta Naskar", "Roll": "2-24-16-6702", "Current Year": "2", "Registration Number": "A01-1122-0440-16", "Department": "HISA"}
+{"Name": "Rinky Das", "Roll": "2-24-16-6703", "Current Year": "2", "Registration Number": "A01-2122-0441-16", "Department": "HISA"}
+{"Name": "Puja Pailan", "Roll": "2-24-16-6704", "Current Year": "2", "Registration Number": "A01-2142-0442-16", "Department": "HISA"}
+{"Name": "Priti Ishor", "Roll": "2-24-16-6705", "Current Year": "2", "Registration Number": "A01-2112-0443-16", "Department": "HISA"}
+{"Name": "Sraboni Adak", "Roll": "2-24-16-6706", "Current Year": "2", "Registration Number": "A01-2142-0444-16", "Department": "HISA"}
+{"Name": "Susmita Pramanick", "Roll": "2-24-16-6707", "Current Year": "2", "Registration Number": "A01-2112-0445-16", "Department": "HISA"}
+{"Name": "Priyanka Mondal", "Roll": "2-24-16-6708", "Current Year": "2", "Registration Number": "A01-2142-0446-16", "Department": "HISA"}
+{"Name": "Samapti Mondal", "Roll": "2-24-16-6709", "Current Year": "2", "Registration Number": "A01-2142-0447-16", "Department": "HISA"}
+{"Name": "Ranajit Mondal", "Roll": "2-24-16-6710", "Current Year": "2", "Registration Number": "A01-1112-0448-16", "Department": "HISA"}
+{"Name": "Suparna Mondal", "Roll": "2-24-16-6711", "Current Year": "2", "Registration Number": "A01-2142-0449-16", "Department": "HISA"}
+{"Name": "Sangita Sardar", "Roll": "2-24-16-6712", "Current Year": "2", "Registration Number": "A01-2122-0450-16", "Department": "HISA"}
+{"Name": "Tuhina Mondal", "Roll": "2-24-16-6713", "Current Year": "2", "Registration Number": "A01-2142-0451-16", "Department": "HISA"}
+{"Name": "Anindita Naskar", "Roll": "2-24-16-6714", "Current Year": "2", "Registration Number": "A01-2122-0452-16", "Department": "HISA"}
+{"Name": "Bikash Mondal", "Roll": "2-24-16-6715", "Current Year": "2", "Registration Number": "A01-1122-0453-16", "Department": "HISA"}
+{"Name": "Pritanu Mondal", "Roll": "2-24-16-6716", "Current Year": "2", "Registration Number": "A01-1142-0454-16", "Department": "HISA"}
+{"Name": "Rahul Pramanick", "Roll": "1-24-16-16717", "Current Year": "1", "Registration Number": "A01-1112-0455-16", "Department": "HISA"}
+{"Name": "Anima Rong", "Roll": "2-24-16-6718", "Current Year": "2", "Registration Number": "A01-2112-0456-16", "Department": "HISA"}
+{"Name": "Baishali Adhikary", "Roll": "2-24-16-6719", "Current Year": "2", "Registration Number": "A01-2112-0457-16", "Department": "HISA"}
+{"Name": "Supriya Naskar", "Roll": "2-24-16-6720", "Current Year": "2", "Registration Number": "A01-2142-0458-16", "Department": "HISA"}
+{"Name": "Sneha Kumari Jha", "Roll": "2-24-16-6721", "Current Year": "2", "Registration Number": "A01-2112-0459-16", "Department": "HISA"}
+{"Name": "Priyanka Bor", "Roll": "2-24-16-6722", "Current Year": "2", "Registration Number": "A01-2112-0460-16", "Department": "HISA"}
+{"Name": "Pinki Mondal", "Roll": "1-24-16-6723", "Current Year": "1", "Registration Number": "A01-2122-0461-16", "Department": "HISA"}
+{"Name": "Ruma Bag", "Roll": "2-24-16-6724", "Current Year": "2", "Registration Number": "A01-2142-0462-16", "Department": "HISA"}
+{"Name": "Snehasish Mondal", "Roll": "2-24-16-6725", "Current Year": "2", "Registration Number": "A01-1142-0463-16", "Department": "HISA"}
+{"Name": "Laboni Mondal", "Roll": "2-24-16-6726", "Current Year": "2", "Registration Number": "A01-2112-0464-16", "Department": "HISA"}
+{"Name": "Munni Kujur", "Roll": "2-24-16-6727", "Current Year": "2", "Registration Number": "A01-2112-0465-16", "Department": "HISA"}
+{"Name": "Moumita Naru", "Roll": "2-24-16-6728", "Current Year": "2", "Registration Number": "A01-2122-0466-16", "Department": "HISA"}
+{"Name": "Akash Dhara", "Roll": "2-24-16-6729", "Current Year": "2", "Registration Number": "A01-1112-0467-16", "Department": "HISA"}
+{"Name": "Subhankar Dolui", "Roll": "1-24-16-6730", "Current Year": "1", "Registration Number": "A01-1112-0468-16", "Department": "HISA"}

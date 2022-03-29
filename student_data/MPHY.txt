@@ -1,0 +1,9 @@
+{"Name": "Souvik Das", "Roll": "2-73-16-0007", "Current Year": "2", "Registration Number": "A01-1122-0062-16", "Department": "MPHY"}
+{"Name": "Anirban Chatterjee", "Roll": "2-73-16-0010", "Current Year": "2", "Registration Number": "A01-1112-0063-16", "Department": "MPHY"}
+{"Name": "Samir Kumar", "Roll": "2-73-16-0013", "Current Year": "2", "Registration Number": "A01-1112-0064-16", "Department": "MPHY"}
+{"Name": "Anita Gemmy Francis", "Roll": "2-73-16-0017", "Current Year": "2", "Registration Number": "A01-2112-0065-16", "Department": "MPHY"}
+{"Name": "Yengkhom Myrtle Zest", "Roll": "1-73-16-0020", "Current Year": "1", "Registration Number": "A01-1122-0066-16", "Department": "MPHY"}
+{"Name": "Punam Kumari Sharma", "Roll": "2-73-16-0023", "Current Year": "2", "Registration Number": "A01-2112-0067-16", "Department": "MPHY"}
+{"Name": "Simon Paul", "Roll": "2-73-16-0024", "Current Year": "2", "Registration Number": "A01-1112-0068-16", "Department": "MPHY"}
+{"Name": "Anabadya Pal", "Roll": "2-73-16-0028", "Current Year": "2", "Registration Number": "A01-1142-0069-16", "Department": "MPHY"}
+{"Name": "Vasundhara Singh", "Roll": "2-73-16-0032", "Current Year": "2", "Registration Number": "A01-2112-0070-16", "Department": "MPHY"}

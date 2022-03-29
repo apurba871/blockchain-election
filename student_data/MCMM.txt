@@ -1,0 +1,8 @@
+{"Name": "Akankshya Bhagawati", "Roll": "2-77-16-0203", "Current Year": "2", "Registration Number": "A01-2112-0083-16", "Department": "MCMM"}
+{"Name": "Prachi Kakrania", "Roll": "2-77-16-0205", "Current Year": "2", "Registration Number": "A01-2112-0084-16", "Department": "MCMM"}
+{"Name": "Akanksha Shaw", "Roll": "2-77-16-0209", "Current Year": "2", "Registration Number": "A01-2112-0085-16", "Department": "MCMM"}
+{"Name": "Vaishali More", "Roll": "2-77-16-0210", "Current Year": "2", "Registration Number": "A01-2112-0086-16", "Department": "MCMM"}
+{"Name": "Aashna Agarwal", "Roll": "2-77-16-0211", "Current Year": "2", "Registration Number": "A01-2112-0087-16", "Department": "MCMM"}
+{"Name": "Pragya Surana", "Roll": "2-77-16-0213", "Current Year": "2", "Registration Number": "A01-2112-0088-16", "Department": "MCMM"}
+{"Name": "Sriyam Gupta", "Roll": "2-77-16-0221", "Current Year": "2", "Registration Number": "A01-2112-0089-16", "Department": "MCMM"}
+{"Name": "Harshika Subnani", "Roll": "2-77-16-0223", "Current Year": "2", "Registration Number": "A01-2112-0090-16", "Department": "MCMM"}

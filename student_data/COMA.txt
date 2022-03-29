@@ -1,0 +1,726 @@
+{"Name": "Saket Gupta", "Roll": "2-01-16-0001", "Current Year": "2", "Registration Number": "A01-1112-0934-16", "Department": "COMA"}
+{"Name": "Stalin Paul Tirkey", "Roll": "2-01-16-0002", "Current Year": "2", "Registration Number": "A01-1132-0935-16", "Department": "COMA"}
+{"Name": "Mihir Modi", "Roll": "2-01-16-0003", "Current Year": "2", "Registration Number": "A01-1112-0936-16", "Department": "COMA"}
+{"Name": "Manan Marda", "Roll": "2-01-16-0004", "Current Year": "2", "Registration Number": "A01-1112-0937-16", "Department": "COMA"}
+{"Name": "Sidharth Ghei", "Roll": "2-01-16-0005", "Current Year": "2", "Registration Number": "A01-1112-0938-16", "Department": "COMA"}
+{"Name": "Suraj Chhetri", "Roll": "2-01-16-0006", "Current Year": "2", "Registration Number": "A01-1112-0939-16", "Department": "COMA"}
+{"Name": "Arihant Kothari", "Roll": "2-01-16-0007", "Current Year": "2", "Registration Number": "A01-1112-0940-16", "Department": "COMA"}
+{"Name": "Aniruddha Bhojnagarwala", "Roll": "2-01-16-0008", "Current Year": "2", "Registration Number": "A01-1112-0941-16", "Department": "COMA"}
+{"Name": "Tanishq Agarwal", "Roll": "2-01-16-0009", "Current Year": "2", "Registration Number": "A01-1112-0942-16", "Department": "COMA"}
+{"Name": "Leon David", "Roll": "2-01-16-0010", "Current Year": "2", "Registration Number": "A01-1112-0943-16", "Department": "COMA"}
+{"Name": "Shubham Madhogaria", "Roll": "2-01-16-0011", "Current Year": "2", "Registration Number": "A01-1112-0944-16", "Department": "COMA"}
+{"Name": "Yash Khetan", "Roll": "1-01-16-0012", "Current Year": "1", "Registration Number": "A01-1112-0945-16", "Department": "COMA"}
+{"Name": "Li Wonk Alias Melvin Chen", "Roll": "1-01-16-0013", "Current Year": "1", "Registration Number": "A01-1112-0946-16", "Department": "COMA"}
+{"Name": "Pratyush Baranwal", "Roll": "2-01-16-0014", "Current Year": "2", "Registration Number": "A01-1112-0947-16", "Department": "COMA"}
+{"Name": "Subham Saurav", "Roll": "2-01-16-0015", "Current Year": "2", "Registration Number": "A01-1112-0948-16", "Department": "COMA"}
+{"Name": "Mayank Miharia", "Roll": "2-01-16-0016", "Current Year": "2", "Registration Number": "A01-1112-0949-16", "Department": "COMA"}
+{"Name": "Gunjan Kumar Kedia", "Roll": "2-01-16-0017", "Current Year": "2", "Registration Number": "A01-1112-0950-16", "Department": "COMA"}
+{"Name": "Yash Murarka", "Roll": "2-01-16-0018", "Current Year": "2", "Registration Number": "A01-1112-0951-16", "Department": "COMA"}
+{"Name": "Rayyan Alam", "Roll": "2-01-16-0019", "Current Year": "2", "Registration Number": "A01-1112-0952-16", "Department": "COMA"}
+{"Name": "Abhyuday Kajaria", "Roll": "2-01-16-0020", "Current Year": "2", "Registration Number": "A01-1112-0953-16", "Department": "COMA"}
+{"Name": "Neeraj Jalan", "Roll": "2-01-16-0021", "Current Year": "2", "Registration Number": "A01-1112-0954-16", "Department": "COMA"}
+{"Name": "Avishek Agarwal", "Roll": "2-01-16-0022", "Current Year": "2", "Registration Number": "A01-1112-0955-16", "Department": "COMA"}
+{"Name": "Swarup Kumar Kedia", "Roll": "2-01-16-0023", "Current Year": "2", "Registration Number": "A01-1112-0956-16", "Department": "COMA"}
+{"Name": "Bijitesh Kanrar", "Roll": "2-01-16-0024", "Current Year": "2", "Registration Number": "A01-1112-0957-16", "Department": "COMA"}
+{"Name": "Sarthak Dalmia", "Roll": "2-01-16-0025", "Current Year": "2", "Registration Number": "A01-1112-0958-16", "Department": "COMA"}
+{"Name": "Mohit Rathi", "Roll": "2-01-16-0026", "Current Year": "2", "Registration Number": "A01-1112-0959-16", "Department": "COMA"}
+{"Name": "Ethan Das", "Roll": "2-01-16-0027", "Current Year": "2", "Registration Number": "A01-1112-0960-16", "Department": "COMA"}
+{"Name": "Raja Bararia", "Roll": "2-01-16-0028", "Current Year": "2", "Registration Number": "A01-1112-0961-16", "Department": "COMA"}
+{"Name": "Harshit Jindal", "Roll": "2-01-16-0029", "Current Year": "2", "Registration Number": "A01-1112-0962-16", "Department": "COMA"}
+{"Name": "Mayank Agarwal", "Roll": "2-01-16-0030", "Current Year": "2", "Registration Number": "A01-1112-0963-16", "Department": "COMA"}
+{"Name": "Parmeet Singh Gurdatta", "Roll": "2-01-16-0031", "Current Year": "2", "Registration Number": "A01-1112-0964-16", "Department": "COMA"}
+{"Name": "Aayush Agarwal", "Roll": "2-01-16-0033", "Current Year": "2", "Registration Number": "A01-1112-0965-16", "Department": "COMA"}
+{"Name": "Amaan Khan", "Roll": "2-01-16-0034", "Current Year": "2", "Registration Number": "A01-1112-0966-16", "Department": "COMA"}
+{"Name": "Praveen Kumar Kishor Puria", "Roll": "2-01-16-0035", "Current Year": "2", "Registration Number": "A01-1112-0967-16", "Department": "COMA"}
+{"Name": "Raghav Kheria", "Roll": "2-01-16-0036", "Current Year": "2", "Registration Number": "A01-1112-0968-16", "Department": "COMA"}
+{"Name": "Neil Jude Kerketta", "Roll": "2-01-16-0037", "Current Year": "2", "Registration Number": "A01-1132-0969-16", "Department": "COMA"}
+{"Name": "Aakash Mishra", "Roll": "2-01-16-0038", "Current Year": "2", "Registration Number": "A01-1112-0970-16", "Department": "COMA"}
+{"Name": "Gurkirat Singh", "Roll": "2-01-16-0039", "Current Year": "2", "Registration Number": "A01-1112-0971-16", "Department": "COMA"}
+{"Name": "Rishabh Kothari", "Roll": "2-01-16-0040", "Current Year": "2", "Registration Number": "A01-1112-0972-16", "Department": "COMA"}
+{"Name": "Saurav Agarwal", "Roll": "2-01-16-0041", "Current Year": "2", "Registration Number": "A01-1112-0973-16", "Department": "COMA"}
+{"Name": "Roshit Sovasaria", "Roll": "2-01-16-0042", "Current Year": "2", "Registration Number": "A01-1112-0974-16", "Department": "COMA"}
+{"Name": "James Pratyush Sen", "Roll": "2-01-16-0043", "Current Year": "2", "Registration Number": "A01-1112-0975-16", "Department": "COMA"}
+{"Name": "Farhan Rashed", "Roll": "2-01-16-0044", "Current Year": "2", "Registration Number": "A01-1142-0976-16", "Department": "COMA"}
+{"Name": "Utkarsh Agarwal", "Roll": "2-01-16-0045", "Current Year": "2", "Registration Number": "A01-1112-0977-16", "Department": "COMA"}
+{"Name": "Divij Jhunjhunwala", "Roll": "2-01-16-0046", "Current Year": "2", "Registration Number": "A01-1112-0978-16", "Department": "COMA"}
+{"Name": "Mark Cooper", "Roll": "2-01-16-0047", "Current Year": "2", "Registration Number": "A01-1112-0979-16", "Department": "COMA"}
+{"Name": "Harmeet Singh Bhatia", "Roll": "2-01-16-0048", "Current Year": "2", "Registration Number": "A01-1112-0980-16", "Department": "COMA"}
+{"Name": "Harsh Singhania", "Roll": "2-01-16-0049", "Current Year": "2", "Registration Number": "A01-1112-0981-16", "Department": "COMA"}
+{"Name": "Ishan Patni", "Roll": "2-01-16-0050", "Current Year": "2", "Registration Number": "A01-1112-0982-16", "Department": "COMA"}
+{"Name": "Subhang Choudhary", "Roll": "2-01-16-0052", "Current Year": "2", "Registration Number": "A01-1112-0983-16", "Department": "COMA"}
+{"Name": "Kishan Gopal Rathi", "Roll": "2-01-16-0053", "Current Year": "2", "Registration Number": "A01-1112-0984-16", "Department": "COMA"}
+{"Name": "Harsh Mittal", "Roll": "2-01-16-0054", "Current Year": "2", "Registration Number": "A01-1112-0985-16", "Department": "COMA"}
+{"Name": "Shivam Jain", "Roll": "2-01-16-0055", "Current Year": "2", "Registration Number": "A01-1112-0986-16", "Department": "COMA"}
+{"Name": "Abhishek Mishra", "Roll": "2-01-16-0056", "Current Year": "2", "Registration Number": "A01-1112-0987-16", "Department": "COMA"}
+{"Name": "Anirudh Khakolia", "Roll": "1-01-16-0057", "Current Year": "1", "Registration Number": "A01-1112-0988-16", "Department": "COMA"}
+{"Name": "Rishav Jain", "Roll": "2-01-16-0058", "Current Year": "2", "Registration Number": "A01-1112-0989-16", "Department": "COMA"}
+{"Name": "Yash More", "Roll": "2-01-16-0059", "Current Year": "2", "Registration Number": "A01-1112-0990-16", "Department": "COMA"}
+{"Name": "Kenneth Tseng", "Roll": "2-01-16-0060", "Current Year": "2", "Registration Number": "A01-1112-0991-16", "Department": "COMA"}
+{"Name": "Karan Bothra", "Roll": "2-01-16-0061", "Current Year": "2", "Registration Number": "A01-1112-0992-16", "Department": "COMA"}
+{"Name": "Rochit Churiwal", "Roll": "2-01-16-0062", "Current Year": "2", "Registration Number": "A01-1112-0993-16", "Department": "COMA"}
+{"Name": "Vanlal Huma", "Roll": "2-01-16-0063", "Current Year": "2", "Registration Number": "A01-1132-0994-16", "Department": "COMA"}
+{"Name": "Mahabir Kochar", "Roll": "2-01-16-0064", "Current Year": "2", "Registration Number": "A01-1112-0995-16", "Department": "COMA"}
+{"Name": "Soumyadeep Bandyopadhyay", "Roll": "2-01-16-0065", "Current Year": "2", "Registration Number": "A01-1112-0996-16", "Department": "COMA"}
+{"Name": "Lal Biaknunga", "Roll": "2-01-16-0066", "Current Year": "2", "Registration Number": "A01-1132-0997-16", "Department": "COMA"}
+{"Name": "Girik Jhunjhunwala", "Roll": "2-01-16-0067", "Current Year": "2", "Registration Number": "A01-1112-0998-16", "Department": "COMA"}
+{"Name": "Anurag Jain", "Roll": "2-01-16-0068", "Current Year": "2", "Registration Number": "A01-1112-0999-16", "Department": "COMA"}
+{"Name": "Kushai Muslim Kohdawala", "Roll": "2-01-16-0069", "Current Year": "2", "Registration Number": "A01-1112-1000-16", "Department": "COMA"}
+{"Name": "Aman Agarwal", "Roll": "2-01-16-0070", "Current Year": "2", "Registration Number": "A01-1112-1001-16", "Department": "COMA"}
+{"Name": "Vedant Khemani", "Roll": "2-01-16-0071", "Current Year": "2", "Registration Number": "A01-1112-1002-16", "Department": "COMA"}
+{"Name": "Kunal Tibrewal", "Roll": "2-01-16-0072", "Current Year": "2", "Registration Number": "A01-1112-1003-16", "Department": "COMA"}
+{"Name": "Nikunj Tiwari", "Roll": "2-01-16-0073", "Current Year": "2", "Registration Number": "A01-1112-1004-16", "Department": "COMA"}
+{"Name": "Darshan Sharma", "Roll": "2-01-16-0074", "Current Year": "2", "Registration Number": "A01-1112-1005-16", "Department": "COMA"}
+{"Name": "Pratik Didwania", "Roll": "2-01-16-0076", "Current Year": "2", "Registration Number": "A01-1112-1006-16", "Department": "COMA"}
+{"Name": "Krishna Kumar", "Roll": "2-01-16-0077", "Current Year": "2", "Registration Number": "A01-1142-1007-16", "Department": "COMA"}
+{"Name": "Hardik Khaitan", "Roll": "2-01-16-0078", "Current Year": "2", "Registration Number": "A01-1112-1008-16", "Department": "COMA"}
+{"Name": "Yash Ganeriwala", "Roll": "2-01-16-0079", "Current Year": "2", "Registration Number": "A01-1112-1009-16", "Department": "COMA"}
+{"Name": "Deepak Bhageria", "Roll": "2-01-16-0080", "Current Year": "2", "Registration Number": "A01-1112-1010-16", "Department": "COMA"}
+{"Name": "Saket Ganeriwala", "Roll": "2-01-16-0081", "Current Year": "2", "Registration Number": "A01-1112-1011-16", "Department": "COMA"}
+{"Name": "Sajan Jain", "Roll": "2-01-16-0082", "Current Year": "2", "Registration Number": "A01-1112-1012-16", "Department": "COMA"}
+{"Name": "Simran Kumar Gupta", "Roll": "2-01-16-0083", "Current Year": "2", "Registration Number": "A01-1112-1013-16", "Department": "COMA"}
+{"Name": "Shrey Toshniwal", "Roll": "2-01-16-0084", "Current Year": "2", "Registration Number": "A01-1112-1014-16", "Department": "COMA"}
+{"Name": "Atul Martin Bage", "Roll": "2-01-16-0085", "Current Year": "2", "Registration Number": "A01-1132-1015-16", "Department": "COMA"}
+{"Name": "Subham Mittal", "Roll": "2-01-16-0086", "Current Year": "2", "Registration Number": "A01-1112-1016-16", "Department": "COMA"}
+{"Name": "Ankur Agarwal", "Roll": "2-01-16-0087", "Current Year": "2", "Registration Number": "A01-1112-1017-16", "Department": "COMA"}
+{"Name": "Clement Rai", "Roll": "2-01-16-0088", "Current Year": "2", "Registration Number": "A01-1142-1018-16", "Department": "COMA"}
+{"Name": "Harsh Modi", "Roll": "2-01-16-0089", "Current Year": "2", "Registration Number": "A01-1112-1019-16", "Department": "COMA"}
+{"Name": "Rohan Chaturvedi", "Roll": "2-01-16-0090", "Current Year": "2", "Registration Number": "A01-1112-1020-16", "Department": "COMA"}
+{"Name": "Rishab Agarwal", "Roll": "2-01-16-0091", "Current Year": "2", "Registration Number": "A01-1112-1021-16", "Department": "COMA"}
+{"Name": "Rishab Prasad", "Roll": "2-01-16-0092", "Current Year": "2", "Registration Number": "A01-1112-1022-16", "Department": "COMA"}
+{"Name": "Krishna Beriwal", "Roll": "2-01-16-0093", "Current Year": "2", "Registration Number": "A01-1112-1023-16", "Department": "COMA"}
+{"Name": "Karan Kumar Binani", "Roll": "2-01-16-0094", "Current Year": "2", "Registration Number": "A01-1112-1024-16", "Department": "COMA"}
+{"Name": "Piyush Poddar", "Roll": "2-01-16-0095", "Current Year": "2", "Registration Number": "A01-1112-1025-16", "Department": "COMA"}
+{"Name": "Mayur Agarwal", "Roll": "2-01-16-0096", "Current Year": "2", "Registration Number": "A01-1112-1026-16", "Department": "COMA"}
+{"Name": "Rishi Raj Gandotra", "Roll": "2-01-16-0097", "Current Year": "2", "Registration Number": "A01-1112-1027-16", "Department": "COMA"}
+{"Name": "Rohit Ghosal", "Roll": "2-01-16-0098", "Current Year": "2", "Registration Number": "A01-1112-1028-16", "Department": "COMA"}
+{"Name": "Akash Agarwala", "Roll": "2-01-16-0099", "Current Year": "2", "Registration Number": "A01-1112-1029-16", "Department": "COMA"}
+{"Name": "Nilay Mundhra", "Roll": "2-01-16-0100", "Current Year": "2", "Registration Number": "A01-1112-1030-16", "Department": "COMA"}
+{"Name": "Anmol Chaudhary", "Roll": "2-01-16-0101", "Current Year": "2", "Registration Number": "A01-1112-1031-16", "Department": "COMA"}
+{"Name": "Cecil Anthony D'Souza", "Roll": "2-01-16-0102", "Current Year": "2", "Registration Number": "A01-1112-1032-16", "Department": "COMA"}
+{"Name": "Deepak Sharma", "Roll": "2-01-16-0103", "Current Year": "2", "Registration Number": "A01-1112-1033-16", "Department": "COMA"}
+{"Name": "Naman Kumar Agarwal", "Roll": "2-01-16-0104", "Current Year": "2", "Registration Number": "A01-1112-1034-16", "Department": "COMA"}
+{"Name": "Raunak Maloo", "Roll": "2-01-16-0105", "Current Year": "2", "Registration Number": "A01-1112-1035-16", "Department": "COMA"}
+{"Name": "Mayank Agarwal", "Roll": "2-01-16-0106", "Current Year": "2", "Registration Number": "A01-1112-1036-16", "Department": "COMA"}
+{"Name": "Sanjam Anand", "Roll": "2-01-16-0107", "Current Year": "2", "Registration Number": "A01-1112-1037-16", "Department": "COMA"}
+{"Name": "Utsav Rathi", "Roll": "2-01-16-0108", "Current Year": "2", "Registration Number": "A01-1112-1038-16", "Department": "COMA"}
+{"Name": "Vibhash Vardhan Agarwal", "Roll": "2-01-16-0109", "Current Year": "2", "Registration Number": "A01-1112-1039-16", "Department": "COMA"}
+{"Name": "Ankit Pacheria", "Roll": "2-01-16-0110", "Current Year": "2", "Registration Number": "A01-1112-1040-16", "Department": "COMA"}
+{"Name": "Ayush Agarwal", "Roll": "2-01-16-0111", "Current Year": "2", "Registration Number": "A01-1112-1041-16", "Department": "COMA"}
+{"Name": "Ishaan Poddar", "Roll": "2-01-16-0112", "Current Year": "2", "Registration Number": "A01-1112-1042-16", "Department": "COMA"}
+{"Name": "Shubham Mittal", "Roll": "2-01-16-0113", "Current Year": "2", "Registration Number": "A01-1112-1043-16", "Department": "COMA"}
+{"Name": "Ishmeet Singh Batra", "Roll": "2-01-16-0114", "Current Year": "2", "Registration Number": "A01-1112-1044-16", "Department": "COMA"}
+{"Name": "Yash Bagla", "Roll": "2-01-16-0115", "Current Year": "2", "Registration Number": "A01-1112-1045-16", "Department": "COMA"}
+{"Name": "Dhiraj Agarwal", "Roll": "2-01-16-0116", "Current Year": "2", "Registration Number": "A01-1112-1046-16", "Department": "COMA"}
+{"Name": "Ashutosh Sirohia", "Roll": "2-01-16-0117", "Current Year": "2", "Registration Number": "A01-1112-1047-16", "Department": "COMA"}
+{"Name": "Shaashwat Goyal", "Roll": "2-01-16-0118", "Current Year": "2", "Registration Number": "A01-1112-1048-16", "Department": "COMA"}
+{"Name": "Ishaan Agarwal", "Roll": "2-01-16-0119", "Current Year": "2", "Registration Number": "A01-1112-1049-16", "Department": "COMA"}
+{"Name": "Vedant Agarwal", "Roll": "1-01-16-0121", "Current Year": "1", "Registration Number": "A01-1112-1050-16", "Department": "COMA"}
+{"Name": "Monodeep Singh", "Roll": "2-01-16-0122", "Current Year": "2", "Registration Number": "A01-1112-1051-16", "Department": "COMA"}
+{"Name": "Siddhartha Paul", "Roll": "2-01-16-0123", "Current Year": "2", "Registration Number": "A01-1112-1052-16", "Department": "COMA"}
+{"Name": "Kamal Preet Singh", "Roll": "2-01-16-0124", "Current Year": "2", "Registration Number": "A01-1112-1053-16", "Department": "COMA"}
+{"Name": "Sudarshan Somani", "Roll": "2-01-16-0125", "Current Year": "2", "Registration Number": "A01-1112-1054-16", "Department": "COMA"}
+{"Name": "Anurag Bagaria", "Roll": "2-01-16-0126", "Current Year": "2", "Registration Number": "A01-1112-1055-16", "Department": "COMA"}
+{"Name": "Suryansh Gupta", "Roll": "2-01-16-0127", "Current Year": "2", "Registration Number": "A01-1112-1056-16", "Department": "COMA"}
+{"Name": "Piyush Dugar", "Roll": "2-01-16-0128", "Current Year": "2", "Registration Number": "A01-1112-1057-16", "Department": "COMA"}
+{"Name": "Varun Mohta", "Roll": "2-01-16-0129", "Current Year": "2", "Registration Number": "A01-1112-1058-16", "Department": "COMA"}
+{"Name": "Md Masbah Noor Khan", "Roll": "2-01-16-0130", "Current Year": "2", "Registration Number": "A01-1112-1059-16", "Department": "COMA"}
+{"Name": "Pravin Agarwal", "Roll": "2-01-16-0131", "Current Year": "2", "Registration Number": "A01-1112-1060-16", "Department": "COMA"}
+{"Name": "Nishant Narsaria", "Roll": "2-01-16-0132", "Current Year": "2", "Registration Number": "A01-1112-1061-16", "Department": "COMA"}
+{"Name": "Chaitanya Jalan", "Roll": "2-01-16-0133", "Current Year": "2", "Registration Number": "A01-1112-1062-16", "Department": "COMA"}
+{"Name": "Tushal Goenka", "Roll": "2-01-16-0134", "Current Year": "2", "Registration Number": "A01-1112-1063-16", "Department": "COMA"}
+{"Name": "Rohit Manuel Tete", "Roll": "2-01-16-0135", "Current Year": "2", "Registration Number": "A01-1132-1064-16", "Department": "COMA"}
+{"Name": "Amit Singh", "Roll": "2-01-16-0136", "Current Year": "2", "Registration Number": "A01-1112-1065-16", "Department": "COMA"}
+{"Name": "Rohit Kumar Indoria", "Roll": "2-01-16-0137", "Current Year": "2", "Registration Number": "A01-1112-1066-16", "Department": "COMA"}
+{"Name": "Stephen Baroi", "Roll": "2-01-16-0138", "Current Year": "2", "Registration Number": "A01-1112-1067-16", "Department": "COMA"}
+{"Name": "Sandip Chowdhary", "Roll": "2-01-16-0140", "Current Year": "2", "Registration Number": "A01-1112-1068-16", "Department": "COMA"}
+{"Name": "Sumit Bara", "Roll": "2-01-16-0141", "Current Year": "2", "Registration Number": "A01-1132-1069-16", "Department": "COMA"}
+{"Name": "Aman Singhal", "Roll": "2-01-16-0142", "Current Year": "2", "Registration Number": "A01-1112-1070-16", "Department": "COMA"}
+{"Name": "Himalay Bothra", "Roll": "2-01-16-0143", "Current Year": "2", "Registration Number": "A01-1112-1071-16", "Department": "COMA"}
+{"Name": "Harshvardhan Kothari", "Roll": "2-01-16-0144", "Current Year": "2", "Registration Number": "A01-1112-1072-16", "Department": "COMA"}
+{"Name": "Bivashendu Bikash Singha", "Roll": "2-01-16-0145", "Current Year": "2", "Registration Number": "A01-1112-1073-16", "Department": "COMA"}
+{"Name": "Rishab Bajoria", "Roll": "2-01-16-0146", "Current Year": "2", "Registration Number": "A01-1112-1074-16", "Department": "COMA"}
+{"Name": "Fahad Taslim Ahmed", "Roll": "2-01-16-0147", "Current Year": "2", "Registration Number": "A01-1112-1075-16", "Department": "COMA"}
+{"Name": "Sanyam Sah", "Roll": "2-01-16-0148", "Current Year": "2", "Registration Number": "A01-1112-1076-16", "Department": "COMA"}
+{"Name": "Abhishek Lal Jha", "Roll": "2-01-16-0149", "Current Year": "2", "Registration Number": "A01-1112-1077-16", "Department": "COMA"}
+{"Name": "Nilesh Upadhyaya", "Roll": "2-01-16-0150", "Current Year": "2", "Registration Number": "A01-1112-1078-16", "Department": "COMA"}
+{"Name": "Udit Agarwal", "Roll": "2-01-16-0151", "Current Year": "2", "Registration Number": "A01-1112-1079-16", "Department": "COMA"}
+{"Name": "Rajarshi Bishnu Sengupta", "Roll": "2-01-16-0152", "Current Year": "2", "Registration Number": "A01-1112-1080-16", "Department": "COMA"}
+{"Name": "Siddhant Agarwal", "Roll": "2-01-16-0153", "Current Year": "2", "Registration Number": "A01-1112-1081-16", "Department": "COMA"}
+{"Name": "Ankit Tiwari", "Roll": "2-01-16-0154", "Current Year": "2", "Registration Number": "A01-1112-1082-16", "Department": "COMA"}
+{"Name": "Mehul Agarwal", "Roll": "2-01-16-0155", "Current Year": "2", "Registration Number": "A01-1112-1083-16", "Department": "COMA"}
+{"Name": "Sachit Fatechandka", "Roll": "2-01-16-0156", "Current Year": "2", "Registration Number": "A01-1112-1084-16", "Department": "COMA"}
+{"Name": "Prashant Singh", "Roll": "2-01-16-0157", "Current Year": "2", "Registration Number": "A01-1112-1085-16", "Department": "COMA"}
+{"Name": "Mohit Sharma", "Roll": "2-01-16-0158", "Current Year": "2", "Registration Number": "A01-1112-1086-16", "Department": "COMA"}
+{"Name": "Tanmay Chhaparia", "Roll": "2-01-16-0159", "Current Year": "2", "Registration Number": "A01-1112-1087-16", "Department": "COMA"}
+{"Name": "Robin Rishi Banerjee", "Roll": "2-01-16-0160", "Current Year": "2", "Registration Number": "A01-1112-1088-16", "Department": "COMA"}
+{"Name": "Nilesh Agarwal", "Roll": "2-01-16-0161", "Current Year": "2", "Registration Number": "A01-1112-1089-16", "Department": "COMA"}
+{"Name": "Rohan Sharma", "Roll": "2-01-16-0162", "Current Year": "2", "Registration Number": "A01-1112-1090-16", "Department": "COMA"}
+{"Name": "Steven Nikhil Shah", "Roll": "2-01-16-0163", "Current Year": "2", "Registration Number": "A01-1112-1091-16", "Department": "COMA"}
+{"Name": "Nikunj Bansal", "Roll": "1-01-16-0164", "Current Year": "1", "Registration Number": "A01-1112-1092-16", "Department": "COMA"}
+{"Name": "Harshit Mitruka", "Roll": "2-01-16-0165", "Current Year": "2", "Registration Number": "A01-1112-1093-16", "Department": "COMA"}
+{"Name": "Sahil Agarwal", "Roll": "2-01-16-0166", "Current Year": "2", "Registration Number": "A01-1112-1094-16", "Department": "COMA"}
+{"Name": "Atul Goenka", "Roll": "2-01-16-0167", "Current Year": "2", "Registration Number": "A01-1112-1095-16", "Department": "COMA"}
+{"Name": "Aditya Kothari", "Roll": "2-01-16-0168", "Current Year": "2", "Registration Number": "A01-1112-1096-16", "Department": "COMA"}
+{"Name": "Kunal Agrawal", "Roll": "2-01-16-0169", "Current Year": "2", "Registration Number": "A01-1112-1097-16", "Department": "COMA"}
+{"Name": "Gaurav Shaw", "Roll": "2-01-16-0170", "Current Year": "2", "Registration Number": "A01-1112-1098-16", "Department": "COMA"}
+{"Name": "Utsa Mochary", "Roll": "2-01-16-0171", "Current Year": "2", "Registration Number": "A01-1132-1099-16", "Department": "COMA"}
+{"Name": "Anubhav Goyal", "Roll": "2-01-16-0172", "Current Year": "2", "Registration Number": "A01-1112-1100-16", "Department": "COMA"}
+{"Name": "Rahul Verma", "Roll": "2-01-16-0173", "Current Year": "2", "Registration Number": "A01-1112-1101-16", "Department": "COMA"}
+{"Name": "Kumar Aditya", "Roll": "2-01-16-0174", "Current Year": "2", "Registration Number": "A01-1112-1102-16", "Department": "COMA"}
+{"Name": "Mohit Kumar Todi", "Roll": "2-01-16-0175", "Current Year": "2", "Registration Number": "A01-1112-1103-16", "Department": "COMA"}
+{"Name": "Subham Todi", "Roll": "2-01-16-0176", "Current Year": "2", "Registration Number": "A01-1112-1104-16", "Department": "COMA"}
+{"Name": "Abhijeet Harry Manick", "Roll": "2-01-16-0177", "Current Year": "2", "Registration Number": "A01-1112-1105-16", "Department": "COMA"}
+{"Name": "Aditya Agarwal", "Roll": "2-01-16-0178", "Current Year": "2", "Registration Number": "A01-1112-1106-16", "Department": "COMA"}
+{"Name": "Mukund Kumar", "Roll": "2-01-16-0179", "Current Year": "2", "Registration Number": "A01-1112-1107-16", "Department": "COMA"}
+{"Name": "Ankur Bansal", "Roll": "2-01-16-0180", "Current Year": "2", "Registration Number": "A01-1112-1108-16", "Department": "COMA"}
+{"Name": "Himanshu Agarwal", "Roll": "2-01-16-0181", "Current Year": "2", "Registration Number": "A01-1112-1109-16", "Department": "COMA"}
+{"Name": "Vedant Verma", "Roll": "2-01-16-0182", "Current Year": "2", "Registration Number": "A01-1112-1110-16", "Department": "COMA"}
+{"Name": "Kanishk Kedia", "Roll": "2-01-16-0183", "Current Year": "2", "Registration Number": "A01-1112-1111-16", "Department": "COMA"}
+{"Name": "Kannan Kakani", "Roll": "2-01-16-0184", "Current Year": "2", "Registration Number": "A01-1112-1112-16", "Department": "COMA"}
+{"Name": "Muzzammil Hussain", "Roll": "2-01-16-0185", "Current Year": "2", "Registration Number": "A01-1112-1113-16", "Department": "COMA"}
+{"Name": "Sounak Bandyopadhyay", "Roll": "2-01-16-0186", "Current Year": "2", "Registration Number": "A01-1112-1114-16", "Department": "COMA"}
+{"Name": "Umang Garodia", "Roll": "2-01-16-0187", "Current Year": "2", "Registration Number": "A01-1112-1115-16", "Department": "COMA"}
+{"Name": "Soumya Ghosh", "Roll": "2-01-16-0188", "Current Year": "2", "Registration Number": "A01-1112-1116-16", "Department": "COMA"}
+{"Name": "Akash Verma", "Roll": "2-01-16-0189", "Current Year": "2", "Registration Number": "A01-1142-1117-16", "Department": "COMA"}
+{"Name": "Harsh Nangalia", "Roll": "2-01-16-0190", "Current Year": "2", "Registration Number": "A01-1112-1118-16", "Department": "COMA"}
+{"Name": "Rajarshi Bose", "Roll": "2-01-16-0191", "Current Year": "2", "Registration Number": "A01-1112-1119-16", "Department": "COMA"}
+{"Name": "Raghav Agarwal", "Roll": "2-01-16-0192", "Current Year": "2", "Registration Number": "A01-1112-1120-16", "Department": "COMA"}
+{"Name": "Suvam Gupta", "Roll": "2-01-16-0193", "Current Year": "2", "Registration Number": "A01-1112-1121-16", "Department": "COMA"}
+{"Name": "Mark Joshua Glass", "Roll": "2-01-16-0194", "Current Year": "2", "Registration Number": "A01-1112-1122-16", "Department": "COMA"}
+{"Name": "Shobhit Singhania", "Roll": "2-01-16-0195", "Current Year": "2", "Registration Number": "A01-1112-1123-16", "Department": "COMA"}
+{"Name": "Leo Moinak Roy", "Roll": "2-01-16-0197", "Current Year": "2", "Registration Number": "A01-1112-1124-16", "Department": "COMA"}
+{"Name": "Shrivatsa Kajaria", "Roll": "2-01-16-0198", "Current Year": "2", "Registration Number": "A01-1112-1125-16", "Department": "COMA"}
+{"Name": "Shreyash Sodhani", "Roll": "2-01-16-0199", "Current Year": "2", "Registration Number": "A01-1112-1126-16", "Department": "COMA"}
+{"Name": "Akash Seal", "Roll": "2-01-16-0200", "Current Year": "2", "Registration Number": "A01-1112-1127-16", "Department": "COMA"}
+{"Name": "Ankit Chowdhury", "Roll": "2-01-16-0201", "Current Year": "2", "Registration Number": "A01-1112-1128-16", "Department": "COMA"}
+{"Name": "Mayank Bose", "Roll": "1-01-16-0202", "Current Year": "1", "Registration Number": "A01-1112-1129-16", "Department": "COMA"}
+{"Name": "Chirag Mundra", "Roll": "2-01-16-0203", "Current Year": "2", "Registration Number": "A01-1112-1130-16", "Department": "COMA"}
+{"Name": "Nitish Himatsinghka", "Roll": "2-01-16-0204", "Current Year": "2", "Registration Number": "A01-1112-1131-16", "Department": "COMA"}
+{"Name": "Piyush Agarwal", "Roll": "2-01-16-0205", "Current Year": "2", "Registration Number": "A01-1112-1132-16", "Department": "COMA"}
+{"Name": "Vaibhav Bathwal", "Roll": "2-01-16-0206", "Current Year": "2", "Registration Number": "A01-1112-1133-16", "Department": "COMA"}
+{"Name": "Sanskar", "Roll": "2-01-16-0207", "Current Year": "2", "Registration Number": "A01-1112-1134-16", "Department": "COMA"}
+{"Name": "Adarsha Seksaria", "Roll": "2-01-16-0208", "Current Year": "2", "Registration Number": "A01-1112-1135-16", "Department": "COMA"}
+{"Name": "Rahul Agarwal", "Roll": "2-01-16-0209", "Current Year": "2", "Registration Number": "A01-1112-1136-16", "Department": "COMA"}
+{"Name": "Narendra Ningthoujam", "Roll": "2-01-16-0210", "Current Year": "2", "Registration Number": "A01-1122-1137-16", "Department": "COMA"}
+{"Name": "Rishav Verma", "Roll": "2-01-16-0211", "Current Year": "2", "Registration Number": "A01-1112-1138-16", "Department": "COMA"}
+{"Name": "Anubhav Biswas", "Roll": "2-01-16-0212", "Current Year": "2", "Registration Number": "A01-1112-1139-16", "Department": "COMA"}
+{"Name": "Abhishek Cyril Murmu", "Roll": "2-01-16-0213", "Current Year": "2", "Registration Number": "A01-1132-1140-16", "Department": "COMA"}
+{"Name": "Shivam Kumar Jalan", "Roll": "2-01-16-0214", "Current Year": "2", "Registration Number": "A01-1112-1141-16", "Department": "COMA"}
+{"Name": "Saurav Sharma", "Roll": "2-01-16-0215", "Current Year": "2", "Registration Number": "A01-1112-1142-16", "Department": "COMA"}
+{"Name": "Nikhil Agarwal", "Roll": "2-01-16-0217", "Current Year": "2", "Registration Number": "A01-1112-1143-16", "Department": "COMA"}
+{"Name": "Vivek Gupta", "Roll": "2-01-16-0218", "Current Year": "2", "Registration Number": "A01-1112-1144-16", "Department": "COMA"}
+{"Name": "Rounak Patwari", "Roll": "2-01-16-0219", "Current Year": "2", "Registration Number": "A01-1112-1145-16", "Department": "COMA"}
+{"Name": "Karan Agarwal", "Roll": "2-01-16-0220", "Current Year": "2", "Registration Number": "A01-1112-1146-16", "Department": "COMA"}
+{"Name": "Rishav Kumar Agarwal", "Roll": "2-01-16-0221", "Current Year": "2", "Registration Number": "A01-1112-1147-16", "Department": "COMA"}
+{"Name": "Lalhruaitluanga Chhakchhuak", "Roll": "2-01-16-0222", "Current Year": "2", "Registration Number": "A01-1132-1148-16", "Department": "COMA"}
+{"Name": "Husein Saifuddinrangoonwala", "Roll": "2-01-16-0223", "Current Year": "2", "Registration Number": "A01-1112-1149-16", "Department": "COMA"}
+{"Name": "Anuj Kothari", "Roll": "2-01-16-0226", "Current Year": "2", "Registration Number": "A01-1112-1150-16", "Department": "COMA"}
+{"Name": "Utkarsh Ghoshal", "Roll": "2-01-16-0227", "Current Year": "2", "Registration Number": "A01-1112-1151-16", "Department": "COMA"}
+{"Name": "Karan Agarwalla", "Roll": "2-01-16-0228", "Current Year": "2", "Registration Number": "A01-1112-1152-16", "Department": "COMA"}
+{"Name": "Kazi Ataharul Islam", "Roll": "2-01-16-0229", "Current Year": "2", "Registration Number": "A01-1112-1153-16", "Department": "COMA"}
+{"Name": "Saket Sharma", "Roll": "2-01-16-0230", "Current Year": "2", "Registration Number": "A01-1112-1154-16", "Department": "COMA"}
+{"Name": "Krishna Kumar Agarwal", "Roll": "2-01-16-0231", "Current Year": "2", "Registration Number": "A01-1112-1155-16", "Department": "COMA"}
+{"Name": "Aditya Narayan Bathwal", "Roll": "2-01-16-0232", "Current Year": "2", "Registration Number": "A01-1112-1156-16", "Department": "COMA"}
+{"Name": "Vineet Shah", "Roll": "2-01-16-0233", "Current Year": "2", "Registration Number": "A01-1112-1157-16", "Department": "COMA"}
+{"Name": "Shriyans Khaitan", "Roll": "2-01-16-0234", "Current Year": "2", "Registration Number": "A01-1112-1158-16", "Department": "COMA"}
+{"Name": "Suraj Rozario", "Roll": "2-01-16-0235", "Current Year": "2", "Registration Number": "A01-1112-1159-16", "Department": "COMA"}
+{"Name": "Gaurav Singh", "Roll": "2-01-16-0236", "Current Year": "2", "Registration Number": "A01-1112-1160-16", "Department": "COMA"}
+{"Name": "Mehul Rathi", "Roll": "2-01-16-0237", "Current Year": "2", "Registration Number": "A01-1112-1161-16", "Department": "COMA"}
+{"Name": "Sunny Raymond Mondal", "Roll": "2-01-16-0238", "Current Year": "2", "Registration Number": "A01-1112-1162-16", "Department": "COMA"}
+{"Name": "Sayak Roy", "Roll": "1-01-16-0239", "Current Year": "1", "Registration Number": "A01-1112-1163-16", "Department": "COMA"}
+{"Name": "Rishabh Kanodia", "Roll": "2-01-16-0240", "Current Year": "2", "Registration Number": "A01-1112-1164-16", "Department": "COMA"}
+{"Name": "Harsh Sharma", "Roll": "2-01-16-0241", "Current Year": "2", "Registration Number": "A01-1112-1165-16", "Department": "COMA"}
+{"Name": "Raunak Sharma", "Roll": "2-01-16-0242", "Current Year": "2", "Registration Number": "A01-1112-1166-16", "Department": "COMA"}
+{"Name": "Sayar Bhowmik", "Roll": "2-01-16-0243", "Current Year": "2", "Registration Number": "A01-1112-1167-16", "Department": "COMA"}
+{"Name": "Parakh Khandelwal", "Roll": "2-01-16-0244", "Current Year": "2", "Registration Number": "A01-1112-1168-16", "Department": "COMA"}
+{"Name": "Shrey Mittal", "Roll": "2-01-16-0245", "Current Year": "2", "Registration Number": "A01-1112-1169-16", "Department": "COMA"}
+{"Name": "Rahil Jaiswal", "Roll": "2-01-16-0246", "Current Year": "2", "Registration Number": "A01-1112-1170-16", "Department": "COMA"}
+{"Name": "Karan Arora", "Roll": "2-01-16-0247", "Current Year": "2", "Registration Number": "A01-1112-1171-16", "Department": "COMA"}
+{"Name": "Shashank Pareek", "Roll": "2-01-16-0248", "Current Year": "2", "Registration Number": "A01-1112-1172-16", "Department": "COMA"}
+{"Name": "Naman Dalmia", "Roll": "2-01-16-0249", "Current Year": "2", "Registration Number": "A01-1112-1173-16", "Department": "COMA"}
+{"Name": "Gourav Arora", "Roll": "2-01-16-0250", "Current Year": "2", "Registration Number": "A01-1112-1174-16", "Department": "COMA"}
+{"Name": "Ritik Jain", "Roll": "2-01-16-0251", "Current Year": "2", "Registration Number": "A01-1112-1175-16", "Department": "COMA"}
+{"Name": "Rohit Gakhar", "Roll": "2-01-16-0252", "Current Year": "2", "Registration Number": "A01-1112-1176-16", "Department": "COMA"}
+{"Name": "Akash Agarwal", "Roll": "2-01-16-0253", "Current Year": "2", "Registration Number": "A01-1112-1177-16", "Department": "COMA"}
+{"Name": "Dhairya Borar", "Roll": "2-01-16-0254", "Current Year": "2", "Registration Number": "A01-1112-1178-16", "Department": "COMA"}
+{"Name": "Hritick Agarwal", "Roll": "2-01-16-0255", "Current Year": "2", "Registration Number": "A01-1112-1179-16", "Department": "COMA"}
+{"Name": "Raghav Khaitan", "Roll": "2-01-16-0256", "Current Year": "2", "Registration Number": "A01-1112-1180-16", "Department": "COMA"}
+{"Name": "Somya Tibrewal", "Roll": "2-01-16-0257", "Current Year": "2", "Registration Number": "A01-1112-1181-16", "Department": "COMA"}
+{"Name": "Deepam Kundu", "Roll": "2-01-16-0258", "Current Year": "2", "Registration Number": "A01-1142-1182-16", "Department": "COMA"}
+{"Name": "Akash Goyal", "Roll": "2-01-16-0259", "Current Year": "2", "Registration Number": "A01-1112-1183-16", "Department": "COMA"}
+{"Name": "Yash Vardhan Sarda", "Roll": "1-01-16-0260", "Current Year": "1", "Registration Number": "A01-1112-1184-16", "Department": "COMA"}
+{"Name": "Tushar Shah", "Roll": "2-01-16-0261", "Current Year": "2", "Registration Number": "A01-1112-1185-16", "Department": "COMA"}
+{"Name": "Kanishk Saraogi", "Roll": "2-01-16-0262", "Current Year": "2", "Registration Number": "A01-1112-1186-16", "Department": "COMA"}
+{"Name": "Nitin Bhartia", "Roll": "2-01-16-0263", "Current Year": "2", "Registration Number": "A01-1112-1187-16", "Department": "COMA"}
+{"Name": "Mohak Daga", "Roll": "2-01-16-0264", "Current Year": "2", "Registration Number": "A01-1112-1188-16", "Department": "COMA"}
+{"Name": "Shivam Bhandari", "Roll": "2-01-16-0265", "Current Year": "2", "Registration Number": "A01-1112-1189-16", "Department": "COMA"}
+{"Name": "Vageesh Gupta", "Roll": "2-01-16-0266", "Current Year": "2", "Registration Number": "A01-1112-1190-16", "Department": "COMA"}
+{"Name": "Kishan Agarwal", "Roll": "2-01-16-0267", "Current Year": "2", "Registration Number": "A01-1112-1191-16", "Department": "COMA"}
+{"Name": "Akash Chhabria", "Roll": "2-01-16-0268", "Current Year": "2", "Registration Number": "A01-1112-1192-16", "Department": "COMA"}
+{"Name": "Pulkit Dalania", "Roll": "2-01-16-0269", "Current Year": "2", "Registration Number": "A01-1142-1193-16", "Department": "COMA"}
+{"Name": "Harsh Dalmia", "Roll": "2-01-16-0270", "Current Year": "2", "Registration Number": "A01-1112-1194-16", "Department": "COMA"}
+{"Name": "Anubhav Pandey", "Roll": "2-01-16-0271", "Current Year": "2", "Registration Number": "A01-1112-1195-16", "Department": "COMA"}
+{"Name": "Kumar Vishesh Vinay", "Roll": "2-01-16-0272", "Current Year": "2", "Registration Number": "A01-1142-1196-16", "Department": "COMA"}
+{"Name": "Ayush Kumar Agarwal", "Roll": "2-01-16-0273", "Current Year": "2", "Registration Number": "A01-1112-1197-16", "Department": "COMA"}
+{"Name": "Dhruvik Sheth", "Roll": "2-01-16-0274", "Current Year": "2", "Registration Number": "A01-1112-1198-16", "Department": "COMA"}
+{"Name": "Mohit Rungta", "Roll": "2-01-16-0275", "Current Year": "2", "Registration Number": "A01-1112-1199-16", "Department": "COMA"}
+{"Name": "Ashis Chowdhury", "Roll": "2-01-16-0276", "Current Year": "2", "Registration Number": "A01-1112-1200-16", "Department": "COMA"}
+{"Name": "Anurag Chandak", "Roll": "2-01-16-0277", "Current Year": "2", "Registration Number": "A01-1112-1201-16", "Department": "COMA"}
+{"Name": "Ronak Khattwani", "Roll": "2-01-16-0278", "Current Year": "2", "Registration Number": "A01-1112-1202-16", "Department": "COMA"}
+{"Name": "Harsh Parasrampuria", "Roll": "2-01-16-0279", "Current Year": "2", "Registration Number": "A01-1112-1203-16", "Department": "COMA"}
+{"Name": "Navin Kumar Rathi", "Roll": "2-01-16-0280", "Current Year": "2", "Registration Number": "A01-1112-1204-16", "Department": "COMA"}
+{"Name": "Prashant Chaturvedi", "Roll": "2-01-16-0281", "Current Year": "2", "Registration Number": "A01-1112-1205-16", "Department": "COMA"}
+{"Name": "Susarla Aravind Jayaram", "Roll": "2-01-16-0282", "Current Year": "2", "Registration Number": "A01-1112-1206-16", "Department": "COMA"}
+{"Name": "Manav Tibrewal", "Roll": "2-01-16-0283", "Current Year": "2", "Registration Number": "A01-1112-1207-16", "Department": "COMA"}
+{"Name": "Shubham Kumar Fitkariwala", "Roll": "2-01-16-0284", "Current Year": "2", "Registration Number": "A01-1112-1208-16", "Department": "COMA"}
+{"Name": "Philip Tamang", "Roll": "2-01-16-0285", "Current Year": "2", "Registration Number": "A01-1132-1209-16", "Department": "COMA"}
+{"Name": "Arka Ghosh", "Roll": "2-01-16-0286", "Current Year": "2", "Registration Number": "A01-1112-1210-16", "Department": "COMA"}
+{"Name": "Promit Sarkar", "Roll": "2-01-16-0288", "Current Year": "2", "Registration Number": "A01-1122-1211-16", "Department": "COMA"}
+{"Name": "Nikhil Jain", "Roll": "2-01-16-0289", "Current Year": "2", "Registration Number": "A01-1112-1212-16", "Department": "COMA"}
+{"Name": "Srimanta Mukherjee", "Roll": "2-01-16-0290", "Current Year": "2", "Registration Number": "A01-1112-1213-16", "Department": "COMA"}
+{"Name": "Avinandan Saha", "Roll": "2-01-16-0291", "Current Year": "2", "Registration Number": "A01-1122-1214-16", "Department": "COMA"}
+{"Name": "Ashwani Jaiswal", "Roll": "2-01-16-0292", "Current Year": "2", "Registration Number": "A01-1112-1215-16", "Department": "COMA"}
+{"Name": "Shivam Mishra", "Roll": "2-01-16-0293", "Current Year": "2", "Registration Number": "A01-1112-1216-16", "Department": "COMA"}
+{"Name": "Mohit Sah", "Roll": "2-01-16-0294", "Current Year": "2", "Registration Number": "A01-1112-1217-16", "Department": "COMA"}
+{"Name": "Md Shoaib", "Roll": "2-01-16-0295", "Current Year": "2", "Registration Number": "A01-1112-1218-16", "Department": "COMA"}
+{"Name": "Srest Bafna", "Roll": "2-01-16-0296", "Current Year": "2", "Registration Number": "A01-1112-1219-16", "Department": "COMA"}
+{"Name": "Pranav Shah", "Roll": "2-01-16-0297", "Current Year": "2", "Registration Number": "A01-1112-1220-16", "Department": "COMA"}
+{"Name": "Apoorva Gupta", "Roll": "2-01-16-0298", "Current Year": "2", "Registration Number": "A01-1112-1221-16", "Department": "COMA"}
+{"Name": "Ritesh Mundhra", "Roll": "2-01-16-0299", "Current Year": "2", "Registration Number": "A01-1112-1222-16", "Department": "COMA"}
+{"Name": "Salil Chadha", "Roll": "2-01-16-0300", "Current Year": "2", "Registration Number": "A01-1112-1223-16", "Department": "COMA"}
+{"Name": "Md Ali Emam Khan", "Roll": "2-01-16-0301", "Current Year": "2", "Registration Number": "A01-1112-1224-16", "Department": "COMA"}
+{"Name": "Pranay Ramchandani", "Roll": "2-01-16-0302", "Current Year": "2", "Registration Number": "A01-1112-1225-16", "Department": "COMA"}
+{"Name": "Bindesh Agarwalla", "Roll": "2-01-16-0303", "Current Year": "2", "Registration Number": "A01-1112-1226-16", "Department": "COMA"}
+{"Name": "Virat Singh", "Roll": "2-01-16-0304", "Current Year": "2", "Registration Number": "A01-1112-1227-16", "Department": "COMA"}
+{"Name": "Anuj Kedia", "Roll": "2-01-16-0305", "Current Year": "2", "Registration Number": "A01-1112-1228-16", "Department": "COMA"}
+{"Name": "Ketan Soni", "Roll": "2-01-16-0306", "Current Year": "2", "Registration Number": "A01-1142-1229-16", "Department": "COMA"}
+{"Name": "Yogesh Jain", "Roll": "2-01-16-0307", "Current Year": "2", "Registration Number": "A01-1112-1230-16", "Department": "COMA"}
+{"Name": "Sayam Jalan", "Roll": "2-01-16-0308", "Current Year": "2", "Registration Number": "A01-1112-1231-16", "Department": "COMA"}
+{"Name": "Subhajit Gupta", "Roll": "2-01-16-0309", "Current Year": "2", "Registration Number": "A01-1112-1232-16", "Department": "COMA"}
+{"Name": "Joy James Mitra", "Roll": "2-01-16-0310", "Current Year": "2", "Registration Number": "A01-1112-1233-16", "Department": "COMA"}
+{"Name": "Saptarshi Adhya", "Roll": "2-01-16-0311", "Current Year": "2", "Registration Number": "A01-1112-1234-16", "Department": "COMA"}
+{"Name": "Rajat Agarwal", "Roll": "2-01-16-0312", "Current Year": "2", "Registration Number": "A01-1112-1235-16", "Department": "COMA"}
+{"Name": "Navin Tushar Lakra", "Roll": "2-01-16-0313", "Current Year": "2", "Registration Number": "A01-1132-1236-16", "Department": "COMA"}
+{"Name": "Raj Vardhan Bagaria", "Roll": "2-01-16-0314", "Current Year": "2", "Registration Number": "A01-1112-1237-16", "Department": "COMA"}
+{"Name": "Devesh Khaitan", "Roll": "2-01-16-0315", "Current Year": "2", "Registration Number": "A01-1112-1238-16", "Department": "COMA"}
+{"Name": "Asad Ahmed", "Roll": "1-01-16-0316", "Current Year": "1", "Registration Number": "A01-1112-1239-16", "Department": "COMA"}
+{"Name": "Priyam Jhunjhunwala", "Roll": "2-01-16-0317", "Current Year": "2", "Registration Number": "A01-1112-1240-16", "Department": "COMA"}
+{"Name": "Harshit Marodia", "Roll": "2-01-16-0318", "Current Year": "2", "Registration Number": "A01-1112-1241-16", "Department": "COMA"}
+{"Name": "Ashish Banthia", "Roll": "2-01-16-0319", "Current Year": "2", "Registration Number": "A01-1112-1242-16", "Department": "COMA"}
+{"Name": "Yash Tambi", "Roll": "2-01-16-0320", "Current Year": "2", "Registration Number": "A01-1112-1243-16", "Department": "COMA"}
+{"Name": "Basu Kedia", "Roll": "2-01-16-0321", "Current Year": "2", "Registration Number": "A01-1142-1244-16", "Department": "COMA"}
+{"Name": "Harsh Modi", "Roll": "2-01-16-0322", "Current Year": "2", "Registration Number": "A01-1112-1245-16", "Department": "COMA"}
+{"Name": "Vivek Agarwal", "Roll": "2-01-16-0323", "Current Year": "2", "Registration Number": "A01-1112-1246-16", "Department": "COMA"}
+{"Name": "Vashisht Jhunjhunwala", "Roll": "2-01-16-0324", "Current Year": "2", "Registration Number": "A01-1112-1247-16", "Department": "COMA"}
+{"Name": "Rohan Chatterjee", "Roll": "2-01-16-0325", "Current Year": "2", "Registration Number": "A01-1112-1248-16", "Department": "COMA"}
+{"Name": "Abhishek Saraf", "Roll": "2-01-16-0326", "Current Year": "2", "Registration Number": "A01-1112-1249-16", "Department": "COMA"}
+{"Name": "Ouseph Joshi Alias Joseph", "Roll": "2-01-16-0327", "Current Year": "2", "Registration Number": "A01-1112-1250-16", "Department": "COMA"}
+{"Name": "Dhiraj Agarwal", "Roll": "2-01-16-0328", "Current Year": "2", "Registration Number": "A01-1112-1251-16", "Department": "COMA"}
+{"Name": "Utkarsh Agarwal", "Roll": "2-01-16-0329", "Current Year": "2", "Registration Number": "A01-1112-1252-16", "Department": "COMA"}
+{"Name": "Aditya Garg", "Roll": "2-01-16-0330", "Current Year": "2", "Registration Number": "A01-1112-1253-16", "Department": "COMA"}
+{"Name": "Adarsh Drolia", "Roll": "2-01-16-0331", "Current Year": "2", "Registration Number": "A01-1112-1254-16", "Department": "COMA"}
+{"Name": "Pratik Tibrewal", "Roll": "2-01-16-0332", "Current Year": "2", "Registration Number": "A01-1112-1255-16", "Department": "COMA"}
+{"Name": "Rachit Dhandhania", "Roll": "2-01-16-0333", "Current Year": "2", "Registration Number": "A01-1112-1256-16", "Department": "COMA"}
+{"Name": "Aditya Singh", "Roll": "2-01-16-0334", "Current Year": "2", "Registration Number": "A01-1112-1257-16", "Department": "COMA"}
+{"Name": "Aditya Sharma", "Roll": "2-01-16-0335", "Current Year": "2", "Registration Number": "A01-1112-1258-16", "Department": "COMA"}
+{"Name": "Yash Goyal", "Roll": "2-01-16-0336", "Current Year": "2", "Registration Number": "A01-1112-1259-16", "Department": "COMA"}
+{"Name": "Gaurav Keshan", "Roll": "2-01-16-0337", "Current Year": "2", "Registration Number": "A01-1112-1260-16", "Department": "COMA"}
+{"Name": "Vishal Juneja", "Roll": "2-01-16-0338", "Current Year": "2", "Registration Number": "A01-1112-1261-16", "Department": "COMA"}
+{"Name": "Setu Kumar Choudhary", "Roll": "2-01-16-0339", "Current Year": "2", "Registration Number": "A01-1142-1262-16", "Department": "COMA"}
+{"Name": "Vashisth Dalmia", "Roll": "2-01-16-0340", "Current Year": "2", "Registration Number": "A01-1112-1263-16", "Department": "COMA"}
+{"Name": "Mukul Modi", "Roll": "2-01-16-0341", "Current Year": "2", "Registration Number": "A01-1112-1264-16", "Department": "COMA"}
+{"Name": "Abhinandan Jain", "Roll": "2-01-16-0342", "Current Year": "2", "Registration Number": "A01-1112-1265-16", "Department": "COMA"}
+{"Name": "Abhishek Daga", "Roll": "2-01-16-0343", "Current Year": "2", "Registration Number": "A01-1112-1266-16", "Department": "COMA"}
+{"Name": "Aashutosh Jaiswal", "Roll": "2-01-16-0344", "Current Year": "2", "Registration Number": "A01-1142-1267-16", "Department": "COMA"}
+{"Name": "Harsh Agarwal", "Roll": "2-01-16-0345", "Current Year": "2", "Registration Number": "A01-1112-1268-16", "Department": "COMA"}
+{"Name": "Nikunj Jhanwar", "Roll": "1-01-16-0346", "Current Year": "1", "Registration Number": "A01-1112-1269-16", "Department": "COMA"}
+{"Name": "Jeswin George", "Roll": "2-01-16-0347", "Current Year": "2", "Registration Number": "A01-1112-1270-16", "Department": "COMA"}
+{"Name": "Pratyush Agarwal", "Roll": "2-01-16-0348", "Current Year": "2", "Registration Number": "A01-1112-1271-16", "Department": "COMA"}
+{"Name": "Ayush Khowala", "Roll": "2-01-16-0349", "Current Year": "2", "Registration Number": "A01-1112-1272-16", "Department": "COMA"}
+{"Name": "Aneequel Abedin", "Roll": "2-01-16-0350", "Current Year": "2", "Registration Number": "A01-1112-1273-16", "Department": "COMA"}
+{"Name": "Koushal Toshniwal", "Roll": "2-01-16-0351", "Current Year": "2", "Registration Number": "A01-1112-1274-16", "Department": "COMA"}
+{"Name": "Shivam Surana", "Roll": "2-01-16-0352", "Current Year": "2", "Registration Number": "A01-1112-1275-16", "Department": "COMA"}
+{"Name": "Hrithik Verma", "Roll": "2-01-16-0353", "Current Year": "2", "Registration Number": "A01-1112-1276-16", "Department": "COMA"}
+{"Name": "Shivam Surana", "Roll": "2-01-16-0354", "Current Year": "2", "Registration Number": "A01-1112-1277-16", "Department": "COMA"}
+{"Name": "Rajat Kumar Singh", "Roll": "2-01-16-0355", "Current Year": "2", "Registration Number": "A01-1112-1278-16", "Department": "COMA"}
+{"Name": "Nikhil Kumar Jaiswal", "Roll": "2-01-16-0356", "Current Year": "2", "Registration Number": "A01-1112-1279-16", "Department": "COMA"}
+{"Name": "Shivam Kayal", "Roll": "1-01-16-0357", "Current Year": "1", "Registration Number": "A01-1112-1280-16", "Department": "COMA"}
+{"Name": "Mohammad Suhail Khan", "Roll": "1-01-16-0358", "Current Year": "1", "Registration Number": "A01-1112-1281-16", "Department": "COMA"}
+{"Name": "Pratik Jain", "Roll": "2-01-16-0359", "Current Year": "2", "Registration Number": "A01-1112-1282-16", "Department": "COMA"}
+{"Name": "Nikhil Nelson Ekka", "Roll": "2-01-16-0360", "Current Year": "2", "Registration Number": "A01-1132-1283-16", "Department": "COMA"}
+{"Name": "Debarghya Chowdhury", "Roll": "2-01-16-0361", "Current Year": "2", "Registration Number": "A01-1112-1284-16", "Department": "COMA"}
+{"Name": "Joy Surya Bagh", "Roll": "2-01-16-0362", "Current Year": "2", "Registration Number": "A01-1122-1285-16", "Department": "COMA"}
+{"Name": "Rishav Barua", "Roll": "2-01-16-0363", "Current Year": "2", "Registration Number": "A01-1132-1286-16", "Department": "COMA"}
+{"Name": "Rohan Kamdar", "Roll": "2-01-16-0364", "Current Year": "2", "Registration Number": "A01-1112-1287-16", "Department": "COMA"}
+{"Name": "Abhishek Luharuka", "Roll": "2-01-16-0365", "Current Year": "2", "Registration Number": "A01-1112-1288-16", "Department": "COMA"}
+{"Name": "Dhruv Tikmany", "Roll": "2-01-16-0366", "Current Year": "2", "Registration Number": "A01-1112-1289-16", "Department": "COMA"}
+{"Name": "Ranjan Pandit", "Roll": "2-01-16-0367", "Current Year": "2", "Registration Number": "A01-1112-1290-16", "Department": "COMA"}
+{"Name": "Amit Kumar", "Roll": "2-01-16-0368", "Current Year": "2", "Registration Number": "A01-1122-1291-16", "Department": "COMA"}
+{"Name": "Raunak Sipani", "Roll": "2-01-16-0369", "Current Year": "2", "Registration Number": "A01-1112-1292-16", "Department": "COMA"}
+{"Name": "Sahajan Talukdar", "Roll": "2-01-16-0370", "Current Year": "2", "Registration Number": "A01-1112-1293-16", "Department": "COMA"}
+{"Name": "Ayush Agarwal", "Roll": "2-01-16-0371", "Current Year": "2", "Registration Number": "A01-1112-1294-16", "Department": "COMA"}
+{"Name": "Sachin Chindalia", "Roll": "2-01-16-0372", "Current Year": "2", "Registration Number": "A01-1112-1295-16", "Department": "COMA"}
+{"Name": "Mohit Sarda", "Roll": "2-01-16-0373", "Current Year": "2", "Registration Number": "A01-1112-1296-16", "Department": "COMA"}
+{"Name": "Mohit Agarwal", "Roll": "2-01-16-0374", "Current Year": "2", "Registration Number": "A01-1112-1297-16", "Department": "COMA"}
+{"Name": "Jatin Jain", "Roll": "2-01-16-0375", "Current Year": "2", "Registration Number": "A01-1112-1298-16", "Department": "COMA"}
+{"Name": "Subham Agarwal", "Roll": "2-01-16-0376", "Current Year": "2", "Registration Number": "A01-1112-1299-16", "Department": "COMA"}
+{"Name": "Anubhav Jain", "Roll": "2-01-16-0377", "Current Year": "2", "Registration Number": "A01-1112-1300-16", "Department": "COMA"}
+{"Name": "Chirag Singhal", "Roll": "2-01-16-0378", "Current Year": "2", "Registration Number": "A01-1112-1301-16", "Department": "COMA"}
+{"Name": "Dibesh Agarwala", "Roll": "2-01-16-0379", "Current Year": "2", "Registration Number": "A01-1112-1302-16", "Department": "COMA"}
+{"Name": "Nishant Agarwal", "Roll": "2-01-16-0380", "Current Year": "2", "Registration Number": "A01-1112-1303-16", "Department": "COMA"}
+{"Name": "Nikunj Loyalka", "Roll": "2-01-16-0381", "Current Year": "2", "Registration Number": "A01-1112-1304-16", "Department": "COMA"}
+{"Name": "Kanak Tibrewal", "Roll": "2-01-16-0382", "Current Year": "2", "Registration Number": "A01-1112-1305-16", "Department": "COMA"}
+{"Name": "Yash Vardhan Marda", "Roll": "2-01-16-0383", "Current Year": "2", "Registration Number": "A01-1112-1306-16", "Department": "COMA"}
+{"Name": "Tanmay Pandey", "Roll": "2-01-16-0384", "Current Year": "2", "Registration Number": "A01-1112-1307-16", "Department": "COMA"}
+{"Name": "Tanmay Khetawat", "Roll": "1-01-16-0385", "Current Year": "1", "Registration Number": "A01-1112-1308-16", "Department": "COMA"}
+{"Name": "Aditya Kothari", "Roll": "2-01-16-0386", "Current Year": "2", "Registration Number": "A01-1112-1309-16", "Department": "COMA"}
+{"Name": "Ignatius Vasu Manuel", "Roll": "2-01-16-0388", "Current Year": "2", "Registration Number": "A01-1112-1310-16", "Department": "COMA"}
+{"Name": "Riddhiman Ray", "Roll": "2-01-16-0389", "Current Year": "2", "Registration Number": "A01-1112-1311-16", "Department": "COMA"}
+{"Name": "Suyash Sharma", "Roll": "2-01-16-0390", "Current Year": "2", "Registration Number": "A01-1112-1312-16", "Department": "COMA"}
+{"Name": "Pulkit Banka", "Roll": "2-01-16-0391", "Current Year": "2", "Registration Number": "A01-1112-1313-16", "Department": "COMA"}
+{"Name": "Sahil Jain", "Roll": "2-01-16-0392", "Current Year": "2", "Registration Number": "A01-1112-1314-16", "Department": "COMA"}
+{"Name": "Rishabh Beriwal", "Roll": "2-01-16-0393", "Current Year": "2", "Registration Number": "A01-1112-1315-16", "Department": "COMA"}
+{"Name": "Remant Kumar Gupta", "Roll": "2-01-16-0395", "Current Year": "2", "Registration Number": "A01-1112-1316-16", "Department": "COMA"}
+{"Name": "Nikunj Bahety", "Roll": "2-01-16-0396", "Current Year": "2", "Registration Number": "A01-1112-1317-16", "Department": "COMA"}
+{"Name": "Shivam Jhunjhunwala", "Roll": "2-01-16-0397", "Current Year": "2", "Registration Number": "A01-1112-1318-16", "Department": "COMA"}
+{"Name": "Mukund Sureka", "Roll": "2-01-16-0398", "Current Year": "2", "Registration Number": "A01-1112-1319-16", "Department": "COMA"}
+{"Name": "Sk Alizeh Md Karim", "Roll": "2-01-16-0399", "Current Year": "2", "Registration Number": "A01-1112-1320-16", "Department": "COMA"}
+{"Name": "Shaunak Sengupta", "Roll": "2-01-16-0400", "Current Year": "2", "Registration Number": "A01-1112-1321-16", "Department": "COMA"}
+{"Name": "Harsh Bharat Vora", "Roll": "2-01-16-0401", "Current Year": "2", "Registration Number": "A01-1112-1322-16", "Department": "COMA"}
+{"Name": "Rohan Banerjee", "Roll": "2-01-16-0402", "Current Year": "2", "Registration Number": "A01-1112-1323-16", "Department": "COMA"}
+{"Name": "Barun Somani", "Roll": "2-01-16-0403", "Current Year": "2", "Registration Number": "A01-1112-1324-16", "Department": "COMA"}
+{"Name": "Sahil Jain", "Roll": "2-01-16-0404", "Current Year": "2", "Registration Number": "A01-1112-1325-16", "Department": "COMA"}
+{"Name": "Sagar Somani", "Roll": "2-01-16-0405", "Current Year": "2", "Registration Number": "A01-1112-1326-16", "Department": "COMA"}
+{"Name": "Vinam Surana", "Roll": "2-01-16-0406", "Current Year": "2", "Registration Number": "A01-1112-1327-16", "Department": "COMA"}
+{"Name": "Jithin James", "Roll": "2-01-16-0407", "Current Year": "2", "Registration Number": "A01-1112-1328-16", "Department": "COMA"}
+{"Name": "Pius Sah", "Roll": "2-01-16-0409", "Current Year": "2", "Registration Number": "A01-1112-1329-16", "Department": "COMA"}
+{"Name": "Ankit Singhania", "Roll": "2-01-16-0410", "Current Year": "2", "Registration Number": "A01-1112-1330-16", "Department": "COMA"}
+{"Name": "Peeyush Kumar Shah", "Roll": "2-01-16-0411", "Current Year": "2", "Registration Number": "A01-1112-1331-16", "Department": "COMA"}
+{"Name": "Sanchit Singhal", "Roll": "2-01-16-0412", "Current Year": "2", "Registration Number": "A01-1112-1332-16", "Department": "COMA"}
+{"Name": "Vaibhav Lihala", "Roll": "2-01-16-0413", "Current Year": "2", "Registration Number": "A01-1112-1333-16", "Department": "COMA"}
+{"Name": "Arnab Sen", "Roll": "2-01-16-0415", "Current Year": "2", "Registration Number": "A01-1112-1334-16", "Department": "COMA"}
+{"Name": "Raghav Mundhra", "Roll": "2-01-16-0416", "Current Year": "2", "Registration Number": "A01-1112-1335-16", "Department": "COMA"}
+{"Name": "Chirag Dudheria", "Roll": "2-01-16-0417", "Current Year": "2", "Registration Number": "A01-1112-1336-16", "Department": "COMA"}
+{"Name": "Suprateek Tarafder", "Roll": "2-01-16-0418", "Current Year": "2", "Registration Number": "A01-1112-1337-16", "Department": "COMA"}
+{"Name": "Richie Shaw", "Roll": "2-01-16-0419", "Current Year": "2", "Registration Number": "A01-1142-1338-16", "Department": "COMA"}
+{"Name": "Ritesh Nathany", "Roll": "2-01-16-0420", "Current Year": "2", "Registration Number": "A01-1112-1339-16", "Department": "COMA"}
+{"Name": "Nitin Kagaji", "Roll": "2-01-16-0421", "Current Year": "2", "Registration Number": "A01-1112-1340-16", "Department": "COMA"}
+{"Name": "Suvankar Biswas", "Roll": "2-01-16-0422", "Current Year": "2", "Registration Number": "A01-1112-1341-16", "Department": "COMA"}
+{"Name": "Anish Sanghai", "Roll": "2-01-16-0423", "Current Year": "2", "Registration Number": "A01-1112-1342-16", "Department": "COMA"}
+{"Name": "Mayank Agarwal", "Roll": "2-01-16-0424", "Current Year": "2", "Registration Number": "A01-1112-1343-16", "Department": "COMA"}
+{"Name": "Vaibhav Saraf", "Roll": "2-01-16-0425", "Current Year": "2", "Registration Number": "A01-1112-1344-16", "Department": "COMA"}
+{"Name": "Rishabh Jajoo", "Roll": "2-01-16-0426", "Current Year": "2", "Registration Number": "A01-1112-1345-16", "Department": "COMA"}
+{"Name": "Ashwin Sharma", "Roll": "2-01-16-0427", "Current Year": "2", "Registration Number": "A01-1112-1346-16", "Department": "COMA"}
+{"Name": "Lokesh Lodha", "Roll": "2-01-16-0428", "Current Year": "2", "Registration Number": "A01-1112-1347-16", "Department": "COMA"}
+{"Name": "Prince Rasiwasia", "Roll": "2-01-16-0429", "Current Year": "2", "Registration Number": "A01-1112-1348-16", "Department": "COMA"}
+{"Name": "Pratyush Jain", "Roll": "2-01-16-0430", "Current Year": "2", "Registration Number": "A01-1112-1349-16", "Department": "COMA"}
+{"Name": "Akash Jain", "Roll": "2-01-16-0431", "Current Year": "2", "Registration Number": "A01-1112-1350-16", "Department": "COMA"}
+{"Name": "Bishnu Saraf", "Roll": "2-01-16-0433", "Current Year": "2", "Registration Number": "A01-1112-1351-16", "Department": "COMA"}
+{"Name": "Rishav Jain", "Roll": "2-01-16-0434", "Current Year": "2", "Registration Number": "A01-1112-1352-16", "Department": "COMA"}
+{"Name": "Justin Francis", "Roll": "2-01-16-0435", "Current Year": "2", "Registration Number": "A01-1112-1353-16", "Department": "COMA"}
+{"Name": "Sudhanshu Kumar Pandey", "Roll": "2-01-16-0436", "Current Year": "2", "Registration Number": "A01-1112-1354-16", "Department": "COMA"}
+{"Name": "Prayash Agarwal", "Roll": "2-01-16-0437", "Current Year": "2", "Registration Number": "A01-1112-1355-16", "Department": "COMA"}
+{"Name": "Florian Jussen Barla", "Roll": "2-01-16-0438", "Current Year": "2", "Registration Number": "A01-1132-1356-16", "Department": "COMA"}
+{"Name": "Mukund Madhav Kedia", "Roll": "2-01-16-0439", "Current Year": "2", "Registration Number": "A01-1112-1357-16", "Department": "COMA"}
+{"Name": "Rishi Acharya", "Roll": "2-01-16-0440", "Current Year": "2", "Registration Number": "A01-1112-1358-16", "Department": "COMA"}
+{"Name": "Pranjoy Biswas", "Roll": "2-01-16-0441", "Current Year": "2", "Registration Number": "A01-1122-1359-16", "Department": "COMA"}
+{"Name": "Yash Kandoi", "Roll": "2-01-16-0442", "Current Year": "2", "Registration Number": "A01-1112-1360-16", "Department": "COMA"}
+{"Name": "Divyansh Chandak", "Roll": "2-01-16-0443", "Current Year": "2", "Registration Number": "A01-1112-1361-16", "Department": "COMA"}
+{"Name": "Ayush Agarwal", "Roll": "2-01-16-0444", "Current Year": "2", "Registration Number": "A01-1112-1362-16", "Department": "COMA"}
+{"Name": "Anant Gupta", "Roll": "1-01-16-0445", "Current Year": "1", "Registration Number": "A01-1112-1363-16", "Department": "COMA"}
+{"Name": "Shovit Jhawar", "Roll": "2-01-16-0446", "Current Year": "2", "Registration Number": "A01-1112-1364-16", "Department": "COMA"}
+{"Name": "Chirag Singhania", "Roll": "2-01-16-0447", "Current Year": "2", "Registration Number": "A01-1112-1365-16", "Department": "COMA"}
+{"Name": "Vivek Maheshwari", "Roll": "2-01-16-0448", "Current Year": "2", "Registration Number": "A01-1112-1366-16", "Department": "COMA"}
+{"Name": "Gautam Chawla", "Roll": "1-01-16-0449", "Current Year": "1", "Registration Number": "A01-1112-1367-16", "Department": "COMA"}
+{"Name": "Vivek Sharma", "Roll": "2-01-16-0450", "Current Year": "2", "Registration Number": "A01-1112-1368-16", "Department": "COMA"}
+{"Name": "Adarsh Kumar Modi", "Roll": "2-01-16-0451", "Current Year": "2", "Registration Number": "A01-1112-1369-16", "Department": "COMA"}
+{"Name": "Andre Christopher Harris", "Roll": "2-01-16-0452", "Current Year": "2", "Registration Number": "A01-1112-1370-16", "Department": "COMA"}
+{"Name": "Anurag Anand", "Roll": "2-01-16-0453", "Current Year": "2", "Registration Number": "A01-1112-1371-16", "Department": "COMA"}
+{"Name": "Dewesh Begwani", "Roll": "2-01-16-0454", "Current Year": "2", "Registration Number": "A01-1112-1372-16", "Department": "COMA"}
+{"Name": "Aditya Dundlodia", "Roll": "2-01-16-0455", "Current Year": "2", "Registration Number": "A01-1112-1373-16", "Department": "COMA"}
+{"Name": "Swarndeep Bajoria", "Roll": "2-01-16-0456", "Current Year": "2", "Registration Number": "A01-1112-1374-16", "Department": "COMA"}
+{"Name": "Vineet Periwal", "Roll": "2-01-16-0457", "Current Year": "2", "Registration Number": "A01-1112-1375-16", "Department": "COMA"}
+{"Name": "Sumit Bajaj", "Roll": "2-01-16-0458", "Current Year": "2", "Registration Number": "A01-1112-1376-16", "Department": "COMA"}
+{"Name": "Akash Agarwal", "Roll": "2-01-16-0459", "Current Year": "2", "Registration Number": "A01-1112-1377-16", "Department": "COMA"}
+{"Name": "Jidan Topno", "Roll": "2-01-16-0460", "Current Year": "2", "Registration Number": "A01-1132-1378-16", "Department": "COMA"}
+{"Name": "Ved Mehta", "Roll": "2-01-16-0461", "Current Year": "2", "Registration Number": "A01-1112-1379-16", "Department": "COMA"}
+{"Name": "Siddharth Dalmia", "Roll": "2-01-16-0462", "Current Year": "2", "Registration Number": "A01-1112-1380-16", "Department": "COMA"}
+{"Name": "Sandeep Lakra", "Roll": "1-01-16-0463", "Current Year": "1", "Registration Number": "A01-1132-1381-16", "Department": "COMA"}
+{"Name": "Akash Rungta", "Roll": "2-01-16-0464", "Current Year": "2", "Registration Number": "A01-1112-1382-16", "Department": "COMA"}
+{"Name": "Harshit Choudhary", "Roll": "2-01-16-0465", "Current Year": "2", "Registration Number": "A01-1112-1383-16", "Department": "COMA"}
+{"Name": "Shivam Dokania", "Roll": "2-01-16-0466", "Current Year": "2", "Registration Number": "A01-1112-1384-16", "Department": "COMA"}
+{"Name": "Akash Agrawal", "Roll": "2-01-16-0467", "Current Year": "2", "Registration Number": "A01-1112-1385-16", "Department": "COMA"}
+{"Name": "Rounak Agarwal", "Roll": "2-01-16-0468", "Current Year": "2", "Registration Number": "A01-1112-1386-16", "Department": "COMA"}
+{"Name": "Anurag Kedia", "Roll": "2-01-16-0469", "Current Year": "2", "Registration Number": "A01-1112-1387-16", "Department": "COMA"}
+{"Name": "Rohan Bachhawat", "Roll": "2-01-16-0470", "Current Year": "2", "Registration Number": "A01-1112-1388-16", "Department": "COMA"}
+{"Name": "Swastik Kotal", "Roll": "2-01-16-0471", "Current Year": "2", "Registration Number": "A01-1142-1389-16", "Department": "COMA"}
+{"Name": "Vishal Pandey", "Roll": "2-01-16-0472", "Current Year": "2", "Registration Number": "A01-1112-1390-16", "Department": "COMA"}
+{"Name": "Ganeshan Sreram", "Roll": "2-01-16-0473", "Current Year": "2", "Registration Number": "A01-1112-1391-16", "Department": "COMA"}
+{"Name": "Jay Megotia", "Roll": "2-01-16-0474", "Current Year": "2", "Registration Number": "A01-1112-1392-16", "Department": "COMA"}
+{"Name": "Sarthak Bajoria", "Roll": "2-01-16-0475", "Current Year": "2", "Registration Number": "A01-1112-1393-16", "Department": "COMA"}
+{"Name": "Abhishek Agarwal", "Roll": "2-01-16-0476", "Current Year": "2", "Registration Number": "A01-1112-1394-16", "Department": "COMA"}
+{"Name": "Allan Dcosta", "Roll": "2-01-16-0477", "Current Year": "2", "Registration Number": "A01-1112-1395-16", "Department": "COMA"}
+{"Name": "Mayank Sharma", "Roll": "2-01-16-0478", "Current Year": "2", "Registration Number": "A01-1112-1396-16", "Department": "COMA"}
+{"Name": "Siddhant Agarwal", "Roll": "2-01-16-0479", "Current Year": "2", "Registration Number": "A01-1112-1397-16", "Department": "COMA"}
+{"Name": "Shreyans Bothra", "Roll": "2-01-16-0480", "Current Year": "2", "Registration Number": "A01-1112-1398-16", "Department": "COMA"}
+{"Name": "Akankchhit Singh", "Roll": "2-01-16-0481", "Current Year": "2", "Registration Number": "A01-1112-1399-16", "Department": "COMA"}
+{"Name": "Sahil Agarwal", "Roll": "2-01-16-0482", "Current Year": "2", "Registration Number": "A01-1112-1400-16", "Department": "COMA"}
+{"Name": "Subham Rajoria", "Roll": "2-01-16-0483", "Current Year": "2", "Registration Number": "A01-1112-1401-16", "Department": "COMA"}
+{"Name": "Prashant Mittal", "Roll": "2-01-16-0484", "Current Year": "2", "Registration Number": "A01-1112-1402-16", "Department": "COMA"}
+{"Name": "Harsh Choudhary", "Roll": "2-01-16-0485", "Current Year": "2", "Registration Number": "A01-1112-1403-16", "Department": "COMA"}
+{"Name": "Ashish Harbhajanka", "Roll": "2-01-16-0486", "Current Year": "2", "Registration Number": "A01-1112-1404-16", "Department": "COMA"}
+{"Name": "Mayank Jain", "Roll": "2-01-16-0487", "Current Year": "2", "Registration Number": "A01-1112-1405-16", "Department": "COMA"}
+{"Name": "Anantvikram Agarwal", "Roll": "2-01-16-0488", "Current Year": "2", "Registration Number": "A01-1112-1406-16", "Department": "COMA"}
+{"Name": "Himanshu Agarwal", "Roll": "2-01-16-0490", "Current Year": "2", "Registration Number": "A01-1112-1407-16", "Department": "COMA"}
+{"Name": "Daksh Biyani", "Roll": "2-01-16-0491", "Current Year": "2", "Registration Number": "A01-1112-1408-16", "Department": "COMA"}
+{"Name": "Bhaskar P Bajaj", "Roll": "1-01-16-0492", "Current Year": "1", "Registration Number": "A01-1112-1409-16", "Department": "COMA"}
+{"Name": "Samprati Kamdar", "Roll": "2-01-16-0493", "Current Year": "2", "Registration Number": "A01-1112-1410-16", "Department": "COMA"}
+{"Name": "Anurag Goyal", "Roll": "2-01-16-0494", "Current Year": "2", "Registration Number": "A01-1112-1411-16", "Department": "COMA"}
+{"Name": "Ayush Chowdhary", "Roll": "2-01-16-0495", "Current Year": "2", "Registration Number": "A01-1112-1412-16", "Department": "COMA"}
+{"Name": "Sayan Shome", "Roll": "2-01-16-0496", "Current Year": "2", "Registration Number": "A01-1112-1413-16", "Department": "COMA"}
+{"Name": "Pratik Kumar Agarwal", "Roll": "2-01-16-0498", "Current Year": "2", "Registration Number": "A01-1112-1414-16", "Department": "COMA"}
+{"Name": "Aman Verma", "Roll": "2-01-16-0499", "Current Year": "2", "Registration Number": "A01-1112-1415-16", "Department": "COMA"}
+{"Name": "Akshat Harlalka", "Roll": "2-01-16-0500", "Current Year": "2", "Registration Number": "A01-1112-1416-16", "Department": "COMA"}
+{"Name": "Chandan Kumar Singh", "Roll": "2-01-16-0501", "Current Year": "2", "Registration Number": "A01-1112-1417-16", "Department": "COMA"}
+{"Name": "Veeraj Kamdar", "Roll": "2-01-16-0502", "Current Year": "2", "Registration Number": "A01-1112-1418-16", "Department": "COMA"}
+{"Name": "Bipin Agarwal", "Roll": "2-01-16-0503", "Current Year": "2", "Registration Number": "A01-1112-1419-16", "Department": "COMA"}
+{"Name": "Ayush Kumar Agarwal", "Roll": "2-01-16-0504", "Current Year": "2", "Registration Number": "A01-1112-1420-16", "Department": "COMA"}
+{"Name": "Rohit Agarwal", "Roll": "2-01-16-0505", "Current Year": "2", "Registration Number": "A01-1112-1421-16", "Department": "COMA"}
+{"Name": "Vinit Kumar Ramuka", "Roll": "2-01-16-0506", "Current Year": "2", "Registration Number": "A01-1112-1422-16", "Department": "COMA"}
+{"Name": "Anirban Kar", "Roll": "2-01-16-0507", "Current Year": "2", "Registration Number": "A01-1112-1423-16", "Department": "COMA"}
+{"Name": "Shivam Agarwal", "Roll": "2-01-16-0508", "Current Year": "2", "Registration Number": "A01-1112-1424-16", "Department": "COMA"}
+{"Name": "Madhu Sudan Bahety", "Roll": "2-01-16-0509", "Current Year": "2", "Registration Number": "A01-1112-1425-16", "Department": "COMA"}
+{"Name": "Abhijeet Mondal", "Roll": "2-01-16-0510", "Current Year": "2", "Registration Number": "A01-1112-1426-16", "Department": "COMA"}
+{"Name": "Bikash Gupta", "Roll": "2-01-16-0511", "Current Year": "2", "Registration Number": "A01-1112-1427-16", "Department": "COMA"}
+{"Name": "Ajay Agarwal", "Roll": "1-01-16-0512", "Current Year": "1", "Registration Number": "A01-1112-1428-16", "Department": "COMA"}
+{"Name": "Priyanuj Anand", "Roll": "2-01-16-0513", "Current Year": "2", "Registration Number": "A01-1122-1429-16", "Department": "COMA"}
+{"Name": "Sourav Kankaria", "Roll": "2-01-16-0514", "Current Year": "2", "Registration Number": "A01-1112-1430-16", "Department": "COMA"}
+{"Name": "Subham Seksaria", "Roll": "2-01-16-0515", "Current Year": "2", "Registration Number": "A01-1112-1431-16", "Department": "COMA"}
+{"Name": "Soumya Kanti Rano", "Roll": "2-01-16-0516", "Current Year": "2", "Registration Number": "A01-1142-1432-16", "Department": "COMA"}
+{"Name": "Yashaswee Choudhary", "Roll": "2-01-16-0517", "Current Year": "2", "Registration Number": "A01-1112-1433-16", "Department": "COMA"}
+{"Name": "Pratyush Kumar Jalan", "Roll": "1-01-16-0518", "Current Year": "1", "Registration Number": "A01-1112-1434-16", "Department": "COMA"}
+{"Name": "Arham Dhariwal", "Roll": "2-01-16-0519", "Current Year": "2", "Registration Number": "A01-1112-1435-16", "Department": "COMA"}
+{"Name": "Yogesh Surana", "Roll": "2-01-16-0521", "Current Year": "2", "Registration Number": "A01-1112-1436-16", "Department": "COMA"}
+{"Name": "Nitin Singhal", "Roll": "2-01-16-0522", "Current Year": "2", "Registration Number": "A01-1112-1437-16", "Department": "COMA"}
+{"Name": "Siddharth Daga", "Roll": "2-01-16-0523", "Current Year": "2", "Registration Number": "A01-1112-1438-16", "Department": "COMA"}
+{"Name": "Ashish Mundhra", "Roll": "2-01-16-0524", "Current Year": "2", "Registration Number": "A01-1112-1439-16", "Department": "COMA"}
+{"Name": "Rohan Chowdhury", "Roll": "2-01-16-0525", "Current Year": "2", "Registration Number": "A01-1112-1440-16", "Department": "COMA"}
+{"Name": "Niharesh Gupta", "Roll": "2-01-16-0526", "Current Year": "2", "Registration Number": "A01-1112-1441-16", "Department": "COMA"}
+{"Name": "Aman Ahmed", "Roll": "2-01-16-0527", "Current Year": "2", "Registration Number": "A01-1112-1442-16", "Department": "COMA"}
+{"Name": "Yatish Agarwal", "Roll": "2-01-16-0528", "Current Year": "2", "Registration Number": "A01-1112-1443-16", "Department": "COMA"}
+{"Name": "Sudhanshu Kumar", "Roll": "2-01-16-0529", "Current Year": "2", "Registration Number": "A01-1112-1444-16", "Department": "COMA"}
+{"Name": "Ayush Saraf", "Roll": "2-01-16-0530", "Current Year": "2", "Registration Number": "A01-1112-1445-16", "Department": "COMA"}
+{"Name": "Rohit Sen", "Roll": "2-01-16-0531", "Current Year": "2", "Registration Number": "A01-1112-1446-16", "Department": "COMA"}
+{"Name": "Keshab Bhakat", "Roll": "2-01-16-0532", "Current Year": "2", "Registration Number": "A01-1112-1447-16", "Department": "COMA"}
+{"Name": "Harshit Agarwal", "Roll": "2-01-16-0533", "Current Year": "2", "Registration Number": "A01-1112-1448-16", "Department": "COMA"}
+{"Name": "Saharsh Jhajharia", "Roll": "2-01-16-0534", "Current Year": "2", "Registration Number": "A01-1112-1449-16", "Department": "COMA"}
+{"Name": "Ronald Lama", "Roll": "1-01-16-0535", "Current Year": "1", "Registration Number": "A01-1112-1450-16", "Department": "COMA"}
+{"Name": "Divya Kothari", "Roll": "2-01-16-0536", "Current Year": "2", "Registration Number": "A01-1112-1451-16", "Department": "COMA"}
+{"Name": "Kaustubh Tibrewal", "Roll": "1-01-16-0537", "Current Year": "1", "Registration Number": "A01-1112-1452-16", "Department": "COMA"}
+{"Name": "Subhasis Samuel Xess", "Roll": "2-01-16-0538", "Current Year": "2", "Registration Number": "A01-1132-1453-16", "Department": "COMA"}
+{"Name": "Anish Poddar", "Roll": "2-01-16-0539", "Current Year": "2", "Registration Number": "A01-1112-1454-16", "Department": "COMA"}
+{"Name": "Bhawesh Kumar Sharma", "Roll": "2-01-16-0540", "Current Year": "2", "Registration Number": "A01-1112-1455-16", "Department": "COMA"}
+{"Name": "Masood Alam", "Roll": "2-01-16-0541", "Current Year": "2", "Registration Number": "A01-1112-1456-16", "Department": "COMA"}
+{"Name": "Ritwik Bhawsinghka", "Roll": "2-01-16-0542", "Current Year": "2", "Registration Number": "A01-1112-1457-16", "Department": "COMA"}
+{"Name": "Harsh Kalani", "Roll": "2-01-16-0543", "Current Year": "2", "Registration Number": "A01-1112-1458-16", "Department": "COMA"}
+{"Name": "Debankur Saha", "Roll": "2-01-16-0544", "Current Year": "2", "Registration Number": "A01-1112-1459-16", "Department": "COMA"}
+{"Name": "Siddhant Rathi", "Roll": "2-01-16-0545", "Current Year": "2", "Registration Number": "A01-1112-1460-16", "Department": "COMA"}
+{"Name": "Pratik Agarwal", "Roll": "2-01-16-0546", "Current Year": "2", "Registration Number": "A01-1112-1461-16", "Department": "COMA"}
+{"Name": "Devansh Srivastav", "Roll": "2-01-16-0547", "Current Year": "2", "Registration Number": "A01-1112-1462-16", "Department": "COMA"}
+{"Name": "Akhil Somani", "Roll": "2-01-16-0548", "Current Year": "2", "Registration Number": "A01-1112-1463-16", "Department": "COMA"}
+{"Name": "Arindam Mohanty", "Roll": "2-01-16-0549", "Current Year": "2", "Registration Number": "A01-1112-1464-16", "Department": "COMA"}
+{"Name": "Siddhant Bhuwalka", "Roll": "2-01-16-0550", "Current Year": "2", "Registration Number": "A01-1112-1465-16", "Department": "COMA"}
+{"Name": "Mukesh Taparia", "Roll": "2-01-16-0551", "Current Year": "2", "Registration Number": "A01-1112-1466-16", "Department": "COMA"}
+{"Name": "Ashish Lakra", "Roll": "2-01-16-0552", "Current Year": "2", "Registration Number": "A01-1132-1467-16", "Department": "COMA"}
+{"Name": "Ankit Kumar Pathak", "Roll": "2-01-16-0553", "Current Year": "2", "Registration Number": "A01-1112-1468-16", "Department": "COMA"}
+{"Name": "Harsh Modi", "Roll": "2-01-16-0554", "Current Year": "2", "Registration Number": "A01-1112-1469-16", "Department": "COMA"}
+{"Name": "Harshit Agarwal", "Roll": "2-01-16-0555", "Current Year": "2", "Registration Number": "A01-1112-1470-16", "Department": "COMA"}
+{"Name": "Rahul Goswami", "Roll": "2-01-16-0556", "Current Year": "2", "Registration Number": "A01-1112-1471-16", "Department": "COMA"}
+{"Name": "Manav Kanodia", "Roll": "2-01-16-0557", "Current Year": "2", "Registration Number": "A01-1112-1472-16", "Department": "COMA"}
+{"Name": "Vishal Kothari", "Roll": "2-01-16-0558", "Current Year": "2", "Registration Number": "A01-1112-1473-16", "Department": "COMA"}
+{"Name": "Prabhav Murarka", "Roll": "2-01-16-0559", "Current Year": "2", "Registration Number": "A01-1112-1474-16", "Department": "COMA"}
+{"Name": "Deepak Pandey", "Roll": "2-01-16-0560", "Current Year": "2", "Registration Number": "A01-1112-1475-16", "Department": "COMA"}
+{"Name": "Akash Agarwal", "Roll": "2-01-16-0561", "Current Year": "2", "Registration Number": "A01-1112-1476-16", "Department": "COMA"}
+{"Name": "Hitesh Panchloria", "Roll": "2-01-16-0562", "Current Year": "2", "Registration Number": "A01-1112-1477-16", "Department": "COMA"}
+{"Name": "Siddhant Verma", "Roll": "2-01-16-0563", "Current Year": "2", "Registration Number": "A01-1112-1478-16", "Department": "COMA"}
+{"Name": "Kaushal Saraff", "Roll": "2-01-16-0564", "Current Year": "2", "Registration Number": "A01-1112-1479-16", "Department": "COMA"}
+{"Name": "Viraj Newar", "Roll": "2-01-16-0565", "Current Year": "2", "Registration Number": "A01-1112-1480-16", "Department": "COMA"}
+{"Name": "Yash Kumar Jain", "Roll": "2-01-16-0566", "Current Year": "2", "Registration Number": "A01-1112-1481-16", "Department": "COMA"}
+{"Name": "Jayesh Sethia", "Roll": "2-01-16-0567", "Current Year": "2", "Registration Number": "A01-1112-1482-16", "Department": "COMA"}
+{"Name": "Sourav Bansal", "Roll": "2-01-16-0568", "Current Year": "2", "Registration Number": "A01-1112-1483-16", "Department": "COMA"}
+{"Name": "Pronnoy Matthew Das", "Roll": "2-01-16-0569", "Current Year": "2", "Registration Number": "A01-1112-1484-16", "Department": "COMA"}
+{"Name": "Nikhil Deosaria", "Roll": "2-01-16-0570", "Current Year": "2", "Registration Number": "A01-1112-1485-16", "Department": "COMA"}
+{"Name": "Aman Gulgulia", "Roll": "2-01-16-0571", "Current Year": "2", "Registration Number": "A01-1112-1486-16", "Department": "COMA"}
+{"Name": "Nigel Ernest Dsouza", "Roll": "2-01-16-0572", "Current Year": "2", "Registration Number": "A01-1112-1487-16", "Department": "COMA"}
+{"Name": "Ashraf Ali", "Roll": "2-01-16-0573", "Current Year": "2", "Registration Number": "A01-1112-1488-16", "Department": "COMA"}
+{"Name": "Sourav Soni", "Roll": "2-01-16-0574", "Current Year": "2", "Registration Number": "A01-1112-1489-16", "Department": "COMA"}
+{"Name": "Mohit Gupta", "Roll": "2-01-16-0575", "Current Year": "2", "Registration Number": "A01-1112-1490-16", "Department": "COMA"}
+{"Name": "Anand Mittal", "Roll": "2-01-16-0576", "Current Year": "2", "Registration Number": "A01-1112-1491-16", "Department": "COMA"}
+{"Name": "Subham Jain", "Roll": "2-01-16-0577", "Current Year": "2", "Registration Number": "A01-1112-1492-16", "Department": "COMA"}
+{"Name": "Gopal Mohata", "Roll": "2-01-16-0578", "Current Year": "2", "Registration Number": "A01-1112-1493-16", "Department": "COMA"}
+{"Name": "Bijit Sarawogi", "Roll": "2-01-16-0579", "Current Year": "2", "Registration Number": "A01-1112-1494-16", "Department": "COMA"}
+{"Name": "Aasish Berelia", "Roll": "2-01-16-0580", "Current Year": "2", "Registration Number": "A01-1112-1495-16", "Department": "COMA"}
+{"Name": "Aditya Murarka", "Roll": "2-01-16-0581", "Current Year": "2", "Registration Number": "A01-1112-1496-16", "Department": "COMA"}
+{"Name": "Shreyans Jain", "Roll": "1-01-16-0582", "Current Year": "1", "Registration Number": "A01-1112-1497-16", "Department": "COMA"}
+{"Name": "Vedant Poddar", "Roll": "2-01-16-0583", "Current Year": "2", "Registration Number": "A01-1112-1498-16", "Department": "COMA"}
+{"Name": "Rachit Gupta", "Roll": "2-01-16-0584", "Current Year": "2", "Registration Number": "A01-1112-1499-16", "Department": "COMA"}
+{"Name": "Aakash Neil Singha", "Roll": "2-01-16-0585", "Current Year": "2", "Registration Number": "A01-1112-1500-16", "Department": "COMA"}
+{"Name": "Hemant Rohatgi", "Roll": "2-01-16-0586", "Current Year": "2", "Registration Number": "A01-1112-1501-16", "Department": "COMA"}
+{"Name": "Hemant Kumar Saraf", "Roll": "2-01-16-0587", "Current Year": "2", "Registration Number": "A01-1112-1502-16", "Department": "COMA"}
+{"Name": "Saurodip Saha", "Roll": "2-01-16-0588", "Current Year": "2", "Registration Number": "A01-1122-1503-16", "Department": "COMA"}
+{"Name": "Babloo Shaw", "Roll": "2-01-16-0589", "Current Year": "2", "Registration Number": "A01-1112-1504-16", "Department": "COMA"}
+{"Name": "Satyam Singhal", "Roll": "2-01-16-0590", "Current Year": "2", "Registration Number": "A01-1112-1505-16", "Department": "COMA"}
+{"Name": "Abhinav Anup Garg", "Roll": "1-01-16-0591", "Current Year": "1", "Registration Number": "A01-1142-1506-16", "Department": "COMA"}
+{"Name": "Mayukh Saha", "Roll": "2-01-16-0592", "Current Year": "2", "Registration Number": "A01-1112-1507-16", "Department": "COMA"}
+{"Name": "Radhey Shyam Rathi", "Roll": "2-01-16-0593", "Current Year": "2", "Registration Number": "A01-1112-1508-16", "Department": "COMA"}
+{"Name": "Raunak Gupta", "Roll": "2-01-16-0594", "Current Year": "2", "Registration Number": "A01-1112-1509-16", "Department": "COMA"}
+{"Name": "Mohit Ojha", "Roll": "2-01-16-0595", "Current Year": "2", "Registration Number": "A01-1112-1510-16", "Department": "COMA"}
+{"Name": "Suprabh Garg", "Roll": "1-01-16-0596", "Current Year": "1", "Registration Number": "A01-1112-1511-16", "Department": "COMA"}
+{"Name": "Gaurav Singhal", "Roll": "1-01-16-0597", "Current Year": "1", "Registration Number": "A01-1112-1512-16", "Department": "COMA"}
+{"Name": "Akash Banka", "Roll": "2-01-16-0598", "Current Year": "2", "Registration Number": "A01-1112-1513-16", "Department": "COMA"}
+{"Name": "Jai Kumar Choraria", "Roll": "2-01-16-0599", "Current Year": "2", "Registration Number": "A01-1112-1514-16", "Department": "COMA"}
+{"Name": "Sameer Dhanuka", "Roll": "2-01-16-0600", "Current Year": "2", "Registration Number": "A01-1112-1515-16", "Department": "COMA"}
+{"Name": "Japrish Singh Kohli", "Roll": "2-01-16-0601", "Current Year": "2", "Registration Number": "A01-1112-1516-16", "Department": "COMA"}
+{"Name": "Poonam Buchasia", "Roll": "2-01-16-0602", "Current Year": "2", "Registration Number": "A01-1112-1517-16", "Department": "COMA"}
+{"Name": "Kunal Agarwal", "Roll": "2-01-16-0603", "Current Year": "2", "Registration Number": "A01-1112-1518-16", "Department": "COMA"}
+{"Name": "Harsh Agarwal", "Roll": "2-01-16-0604", "Current Year": "2", "Registration Number": "A01-1112-1519-16", "Department": "COMA"}
+{"Name": "Rahul N Jain", "Roll": "2-01-16-0605", "Current Year": "2", "Registration Number": "A01-1112-1520-16", "Department": "COMA"}
+{"Name": "Nilesh Sonthalia", "Roll": "2-01-16-0606", "Current Year": "2", "Registration Number": "A01-1112-1521-16", "Department": "COMA"}
+{"Name": "Abhishek Bhiwaniwala", "Roll": "2-01-16-0607", "Current Year": "2", "Registration Number": "A01-1112-1522-16", "Department": "COMA"}
+{"Name": "Ayush Srinivas", "Roll": "2-01-16-0608", "Current Year": "2", "Registration Number": "A01-1112-1523-16", "Department": "COMA"}
+{"Name": "Soham Palit", "Roll": "2-01-16-0609", "Current Year": "2", "Registration Number": "A01-1112-1524-16", "Department": "COMA"}
+{"Name": "Animesh Kujur", "Roll": "2-01-16-0610", "Current Year": "2", "Registration Number": "A01-1132-1525-16", "Department": "COMA"}
+{"Name": "Arham Kothari", "Roll": "2-01-16-0611", "Current Year": "2", "Registration Number": "A01-1112-1526-16", "Department": "COMA"}
+{"Name": "Varun Rana", "Roll": "2-01-16-0612", "Current Year": "2", "Registration Number": "A01-1112-1527-16", "Department": "COMA"}
+{"Name": "Tsewang Kevin Lee", "Roll": "2-01-16-0613", "Current Year": "2", "Registration Number": "A01-1112-1528-16", "Department": "COMA"}
+{"Name": "Piyush Agarwal", "Roll": "2-01-16-0615", "Current Year": "2", "Registration Number": "A01-1112-1529-16", "Department": "COMA"}
+{"Name": "Tanish Agarwal", "Roll": "2-01-16-0616", "Current Year": "2", "Registration Number": "A01-1112-1530-16", "Department": "COMA"}
+{"Name": "Raghav Newatia", "Roll": "2-01-16-0617", "Current Year": "2", "Registration Number": "A01-1112-1531-16", "Department": "COMA"}
+{"Name": "Subham Bihani", "Roll": "2-01-16-0618", "Current Year": "2", "Registration Number": "A01-1112-1532-16", "Department": "COMA"}
+{"Name": "Chetan Agarwal", "Roll": "2-01-16-0619", "Current Year": "2", "Registration Number": "A01-1112-1533-16", "Department": "COMA"}
+{"Name": "Ashish Patodia", "Roll": "2-01-16-0620", "Current Year": "2", "Registration Number": "A01-1112-1534-16", "Department": "COMA"}
+{"Name": "Yaman Singhania", "Roll": "2-01-16-0621", "Current Year": "2", "Registration Number": "A01-1112-1535-16", "Department": "COMA"}
+{"Name": "Ashish Upadhyaya", "Roll": "2-01-16-0622", "Current Year": "2", "Registration Number": "A01-1112-1536-16", "Department": "COMA"}
+{"Name": "Raunak Pareek", "Roll": "2-01-16-0623", "Current Year": "2", "Registration Number": "A01-1112-1537-16", "Department": "COMA"}
+{"Name": "Ayush Jain", "Roll": "2-01-16-0626", "Current Year": "2", "Registration Number": "A01-1112-1538-16", "Department": "COMA"}
+{"Name": "Ayush Alexander Mullick", "Roll": "2-01-16-0627", "Current Year": "2", "Registration Number": "A01-1112-1539-16", "Department": "COMA"}
+{"Name": "Pankaj Singh", "Roll": "2-01-16-0628", "Current Year": "2", "Registration Number": "A01-1112-1540-16", "Department": "COMA"}
+{"Name": "Divyansh Jhunjhunwala", "Roll": "2-01-16-0629", "Current Year": "2", "Registration Number": "A01-1112-1541-16", "Department": "COMA"}
+{"Name": "Jatin Kalwani", "Roll": "2-01-16-0630", "Current Year": "2", "Registration Number": "A01-1112-1542-16", "Department": "COMA"}
+{"Name": "Kunal Rathi", "Roll": "2-01-16-0631", "Current Year": "2", "Registration Number": "A01-1112-1543-16", "Department": "COMA"}
+{"Name": "Vishal Bong", "Roll": "2-01-16-0632", "Current Year": "2", "Registration Number": "A01-1112-1544-16", "Department": "COMA"}
+{"Name": "Aman Keshan", "Roll": "2-01-16-0633", "Current Year": "2", "Registration Number": "A01-1112-1545-16", "Department": "COMA"}
+{"Name": "Akash Gupta", "Roll": "2-01-16-0634", "Current Year": "2", "Registration Number": "A01-1112-1546-16", "Department": "COMA"}
+{"Name": "Shubam Agarwal", "Roll": "2-01-16-0635", "Current Year": "2", "Registration Number": "A01-1112-1547-16", "Department": "COMA"}
+{"Name": "Akshat Maheshwari", "Roll": "2-01-16-0636", "Current Year": "2", "Registration Number": "A01-1112-1548-16", "Department": "COMA"}
+{"Name": "Chandrakant Marothi", "Roll": "2-01-16-0637", "Current Year": "2", "Registration Number": "A01-1112-1549-16", "Department": "COMA"}
+{"Name": "Samuel Augustin Dayal", "Roll": "2-01-16-0638", "Current Year": "2", "Registration Number": "A01-1112-1550-16", "Department": "COMA"}
+{"Name": "Harshit Ganeriwala", "Roll": "2-01-16-0639", "Current Year": "2", "Registration Number": "A01-1112-1551-16", "Department": "COMA"}
+{"Name": "Abhirup Mitra", "Roll": "2-01-16-0640", "Current Year": "2", "Registration Number": "A01-1112-1552-16", "Department": "COMA"}
+{"Name": "Gourav Mohata", "Roll": "2-01-16-0641", "Current Year": "2", "Registration Number": "A01-1112-1553-16", "Department": "COMA"}
+{"Name": "Rishi Jain", "Roll": "2-01-16-0642", "Current Year": "2", "Registration Number": "A01-1112-1554-16", "Department": "COMA"}
+{"Name": "Gaurav Ladia", "Roll": "2-01-16-0643", "Current Year": "2", "Registration Number": "A01-1112-1555-16", "Department": "COMA"}
+{"Name": "Faraz Rizvi", "Roll": "2-01-16-0644", "Current Year": "2", "Registration Number": "A01-1112-1556-16", "Department": "COMA"}
+{"Name": "Rachit Marodia", "Roll": "2-01-16-0645", "Current Year": "2", "Registration Number": "A01-1112-1557-16", "Department": "COMA"}
+{"Name": "Rahul Phinjo Sherpa", "Roll": "2-01-16-0646", "Current Year": "2", "Registration Number": "A01-1132-1558-16", "Department": "COMA"}
+{"Name": "Krishna Singha", "Roll": "2-01-16-0647", "Current Year": "2", "Registration Number": "A01-1122-1559-16", "Department": "COMA"}
+{"Name": "Rahul Kharkia", "Roll": "2-01-16-0648", "Current Year": "2", "Registration Number": "A01-1112-1560-16", "Department": "COMA"}
+{"Name": "Ashish Garg", "Roll": "2-01-16-0649", "Current Year": "2", "Registration Number": "A01-1112-1561-16", "Department": "COMA"}
+{"Name": "Rishi Poddar", "Roll": "2-01-16-0650", "Current Year": "2", "Registration Number": "A01-1112-1562-16", "Department": "COMA"}
+{"Name": "Nitish Baid", "Roll": "2-01-16-0651", "Current Year": "2", "Registration Number": "A01-1112-1563-16", "Department": "COMA"}
+{"Name": "Mrinal Choudhary", "Roll": "2-01-16-0652", "Current Year": "2", "Registration Number": "A01-1112-1564-16", "Department": "COMA"}
+{"Name": "Anubhav Ganguly", "Roll": "2-01-16-0653", "Current Year": "2", "Registration Number": "A01-1112-1565-16", "Department": "COMA"}
+{"Name": "Sumit Bindal", "Roll": "2-01-16-0654", "Current Year": "2", "Registration Number": "A01-1112-1566-16", "Department": "COMA"}
+{"Name": "Rohan Daga", "Roll": "2-01-16-0655", "Current Year": "2", "Registration Number": "A01-1112-1567-16", "Department": "COMA"}
+{"Name": "Rajat Goel", "Roll": "2-01-16-0656", "Current Year": "2", "Registration Number": "A01-1112-1568-16", "Department": "COMA"}
+{"Name": "Mehul Chandgothia", "Roll": "2-01-16-0658", "Current Year": "2", "Registration Number": "A01-1112-1569-16", "Department": "COMA"}
+{"Name": "Avishek Jagnani", "Roll": "2-01-16-0659", "Current Year": "2", "Registration Number": "A01-1112-1570-16", "Department": "COMA"}
+{"Name": "Utsav Sarkar", "Roll": "2-01-16-0660", "Current Year": "2", "Registration Number": "A01-1112-1571-16", "Department": "COMA"}
+{"Name": "Ankit Gupta", "Roll": "2-01-16-0661", "Current Year": "2", "Registration Number": "A01-1112-1572-16", "Department": "COMA"}
+{"Name": "Aditya Maheshwari", "Roll": "2-01-16-0662", "Current Year": "2", "Registration Number": "A01-1112-1573-16", "Department": "COMA"}
+{"Name": "Lal Remliana", "Roll": "2-01-16-0663", "Current Year": "2", "Registration Number": "A01-1132-1574-16", "Department": "COMA"}
+{"Name": "Abhishek Mundhra", "Roll": "2-01-16-0664", "Current Year": "2", "Registration Number": "A01-1112-1575-16", "Department": "COMA"}
+{"Name": "Pritam Chatterjee", "Roll": "2-01-16-0665", "Current Year": "2", "Registration Number": "A01-1112-1576-16", "Department": "COMA"}
+{"Name": "Kenneth Fong Sheng Liu", "Roll": "2-01-16-0666", "Current Year": "2", "Registration Number": "A01-1112-1577-16", "Department": "COMA"}
+{"Name": "Rishav Todi", "Roll": "2-01-16-0668", "Current Year": "2", "Registration Number": "A01-1112-1578-16", "Department": "COMA"}
+{"Name": "Yash Kochar", "Roll": "2-01-16-0669", "Current Year": "2", "Registration Number": "A01-1112-1579-16", "Department": "COMA"}
+{"Name": "Manish Agarwal", "Roll": "2-01-16-0670", "Current Year": "2", "Registration Number": "A01-1112-1580-16", "Department": "COMA"}
+{"Name": "Shashwat Shrivastava", "Roll": "2-01-16-0671", "Current Year": "2", "Registration Number": "A01-1112-1581-16", "Department": "COMA"}
+{"Name": "Mayank Agarwal", "Roll": "2-01-16-0672", "Current Year": "2", "Registration Number": "A01-1112-1582-16", "Department": "COMA"}
+{"Name": "Debanjan Majumdar", "Roll": "2-01-16-0673", "Current Year": "2", "Registration Number": "A01-1112-1583-16", "Department": "COMA"}
+{"Name": "Tejas Chandak", "Roll": "2-01-16-0674", "Current Year": "2", "Registration Number": "A01-1112-1584-16", "Department": "COMA"}
+{"Name": "Aman Kumar", "Roll": "2-01-16-0675", "Current Year": "2", "Registration Number": "A01-1112-1585-16", "Department": "COMA"}
+{"Name": "Nilesh Singhania", "Roll": "2-01-16-0676", "Current Year": "2", "Registration Number": "A01-1112-1586-16", "Department": "COMA"}
+{"Name": "Subham Hembrom", "Roll": "2-01-16-0677", "Current Year": "2", "Registration Number": "A01-1132-1587-16", "Department": "COMA"}
+{"Name": "Rachit Saraogi", "Roll": "2-01-16-0678", "Current Year": "2", "Registration Number": "A01-1142-1588-16", "Department": "COMA"}
+{"Name": "Sreyak Maitra", "Roll": "2-01-16-0679", "Current Year": "2", "Registration Number": "A01-1112-1589-16", "Department": "COMA"}
+{"Name": "Om Raghav Jalan", "Roll": "2-01-16-0680", "Current Year": "2", "Registration Number": "A01-1112-1590-16", "Department": "COMA"}
+{"Name": "Anubhav Kaushal", "Roll": "2-01-16-0681", "Current Year": "2", "Registration Number": "A01-1112-1591-16", "Department": "COMA"}
+{"Name": "Saurabh Danwar", "Roll": "2-01-16-0682", "Current Year": "2", "Registration Number": "A01-1112-1592-16", "Department": "COMA"}
+{"Name": "Rishabh Gupta", "Roll": "2-01-16-0683", "Current Year": "2", "Registration Number": "A01-1112-1593-16", "Department": "COMA"}
+{"Name": "Manmohan Kothari", "Roll": "2-01-16-0684", "Current Year": "2", "Registration Number": "A01-1112-1594-16", "Department": "COMA"}
+{"Name": "Arpan Marandi", "Roll": "2-01-16-0685", "Current Year": "2", "Registration Number": "A01-1132-1595-16", "Department": "COMA"}
+{"Name": "Rohit Agarwal", "Roll": "2-01-16-0686", "Current Year": "2", "Registration Number": "A01-1112-1596-16", "Department": "COMA"}
+{"Name": "Piyush Nigania", "Roll": "2-01-16-0687", "Current Year": "2", "Registration Number": "A01-1112-1597-16", "Department": "COMA"}
+{"Name": "Rohan Lal", "Roll": "2-01-16-0688", "Current Year": "2", "Registration Number": "A01-1112-1598-16", "Department": "COMA"}
+{"Name": "Ganesh Agrawal", "Roll": "2-01-16-0689", "Current Year": "2", "Registration Number": "A01-1112-1599-16", "Department": "COMA"}
+{"Name": "Aman Agarwal", "Roll": "2-01-16-0690", "Current Year": "2", "Registration Number": "A01-1112-1600-16", "Department": "COMA"}
+{"Name": "Akash Kabra", "Roll": "2-01-16-0691", "Current Year": "2", "Registration Number": "A01-1112-1601-16", "Department": "COMA"}
+{"Name": "Anmol Singal", "Roll": "2-01-16-0692", "Current Year": "2", "Registration Number": "A01-1112-1602-16", "Department": "COMA"}
+{"Name": "Hitesh Jain", "Roll": "2-01-16-0693", "Current Year": "2", "Registration Number": "A01-1112-1603-16", "Department": "COMA"}
+{"Name": "Jayant Baid", "Roll": "2-01-16-0694", "Current Year": "2", "Registration Number": "A01-1112-1604-16", "Department": "COMA"}
+{"Name": "Akash Bagaria", "Roll": "2-01-16-0695", "Current Year": "2", "Registration Number": "A01-1112-1605-16", "Department": "COMA"}
+{"Name": "Naman Agarwal", "Roll": "2-01-16-0696", "Current Year": "2", "Registration Number": "A01-1112-1606-16", "Department": "COMA"}
+{"Name": "Shubham Bubna", "Roll": "2-01-16-0697", "Current Year": "2", "Registration Number": "A01-1112-1607-16", "Department": "COMA"}
+{"Name": "Utsav Sharma", "Roll": "2-01-16-0698", "Current Year": "2", "Registration Number": "A01-1112-1608-16", "Department": "COMA"}
+{"Name": "Kundan Bisharad", "Roll": "2-01-16-0699", "Current Year": "2", "Registration Number": "A01-1112-1609-16", "Department": "COMA"}
+{"Name": "Keshav Rathi", "Roll": "2-01-16-0700", "Current Year": "2", "Registration Number": "A01-1112-1610-16", "Department": "COMA"}
+{"Name": "Hrithik Modi", "Roll": "2-01-16-0701", "Current Year": "2", "Registration Number": "A01-1112-1611-16", "Department": "COMA"}
+{"Name": "Pradyumn Agarwal", "Roll": "2-01-16-0702", "Current Year": "2", "Registration Number": "A01-1112-1612-16", "Department": "COMA"}
+{"Name": "Mohit Agrawal", "Roll": "2-01-16-0703", "Current Year": "2", "Registration Number": "A01-1112-1613-16", "Department": "COMA"}
+{"Name": "Saanchit Agarwal", "Roll": "2-01-16-0704", "Current Year": "2", "Registration Number": "A01-1112-1614-16", "Department": "COMA"}
+{"Name": "Kuldeep Sharma", "Roll": "2-01-16-0705", "Current Year": "2", "Registration Number": "A01-1112-1615-16", "Department": "COMA"}
+{"Name": "Kishan Sharma", "Roll": "2-01-16-0706", "Current Year": "2", "Registration Number": "A01-1112-1616-16", "Department": "COMA"}
+{"Name": "Aditya Yadav", "Roll": "2-01-16-0707", "Current Year": "2", "Registration Number": "A01-1142-1617-16", "Department": "COMA"}
+{"Name": "Suraj Nayak", "Roll": "2-01-16-0708", "Current Year": "2", "Registration Number": "A01-1112-1618-16", "Department": "COMA"}
+{"Name": "Timothy Shekhar Joseph", "Roll": "2-01-16-0709", "Current Year": "2", "Registration Number": "A01-1112-1619-16", "Department": "COMA"}
+{"Name": "Shreevats Biyani", "Roll": "2-01-16-0710", "Current Year": "2", "Registration Number": "A01-1112-1620-16", "Department": "COMA"}
+{"Name": "Ansul Singrodia", "Roll": "2-01-16-0711", "Current Year": "2", "Registration Number": "A01-1112-1621-16", "Department": "COMA"}
+{"Name": "Abhisekh Singh", "Roll": "2-01-16-0712", "Current Year": "2", "Registration Number": "A01-1112-1622-16", "Department": "COMA"}
+{"Name": "Ayush Agarwal", "Roll": "2-01-16-0713", "Current Year": "2", "Registration Number": "A01-1112-1623-16", "Department": "COMA"}
+{"Name": "Angirash Upadhyaya", "Roll": "2-01-16-0714", "Current Year": "2", "Registration Number": "A01-1112-1624-16", "Department": "COMA"}
+{"Name": "Bharat Kumar Digga", "Roll": "2-01-16-0715", "Current Year": "2", "Registration Number": "A01-1112-1625-16", "Department": "COMA"}
+{"Name": "Sudershan Kothari", "Roll": "2-01-16-0716", "Current Year": "2", "Registration Number": "A01-1112-1626-16", "Department": "COMA"}
+{"Name": "Ankit Talai", "Roll": "2-01-16-0717", "Current Year": "2", "Registration Number": "A01-1122-1627-16", "Department": "COMA"}
+{"Name": "Dipto Samanta", "Roll": "2-01-16-0718", "Current Year": "2", "Registration Number": "A01-1112-1628-16", "Department": "COMA"}
+{"Name": "Pratik Agarwal", "Roll": "2-01-16-0719", "Current Year": "2", "Registration Number": "A01-1112-1629-16", "Department": "COMA"}
+{"Name": "Pranav Bothra", "Roll": "2-01-16-0720", "Current Year": "2", "Registration Number": "A01-1112-1630-16", "Department": "COMA"}
+{"Name": "Keshav Bhutra", "Roll": "2-01-16-0722", "Current Year": "2", "Registration Number": "A01-1112-1631-16", "Department": "COMA"}
+{"Name": "Sahil Bajaj", "Roll": "2-01-16-0723", "Current Year": "2", "Registration Number": "A01-1112-1632-16", "Department": "COMA"}
+{"Name": "Diwash Jain", "Roll": "2-01-16-0724", "Current Year": "2", "Registration Number": "A01-1112-1633-16", "Department": "COMA"}
+{"Name": "Harsh Anchalia", "Roll": "2-01-16-0725", "Current Year": "2", "Registration Number": "A01-1112-1634-16", "Department": "COMA"}
+{"Name": "Abhishek Andrew Thakur", "Roll": "2-01-16-0726", "Current Year": "2", "Registration Number": "A01-1112-1635-16", "Department": "COMA"}
+{"Name": "Vipin Kumar Tiwari", "Roll": "2-01-16-0727", "Current Year": "2", "Registration Number": "A01-1112-1636-16", "Department": "COMA"}
+{"Name": "Harsh Goyal", "Roll": "2-01-16-0728", "Current Year": "2", "Registration Number": "A01-1112-1637-16", "Department": "COMA"}
+{"Name": "Gaurav Jain", "Roll": "2-01-16-0729", "Current Year": "2", "Registration Number": "A01-1142-1638-16", "Department": "COMA"}
+{"Name": "Pratik Mittal", "Roll": "2-01-16-0730", "Current Year": "2", "Registration Number": "A01-1112-1639-16", "Department": "COMA"}
+{"Name": "Piyush Agarwal", "Roll": "2-01-16-0731", "Current Year": "2", "Registration Number": "A01-1112-1640-16", "Department": "COMA"}
+{"Name": "Vardhan Shah", "Roll": "1-01-16-0732", "Current Year": "1", "Registration Number": "A01-1112-1641-16", "Department": "COMA"}
+{"Name": "Akhil Agarwal", "Roll": "2-01-16-0733", "Current Year": "2", "Registration Number": "A01-1112-1642-16", "Department": "COMA"}
+{"Name": "Nitin Agarwal", "Roll": "2-01-16-0734", "Current Year": "2", "Registration Number": "A01-1112-1643-16", "Department": "COMA"}
+{"Name": "Arpan Parmanandka", "Roll": "2-01-16-0735", "Current Year": "2", "Registration Number": "A01-1112-1644-16", "Department": "COMA"}
+{"Name": "Rahul Nair", "Roll": "2-01-16-0736", "Current Year": "2", "Registration Number": "A01-1112-1645-16", "Department": "COMA"}
+{"Name": "Shivesh Agarwal", "Roll": "2-01-16-0737", "Current Year": "2", "Registration Number": "A01-1112-1646-16", "Department": "COMA"}
+{"Name": "Sumit Soren", "Roll": "2-01-16-0738", "Current Year": "2", "Registration Number": "A01-1132-1647-16", "Department": "COMA"}
+{"Name": "Shubham Bansal", "Roll": "2-01-16-0739", "Current Year": "2", "Registration Number": "A01-1112-1648-16", "Department": "COMA"}
+{"Name": "Siddhanth Jalan", "Roll": "2-01-16-0740", "Current Year": "2", "Registration Number": "A01-1112-1649-16", "Department": "COMA"}
+{"Name": "Arnab Jan Lahkar", "Roll": "2-01-16-0741", "Current Year": "2", "Registration Number": "A01-1112-1650-16", "Department": "COMA"}
+{"Name": "Anurag Kabra", "Roll": "2-01-16-0742", "Current Year": "2", "Registration Number": "A01-1112-1651-16", "Department": "COMA"}
+{"Name": "Harshit Kumar Patwari", "Roll": "2-01-16-0743", "Current Year": "2", "Registration Number": "A01-1112-1652-16", "Department": "COMA"}
+{"Name": "Subhash Prasad Yadav", "Roll": "2-01-16-0744", "Current Year": "2", "Registration Number": "A01-1112-1653-16", "Department": "COMA"}
+{"Name": "Aditya Narayan Bajpai", "Roll": "2-01-16-0745", "Current Year": "2", "Registration Number": "A01-1112-1654-16", "Department": "COMA"}
+{"Name": "Satyam Dash", "Roll": "2-01-16-0746", "Current Year": "2", "Registration Number": "A01-1112-1655-16", "Department": "COMA"}
+{"Name": "Chandra Mohaan Roy", "Roll": "2-01-16-0747", "Current Year": "2", "Registration Number": "A01-1112-1656-16", "Department": "COMA"}
+{"Name": "Bharat Kumar Khetan", "Roll": "2-01-16-0748", "Current Year": "2", "Registration Number": "A01-1112-1657-16", "Department": "COMA"}
+{"Name": "Rohit Raj", "Roll": "2-01-16-0749", "Current Year": "2", "Registration Number": "A01-1112-1658-16", "Department": "COMA"}
+{"Name": "Nikhil Barik", "Roll": "2-01-16-0750", "Current Year": "2", "Registration Number": "A01-1112-1659-16", "Department": "COMA"}

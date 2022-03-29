@@ -1,0 +1,44 @@
+{"Name": "Yamuna Mary A", "Roll": "2-04-16-0001", "Current Year": "2", "Registration Number": "A01-2112-0001-16", "Department": "EDUC"}
+{"Name": "Anindya Adhikari", "Roll": "2-04-16-0003", "Current Year": "2", "Registration Number": "A01-1112-0002-16", "Department": "EDUC"}
+{"Name": "Rupradha Banerjee (Mitra)", "Roll": "2-04-16-0005", "Current Year": "2", "Registration Number": "A01-2112-0003-16", "Department": "EDUC"}
+{"Name": "Kanyaka Banerjee", "Roll": "2-04-16-0006", "Current Year": "2", "Registration Number": "A01-2112-0004-16", "Department": "EDUC"}
+{"Name": "Madhusree Barick", "Roll": "2-04-16-0008", "Current Year": "2", "Registration Number": "A01-2112-0005-16", "Department": "EDUC"}
+{"Name": "Sanghamitra Basu Das", "Roll": "2-04-16-0009", "Current Year": "2", "Registration Number": "A01-2112-0006-16", "Department": "EDUC"}
+{"Name": "Kaushani Basu", "Roll": "2-04-16-0010", "Current Year": "2", "Registration Number": "A01-2112-0007-16", "Department": "EDUC"}
+{"Name": "Saptarshi Bhattacharya", "Roll": "2-04-16-0012", "Current Year": "2", "Registration Number": "A01-1112-0008-16", "Department": "EDUC"}
+{"Name": "Ananya Chattopadhyay", "Roll": "2-04-16-0014", "Current Year": "2", "Registration Number": "A01-2112-0009-16", "Department": "EDUC"}
+{"Name": "Sumana Das", "Roll": "2-04-16-0020", "Current Year": "2", "Registration Number": "A01-2112-0010-16", "Department": "EDUC"}
+{"Name": "Moonmoon De", "Roll": "2-04-16-0023", "Current Year": "2", "Registration Number": "A01-2112-0011-16", "Department": "EDUC"}
+{"Name": "Ursula Parmila Dhan", "Roll": "2-04-16-0024", "Current Year": "2", "Registration Number": "A01-2132-0012-16", "Department": "EDUC"}
+{"Name": "Sinthi Dutta", "Roll": "2-04-16-0027", "Current Year": "2", "Registration Number": "A01-2112-0013-16", "Department": "EDUC"}
+{"Name": "Sanchari Ghosh", "Roll": "2-04-16-0033", "Current Year": "2", "Registration Number": "A01-2112-0014-16", "Department": "EDUC"}
+{"Name": "Riaya Guhathakurata", "Roll": "2-04-16-0036", "Current Year": "2", "Registration Number": "A01-2112-0015-16", "Department": "EDUC"}
+{"Name": "Surashree Guin", "Roll": "2-04-16-0037", "Current Year": "2", "Registration Number": "A01-2112-0016-16", "Department": "EDUC"}
+{"Name": "Bushra Hossain", "Roll": "2-04-16-0041", "Current Year": "2", "Registration Number": "A01-2112-0017-16", "Department": "EDUC"}
+{"Name": "Tejinder Kaur", "Roll": "2-04-16-0042", "Current Year": "2", "Registration Number": "A01-2122-0018-16", "Department": "EDUC"}
+{"Name": "Ku Kiran Kerketta", "Roll": "2-04-16-0043", "Current Year": "2", "Registration Number": "A01-2132-0019-16", "Department": "EDUC"}
+{"Name": "Filomeena Kujur", "Roll": "2-04-16-0044", "Current Year": "2", "Registration Number": "A01-2132-0020-16", "Department": "EDUC"}
+{"Name": "Prashant Kumar", "Roll": "2-04-16-0045", "Current Year": "2", "Registration Number": "A01-1142-0021-16", "Department": "EDUC"}
+{"Name": "Ankita Minz", "Roll": "2-04-16-0048", "Current Year": "2", "Registration Number": "A01-2132-0022-16", "Department": "EDUC"}
+{"Name": "Bikramjit Mitra", "Roll": "2-04-16-0049", "Current Year": "2", "Registration Number": "A01-1112-0023-16", "Department": "EDUC"}
+{"Name": "Jyotsna Mondal", "Roll": "2-04-16-0051", "Current Year": "2", "Registration Number": "A01-2112-0024-16", "Department": "EDUC"}
+{"Name": "Priyanka Mondal", "Roll": "2-04-16-0052", "Current Year": "2", "Registration Number": "A01-2142-0025-16", "Department": "EDUC"}
+{"Name": "Premananda Nayak", "Roll": "2-04-16-0059", "Current Year": "2", "Registration Number": "A01-1122-0026-16", "Department": "EDUC"}
+{"Name": "Sudipta Palit", "Roll": "2-04-16-0062", "Current Year": "2", "Registration Number": "A01-2112-0027-16", "Department": "EDUC"}
+{"Name": "Khrielavonuo Pienyu", "Roll": "2-04-16-0065", "Current Year": "2", "Registration Number": "A01-2132-0028-16", "Department": "EDUC"}
+{"Name": "A . Sesammal Rosy", "Roll": "2-04-16-0070", "Current Year": "2", "Registration Number": "A01-2112-0029-16", "Department": "EDUC"}
+{"Name": "Jasintha . S.", "Roll": "2-04-16-0073", "Current Year": "2", "Registration Number": "A01-2112-0030-16", "Department": "EDUC"}
+{"Name": "Ankita Saha", "Roll": "2-04-16-0074", "Current Year": "2", "Registration Number": "A01-2112-0031-16", "Department": "EDUC"}
+{"Name": "Vinita Saha", "Roll": "2-04-16-0077", "Current Year": "2", "Registration Number": "A01-2112-0032-16", "Department": "EDUC"}
+{"Name": "Sandip Samanta", "Roll": "2-04-16-0079", "Current Year": "2", "Registration Number": "A01-1112-0033-16", "Department": "EDUC"}
+{"Name": "Roslin Singh", "Roll": "2-04-16-0087", "Current Year": "2", "Registration Number": "A01-2112-0034-16", "Department": "EDUC"}
+{"Name": "Pallavi Sinha", "Roll": "2-04-16-0088", "Current Year": "2", "Registration Number": "A01-2112-0035-16", "Department": "EDUC"}
+{"Name": "Punam Soreng", "Roll": "2-04-16-0091", "Current Year": "2", "Registration Number": "A01-2132-0036-16", "Department": "EDUC"}
+{"Name": "Amia Anita Tete", "Roll": "2-04-16-0092", "Current Year": "2", "Registration Number": "A01-2132-0037-16", "Department": "EDUC"}
+{"Name": "Elice Topno", "Roll": "2-04-16-0095", "Current Year": "2", "Registration Number": "A01-2132-0038-16", "Department": "EDUC"}
+{"Name": "Manorama Tuti", "Roll": "2-04-16-0096", "Current Year": "2", "Registration Number": "A01-2132-0039-16", "Department": "EDUC"}
+{"Name": "Albert V. J", "Roll": "2-04-16-0097", "Current Year": "2", "Registration Number": "A01-1112-0040-16", "Department": "EDUC"}
+{"Name": "S. P. Xavier", "Roll": "2-04-16-0098", "Current Year": "2", "Registration Number": "A01-1112-0041-16", "Department": "EDUC"}
+{"Name": "Rashida Zakir", "Roll": "2-04-16-0099", "Current Year": "2", "Registration Number": "A01-2112-0042-16", "Department": "EDUC"}
+{"Name": "Rekha Minz", "Roll": "1-04-16-0100", "Current Year": "1", "Registration Number": "A01-2132-0043-16", "Department": "EDUC"}
+{"Name": "Shashilata Tirkey", "Roll": "2-04-16-0101", "Current Year": "2", "Registration Number": "A01-2132-0044-16", "Department": "EDUC"}
