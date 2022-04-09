@@ -1,14 +1,16 @@
-import mysql.connector
+# import mysql.connector
+import sqlite3
 import json
 import os
 
-mydb = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    passwd="",
-    database="election"
-)
+# mydb = mysql.connector.connect(
+#     host="localhost",
+#     user="root",
+#     passwd="",
+#     database="election"
+# )
 
+'''
 my_cursor = mydb.cursor()
 voter_id = 0
 
@@ -47,6 +49,50 @@ for file in file_list:
             my_cursor.execute("INSERT INTO voter (voter_id, voter_cin, voter_name, dept_code) VALUES (%s, %s, %s, %s)", (voter_id, roll, name, department))
 mydb.commit()
 print("Success, total voters: ", voter_id)
+'''
+
+file_list = ['BAGG.txt', 'BMBT.txt', 'BNGA.txt',
+             'CEMA.txt', 'CMSA.txt', 'ECOA.txt',
+             'ENGA.txt', 'MCBA.txt', 'MCVA.txt',
+             'MMFI.txt', 'MTMA.txt', 'PHSA.txt',
+             'PLSA.txt', 'SOCA.txt', 'STSA.txt',
+             'BOBA.txt', 'CMEA.txt', 'CMSL.txt',
+             'COMA.txt', 'EDUC.txt', 'HISA.txt',
+             'MCMF.txt', 'MCMM.txt', 'MCMS.txt',
+             'MMCB.txt', 'MPHY.txt']
+try:
+    sqliteConnection = sqlite3.connect('app/site.db')
+    cursor = sqliteConnection.cursor()
+    print("Successfully Connected to SQLite")
+
+    abs_path = os.path.dirname(os.path.abspath(__file__))
+    for file in file_list:
+        current_file = abs_path + '/student_data/' + file
+        # print(current_file)
+        with open(current_file, 'r') as f:
+            for line in f:
+                record = json.loads(line)
+                name = record["Name"]
+                cin = record["Roll"]
+                email = cin + '@email.com'
+                # current_year = record["Current Year"]
+                # registration_number = record["Registration Number"]
+                dept = record["Department"]
+                imagefile = 'default.jpg'
+                password = 'password'
+                item = [cin, name, email, dept, imagefile, password]
+                # print(item)
+                cursor.execute("INSERT INTO voter (cin, name, email, dept, imagefile, password) VALUES (?, ?, ?, ?, ?, ?)", item)
+    sqliteConnection.commit()
+    print("Successfully populated database!")
+    cursor.close()
+except sqlite3.Error as error:
+    print("Error while connecting to sqlite", error)
+finally:
+    if sqliteConnection:
+        sqliteConnection.close()
+        print("The SQLite connection is closed")
+
 
 # print(file_content[0].split(', ')[0][1:].index(": ") + 1)
 # print(file_content[0].split(', ')[1])
