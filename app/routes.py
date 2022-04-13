@@ -40,12 +40,16 @@ def login():
     #     return redirect(url_for('voter', id=current_user.id))
     form = LoginForm()
     if form.validate_on_submit():
-        if form.cin.data == "admin" and form.password.data == "pass": # Admin login
-            # flash("Logged in as admin!", "success")
+        user = Voter.query.filter_by(cin=form.cin.data).first()
+        if user and form.cin.data == "admin" and form.password.data == "pass": # Admin login
+            login_user(user, remember=form.remember.data)
+            flash("Logged in as admin!", "success")
+            next_page = request.args.get('next')
+            return redirect(next_page) if next_page else redirect(url_for('admin'))
             # return redirect(url_for('admin'))
-            return render_template("admin.html")
+            # return render_template("admin.html")
         else:
-            user = Voter.query.filter_by(cin=form.cin.data).first()
+            
             # print(user.password, form.password.data)
             # or (user and bcrypt.check_password_hash("$2b$12$kVDRawf/giSMrGRpJf3AtOS0eAY6pSSQUXgT11aQHBrruCk3T/KVu", form.password.data)):
             if user and form.password.data=="password": # Already registered users login
@@ -113,8 +117,8 @@ def candidate(id):
 @login_required
 def admin():
     # flash("Logged in as admin!", "success")
-    # return render_template("admin.html")
-    login()
+    return render_template("admin.html")
+    # login()
 
 @app.route("/election/new", methods=['GET', 'POST'])
 # @login_required
