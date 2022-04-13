@@ -80,9 +80,11 @@ try:
                 dept = record["Department"]
                 imagefile = 'default.jpg'
                 password = 'password'
-                item = [cin, name, email, dept, imagefile, password]
+                join_year = 2016
+                is_admin = False
+                item = [cin, name, email, dept, imagefile, password, join_year, is_admin]
                 # print(item)
-                cursor.execute("INSERT INTO voter (cin, name, email, dept, imagefile, password) VALUES (?, ?, ?, ?, ?, ?)", item)
+                cursor.execute("INSERT INTO voter (cin, name, email, dept, imagefile, password, join_year, is_admin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", item)
     sqliteConnection.commit()
     print("Successfully populated database!")
     cursor.close()

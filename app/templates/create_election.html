@@ -1,0 +1,80 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="content-section">
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Create New Election</legend>
+        <div class="form-group">
+          {{ form.election_title.label(class="form-control-label") }} 
+          {% if form.election_title.errors%} 
+            {{ form.election_title(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.election_title.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.election_title(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.start_date.label(class="form-control-label") }} 
+          {% if form.start_date.errors %} 
+            {{ form.start_date(class="datetime form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.start_date.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+          {{ form.start_date(class="datetime form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+
+        <div class="form-group mt-2">
+          {{ form.end_date.label(class="form-control-label") }} 
+          {% if form.end_date.errors %} 
+            {{ form.end_date(class="datetime form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.end_date.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.end_date(class="datetime form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.department.label(class="form-control-label") }} 
+          {% if form.department.errors %} 
+            {{ form.department(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.department.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.department(class="form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.year.label(class="form-control-label") }} 
+          {% if form.year.errors %} 
+            {{ form.year(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.year.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.year(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+      </fieldset>
+      <div class="form-group mt-3">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+  </div>
+{% endblock content %}

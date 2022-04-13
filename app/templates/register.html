@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "meta.html" %} 
 {% block content %}
   <div class="content-section">
     <form action="" method="POST">
@@ -59,6 +59,19 @@
           {% endif %}
         </div>
         <div class="form-group mt-2">
+          {{ form.join_year.label(class="form-control-label") }} 
+          {% if form.join_year.errors %} 
+            {{ form.join_year(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.join_year.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.join_year(class="form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
           {{ form.password.label(class="form-control-label") }} 
           {% if form.password.errors %} 
             {{ form.password(class="form-control form-control-lg is-invalid") }}
@@ -91,9 +104,9 @@
     </form>
   </div>
   <div class="border-top pt-3">
-    <small class="text-muted">
+    <center><small class="text-muted">
       Already have an account?
       <a class="ml-2" href="{{ url_for('login') }}">Sign In</a>
-    </small>
+    </small></center>
   </div>
 {% endblock content %}

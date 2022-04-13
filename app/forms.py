@@ -1,9 +1,10 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, DateTimeLocalField, IntegerField
+# from wtforms.fields import DateTimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
-from app.models import Voter
+from app.models import Department, Voter
 
 class RegistrationForm(FlaskForm):
     cin = StringField('CIN', validators=[DataRequired()])
@@ -11,6 +12,8 @@ class RegistrationForm(FlaskForm):
     # username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
+    join_year = IntegerField('Join Year', validators=[DataRequired()])
+    is_admin = False
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
@@ -52,3 +55,13 @@ class UpdateAccountForm(FlaskForm):
             user = Voter.query.filter_by(email=email.data).first()
             if user:
                 raise ValidationError('That Email is taken. Please choose a different one.')
+
+class NewElectionForm(FlaskForm):
+    election_title = StringField('Election Title', validators=[DataRequired()])
+    start_date = DateTimeLocalField('Election Start Date', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
+    end_date = DateTimeLocalField('Election End Date', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
+    eligible_depts = [('CMSA', 'Computer Sc. Hons'), ('PHSA', 'Physics Hons')]
+    department = SelectField('Department', choices = eligible_depts, validators=[DataRequired()])
+    eligible_years = [('2016', '2016')]
+    year = SelectField('Year', choices = eligible_years, validators=[DataRequired()])
+    submit = SubmitField('Create')

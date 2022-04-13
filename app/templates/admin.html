@@ -1,0 +1,47 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+      <div class="content-section">
+        <h1>Ongoing Elections</h1>
+        <p class='text-muted'>Elections currently happening:
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-light"><a href="#">Election-1</a></li>
+        </ul>
+        </p>
+    </div>
+    
+    <div class="content-section">
+        <h1>Upcoming Elections</h1>
+        <p class='text-muted'>Future Elections:
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-light"><a href="#">Election-2</a></li>
+            <li class="list-group-item list-group-item-light"><a href="#">Election-3</a></li>
+            <li class="list-group-item list-group-item-light"><a href="#">Election-4</a></li>
+        </ul>
+        </p>
+    </div>
+    
+    <div class="content-section">
+        <h1>Previous Elections</h1>
+        <p class='text-muted'>Past Elections:
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-light"><a href="#">Election-5</a></li>
+            <li class="list-group-item list-group-item-light"><a href="#">Election-6</a></li>
+        </ul>
+        </p>
+    </div>
+{% endblock content %}
+
+{% block sidebar %}
+<div class="col-md-4">
+    <div class="content-section">
+      <h3>Sidebar</h3>
+      <p class='text-muted'>Useful Links
+        <ul class="list-group">
+          <li class="list-group-item list-group-item-light"><a href="{{ url_for('new_election') }}">Create Elections</a></li>
+          <li class="list-group-item list-group-item-light"><a href="#">Publish Results</a></li>
+        </ul>
+      </p>
+    </div>
+  </div>
+{% endblock sidebar %}

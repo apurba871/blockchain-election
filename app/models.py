@@ -1,6 +1,7 @@
 from datetime import datetime
 from app import db, login_manager
 from flask_login import UserMixin
+# from sqlalchemy import CheckConstraint
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -15,18 +16,11 @@ class Voter(db.Model, UserMixin):
     dept = db.Column(db.String(4), db.ForeignKey('department.dept_code'), nullable=False)
     imagefile = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
+    join_year = db.Column(db.Integer, nullable=False, default=2016)
+    is_admin = db.Column(db.Boolean, default=False, nullable=False)
 
     def __repr__(self):
         return f"Voter('{self.name}', '{self.cin}')"
-
-# class Voter(db.Model):
-#     voter_id = db.Column(db.Integer, primary_key=True, nullable=False)
-#     voter_cin = db.Column(db.String(16), unique=True, nullable=False)
-#     voter_name = db.Column(db.String(30), nullable=False)
-#     dept_code = db.Column(db.String(4), db.ForeignKey('department.dept_code') ,nullable=False)
-
-#     def __repr__(self):
-#         return f"Voter('{self.voter_id}', '{self.voter_name}')"
 
 class Candidate(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -41,6 +35,9 @@ class Election(db.Model):
     election_id = db.Column(db.String(5), primary_key=True, nullable=False)
     start_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     end_date = db.Column(db.DateTime, nullable=False)
+    public_key = db.Column(db.String(255), nullable=False, unique=True)
+    max_attempt = db.Column(db.Integer, nullable=False, default=3)
+    election_state = db.Column(db.String(30), db.CheckConstraint("election_state in ('upcoming', 'ongoing', 'over', 'past')"))
     # is_over = db.Column(db.Boolean, nullable=False)
 
     def __repr__(self):
@@ -49,7 +46,7 @@ class Election(db.Model):
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
-    candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), nullable=False)
+    # candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), nullable=False)
 
     def __repr__(self):
         return f"Casted_Vote('{self.election_id}', '{self.id}', '{self.candidate_id}')"
@@ -57,6 +54,8 @@ class Casted_Vote(db.Model):
 class Voter_List(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
+    tries = db.Column(db.Integer, default=0, nullable=False)
+    token = db.Column(db.String(255), unique=True, nullable=False)
 
     def __repr__(self):
         return f"Voter_List('{self.election_id}', '{self.id}')"
@@ -67,3 +66,11 @@ class Department(db.Model):
 
     def __repr__(self):
         return f"Department('{self.dept_code}', '{self.dept_name}')"
+
+class Results(db.Model):
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
+    candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), primary_key=True, nullable=False)
+    total_votes = db.Column(db.Integer, nullable=False, default=0)
+
+    def __repr__(self):
+        return f"Results('{self.election_id}', '{self.candidate_id}', '{self.total_votes}')"

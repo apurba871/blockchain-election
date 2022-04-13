@@ -1,4 +1,4 @@
-{% extends "base.html" %} 
+{% extends "meta.html" %} 
 {% block content %}
   <div class="content-section">
     <form action="" method="POST">
@@ -47,9 +47,9 @@
     </form>
   </div>
   <div class="border-top pt-3">
-    <small class="text-muted">
+    <center><small class="text-muted">
       Need an account?
       <a class="ml-2" href="{{ url_for('register') }}">SignUp Now</a>
-    </small>
+    </small></center>
   </div>
 {% endblock content %}

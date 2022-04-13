@@ -21,11 +21,19 @@
     {% else %}
     <title>BlockchainElection</title>
     {% endif %}
+    <style>
+        .center {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
   </head>
   <body>
     {% include 'navbar.html' %}
     <main role="main" class="container">
-      <div class="row">
+      <div class="center">
         <div class="col-md-8">
           {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -38,26 +46,6 @@
           {% endwith %}
           {% block content %}
           {% endblock %}
-        </div>
-        <div class="col-md-4">
-          <div class="content-section">
-            <h3>Current Status</h3>
-            <p class='text-muted'>Elections you are competing in:
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light"><a href="#">Election-1</a></li>
-              </ul>
-            </p>
-          </div>
-          <div class="content-section">
-            <h3>Sidebar</h3>
-            <p class='text-muted'>Useful Links
-              <ul class="list-group">
-                <li class="list-group-item list-group-item-light"><a href="#">Ongoing Elections</a></li>
-                <li class="list-group-item list-group-item-light"><a href="#">Upcoming Elections</a></li>
-                <li class="list-group-item list-group-item-light"><a href="#">Election Results</a></li>
-              </ul>
-            </p>
-          </div>
         </div>
       </div>
     </main>
