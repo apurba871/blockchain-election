@@ -47,20 +47,21 @@ def login():
             flash("Logged in as admin!", "success")
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('admin'))
-            # return redirect(url_for('admin'))
-            # return render_template("admin.html")
         else:
-            
-            # print(user.password, form.password.data)
-            # or (user and bcrypt.check_password_hash("$2b$12$kVDRawf/giSMrGRpJf3AtOS0eAY6pSSQUXgT11aQHBrruCk3T/KVu", form.password.data)):
             if user and form.password.data=="password": # Already registered users login
                 login_user(user, remember=form.remember.data)
                 next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('voter', id=user.id))
+                if next_page == "/election/new":
+                    flash("Please login as admin to access this page", "danger")
+                else:
+                    return redirect(next_page) if next_page else redirect(url_for('voter', id=user.id))
             elif user and bcrypt.check_password_hash(user.password, form.password.data): # new users login
                 login_user(user, remember=form.remember.data)
                 next_page = request.args.get('next')
-                return redirect(next_page) if next_page else redirect(url_for('voter', id=user.id))
+                if next_page == "/election/new":
+                    flash("Please login as admin to access this page", "danger")
+                else:
+                    return redirect(next_page) if next_page else redirect(url_for('voter', id=user.id))
             else:
                 flash('Login Unsuccessful. Please check CIN and Password', 'danger')
     return render_template("login.html", title="Login", form=form)
@@ -122,9 +123,24 @@ def admin():
     # login()
 
 @app.route("/election/new", methods=['GET', 'POST'])
-# @login_required
+@login_required
 def new_election():
     form = NewElectionForm()
+    # if form.validate_on_submit():
+    #     user = Voter.query.filter_by(cin=form.cin.data).first()
+    #     print(user, user.is_admin)
+    #     if user and user.is_admin:
+    #         login_user(user, remember=form.remember.data)
+    #         flash("Logged in as admin!", "success")
+    #         next_page = request.args.get('next')
+            
+    #         return redirect(next_page) if next_page else redirect(url_for('admin'))
+    #     else:
+    #         flash("Please login as admin to access this page", "danger")
+    #         return redirect(url_for('page_not_found'))
+    if request.method == 'GET':
+        form.public_key.data = secrets.token_urlsafe(16)
+        form.private_key.data = secrets.token_urlsafe(16)
     return render_template("create_election.html", title="New Election", form=form)
 
 @app.errorhandler(404)
