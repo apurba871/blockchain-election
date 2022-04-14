@@ -41,7 +41,8 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         user = Voter.query.filter_by(cin=form.cin.data).first()
-        if user and form.cin.data == "admin" and form.password.data == "pass": # Admin login
+        #if user and form.cin.data == "admin" and form.password.data == "pass": # Admin login
+        if user and user.is_admin:
             login_user(user, remember=form.remember.data)
             flash("Logged in as admin!", "success")
             next_page = request.args.get('next')
