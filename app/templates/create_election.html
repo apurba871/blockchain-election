@@ -46,29 +46,42 @@
           {% endif %}
         </div>
         <div class="form-group mt-2">
-          {{ form.department.label(class="form-control-label") }} 
-          {% if form.department.errors %} 
-            {{ form.department(class="form-control form-control-lg is-invalid") }}
+          {{ form.public_key.label(class="form-control-label") }} 
+          {% if form.public_key.errors %} 
+            {{ form.public_key(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
-              {% for error in form.department.errors %}
+              {% for error in form.public_key.errors %}
               <span>{{ error }}</span>
               {% endfor %}
             </div>
           {% else %} 
-            {{ form.department(class="form-control form-control-lg") }} 
+            {{ form.public_key(class="form-control form-control-lg form-control") }} 
           {% endif %}
         </div>
         <div class="form-group mt-2">
-          {{ form.year.label(class="form-control-label") }} 
-          {% if form.year.errors %} 
-            {{ form.year(class="form-control form-control-lg is-invalid") }}
+          {{ form.private_key.label(class="form-control-label") }} 
+          {% if form.private_key.errors %} 
+            {{ form.private_key(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
-              {% for error in form.year.errors %}
+              {% for error in form.private_key.errors %}
               <span>{{ error }}</span>
               {% endfor %}
             </div>
           {% else %} 
-            {{ form.year(class="form-control form-control-lg") }} 
+            {{ form.private_key(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.max_attempts.label(class="form-control-label") }} 
+          {% if form.max_attempts.errors %} 
+            {{ form.max_attempts(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.max_attempts.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.max_attempts(class="form-control form-control-lg") }} 
             {% endif %}
         </div>
       </fieldset>
