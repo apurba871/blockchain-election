@@ -7,18 +7,6 @@ from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Depa
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm
 from flask_login import login_user, current_user, logout_user, login_required
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-
-@app.route("/home")
-def home():
-    return render_template("home.html")
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     # if current_user.is_authenticated:
@@ -36,13 +24,10 @@ def register():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-    # if current_user.is_authenticated:
-    #     return redirect(url_for('voter', id=current_user.id))
     form = LoginForm()
     if form.validate_on_submit():
         user = Voter.query.filter_by(cin=form.cin.data).first()
-        #if user and form.cin.data == "admin" and form.password.data == "pass": # Admin login
-        if user and user.is_admin:
+        if user and user.is_admin: # Admin login
             login_user(user, remember=form.remember.data)
             flash("Logged in as admin!", "success")
             next_page = request.args.get('next')
@@ -107,6 +92,35 @@ def account():
     image_file = url_for('static', filename='profile_pics/' + current_user.imagefile)
     return render_template("account.html", title="Account", image_file=image_file, form=form)
 
+@app.route("/election/new", methods=['GET', 'POST'])
+@login_required
+def new_election():
+    form = NewElectionForm()
+    if request.method == 'GET':
+        form.public_key.data = secrets.token_urlsafe(16)
+        form.private_key.data = secrets.token_urlsafe(16)
+    if form.validate_on_submit():
+        num_elections = Election.query.count()
+        election_id = num_elections + 1
+        prefixed_election_id = 'E' + election_id
+        new_election = Election(election_id=prefixed_election_id, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
+        db.session.add(new_election)
+        db.session.commit()
+        flash('Election Created Successfully!', 'success')
+    return render_template("create_election.html", title="New Election", form=form)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
 @app.route("/voter/<int:id>")
 def voter(id):
     return render_template("voter.html", voter_id=id)
@@ -118,30 +132,7 @@ def candidate(id):
 @app.route("/admin")
 @login_required
 def admin():
-    # flash("Logged in as admin!", "success")
     return render_template("admin.html")
-    # login()
-
-@app.route("/election/new", methods=['GET', 'POST'])
-@login_required
-def new_election():
-    form = NewElectionForm()
-    # if form.validate_on_submit():
-    #     user = Voter.query.filter_by(cin=form.cin.data).first()
-    #     print(user, user.is_admin)
-    #     if user and user.is_admin:
-    #         login_user(user, remember=form.remember.data)
-    #         flash("Logged in as admin!", "success")
-    #         next_page = request.args.get('next')
-            
-    #         return redirect(next_page) if next_page else redirect(url_for('admin'))
-    #     else:
-    #         flash("Please login as admin to access this page", "danger")
-    #         return redirect(url_for('page_not_found'))
-    if request.method == 'GET':
-        form.public_key.data = secrets.token_urlsafe(16)
-        form.private_key.data = secrets.token_urlsafe(16)
-    return render_template("create_election.html", title="New Election", form=form)
 
 @app.errorhandler(404)
 def page_not_found(e):
