@@ -104,7 +104,13 @@ def new_election():
         num_elections = Election.query.count()
         election_id = num_elections + 1
         prefixed_election_id = 'E' + str(election_id)   
-        new_election = Election(election_id=prefixed_election_id, election_title=form.election_title.data, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempt.data, election_state='upcoming')
+        new_election = Election(election_id=prefixed_election_id, 
+                                election_title=form.election_title.data, 
+                                start_date=form.start_date.data, 
+                                end_date=form.end_date.data, 
+                                public_key=form.public_key.data, 
+                                max_attempt=form.max_attempt.data, 
+                                election_state='upcoming')
         # print(new_election)
         db.session.add(new_election)
         db.session.commit()
