@@ -1,4 +1,3 @@
-from tokenize import Number
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
@@ -6,6 +5,7 @@ from wtforms import StringField, PasswordField, SubmitField, BooleanField, Selec
 # from wtforms.fields import DateTimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
 from app.models import Department, Voter
+from wtforms_sqlalchemy.fields import QuerySelectField
 
 class RegistrationForm(FlaskForm):
     cin = StringField('CIN', validators=[DataRequired()])
@@ -59,13 +59,20 @@ class UpdateAccountForm(FlaskForm):
 
 class NewElectionForm(FlaskForm):
     election_title = StringField('Election Title', validators=[DataRequired()])
-    start_date = DateTimeLocalField('Election Start Date', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
-    end_date = DateTimeLocalField('Election End Date', format='%Y-%m-%d %H:%M:%S', validators=[DataRequired()])
-    # eligible_depts = [('CMSA', 'Computer Sc. Hons'), ('PHSA', 'Physics Hons')]
-    # department = SelectField('Department', choices = eligible_depts, validators=[DataRequired()])
-    # eligible_years = [('2016', '2016')]
-    # year = SelectField('Year', choices = eligible_years, validators=[DataRequired()])
+    start_date = DateTimeLocalField('Election Start Date', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
+    end_date = DateTimeLocalField('Election End Date', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
     public_key = StringField('Public Key', render_kw={'readonly': True})
     private_key = StringField('Private Key', render_kw={'readonly': True})
     max_attempts = IntegerField('Max Retries Allowed', validators=[DataRequired(), NumberRange(min=3, max=10)])
     submit = SubmitField('Save and Proceed to Generate Voter List')
+
+    def validate_start_date(self, start_date):
+        if start_date.data >= self.end_date.data:
+            raise ValidationError('Invalid Election Dates specified!')
+
+class GenVoterListForm(FlaskForm):
+    # eligible_depts = [('CMSA', 'Computer Sc. Hons'), ('PHSA', 'Physics Hons')]
+    eligible_depts = Department.query.all()
+    department = QuerySelectField('Department', choices = eligible_depts, validators=[DataRequired()])
+    # eligible_years = [('2016', '2016')]
+    # year = SelectField('Year', choices = eligible_years, validators=[DataRequired()])
