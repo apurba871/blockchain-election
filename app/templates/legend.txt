@@ -2,3 +2,4 @@ Upcoming Elections Card is present in: -
 
 1. index.html
 2. home.html
+3. admin.html
