@@ -34,6 +34,7 @@ class Candidate(db.Model):
 class Election(db.Model):
     election_id = db.Column(db.String(5), primary_key=True, nullable=False)
     election_title = db.Column(db.String(255), nullable=False)
+    create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     start_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     end_date = db.Column(db.DateTime, db.CheckConstraint("end_date > start_date"), nullable=False)
     public_key = db.Column(db.String(255), nullable=False, unique=True)

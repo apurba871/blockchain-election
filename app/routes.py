@@ -4,7 +4,7 @@ from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
 from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
 from flask_login import login_user, current_user, logout_user, login_required
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -124,7 +124,7 @@ def index():
 
 @app.route("/home")
 def home():
-    elections = Election.query.all()
+    elections = Election.query.order_by(Election.start_date).all()
     # print(elections)
     return render_template("home.html", elections=elections)
 
@@ -145,6 +145,20 @@ def candidate(id):
 def admin():
     elections = Election.query.all()
     return render_template("admin.html", elections=elections)
+
+@app.route("/admin/new", methods=['GET', 'POST'])
+@login_required
+def new_admin():
+    form = NewAdminForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        # print(form.is_admin.data)
+        user = Voter(cin=form.cin.data, name=form.name.data, email=form.email.data, dept=form.dept.data, imagefile='default.jpg', password=hashed_password, join_year=form.join_year.data, is_admin=form.is_admin.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You are now able to log in', 'success')
+        # return redirect(url_for('login'))
+    return render_template("new_admin.html", title="Add New Admin", form=form)
 
 @app.errorhandler(404)
 def page_not_found(e):
