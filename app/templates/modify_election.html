@@ -1,0 +1,93 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="content-section">
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Modify Election</legend>
+        <div class="form-group">
+          {{ form.election_title.label(class="form-control-label") }} 
+          {% if form.election_title.errors%} 
+            {{ form.election_title(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.election_title.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.election_title(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.start_date.label(class="form-control-label") }} 
+          {% if form.start_date.errors %} 
+            {{ form.start_date(class="datetime form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.start_date.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+          {{ form.start_date(class="datetime form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+
+        <div class="form-group mt-2">
+          {{ form.end_date.label(class="form-control-label") }} 
+          {% if form.end_date.errors %} 
+            {{ form.end_date(class="datetime form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.end_date.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.end_date(class="datetime form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.public_key.label(class="form-control-label") }} 
+          {% if form.public_key.errors %} 
+            {{ form.public_key(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.public_key.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.public_key(class="form-control form-control-lg form-control") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.private_key.label(class="form-control-label") }} 
+          {% if form.private_key.errors %} 
+            {{ form.private_key(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.private_key.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.private_key(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.max_attempts.label(class="form-control-label") }} 
+          {% if form.max_attempts.errors %} 
+            {{ form.max_attempts(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.max_attempts.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.max_attempts(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+      </fieldset>
+      <div class="form-group mt-3">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+  </div>
+{% endblock content %}
