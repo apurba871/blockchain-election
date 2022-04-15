@@ -104,12 +104,12 @@ def new_election():
         num_elections = Election.query.count()
         election_id = num_elections + 1
         prefixed_election_id = 'E' + str(election_id)   
-        new_election = Election(election_id=prefixed_election_id, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
-        print(new_election)
+        new_election = Election(election_id=prefixed_election_id, election_title=form.election_title.data, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
+        # print(new_election)
         db.session.add(new_election)
         db.session.commit()
         flash('Election Created Successfully!', 'success')
-        return redirect(url_for('new_election'))
+        return redirect(url_for('home'))
     return render_template("create_election.html", title="New Election", form=form)
 
 @app.route("/election/generate/voter_list", methods=['GET', 'POST'])
@@ -119,11 +119,14 @@ def gen_voter_list():
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    elections = Election.query.all()
+    return render_template("index.html", elections=elections)
 
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    elections = Election.query.all()
+    # print(elections)
+    return render_template("home.html", elections=elections)
 
 @app.route("/about")
 def about():
