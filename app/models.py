@@ -33,6 +33,7 @@ class Candidate(db.Model):
 
 class Election(db.Model):
     election_id = db.Column(db.String(5), primary_key=True, nullable=False)
+    election_title = db.Column(db.String(255), nullable=False)
     start_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     end_date = db.Column(db.DateTime, db.CheckConstraint("end_date > start_date"), nullable=False)
     public_key = db.Column(db.String(255), nullable=False, unique=True)
@@ -41,7 +42,7 @@ class Election(db.Model):
     # is_over = db.Column(db.Boolean, nullable=False)
 
     def __repr__(self):
-        return f"Election('{self.election_id}', '{self.start_date}', '{self.end_date}'"
+        return f"Election('{self.election_id}', '{self.election_title}', '{self.start_date}', '{self.end_date}'"
 
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
