@@ -70,6 +70,7 @@ class NewElectionForm(FlaskForm):
     generate_keys = SubmitField('Generate New Key Pair')
     home = SubmitField("Home")
     end_election = SubmitField("End Election")
+    start_counting = SubmitField("Start Counting Process")
 
     def validate_start_date(self, start_date):
         if start_date.data >= self.end_date.data:
