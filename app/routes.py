@@ -123,6 +123,7 @@ def new_election():
 @login_required
 def view_election(id):
     curr_election = Election.query.where(Election.election_id==id).first()
+    # Generate the background color of the Election Status Text
     if curr_election.election_state == 'upcoming':
         bg_color_election_state = "bg-primary"
     elif curr_election.election_state == 'ongoing':
@@ -134,7 +135,10 @@ def view_election(id):
     # If the current user is admin and the election is an upcoming election
     if current_user.is_admin and curr_election.election_state == 'upcoming':
         form = NewElectionForm(obj=curr_election)
+        # Check the form for valid data
         if form.validate_on_submit():
+            # If the submit button was pressed, set the update the new
+            # data in the current election row and commit to database
             if form.submit.data:
                 curr_election.election_title = form.election_title.data
                 curr_election.start_date=form.start_date.data
@@ -143,47 +147,68 @@ def view_election(id):
                 db.session.commit()
                 flash('Election Modified Successfully!', 'success')
                 return redirect(url_for('home'))
+            # If the generate_keys button was pressed, generate new keys and display
+            # them
             elif form.generate_keys.data:
-                print("generate_keys button was pressed")
+                # print("generate_keys button was pressed")
                 form.public_key.data = secrets.token_urlsafe(16)
                 form.private_key.data = secrets.token_urlsafe(16)
                 return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
         else:
             return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
+    # If the current user is admin and the election state is ongoing
     elif current_user.is_admin and curr_election.election_state == 'ongoing':
+        # Create a new form and populate it with existing data
         form = NewElectionForm(obj=curr_election)
+        # If the home button is pressed, redirect to the home route
         if form.home.data:
             return redirect(url_for('home'))
+        # If the end election button is pressed, end the election
         elif form.end_election.data:
             # TODO: Write code for ending the election
             return "End election"
-        # Disabled All Fields
+        # Disable all form fields
         for field in form:
             field.render_kw = {"readonly": True}
         return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+    # If the current user is admin and the election is over, flash a message that the voting phase
+    # is over and ask to start the counting phase
     elif current_user.is_admin and curr_election.election_state == 'over':
+        # Display the form with existing data
         form = NewElectionForm(obj=curr_election)
         if form.home.data:
             return redirect(url_for('home'))
         elif form.start_counting.data:
             # TODO: Write code for starting the counting process
             return "Start Counting"
-        # Disabled All Fields
+        # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}
         flash('Voting phase has finished. Please start the counting phase.', 'warning')
         return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+    # If the current user is admin or non-admin, display the summary page
     elif curr_election.election_state == 'past':
         # TODO: Create summary page template
         return "Summary page"
+    # If the current user is non-admin, and election is upcoming, display a registration
+    # form if the user isn't registered yet, otherwise display a message that the election
+    # will start on the start_date, only if the user is eligible for this election.
+    # If the user is not eligible for this election, display the appropriate error message.
     elif not current_user.is_admin and curr_election.election_state == 'upcoming':
         start_date = curr_election.start_date
         election_title = curr_election.election_title
         # TODO: Use the above two variables to display a suitable message in a template
+        # TODO: Also, display the registration form to the voter, if they haven't registered
+        # TODO: for the vote yet. Else display the below message.
         return "Election will start shortly. Please come back later"
+    # If the user is a non-admin user, and election is ongoing, check if the user has registered
+    # for the vote, if not, display the registration page, only if the user is eligible for voting.
+    # After the voter eligibility is verified, redirect to the voting screen. If the voter is not
+    # eligible for the current election, display an appropriate error message.
     elif not current_user.is_admin and curr_election.election_state == 'ongoing':
         # TODO: Create the voting screen template
         return "Click here to go to voting page"
+    # If the user is non-admin, and the election is over, display a message that it is over.
     elif not current_user.is_admin and curr_election.election_state == 'over':
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
