@@ -143,7 +143,8 @@ def candidate(id):
 @app.route("/admin")
 @login_required
 def admin():
-    return render_template("admin.html")
+    elections = Election.query.all()
+    return render_template("admin.html", elections=elections)
 
 @app.errorhandler(404)
 def page_not_found(e):
