@@ -100,7 +100,8 @@ def new_election():
         flash('Please Save the Private Key before proceeding.', 'info')
         form.public_key.data = secrets.token_urlsafe(16)
         form.private_key.data = secrets.token_urlsafe(16)
-    if form.validate_on_submit():
+    # Validate the form on submit and check if submit button was clicked
+    if form.validate_on_submit() and form.submit.data:
         num_elections = Election.query.count()
         election_id = num_elections + 1
         prefixed_election_id = 'E' + str(election_id)   
@@ -122,24 +123,23 @@ def new_election():
 @login_required
 def view_election(id):
     if current_user.is_admin:
-        # TODO: Create a new form similar to NewElectionForm with an regenrate PUBLIC and PRIVATE key button
         curr_election = Election.query.where(Election.election_id==id).first()
         form = NewElectionForm(obj=curr_election)
         if form.validate_on_submit():
-            # num_elections = Election.query.count()
-            # election_id = id
-            # prefixed_election_id = 'E' + str(election_id)   
-            curr_election.election_title = form.election_title.data
-            curr_election.start_date=form.start_date.data
-            curr_election.max_attempt=form.max_attempts.data
-            # new_election = Election(election_id=prefixed_election_id, election_title=form.election_title.data, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
-            # print(new_election)
-            # db.session.update(new_election)
-            curr_election.save()
-            db.session.commit()
-            flash('Election Modified Successfully!', 'success')
-            return redirect(url_for('home'))
-        elif request.method == 'GET':
+            if form.submit.data:
+                curr_election.election_title = form.election_title.data
+                curr_election.start_date=form.start_date.data
+                curr_election.max_attempt=form.max_attempt.data
+                curr_election.public_key=form.public_key.data
+                db.session.commit()
+                flash('Election Modified Successfully!', 'success')
+                return redirect(url_for('home'))
+            elif form.generate_keys.data:
+                print("generate_keys button was pressed")
+                form.public_key.data = secrets.token_urlsafe(16)
+                form.private_key.data = secrets.token_urlsafe(16)
+                return render_template("modify_election.html", title="Modify Election", form=form)
+        else:
             return render_template("modify_election.html", title="Modify Election", form=form)
     else:
         # TODO: Create a template to display the message if current user is non-admin
