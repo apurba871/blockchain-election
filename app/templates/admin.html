@@ -1,7 +1,11 @@
 {% extends "admin_base.html" %}
 
 {% block content %}
-      <div class="content-section">
+    {% include 'ongoing_elections.html' %}
+    {% block ongoing_elections %}
+    {% endblock ongoing_elections %}
+    {% raw %}
+    <!-- <div class="content-section">
         <h1>Ongoing Elections</h1>
         <p class='text-muted'>Elections currently happening:
         <ul class="list-group">
@@ -12,7 +16,8 @@
       {% endfor %}
         </ul>
         </p>
-    </div>
+    </div> -->
+    {% endraw %}
     
     {% include 'upcoming_elections.html' %}
     {% block upcoming_elections %}
@@ -33,18 +38,24 @@
     </div> -->
     {% endraw %}
     
-    <div class="content-section">
+    {% include 'previous_elections.html' %}
+    {% block previous_elections %}
+    {% endblock previous_elections %}
+
+    {% raw %}
+    <!-- <div class="content-section">
         <h1>Previous Elections</h1>
         <p class='text-muted'>Past Elections:
         <ul class="list-group">
-          {% for election in elections %}
-          {% if election.election_state == 'past' %}
-              <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
-          {% endif %}
-      {% endfor %}
+            {% for election in elections %}
+                {% if election.election_state == 'past' %}
+                    <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
+                {% endif %}
+            {% endfor %}
         </ul>
         </p>
-    </div>
+    </div> -->
+    {% endraw %}
 {% endblock content %}
 
 {% block sidebar %}

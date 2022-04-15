@@ -2,7 +2,11 @@
 
 {% block content %}
 
-<div class="content-section">
+{% include 'ongoing_elections.html' %}
+{% block ongoing_elections %}
+{% endblock ongoing_elections %}
+{% raw %}
+<!-- <div class="content-section">
     <h1>Ongoing Elections</h1>
     <p class='text-muted'>Elections currently happening:
     <ul class="list-group">
@@ -13,7 +17,8 @@
         {% endfor %}
     </ul>
     </p>
-</div>
+</div> -->
+{% endraw %}
 
 {% include 'upcoming_elections.html' %}
 {% block upcoming_elections %}
