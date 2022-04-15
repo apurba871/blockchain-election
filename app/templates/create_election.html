@@ -72,16 +72,16 @@
             {% endif %}
         </div>
         <div class="form-group mt-2">
-          {{ form.max_attempts.label(class="form-control-label") }} 
-          {% if form.max_attempts.errors %} 
-            {{ form.max_attempts(class="form-control form-control-lg is-invalid") }}
+          {{ form.max_attempt.label(class="form-control-label") }} 
+          {% if form.max_attempt.errors %} 
+            {{ form.max_attempt(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
-              {% for error in form.max_attempts.errors %}
+              {% for error in form.max_attempt.errors %}
               <span>{{ error }}</span>
               {% endfor %}
             </div>
           {% else %} 
-            {{ form.max_attempts(class="form-control form-control-lg") }} 
+            {{ form.max_attempt(class="form-control form-control-lg") }} 
             {% endif %}
         </div>
       </fieldset>
