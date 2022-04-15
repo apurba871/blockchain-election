@@ -14,18 +14,24 @@
         </p>
     </div>
     
-    <div class="content-section">
+    {% include 'upcoming_elections.html' %}
+    {% block upcoming_elections %}
+    {% endblock upcoming_elections %}
+
+    {% raw %}
+    <!-- <div class="content-section">
         <h1>Upcoming Elections</h1>
         <p class='text-muted'>Future Elections:
         <ul class="list-group">
-          {% for election in elections %}
-          {% if election.election_state == 'upcoming' %}
-              <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
-          {% endif %}
-      {% endfor %}
+            {% for election in elections %}
+                {% if election.election_state == 'upcoming' %}
+                    <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
+                {% endif %}
+            {% endfor %}
         </ul>
         </p>
-    </div>
+    </div> -->
+    {% endraw %}
     
     <div class="content-section">
         <h1>Previous Elections</h1>
