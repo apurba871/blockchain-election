@@ -104,7 +104,7 @@ def new_election():
         num_elections = Election.query.count()
         election_id = num_elections + 1
         prefixed_election_id = 'E' + str(election_id)   
-        new_election = Election(election_id=prefixed_election_id, election_title=form.election_title.data, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
+        new_election = Election(election_id=prefixed_election_id, election_title=form.election_title.data, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempt.data, election_state='upcoming')
         # print(new_election)
         db.session.add(new_election)
         db.session.commit()
@@ -115,7 +115,29 @@ def new_election():
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
 def view_election(id):
-    return id
+    if current_user.is_admin:
+        # TODO: Create a new form similar to NewElectionForm with an regenrate PUBLIC and PRIVATE key button
+        curr_election = Election.query.where(Election.election_id==id).first()
+        form = NewElectionForm(obj=curr_election)
+        if form.validate_on_submit():
+            # num_elections = Election.query.count()
+            # election_id = id
+            # prefixed_election_id = 'E' + str(election_id)   
+            curr_election.election_title = form.election_title.data
+            curr_election.start_date=form.start_date.data
+            curr_election.max_attempt=form.max_attempts.data
+            # new_election = Election(election_id=prefixed_election_id, election_title=form.election_title.data, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
+            # print(new_election)
+            # db.session.update(new_election)
+            curr_election.save()
+            db.session.commit()
+            flash('Election Modified Successfully!', 'success')
+            return redirect(url_for('home'))
+        elif request.method == 'GET':
+            return render_template("modify_election.html", title="Modify Election", form=form)
+    else:
+        # TODO: Create a template to display the message if current user is non-admin
+        return "Current user is not admin, please come back later"
 
 @app.route("/election/generate/voter_list", methods=['GET', 'POST'])
 @login_required
