@@ -34,7 +34,7 @@ class Candidate(db.Model):
 class Election(db.Model):
     election_id = db.Column(db.String(5), primary_key=True, nullable=False)
     start_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    end_date = db.Column(db.DateTime, nullable=False)
+    end_date = db.Column(db.DateTime, db.CheckConstraint("end_date > start_date"), nullable=False)
     public_key = db.Column(db.String(255), nullable=False, unique=True)
     max_attempt = db.Column(db.Integer, nullable=False, default=3)
     election_state = db.Column(db.String(30), db.CheckConstraint("election_state in ('upcoming', 'ongoing', 'over', 'past')"))
