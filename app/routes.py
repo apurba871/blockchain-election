@@ -112,6 +112,11 @@ def new_election():
         return redirect(url_for('home'))
     return render_template("create_election.html", title="New Election", form=form)
 
+@app.route("/election/<id>/view", methods=['GET', 'POST'])
+@login_required
+def view_election(id):
+    return id
+
 @app.route("/election/generate/voter_list", methods=['GET', 'POST'])
 @login_required
 def gen_voter_list():
