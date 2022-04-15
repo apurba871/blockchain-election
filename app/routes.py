@@ -97,17 +97,25 @@ def account():
 def new_election():
     form = NewElectionForm()
     if request.method == 'GET':
+        flash('Please Save the Private Key before proceeding.', 'info')
         form.public_key.data = secrets.token_urlsafe(16)
         form.private_key.data = secrets.token_urlsafe(16)
     if form.validate_on_submit():
         num_elections = Election.query.count()
         election_id = num_elections + 1
-        prefixed_election_id = 'E' + election_id
+        prefixed_election_id = 'E' + str(election_id)   
         new_election = Election(election_id=prefixed_election_id, start_date=form.start_date.data, end_date=form.end_date.data, public_key=form.public_key.data, max_attempt=form.max_attempts.data, election_state='upcoming')
-        db.session.add(new_election) # NOT GETTING ADDED THROUGH FORM, SAYS 'THIS FIELD IS REQUIRED' IN START AND END DATE FIELDS, EVEN THOUGH INPUT IS PROVIDED
+        print(new_election)
+        db.session.add(new_election)
         db.session.commit()
         flash('Election Created Successfully!', 'success')
+        return redirect(url_for('new_election'))
     return render_template("create_election.html", title="New Election", form=form)
+
+@app.route("/election/generate/voter_list", methods=['GET', 'POST'])
+@login_required
+def gen_voter_list():
+    pass
 
 @app.route("/")
 def index():
