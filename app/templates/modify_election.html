@@ -85,9 +85,15 @@
             {% endif %}
         </div>
       </fieldset>
-      <div class="form-group mt-3">
-        {{ form.submit(class="btn btn-outline-info") }}
+      <div class="row">
+        <div class="col">
+          {{ form.submit(class="btn btn-outline-info btn-block") }}
+        </div>
+        <div class="col">
+          {{ form.generate_keys(class="btn btn-outline-warning btn-block") }}
+        </div>
       </div>
+      
     </form>
   </div>
 {% endblock content %}
