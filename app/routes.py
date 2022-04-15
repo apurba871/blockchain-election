@@ -122,8 +122,17 @@ def new_election():
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
 def view_election(id):
-    if current_user.is_admin:
-        curr_election = Election.query.where(Election.election_id==id).first()
+    curr_election = Election.query.where(Election.election_id==id).first()
+    if curr_election.election_state == 'upcoming':
+        bg_color_election_state = "bg-primary"
+    elif curr_election.election_state == 'ongoing':
+        bg_color_election_state = "bg-warning"
+    elif curr_election.election_state == "over":
+        bg_color_election_state = "bg-info"
+    elif curr_election.election_state == "past":
+        bg_color_election_state = "bg-success"
+    # If the current user is admin and the election is an upcoming election
+    if current_user.is_admin and curr_election.election_state == 'upcoming':
         form = NewElectionForm(obj=curr_election)
         if form.validate_on_submit():
             if form.submit.data:
@@ -138,12 +147,46 @@ def view_election(id):
                 print("generate_keys button was pressed")
                 form.public_key.data = secrets.token_urlsafe(16)
                 form.private_key.data = secrets.token_urlsafe(16)
-                return render_template("modify_election.html", title="Modify Election", form=form)
+                return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
         else:
-            return render_template("modify_election.html", title="Modify Election", form=form)
-    else:
-        # TODO: Create a template to display the message if current user is non-admin
-        return "Current user is not admin, please come back later"
+            return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
+    elif current_user.is_admin and curr_election.election_state == 'ongoing':
+        form = NewElectionForm(obj=curr_election)
+        if form.home.data:
+            return redirect(url_for('home'))
+        elif form.end_election.data:
+            # TODO: Write code for ending the election
+            return "End election"
+        # Disabled All Fields
+        for field in form:
+            field.render_kw = {"readonly": True}
+        return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+    elif current_user.is_admin and curr_election.election_state == 'over':
+        form = NewElectionForm(obj=curr_election)
+        if form.home.data:
+            return redirect(url_for('home'))
+        elif form.start_counting.data:
+            # TODO: Write code for starting the counting process
+            return "Start Counting"
+        # Disabled All Fields
+        for field in form:
+            field.render_kw = {"readonly": True}
+        flash('Voting phase has finished. Please start the counting phase.', 'warning')
+        return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+    elif curr_election.election_state == 'past':
+        # TODO: Create summary page template
+        return "Summary page"
+    elif not current_user.is_admin and curr_election.election_state == 'upcoming':
+        start_date = curr_election.start_date
+        election_title = curr_election.election_title
+        # TODO: Use the above two variables to display a suitable message in a template
+        return "Election will start shortly. Please come back later"
+    elif not current_user.is_admin and curr_election.election_state == 'ongoing':
+        # TODO: Create the voting screen template
+        return "Click here to go to voting page"
+    elif not current_user.is_admin and curr_election.election_state == 'over':
+        # TODO: Create the template to display the below message
+        return "Results are yet to be published"
 
 @app.route("/election/generate/voter_list", methods=['GET', 'POST'])
 @login_required
