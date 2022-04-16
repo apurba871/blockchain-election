@@ -10,9 +10,12 @@ from datetime import datetime
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
-    # if current_user.is_authenticated:
-    #     return redirect(url_for('voter', id=current_user.id))
-    # add another admin... todo
+    """
+    Description:    User Registration form route, adds a new user to DB
+    Endpoint:       /register
+    Parameters:     None
+    Uses Template:  register.html
+    """
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -25,6 +28,12 @@ def register():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    """
+    Description:    User/Admin Login form route, logs in a registered user
+    Endpoint:       /login
+    Parameters:     None
+    Uses Template:  login.html
+    """
     form = LoginForm()
     if form.validate_on_submit():
         user = Voter.query.filter_by(cin=form.cin.data).first()
@@ -54,10 +63,22 @@ def login():
 
 @app.route("/logout")
 def logout():
+    """
+    Description:    Logs out the current user from the application
+    Endpoint:       /logout
+    Parameters:     None
+    Uses Template:  None
+    """
     logout_user()
     return redirect(url_for("index"))
 
 def save_picture(form_picture):
+    """
+    Description:    Helper function to resize and save user profile photo
+    Endpoint:       None
+    Parameters:     None
+    Uses Template:  None
+    """
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
@@ -73,6 +94,12 @@ def save_picture(form_picture):
 @app.route("/account", methods=['GET', 'POST'])
 @login_required
 def account():
+    """
+    Description:    Shows current user's details, user can update and save this information to DB
+    Endpoint:       /account
+    Parameters:     None
+    Uses Template:  account.html
+    """
     form = UpdateAccountForm()
     if form.validate_on_submit():
         if form.picture.data:
@@ -96,6 +123,12 @@ def account():
 @app.route("/election/new", methods=['GET', 'POST'])
 @login_required
 def new_election():
+    """
+    Description:    New Election creation form, enables admin to create and schedule upcoming elections
+    Endpoint:       /election/new
+    Parameters:     None
+    Uses Template:  create_election.html
+    """
     form = NewElectionForm()
     if request.method == 'GET':
         flash('Please Save the Private Key before proceeding.', 'info')
@@ -123,6 +156,12 @@ def new_election():
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
 def view_election(id):
+    """
+    Description:    Election page of a particular election
+    Endpoint:       /election/<id>/view
+    Parameters:     id (Type: String)
+    Uses Template:  modify_election.html
+    """
     curr_election = Election.query.where(Election.election_id==id).first()
     # Generate the background color of the Election Status Text
     if curr_election.election_state == 'upcoming':
@@ -216,17 +255,35 @@ def view_election(id):
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
 
-@app.route("/election/generate/voter_list", methods=['GET', 'POST'])
+@app.route("/election/<id>/generate/voter_list", methods=['GET', 'POST'])
 @login_required
 def gen_voter_list():
+    """
+    Description:    Generate Voter List page, admin can use this to generate the voter list
+    Endpoint:       /election/<election_id>/generate/voter_list
+    Parameters:     id (Type: String)
+    Uses Template:  None, currently
+    """
     pass
 
 @app.route("/index2")
 def index2():
+    """
+    Description:    New Landing page of the application
+    Endpoint:       /index2
+    Parameters:     None
+    Uses Template:  index2.html
+    """
     return render_template("index2.html")
 
 @app.route("/")
 def index():
+    """
+    Description:    Landing page of the application
+    Endpoint:       /
+    Parameters:     None
+    Uses Template:  index.html
+    """
     elections = elections = Election.query.order_by(Election.start_date).all()
     for election in elections:
         if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
@@ -242,6 +299,12 @@ def index():
 
 @app.route("/home")
 def home():
+    """
+    Description:    Home page of the application, shows ongoing/upcoming/over/past elections
+    Endpoint:       /home
+    Parameters:     None
+    Uses Template:  home.html
+    """
     elections = Election.query.order_by(Election.start_date).all()
     for election in elections:
         if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
@@ -258,19 +321,43 @@ def home():
 
 @app.route("/about")
 def about():
+    """
+    Description:    About page of the application
+    Endpoint:       /about
+    Parameters:     None
+    Uses Template:  about.html
+    """
     return render_template("about.html")
 
 @app.route("/voter/<int:id>")
 def voter(id):
+    """
+    Description:    Voter page of a particular user
+    Endpoint:       /voter/<voter_id>
+    Parameters:     id (Type: int)
+    Uses Template:  voter.html
+    """
     return render_template("voter.html", voter_id=id)
 
-@app.route("/candidate/<int:id>")
+@app.route("/candidate/<id>")
 def candidate(id):
+    """
+    Description:    Candidate page of a particular user
+    Endpoint:       /candidate/<candidate_id>
+    Parameters:     id (Type: String)
+    Uses Template:  candidate.html
+    """
     return render_template("candidate.html", candidate_id=id)
 
 @app.route("/admin")
 @login_required
 def admin():
+    """
+    Description:    Admin page, shows content of home.html along with option to Add New User, Create Election, Publish Results
+    Endpoint:       /admin
+    Parameters:     None
+    Uses Template:  admin.html
+    """
     elections = Election.query.order_by(Election.start_date).all()
     for election in elections:
         if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
@@ -287,6 +374,12 @@ def admin():
 @app.route("/admin/new", methods=['GET', 'POST'])
 @login_required
 def new_admin():
+    """
+    Description:    New admin/user registration page, only be accessed by an existing admin
+    Endpoint:       /admin/new
+    Parameters:     None
+    Uses Template:  new_admin.html
+    """
     form = NewAdminForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
@@ -300,12 +393,30 @@ def new_admin():
 
 @app.errorhandler(404)
 def page_not_found(e):
+    """
+    Description:    Page not found
+    Endpoint:       None
+    Parameters:     None
+    Uses Template:  404.html
+    """
     return render_template("404.html"), 404
 
 @app.errorhandler(400)
 def bad_request(e):
+    """
+    Description:    Bad request
+    Endpoint:       None
+    Parameters:     None
+    Uses Template:  400.html
+    """
     return render_template("400.html"), 400
 
 @app.errorhandler(500)
 def server_error(e):
+    """
+    Description:    Server specific error
+    Endpoint:       None
+    Parameters:     None
+    Uses Template:  500.html
+    """
     return render_template("500.html"), 500
