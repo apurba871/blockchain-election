@@ -155,6 +155,8 @@ def view_election(id):
                 form.public_key.data = secrets.token_urlsafe(16)
                 form.private_key.data = secrets.token_urlsafe(16)
                 return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+            elif form.delete_election.data:
+                return "delete election button was pressed"
         else:
             return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
     # If the current user is admin and the election state is ongoing
