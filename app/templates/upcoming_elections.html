@@ -1,0 +1,15 @@
+{% block upcoming_elections %}
+
+<div class="content-section">
+  <h1>Upcoming Elections</h1>
+  <p class='text-muted'>Future Elections:
+  <ul class="list-group">
+      {% for election in elections %}
+          {% if election.election_state == 'upcoming' %}
+              <li class="list-group-item list-group-item-light"><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></li>
+          {% endif %}
+      {% endfor %}
+  </ul>
+  </p>
+</div>
+{% endblock upcoming_elections %}

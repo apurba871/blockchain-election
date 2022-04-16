@@ -65,8 +65,12 @@ class NewElectionForm(FlaskForm):
     end_date = DateTimeLocalField('Election End Date', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
     public_key = StringField('Public Key', render_kw={'readonly': True})
     private_key = StringField('Private Key', render_kw={'readonly': True})
-    max_attempts = IntegerField('Max Retries Allowed', validators=[DataRequired(), NumberRange(min=3, max=10)])
+    max_attempt = IntegerField('Max Retries Allowed', validators=[DataRequired(), NumberRange(min=3, max=10)])
     submit = SubmitField('Save and Proceed to Generate Voter List')
+    generate_keys = SubmitField('Generate New Key Pair')
+    home = SubmitField("Home")
+    end_election = SubmitField("End Election")
+    start_counting = SubmitField("Start Counting Process")
 
     def validate_start_date(self, start_date):
         if start_date.data >= self.end_date.data:

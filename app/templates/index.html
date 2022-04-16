@@ -2,7 +2,12 @@
 
 {% block content %}
 
-<div class="content-section">
+{% include 'ongoing_elections.html' %}
+{% block ongoing_elections %}
+{% endblock ongoing_elections %}
+
+{% raw %}
+<!-- <div class="content-section">
     <h1>Ongoing Elections</h1>
     <p class='text-muted'>Elections currently happening:
     <ul class="list-group">
@@ -13,9 +18,15 @@
         {% endfor %}
     </ul>
     </p>
-</div>
+</div> -->
+{% endraw %}
 
-<div class="content-section">
+{% include 'upcoming_elections.html' %}
+{% block upcoming_elections %}
+{% endblock upcoming_elections %}
+
+{% raw %}
+<!-- <div class="content-section">
     <h1>Upcoming Elections</h1>
     <p class='text-muted'>Future Elections:
     <ul class="list-group">
@@ -26,9 +37,15 @@
         {% endfor %}
     </ul>
     </p>
-</div>
+</div> -->
+{% endraw %}
 
-<div class="content-section">
+{% include 'previous_elections.html' %}
+{% block previous_elections %}
+{% endblock previous_elections %}
+
+{% raw %}
+<!-- <div class="content-section">
     <h1>Previous Elections</h1>
     <p class='text-muted'>Past Elections:
     <ul class="list-group">
@@ -39,6 +56,7 @@
         {% endfor %}
     </ul>
     </p>
-</div>
+</div> -->
+{% endraw %}
 
 {% endblock content %}
