@@ -6,6 +6,7 @@ from app import app, db, bcrypt
 from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
 from flask_login import login_user, current_user, logout_user, login_required
+from datetime import datetime
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -220,12 +221,26 @@ def gen_voter_list():
 
 @app.route("/")
 def index():
-    elections = Election.query.all()
+    elections = elections = Election.query.order_by(Election.start_date).all()
+    for election in elections:
+        if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
+            election.election_state = 'ongoing'
+        elif datetime.now() < election.start_date:
+            election.election_state = 'upcoming'
+        # TODO: Add code for over and past elections, add results_published attribute in Election table to differentiate between them
+    db.session.commit()
     return render_template("index.html", elections=elections)
 
 @app.route("/home")
 def home():
     elections = Election.query.order_by(Election.start_date).all()
+    for election in elections:
+        if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
+            election.election_state = 'ongoing'
+        elif datetime.now() < election.start_date:
+            election.election_state = 'upcoming'
+        # TODO: Add code for over and past elections, add results_published attribute in Election table to differentiate between them
+    db.session.commit()
     # print(elections)
     return render_template("home.html", elections=elections)
 
@@ -244,7 +259,14 @@ def candidate(id):
 @app.route("/admin")
 @login_required
 def admin():
-    elections = Election.query.all()
+    elections = Election.query.order_by(Election.start_date).all()
+    for election in elections:
+        if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
+            election.election_state = 'ongoing'
+        elif datetime.now() < election.start_date:
+            election.election_state = 'upcoming'
+        # TODO: Add code for over and past elections, add results_published attribute in Election table to differentiate between them
+    db.session.commit()
     return render_template("admin.html", elections=elections)
 
 @app.route("/admin/new", methods=['GET', 'POST'])
