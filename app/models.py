@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from app import db, login_manager
 from flask_login import UserMixin
 # from sqlalchemy import CheckConstraint
@@ -40,6 +41,7 @@ class Election(db.Model):
     public_key = db.Column(db.String(255), nullable=False, unique=True)
     max_attempt = db.Column(db.Integer, nullable=False, default=3)
     election_state = db.Column(db.String(30), db.CheckConstraint("election_state in ('upcoming', 'ongoing', 'over', 'past')"))
+    results_published = db.Column(db.Boolean, nullable=False, default=False)
     # is_over = db.Column(db.Boolean, nullable=False)
 
     def __repr__(self):
