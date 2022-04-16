@@ -40,7 +40,7 @@ class Election(db.Model):
     end_date = db.Column(db.DateTime, db.CheckConstraint("end_date > start_date"), nullable=False)
     public_key = db.Column(db.String(255), nullable=False, unique=True)
     max_attempt = db.Column(db.Integer, nullable=False, default=3)
-    election_state = db.Column(db.String(30), db.CheckConstraint("election_state in ('upcoming', 'ongoing', 'over', 'past')"))
+    election_state = db.Column(db.String(30), db.CheckConstraint("election_state in ('upcoming', 'ongoing', 'over', 'counting_finished','past')"))
     results_published = db.Column(db.Boolean, nullable=False, default=False)
     # is_over = db.Column(db.Boolean, nullable=False)
 
