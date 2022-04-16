@@ -210,7 +210,12 @@ def view_election(id):
         # If the end election button is pressed, end the election
         elif form.end_election.data:
             # TODO: Write code for ending the election
-            return "End election"
+            curr_election.election_state = 'over'
+            curr_election.end_date = datetime.now()
+            db.session.commit()
+            flash('Election Terminated the Election', 'success')
+            return redirect(url_for('home'))
+            # return "End election"
         # Disable all form fields
         for field in form:
             field.render_kw = {"readonly": True}
