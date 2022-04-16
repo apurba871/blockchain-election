@@ -187,15 +187,17 @@ def view_election(id):
                 db.session.commit()
                 flash('Election Modified Successfully!', 'success')
                 return redirect(url_for('home'))
-            # If the generate_keys button was pressed, generate new keys and display
-            # them
+            # If the generate_keys button was pressed, generate new keys and display them
             elif form.generate_keys.data:
-                # print("generate_keys button was pressed")
                 form.public_key.data = secrets.token_urlsafe(16)
                 form.private_key.data = secrets.token_urlsafe(16)
                 return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+            # If the delete_election button was pressed from modal, delete that election and commit changes to DB 
             elif form.delete_election.data:
-                return "delete election button was pressed"
+                Election.query.filter_by(election_id=curr_election.election_id).delete()
+                db.session.commit()
+                flash('Successfully Deleted that Election!', 'success')
+                return redirect(url_for('home'))
         else:
             return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
     # If the current user is admin and the election state is ongoing
