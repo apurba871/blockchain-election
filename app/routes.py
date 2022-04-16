@@ -1,10 +1,11 @@
 import os
 import secrets
+import app.election_util as election_util
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
 from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm, GenVoterListForm
 from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
 
@@ -34,16 +35,18 @@ def login():
     Parameters:     None
     Uses Template:  login.html
     """
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     form = LoginForm()
     if form.validate_on_submit():
         user = Voter.query.filter_by(cin=form.cin.data).first()
-        if user and user.is_admin: # Admin login
+        if user and user.is_admin and bcrypt.check_password_hash(user.password, form.password.data): # Admin login
             login_user(user, remember=form.remember.data)
             flash("Logged in as admin!", "success")
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('admin'))
         else:
-            if user and form.password.data=="password": # Already registered users login
+            if user and bcrypt.check_password_hash(user.password, form.password.data): # Already registered users login
                 login_user(user, remember=form.remember.data)
                 next_page = request.args.get('next')
                 if next_page == "/election/new":
@@ -172,6 +175,8 @@ def view_election(id):
         bg_color_election_state = "bg-info"
     elif curr_election.election_state == "past":
         bg_color_election_state = "bg-success"
+    elif curr_election.election_state == "counting_finished":
+        bg_color_election_state = "bg-danger"
     # If the current user is admin and the election is an upcoming election
     if current_user.is_admin and curr_election.election_state == 'upcoming':
         form = NewElectionForm(obj=curr_election)
@@ -235,6 +240,22 @@ def view_election(id):
             field.render_kw = {"readonly": True}
         flash('Voting phase has finished. Please start the counting phase.', 'warning')
         return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+    # If the current user is admin and the counting phase is over, flash a message that the counting phase
+    # is over and ask to publish the results
+    elif current_user.is_admin and curr_election.election_state == 'counting_finished':
+        # Display the form with existing data
+        form = NewElectionForm(obj=curr_election)
+        if form.home.data:
+            return redirect(url_for('home'))
+        elif form.publish_results.data:
+            # TODO: Write code for publishing the results by accepting the PRIVATE KEY as input in a form
+            # and write the logic to decrypt the count 
+            return "Publishing results"
+        # Disable all the form fields
+        for field in form:
+            field.render_kw = {"readonly": True}
+        flash('Counting phase has finished. Please publish the results.', 'warning')
+        return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
     # If the current user is admin or non-admin, display the summary page
     elif curr_election.election_state == 'past':
         # TODO: Create summary page template
@@ -258,9 +279,21 @@ def view_election(id):
         # TODO: Create the voting screen template
         return "Click here to go to voting page"
     # If the user is non-admin, and the election is over, display a message that it is over.
-    elif not current_user.is_admin and curr_election.election_state == 'over':
+    elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
+
+@app.route("/publish_results")
+@login_required
+def publish_results():
+    """
+    Description:    Shows those elections for which results need to be published
+    Endpoint:       /publish_results
+    Parameters:     None
+    Uses Template:  results.html
+    """
+    elections = Election.query.order_by(Election.create_date.desc()).all()
+    return render_template("results.html", elections=elections)
 
 @app.route("/election/<id>/generate/voter_list", methods=['GET', 'POST'])
 @login_required
@@ -291,17 +324,8 @@ def index():
     Parameters:     None
     Uses Template:  index.html
     """
-    elections = elections = Election.query.order_by(Election.start_date).all()
-    for election in elections:
-        if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
-            election.election_state = 'ongoing'
-        elif datetime.now() < election.start_date:
-            election.election_state = 'upcoming'
-        elif datetime.now() > election.end_date and election.results_published == False:
-            election.election_state = 'over'
-        elif datetime.now() > election.end_date and election.results_published == True:
-            election.election_state = 'past'
-    db.session.commit()
+    elections = elections = Election.query.order_by(Election.start_date.desc()).all()
+    election_util.update_election_state()
     return render_template("index.html", elections=elections)
 
 @app.route("/home")
@@ -312,17 +336,8 @@ def home():
     Parameters:     None
     Uses Template:  home.html
     """
-    elections = Election.query.order_by(Election.start_date).all()
-    for election in elections:
-        if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
-            election.election_state = 'ongoing'
-        elif datetime.now() < election.start_date:
-            election.election_state = 'upcoming'
-        elif datetime.now() > election.end_date and election.results_published == False:
-            election.election_state = 'over'
-        elif datetime.now() > election.end_date and election.results_published == True:
-            election.election_state = 'past'
-    db.session.commit()
+    elections = elections = Election.query.order_by(Election.start_date.desc()).all()
+    election_util.update_election_state()
     # print(elections)
     return render_template("home.html", elections=elections)
 
@@ -365,17 +380,8 @@ def admin():
     Parameters:     None
     Uses Template:  admin.html
     """
-    elections = Election.query.order_by(Election.start_date).all()
-    for election in elections:
-        if election.start_date <= datetime.now() and datetime.now() <= election.end_date:
-            election.election_state = 'ongoing'
-        elif datetime.now() < election.start_date:
-            election.election_state = 'upcoming'
-        elif datetime.now() > election.end_date and election.results_published == False:
-            election.election_state = 'over'
-        elif datetime.now() > election.end_date and election.results_published == True:
-            election.election_state = 'past'
-    db.session.commit()
+    elections = elections = Election.query.order_by(Election.start_date.desc()).all()
+    election_util.update_election_state()
     return render_template("admin.html", elections=elections)
 
 @app.route("/admin/new", methods=['GET', 'POST'])
