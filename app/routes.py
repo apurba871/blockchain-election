@@ -227,7 +227,10 @@ def index():
             election.election_state = 'ongoing'
         elif datetime.now() < election.start_date:
             election.election_state = 'upcoming'
-        # TODO: Add code for over and past elections, add results_published attribute in Election table to differentiate between them
+        elif datetime.now() > election.end_date and election.results_published == False:
+            election.election_state = 'over'
+        elif datetime.now() > election.end_date and election.results_published == True:
+            election.election_state = 'past'
     db.session.commit()
     return render_template("index.html", elections=elections)
 
@@ -239,7 +242,10 @@ def home():
             election.election_state = 'ongoing'
         elif datetime.now() < election.start_date:
             election.election_state = 'upcoming'
-        # TODO: Add code for over and past elections, add results_published attribute in Election table to differentiate between them
+        elif datetime.now() > election.end_date and election.results_published == False:
+            election.election_state = 'over'
+        elif datetime.now() > election.end_date and election.results_published == True:
+            election.election_state = 'past'
     db.session.commit()
     # print(elections)
     return render_template("home.html", elections=elections)
@@ -265,7 +271,10 @@ def admin():
             election.election_state = 'ongoing'
         elif datetime.now() < election.start_date:
             election.election_state = 'upcoming'
-        # TODO: Add code for over and past elections, add results_published attribute in Election table to differentiate between them
+        elif datetime.now() > election.end_date and election.results_published == False:
+            election.election_state = 'over'
+        elif datetime.now() > election.end_date and election.results_published == True:
+            election.election_state = 'past'
     db.session.commit()
     return render_template("admin.html", elections=elections)
 
