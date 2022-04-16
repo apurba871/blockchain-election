@@ -96,8 +96,15 @@
             {{ form.generate_keys(class="btn btn-outline-warning btn-block") }}
           </div>
           <div class="col mt-4">
-            {{ form.delete_election(class="btn btn-outline-danger btn-block") }}
+            <button type="button" class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#deleteModal">
+              Delete Election
+            </button>
           </div>
+          {% raw %}
+          <!-- <div class="col mt-4">
+            {{ form.delete_election(class="btn btn-outline-danger btn-block", **{'data-toggle': 'modal', 'data-target':'#deleteModal'}) }}
+          </div> -->
+          {% endraw %}
         {% elif election_state == "ongoing" %}
           <div class="col">
             {{ form.home(class="btn btn-outline-info btn-block") }}
@@ -110,6 +117,28 @@
             {{ form.start_counting(class="btn btn-outline-info btn-block") }}
           </div>
         {% endif %}
+      </div>
+
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              {{ form.delete_election(class="btn btn-primary") }}
+              <!-- <input type="submit" class="btn btn-primary" name="delete_election" value="Save Changes"> -->
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
       </div>
       
     </form>
