@@ -1,4 +1,4 @@
 populate_depts.py
 venv
 __pycache__
-app/__pycache__
+app/__pycache__/*
