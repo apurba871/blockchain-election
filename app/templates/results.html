@@ -1,0 +1,18 @@
+{% extends "admin_base.html" %}
+
+{% block content %}
+    
+<div class="content-section">
+<h1>Over Elections</h1>
+<p class='text-muted'>Elections which are over but results are not yet published:
+<ul class="list-group">
+    {% for election in elections %}
+    {% if election.election_state == 'counting_finished' %}
+        <li class="list-group-item list-group-item-light"><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+</p>
+</div>
+
+{% endblock content %}
