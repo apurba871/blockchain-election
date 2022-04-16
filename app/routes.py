@@ -219,6 +219,10 @@ def view_election(id):
 def gen_voter_list():
     pass
 
+@app.route("/index2")
+def index2():
+    return render_template("index2.html")
+
 @app.route("/")
 def index():
     elections = elections = Election.query.order_by(Election.start_date).all()

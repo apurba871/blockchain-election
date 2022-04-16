@@ -5,7 +5,7 @@
       {{ form.hidden_tag() }}
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">Modify Election 
-          <span class="{{ bg_color_election_state }} font-weight-bold text-white">{{ election_state|upper  }}</span>
+          <span class="{{ bg_color_election_state }} font-weight-bold text-white float-right">{{ election_state|upper  }}</span>
         </legend>
         <div class="form-group">
           {{ form.election_title.label(class="form-control-label") }} 

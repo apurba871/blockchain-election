@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 body {
   background: #fafafa;
   color: #333333;
   margin-top: 5rem;
+  font-family: "Poppins", sans-serif;
 }
 
 h1,
@@ -14,7 +17,8 @@ h6 {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  /* background-color: #5f788a; */
+  background-color: #52a6e2;
 }
 
 .site-header .navbar-nav .nav-link {
