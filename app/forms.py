@@ -1,8 +1,9 @@
 # from email.policy import default
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from flask_login import current_user
+import app.time_util as time_util
 from wtforms import StringField, PasswordField, SubmitField, BooleanField, SelectField, DateTimeLocalField, IntegerField, RadioField
 # from wtforms.fields import DateTimeField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError, NumberRange
@@ -61,17 +62,18 @@ class UpdateAccountForm(FlaskForm):
 
 class NewElectionForm(FlaskForm):
     election_title = StringField('Election Title', validators=[DataRequired()])
-    start_date = DateTimeLocalField('Election Start Date', default=datetime.now, format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
+    start_date = DateTimeLocalField('Election Start Date', default=time_util.hour_rounder(datetime.now()), format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
     end_date = DateTimeLocalField('Election End Date', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
     public_key = StringField('Public Key', render_kw={'readonly': True})
     private_key = StringField('Private Key', render_kw={'readonly': True})
-    max_attempt = IntegerField('Max Retries Allowed', validators=[DataRequired(), NumberRange(min=3, max=10)])
+    max_attempt = IntegerField('Max Retries Allowed', default=3, validators=[DataRequired(), NumberRange(min=3, max=10)])
     submit = SubmitField('Save and Proceed to Generate Voter List')
     generate_keys = SubmitField('Generate New Key Pair')
     home = SubmitField("Home")
     end_election = SubmitField("End Election")
     start_counting = SubmitField("Start Counting Process")
     delete_election = SubmitField("Delete Election")
+    publish_results = SubmitField("Publish Results")
 
     def validate_start_date(self, start_date):
         if start_date.data >= self.end_date.data:
