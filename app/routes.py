@@ -396,8 +396,8 @@ def new_admin():
     form = NewAdminForm(request.form)
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        print(form.is_admin.data)
-        print(request.form)
+        # print(form.is_admin.data)
+        # print(request.form)
         user = Voter(cin=form.cin.data, name=form.name.data, email=form.email.data, dept=form.dept.data, imagefile='default.jpg', password=hashed_password, join_year=form.join_year.data, is_admin=form.is_admin.data)
         db.session.add(user)
         db.session.commit()
