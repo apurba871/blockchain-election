@@ -99,7 +99,7 @@ class NewAdminForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
     join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
-    is_admin = RadioField('Is Admin?', coerce=bool, choices=[(True,'Yes'), (False,'No')])
+    is_admin = RadioField('Is Admin?', coerce=int, choices=[(1,'Yes'), (0,'No')])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
