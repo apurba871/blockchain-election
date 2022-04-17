@@ -15,7 +15,12 @@ class RegistrationForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=3, max=255)])
     # username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
+    # dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
+    all_depts = Department.query.all()
+    list_of_depts=[]
+    for each_dept in all_depts:
+        list_of_depts.append(each_dept.dept_code + "    [" + each_dept.dept_name + "]")
+    dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
     join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
     is_admin = False
     password = PasswordField('Password', validators=[DataRequired()])
@@ -97,7 +102,12 @@ class NewAdminForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=3, max=255)])
     # username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
+    all_depts = Department.query.all()
+    list_of_depts=[]
+    for each_dept in all_depts:
+        list_of_depts.append(each_dept.dept_code + "    [" + each_dept.dept_name + "]")
+    dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
+    # dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
     join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
     is_admin = RadioField('Is Admin?', coerce=int, choices=[(1,'Yes'), (0,'No')])
     password = PasswordField('Password', validators=[DataRequired()])
