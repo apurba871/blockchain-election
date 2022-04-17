@@ -19,7 +19,7 @@ class RegistrationForm(FlaskForm):
     all_depts = Department.query.all()
     list_of_depts=[]
     for each_dept in all_depts:
-        list_of_depts.append(each_dept.dept_code + "    [" + each_dept.dept_name + "]")
+        list_of_depts.append(each_dept.dept_code + "    -    " + each_dept.dept_name)
     dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
     join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
     is_admin = False
@@ -105,7 +105,7 @@ class NewAdminForm(FlaskForm):
     all_depts = Department.query.all()
     list_of_depts=[]
     for each_dept in all_depts:
-        list_of_depts.append(each_dept.dept_code + "    [" + each_dept.dept_name + "]")
+        list_of_depts.append(each_dept.dept_code + "    -    " + each_dept.dept_name)
     dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
     # dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
     join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
