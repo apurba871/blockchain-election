@@ -17,13 +17,13 @@ class UserRule(Rule):
 
 # Rule to check if an user is an admin user
 class AdminRule(Rule):
-  def base():
+  def base(self):
     return UserRule()
 
-  def check():
+  def check(self):
     user_id = current_user.id
     user = Voter.query.filter(Voter.id == user_id).first()
     return user and user.is_admin
   
-  def deny():
+  def deny(self):
     abort(403)
