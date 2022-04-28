@@ -13,7 +13,7 @@ class UserRule(Rule):
   
   def deny(self):
     # If the user is not logged in, redirect to the login page
-    return redirect(url_for("/login"))
+    return redirect(url_for("login"))
 
 # Rule to check if an user is an admin user
 class AdminRule(Rule):
