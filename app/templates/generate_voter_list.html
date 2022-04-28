@@ -1,0 +1,41 @@
+{% extends "meta.html" %} 
+{% block content %}
+  <div class="content-section">
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Generate Voter List</legend>
+        
+        <div class="form-group mt-2">
+          {{ form.dept.label(class="form-control-label") }} 
+          {% if form.dept.errors %} 
+            {{ form.dept(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.dept.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.dept(class="form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.join_year.label(class="form-control-label") }} 
+          {% if form.join_year.errors %} 
+            {{ form.join_year(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.join_year.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.join_year(class="form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+      </fieldset>
+      <div class="form-group mt-3">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+  </div>
+{% endblock content %}

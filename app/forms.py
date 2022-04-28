@@ -91,11 +91,13 @@ class NewElectionForm(FlaskForm):
             raise ValidationError('End date/time must be greater than Current date/time!')
 
 class GenVoterListForm(FlaskForm):
-    # eligible_depts = [('CMSA', 'Computer Sc. Hons'), ('PHSA', 'Physics Hons')]
-    eligible_depts = Department.query.all()
-    department = QuerySelectField('Department', choices = eligible_depts, validators=[DataRequired()])
-    # eligible_years = [('2016', '2016')]
-    # year = SelectField('Year', choices = eligible_years, validators=[DataRequired()])
+    all_depts = Department.query.all()
+    list_of_depts=[]
+    for each_dept in all_depts:
+        list_of_depts.append(each_dept.dept_code + "    -    " + each_dept.dept_name)
+    dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
+    join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
+    submit = SubmitField('Generate')
 
 class NewAdminForm(FlaskForm):
     cin = StringField('CIN', validators=[DataRequired()])

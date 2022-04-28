@@ -211,7 +211,7 @@ def view_election(id):
         form = NewElectionForm(obj=curr_election)
         # If the home button is pressed, redirect to the home route
         if form.home.data:
-            return redirect(url_for('home'))
+            return redirect(url_for('gen_voter_list'))
         # If the end election button is pressed, end the election
         elif form.end_election.data:
             # TODO: Write code for ending the election
@@ -304,7 +304,7 @@ def gen_voter_list():
     Parameters:     id (Type: String)
     Uses Template:  None, currently
     """
-    pass
+    return render_template("generate_voter_list.html")
 
 @app.route("/index2")
 def index2():
