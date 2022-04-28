@@ -7,6 +7,7 @@ from app import app, db, bcrypt
 from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm, GenVoterListForm
 from flask_login import login_user, current_user, logout_user, login_required
+from .permissions import AdminPermission
 from datetime import datetime
 
 @app.route("/register", methods=['GET', 'POST'])
@@ -124,7 +125,8 @@ def account():
     return render_template("account.html", title="Account", image_file=image_file, form=form)
 
 @app.route("/election/new", methods=['GET', 'POST'])
-@login_required
+# @login_required
+@AdminPermission()
 def new_election():
     """
     Description:    New Election creation form, enables admin to create and schedule upcoming elections
@@ -284,7 +286,8 @@ def view_election(id):
         return "Results are yet to be published"
 
 @app.route("/publish_results")
-@login_required
+@AdminPermission()
+# @login_required
 def publish_results():
     """
     Description:    Shows those elections for which results need to be published
@@ -296,7 +299,8 @@ def publish_results():
     return render_template("results.html", elections=elections)
 
 @app.route("/election/<id>/generate/voter_list", methods=['GET', 'POST'])
-@login_required
+@AdminPermission()
+# @login_required
 def gen_voter_list():
     """
     Description:    Generate Voter List page, admin can use this to generate the voter list
@@ -372,7 +376,8 @@ def candidate(id):
     return render_template("candidate.html", candidate_id=id)
 
 @app.route("/admin")
-@login_required
+@AdminPermission()
+# @login_required
 def admin():
     """
     Description:    Admin page, shows content of home.html along with option to Add New User, Create Election, Publish Results
@@ -385,7 +390,8 @@ def admin():
     return render_template("admin.html", elections=elections)
 
 @app.route("/admin/new", methods=['GET', 'POST'])
-@login_required
+@AdminPermission()
+# @login_required
 def new_admin():
     """
     Description:    New admin/user registration page, only be accessed by an existing admin
@@ -434,3 +440,5 @@ def server_error(e):
     Uses Template:  500.html
     """
     return render_template("500.html"), 500
+
+# TODO: Add a template for handling 403 Forbidden Access
