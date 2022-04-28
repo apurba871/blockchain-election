@@ -396,3 +396,15 @@ header .container {
 body {
   max-height: 500px;
 }
+
+.btn {
+  /* margin-top: 25%; */
+  /* padding: 20px 30px; */
+  background-color: rgb(100, 188, 243);
+  font-size: larger;
+}
+
+.btn:hover {
+  background-color: cadetblue;
+  font-size: larger;
+}
