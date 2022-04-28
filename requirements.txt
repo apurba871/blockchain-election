@@ -15,6 +15,8 @@ importlib-metadata==4.11.3
 itsdangerous==2.1.2
 Jinja2==3.1.1
 MarkupSafe==2.1.1
+permission==0.4.1
+phe==1.4.0
 Pillow==9.1.0
 pycparser==2.21
 six==1.16.0
