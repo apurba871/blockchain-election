@@ -311,8 +311,28 @@ def gen_voter_list(id):
     Parameters:     id (Type: String)
     Uses Template:  None, currently
     """
+    # TODO: Need to ensure that the election is an upcoming election
+    # TODO: Need to pre-fill the GenVoterListForm() with data for the current election
     form = GenVoterListForm()
-    return render_template("generate_voter_list.html", election_id=id, form=form)
+    if request.method == 'POST':
+        for vid in request.form.getlist('id'):
+            voter_list_entry = Voter_List(election_id=id, 
+                                          id=vid)
+            db.session.add(voter_list_entry)
+        db.session.commit()
+        existing_voter_list = [voter.to_dict() for voter in Voter.query.join(Voter_List.query.filter(Voter_List.election_id == id))]
+        existing_voter_dict = {"data": existing_voter_list}
+        print(existing_voter_list)
+        flash('Voter List Updated Successfully!', 'success')
+        return render_template("generate_voter_list.html", election_id=id, form=form, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
+    existing_voter_list = [voter.to_dict() for voter in Voter.query.join(Voter_List.query.filter(Voter_List.election_id == id))]
+    existing_voter_dict = {"data": existing_voter_list}
+    return render_template("generate_voter_list.html", election_id=id, form=form, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
+
+@app.route('/api/data/voters')
+@AdminPermission()
+def data():
+    return {'data': [voter.to_dict() for voter in Voter.query]}
 
 @app.route("/index2")
 def index2():
