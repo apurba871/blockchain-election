@@ -22,6 +22,18 @@ class Voter(db.Model, UserMixin):
 
     def __repr__(self):
         return f"Voter('{self.name}', '{self.cin}')"
+    
+    def to_dict(self):
+        return {
+            'id' : self.id,
+            'cin': self.cin,
+            'name': self.name,
+            'email': self.email,
+            'dept': self.dept,
+            'imagefile': self.imagefile,
+            'join_year': self.join_year,
+            'is_admin': self.is_admin
+        }
 
 class Candidate(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -59,7 +71,7 @@ class Voter_List(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
     tries = db.Column(db.Integer, default=0, nullable=False)
-    token = db.Column(db.String(255), unique=True, nullable=False)
+    token = db.Column(db.String(255), unique=True, nullable=True)
 
     def __repr__(self):
         return f"Voter_List('{self.election_id}', '{self.id}')"
