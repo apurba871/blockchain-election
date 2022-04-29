@@ -92,12 +92,21 @@ class NewElectionForm(FlaskForm):
 
 class GenVoterListForm(FlaskForm):
     all_depts = Department.query.all()
-    list_of_depts=[]
+    list_of_depts = []
     for each_dept in all_depts:
         list_of_depts.append(each_dept.dept_code + "    -    " + each_dept.dept_name)
     dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
-    join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
-    submit = SubmitField('Generate')
+    # After selecting dept, the year field will automatically have those years which contain students
+    # from that particular department (dept). The Oracle SQL query would be:
+    # SELECT DISTINCT join_year FROM voter WHERE dept_id=dept.value
+    # I was not able to extract the data from the dept field, wanted to do something like...
+    # all_years = Voter.query.with_entities(Voter.join_year).filter(Voter.dept == dept.value[0:4]).distinct()
+    all_years = Voter.query.with_entities(Voter.join_year).filter(Voter.dept == 'BAGG').distinct() #works for hardcoded dept only
+    list_of_years = []
+    for each_year in all_years:
+        list_of_years.append(each_year.join_year)
+    join_year = SelectField('Join Year', choices=list_of_years, validators=[DataRequired()])
+    submit = SubmitField('Choose Voters')
 
 class NewAdminForm(FlaskForm):
     cin = StringField('CIN', validators=[DataRequired()])
