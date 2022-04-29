@@ -48,19 +48,6 @@
           {% endif %}
         </div>
         <div class="form-group mt-2">
-          {{ form.public_key.label(class="form-control-label") }} 
-          {% if form.public_key.errors %} 
-            {{ form.public_key(class="form-control form-control-lg is-invalid") }}
-            <div class="invalid-feedback">
-              {% for error in form.public_key.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-          {% else %} 
-            {{ form.public_key(class="form-control form-control-lg form-control") }} 
-          {% endif %}
-        </div>
-        <div class="form-group mt-2">
             Current Status
             <h1>7/30 voted!</h1>
         </div>
