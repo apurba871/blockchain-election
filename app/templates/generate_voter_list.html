@@ -1,36 +1,67 @@
 {% extends "meta.html" %} 
 {% block content %}
   <div class="content-section">
-    <form action="" method="POST">
-      {{ form.hidden_tag() }}
+    <form id="gen-voter-list" action="" method="POST">
+      
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">Generate Voter List</legend>
-        
+        {% if not (existing_voter_list is none) %}
+          <div class="form-group mt-2">
+            <label class="form-control-label" for="data">Current Voter List</label>
+            {% block current_voter_list %}
+              <table id="existing-voters" class="table table-striped">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                  </tr>
+                </tfoot>
+              </table>
+            {% endblock current_voter_list %}
+          </div>
+        {% endif %}
         <div class="form-group mt-2">
-          {{ form.dept.label(class="form-control-label") }} 
-          {% if form.dept.errors %} 
-            {{ form.dept(class="form-control form-control-lg is-invalid") }}
-            <div class="invalid-feedback">
-              {% for error in form.dept.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-          {% else %} 
-            {{ form.dept(class="form-control form-control-lg") }} 
-          {% endif %}
-        </div>
-        <div class="form-group mt-2">
-          {{ form.join_year.label(class="form-control-label") }} 
-          {% if form.join_year.errors %} 
-            {{ form.join_year(class="form-control form-control-lg is-invalid") }}
-            <div class="invalid-feedback">
-              {% for error in form.join_year.errors %}
-              <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-          {% else %} 
-            {{ form.join_year(class="form-control form-control-lg") }} 
-          {% endif %}
+          <label class="form-control-label" for="data">Add Students to Voter List</label>
+          {% block datatable %}
+            <table id="add-voters" class="table table-striped">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>CIN</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Joining Year</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>CIN</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Joining Year</th>
+                </tr>
+              </tfoot>
+            </table>
+          {% endblock datatable %}
         </div>
       </fieldset>
       <div class="form-group mt-3">
@@ -39,3 +70,88 @@
     </form>
   </div>
 {% endblock content %}
+
+{% block scripts %}
+  <script>
+    $(document).ready(function () {
+      {% if not (existing_voter_list is none) %}
+        var existingVotersTable = $('#existing-voters').DataTable({
+          data: {{ existing_voter_list|tojson }}["data"],
+          columns: [
+            {data: 'id', visible:false},
+            {data: 'cin'},
+            {data: 'name', searchable: true},
+            {data: 'dept', orderable: true, searchable: true},
+            {data: 'join_year', orderable: true, searchable: true},
+          ],
+        });
+      {% endif %}
+      var addVotersTable = $('#add-voters').DataTable({
+        initComplete: function(){
+          this.api().columns().every(function(colIndex){
+              var column = this;
+              if(column.header().textContent === 'Department' || 
+                 column.header().textContent === 'Joining Year'){
+                var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.footer()).empty())
+                            .on('change', function(){
+                              var val =  $.fn.dataTable.util.escapeRegex(
+                                            $(this).val()
+                                        );
+                              column
+                                    .search( val ? '^'+val+'$' : '', true, false )
+                                    .draw();
+                            });
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+              }
+            }
+          );
+        },
+        ajax: '/api/data/voters',
+        responsive: {
+            details: {
+                type: 'column',
+                target: 'tr'
+            }
+        },
+        columnDefs: [
+          {
+            targets: 0,
+            checkboxes: {
+              selectRow: true,
+            }
+          }
+        ],
+        columns: [
+          {data: 'id'},
+          {data: 'id', visible:false},
+          {data: 'cin'},
+          {data: 'name', searchable: true},
+          {data: 'dept', orderable: true, searchable: true},
+          {data: 'join_year', orderable: true, searchable: true},
+        ],
+        select: {
+          style: 'multi'
+        },
+        order: [[1, 'asc']]
+      });
+      $("#gen-voter-list").on('submit', function(e){
+        // e.preventDefault();
+        var form = this;
+        $(form).find('input[name="id"]').remove();
+        var rowSelection = addVotersTable.column(0).checkboxes.selected();
+        $.each(rowSelection, function(index, rowId){
+          $(form).append(
+            $('<input>')
+                      .attr('type', 'hidden')
+                      .attr('name', 'id')
+                      .val(rowId)
+          );
+        });
+        // $("#gen-voter-list").first()[0].submit();
+      });
+    });
+  </script>
+{% endblock scripts %}
