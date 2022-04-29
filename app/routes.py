@@ -193,7 +193,7 @@ def view_election(id):
                 curr_election.public_key=form.public_key.data
                 db.session.commit()
                 flash('Election Modified Successfully!', 'success')
-                return redirect(url_for('home'))
+                return redirect(url_for('gen_voter_list', id=curr_election.election_id))
             # If the generate_keys button was pressed, generate new keys and display them
             elif form.generate_keys.data:
                 form.public_key.data = secrets.token_urlsafe(16)
@@ -301,14 +301,15 @@ def publish_results():
 @app.route("/election/<id>/generate/voter_list", methods=['GET', 'POST'])
 @AdminPermission()
 # @login_required
-def gen_voter_list():
+def gen_voter_list(id):
     """
     Description:    Generate Voter List page, admin can use this to generate the voter list
     Endpoint:       /election/<election_id>/generate/voter_list
     Parameters:     id (Type: String)
     Uses Template:  None, currently
     """
-    return render_template("generate_voter_list.html")
+    form = GenVoterListForm()
+    return render_template("generate_voter_list.html", election_id=id, form=form)
 
 @app.route("/index2")
 def index2():
