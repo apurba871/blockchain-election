@@ -213,7 +213,7 @@ def view_election(id):
         form = NewElectionForm(obj=curr_election)
         # If the home button is pressed, redirect to the home route
         if form.home.data:
-            return redirect(url_for('gen_voter_list'))
+            return redirect(url_for('home'))
         # If the end election button is pressed, end the election
         elif form.end_election.data:
             # TODO: Write code for ending the election
@@ -226,7 +226,10 @@ def view_election(id):
         # Disable all form fields
         for field in form:
             field.render_kw = {"readonly": True}
-        return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+        # Show the current status of the election
+        # TODO: Generate the current vote count dynamically in admin_ongoing_election.html page
+        return render_template("admin_ongoing_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
+
     # If the current user is admin and the election is over, flash a message that the voting phase
     # is over and ask to start the counting phase
     elif current_user.is_admin and curr_election.election_state == 'over':

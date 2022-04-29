@@ -1,0 +1,134 @@
+{% extends "admin_base.html" %}
+{% block content %}
+<div class="content-section">
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Ongoing Election 
+          <span class="{{ bg_color_election_state }} font-weight-bold text-white float-right">{{ election_state|replace('_', ' ')|upper  }}</span>
+        </legend>
+        <div class="form-group">
+          {{ form.election_title.label(class="form-control-label") }} 
+          {% if form.election_title.errors%} 
+            {{ form.election_title(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.election_title.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.election_title(class="form-control form-control-lg") }} 
+            {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.start_date.label(class="form-control-label") }} 
+          {% if form.start_date.errors %} 
+            {{ form.start_date(class="datetime form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.start_date.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+          {{ form.start_date(class="datetime form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+
+        <div class="form-group mt-2">
+          {{ form.end_date.label(class="form-control-label") }} 
+          {% if form.end_date.errors %} 
+            {{ form.end_date(class="datetime form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.end_date.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.end_date(class="datetime form-control form-control-lg") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {{ form.public_key.label(class="form-control-label") }} 
+          {% if form.public_key.errors %} 
+            {{ form.public_key(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.public_key.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+            {{ form.public_key(class="form-control form-control-lg form-control") }} 
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+            Current Status
+            <h1>7/30 voted!</h1>
+        </div>
+      </fieldset>
+
+
+      
+      <div class="row">
+        {% if election_state == "upcoming" %}
+          <div class="col">
+            {{ form.submit(class="btn btn-outline-info btn-block") }}
+          </div>
+          <div class="col">
+            {{ form.generate_keys(class="btn btn-outline-warning btn-block") }}
+          </div>
+          <div class="col mt-4 text-center">
+            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">
+              Delete Election
+            </button>
+          </div>
+          {% raw %}
+          <!-- <div class="col mt-4">
+            {{ form.delete_election(class="btn btn-outline-danger btn-block", **{'data-toggle': 'modal', 'data-target':'#deleteModal'}) }}
+          </div> -->
+          {% endraw %}
+        {% elif election_state == "ongoing" %}
+          <div class="col">
+            {{ form.home(class="btn btn-outline-info btn-block") }}
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-outline-danger"  style="width: 100%;" data-toggle="modal" data-target="#endModal">
+              End Election
+            </button>
+          </div>
+        {% elif election_state == "over" %}
+          <div class="col">
+            {{ form.start_counting(class="btn btn-outline-info btn-block") }}
+          </div>
+        {% elif election_state == "counting_finished" %}
+          <div class="col">
+            {{ form.publish_results(class="btn btn-outline-primary btn-block") }}
+          </div>
+        {% endif %}
+      </div>
+      
+
+      <div class="modal fade" id="endModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">End this Election?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Are you sure you want to end this election early?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              {{ form.end_election(class="btn btn-outline-danger btn-block") }}
+              <!-- <input type="submit" class="btn btn-primary" name="delete_election" value="Save Changes"> -->
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </form>
+  </div>
+{% endblock content %}
