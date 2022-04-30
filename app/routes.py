@@ -155,7 +155,9 @@ def new_election():
         db.session.add(new_election)
         db.session.commit()
         flash('Election Created Successfully!', 'success')
-        return redirect(url_for('home'))
+        # After the election has been created, the admin is redirected to the generate_voter_list
+        # route
+        return redirect(url_for('gen_voter_list', id=prefixed_election_id))
     return render_template("create_election.html", title="New Election", form=form)
 
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
@@ -313,7 +315,6 @@ def gen_voter_list(id):
     """
     # TODO: Need to ensure that the election is an upcoming election
     # TODO: Need to pre-fill the GenVoterListForm() with data for the current election
-    form = GenVoterListForm()
     if request.method == 'POST':
         for vid in request.form.getlist('id'):
             voter_list_entry = Voter_List(election_id=id, 
@@ -322,12 +323,11 @@ def gen_voter_list(id):
         db.session.commit()
         existing_voter_list = [voter.to_dict() for voter in Voter.query.join(Voter_List.query.filter(Voter_List.election_id == id))]
         existing_voter_dict = {"data": existing_voter_list}
-        print(existing_voter_list)
         flash('Voter List Updated Successfully!', 'success')
-        return render_template("generate_voter_list.html", election_id=id, form=form, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
+        return render_template("generate_voter_list.html", election_id=id, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
     existing_voter_list = [voter.to_dict() for voter in Voter.query.join(Voter_List.query.filter(Voter_List.election_id == id))]
     existing_voter_dict = {"data": existing_voter_list}
-    return render_template("generate_voter_list.html", election_id=id, form=form, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
+    return render_template("generate_voter_list.html", election_id=id, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
 
 @app.route('/api/data/voters')
 @AdminPermission()
