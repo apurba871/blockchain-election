@@ -286,7 +286,7 @@ def view_election(id):
             else:
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
-                    return render_template("register_for_vote.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
                 # else show him that he has registered for the vote and the election start time
                 else:
                     return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
@@ -301,6 +301,26 @@ def view_election(id):
     elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
+
+@app.route("/register_voter_and_send_otp/<id>", methods=['GET', 'POST'])
+@login_required
+def register_voter_and_send_otp(id):
+    """
+    Description:    Register the current voter in the selected election and send an OTP to their registered e-mail address
+    Endpoint:       /register_voter_and_send_otp
+    Parameters:     id (Type: String)
+    Uses Template:  register_voter_and_send_otp.html
+    """
+    curr_election = Election.query.where(Election.election_id==id).first()
+    # Register the current voter
+    curr_voter = Voter_List.query.where(Voter_List.id==current_user.id).first()
+    # print("Before: ", curr_voter.is_registered)
+    curr_voter.is_registered = True
+    db.session.commit()
+    # print("After: ", Voter_List.query.where(Voter_List.id==current_user.id).first().is_registered)
+    # Send an OTP to their registered e-mail address
+    flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
+    return render_template("register_voter_and_send_otp.html", otp="405319", election_title=curr_election.election_title, start_date=curr_election.start_date)
 
 @app.route("/publish_results")
 @AdminPermission()
