@@ -1,11 +1,13 @@
 import os
 import secrets
+
+from flask_sqlalchemy import SQLAlchemy
 import app.election_util as election_util
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
-from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm, GenVoterListForm
+from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department
+from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
 from flask_login import login_user, current_user, logout_user, login_required
 from .permissions import AdminPermission
 from datetime import datetime
@@ -157,7 +159,7 @@ def new_election():
         flash('Election Created Successfully!', 'success')
         # After the election has been created, the admin is redirected to the generate_voter_list
         # route
-        return redirect(url_for('gen_voter_list', id=prefixed_election_id))
+        return redirect(url_for('gen_voter_list', election_id=prefixed_election_id))
     return render_template("create_election.html", title="New Election", form=form)
 
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
@@ -167,7 +169,7 @@ def view_election(id):
     Description:    Election page of a particular election
     Endpoint:       /election/<id>/view
     Parameters:     id (Type: String)
-    Uses Template:  modify_election.html
+    Uses Template:  modify_election.html, admin_ongoing_election.html
     """
     curr_election = Election.query.where(Election.election_id==id).first()
     # Generate the background color of the Election Status Text
@@ -195,12 +197,12 @@ def view_election(id):
                 curr_election.public_key=form.public_key.data
                 db.session.commit()
                 flash('Election Modified Successfully!', 'success')
-                return redirect(url_for('gen_voter_list', id=curr_election.election_id))
+                return redirect(url_for('gen_voter_list', election_id=curr_election.election_id))
             # If the generate_keys button was pressed, generate new keys and display them
             elif form.generate_keys.data:
                 form.public_key.data = secrets.token_urlsafe(16)
                 form.private_key.data = secrets.token_urlsafe(16)
-                return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+                return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
             # If the delete_election button was pressed from modal, delete that election and commit changes to DB 
             elif form.delete_election.data:
                 Election.query.filter_by(election_id=curr_election.election_id).delete()
@@ -208,7 +210,7 @@ def view_election(id):
                 flash('Successfully Deleted that Election!', 'success')
                 return redirect(url_for('home'))
         else:
-            return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
+            return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
     # If the current user is admin and the election state is ongoing
     elif current_user.is_admin and curr_election.election_state == 'ongoing':
         # Create a new form and populate it with existing data
@@ -218,7 +220,6 @@ def view_election(id):
             return redirect(url_for('home'))
         # If the end election button is pressed, end the election
         elif form.end_election.data:
-            # TODO: Write code for ending the election
             curr_election.election_state = 'over'
             curr_election.end_date = datetime.now()
             db.session.commit()
@@ -230,7 +231,7 @@ def view_election(id):
             field.render_kw = {"readonly": True}
         # Show the current status of the election
         # TODO: Generate the current vote count dynamically in admin_ongoing_election.html page
-        return render_template("admin_ongoing_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
+        return render_template("admin_ongoing_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
 
     # If the current user is admin and the election is over, flash a message that the voting phase
     # is over and ask to start the counting phase
@@ -246,7 +247,7 @@ def view_election(id):
         for field in form:
             field.render_kw = {"readonly": True}
         flash('Voting phase has finished. Please start the counting phase.', 'warning')
-        return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+        return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
     # If the current user is admin and the counting phase is over, flash a message that the counting phase
     # is over and ask to publish the results
     elif current_user.is_admin and curr_election.election_state == 'counting_finished':
@@ -262,7 +263,7 @@ def view_election(id):
         for field in form:
             field.render_kw = {"readonly": True}
         flash('Counting phase has finished. Please publish the results.', 'warning')
-        return render_template("modify_election.html", bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+        return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
     # If the current user is admin or non-admin, display the summary page
     elif curr_election.election_state == 'past':
         # TODO: Create summary page template
@@ -303,36 +304,151 @@ def publish_results():
     elections = Election.query.order_by(Election.create_date.desc()).all()
     return render_template("results.html", elections=elections)
 
-@app.route("/election/<id>/generate/voter_list", methods=['GET', 'POST'])
+@app.route("/election/<election_id>/generate/voter_list", methods=['GET', 'POST'])
 @AdminPermission()
 # @login_required
-def gen_voter_list(id):
+def gen_voter_list(election_id):
     """
     Description:    Generate Voter List page, admin can use this to generate the voter list
     Endpoint:       /election/<election_id>/generate/voter_list
-    Parameters:     id (Type: String)
-    Uses Template:  None, currently
+    Parameters:     election_id (Type: String)
+    Uses Template:  generate_voter_list.html
     """
-    # TODO: Need to ensure that the election is an upcoming election
-    # TODO: Need to pre-fill the GenVoterListForm() with data for the current election
-    if request.method == 'POST':
-        for vid in request.form.getlist('id'):
-            voter_list_entry = Voter_List(election_id=id, 
-                                          id=vid)
-            db.session.add(voter_list_entry)
-        db.session.commit()
-        existing_voter_list = [voter.to_dict() for voter in Voter.query.join(Voter_List.query.filter(Voter_List.election_id == id))]
+    election = Election.getElectionRecord(election_id)
+    if election.election_state == 'upcoming':
+        if request.method == 'POST':
+            for vid in request.form.getlist('id'):
+                voter_list_entry = Voter_List(election_id=election_id, 
+                                            id=vid)
+                db.session.add(voter_list_entry)
+            db.session.commit()
+            flash('Voter List Updated Successfully!', 'success')
+        existing_voter_list = [voter.to_dict() for voter in Voter_List.getVotersInList(election_id=election_id)]
         existing_voter_dict = {"data": existing_voter_list}
-        flash('Voter List Updated Successfully!', 'success')
-        return render_template("generate_voter_list.html", election_id=id, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
-    existing_voter_list = [voter.to_dict() for voter in Voter.query.join(Voter_List.query.filter(Voter_List.election_id == id))]
-    existing_voter_dict = {"data": existing_voter_list}
-    return render_template("generate_voter_list.html", election_id=id, existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
+        return render_template("generate_voter_list.html", election_id=election_id, 
+                               existing_voter_list=existing_voter_dict if existing_voter_list != [] else None)
+    else:
+        existing_voter_list = [voter.to_dict() for voter in Voter_List.getVotersInList(election_id=election_id)]
+        existing_voter_dict = {"data": existing_voter_list}
+        return render_template("generate_voter_list.html", election_id=election_id, 
+                                existing_voter_list=existing_voter_dict if existing_voter_list != [] else None,
+                                view_only=True)
 
-@app.route('/api/data/voters')
+@app.route("/election/<election_id>/generate/candidate_list", methods=['GET', 'POST'])
 @AdminPermission()
-def data():
-    return {'data': [voter.to_dict() for voter in Voter.query]}
+def gen_candidate_list(election_id):
+    """
+    Description:    Generate Candidate List page, admin can use this to generate the candidate list
+    Endpoint:       /election/<election_id>/generate/candidate_list
+    Parameters:     election_id (Type: String)
+    Uses Template:  generate_candidate_list.html
+    """
+    election = Election.getElectionRecord(election_id)
+    if election.election_state == 'upcoming':
+        if request.method == 'POST':
+            for vid in request.form.getlist('id'):
+                candidate_list_entry = CandidateList(election_id=election_id, 
+                                            voter_id=vid)
+                db.session.add(candidate_list_entry)
+            db.session.commit()
+            flash('Candidate List Updated Successfully!', 'success')
+        existing_candidate_list = [candidate.to_dict() for candidate in CandidateList.getCandidatesInList(election_id=election_id)]
+        existing_candidate_dict = {"data": existing_candidate_list}
+        return render_template("generate_candidate_list.html", election_id=election_id, 
+                               existing_candidate_list=existing_candidate_dict if existing_candidate_list != [] else None)
+    else:
+        existing_candidate_list = [candidate.to_dict() for candidate in CandidateList.getCandidatesInList(election_id=election_id)]
+        existing_candidate_dict = {"data": existing_candidate_list}
+        return render_template("generate_candidate_list.html", election_id=election_id, 
+                               existing_candidate_list=existing_candidate_dict if existing_candidate_list != [] else None,
+                                view_only=True)
+
+@app.route('/api/data/voters/<election_id>')
+@AdminPermission()
+def get_voters(election_id):
+    """
+    Description:    Returns a JSON list of voters, who are not present in the voter list of the election
+                    having id as election_id
+    Endpoint:       /api/data/voters/<election_id>
+    Parameters:     election_id (Type: String)
+    Returns:        {'data': [
+                        {'id': 8, 'cin': '2-09-16-0309', 'name': 'Craig Andrew Boila Gomes', 
+                        'email': '2-09-16-0309@email.com', 'dept': 'BAGG', 'imagefile': 'default.jpg', 
+                        'join_year': 2016, 'is_admin': False}, 
+                        {'id': 9, 'cin': '2-09-16-0310', 'name': 'J Lalthafamkima', 
+                        'email': '2-09-16-0310@email.com', 'dept': 'BAGG', 
+                        'imagefile': 'default.jpg', 'join_year': 2016, 'is_admin': False}, ...
+                    ]}
+    """
+    existing_voters = Voter.query.join(Voter_List.query.filter(Voter_List.election_id == election_id))
+    voter_data = {'data': [voter.to_dict() for voter in Voter.query.except_(existing_voters)]}
+    return voter_data
+
+@app.route('/api/data/candidates/<election_id>')
+@AdminPermission()
+def get_candidates(election_id):
+    """
+    Description:    Returns a JSON list of candidates, who are not present in the candidate list of the election
+                    having id as election_id
+    Endpoint:       /api/data/candidates/<election_id>
+    Parameters:     election_id (Type: String)
+    Returns:        {'data': [
+                        {'id': 8, 'cin': '2-09-16-0309', 'name': 'Craig Andrew Boila Gomes', 
+                        'email': '2-09-16-0309@email.com', 'dept': 'BAGG', 'imagefile': 'default.jpg', 
+                        'join_year': 2016, 'is_admin': False}, 
+                        {'id': 9, 'cin': '2-09-16-0310', 'name': 'J Lalthafamkima', 
+                        'email': '2-09-16-0310@email.com', 'dept': 'BAGG', 
+                        'imagefile': 'default.jpg', 'join_year': 2016, 'is_admin': False}, ...
+                    ]}
+    """
+    existing_candidates = Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id))
+    candidate_data = {'data': [candidate.to_dict() for candidate in Voter.query.except_(existing_candidates)]}
+    return candidate_data
+
+@app.route('/api/data/voterList/delete/<election_id>', methods=['GET', 'POST'])
+@AdminPermission()
+def remove_from_voter_list(election_id):
+    """
+    Description:    Deletes voter records from the voter list
+    Endpoint:       /api/data/voterList/delete/<election_id>
+    Parameters:     election_id (Type: String)
+    Returns:        {} on success and {"error":"Only removal from voter list is permitted"}
+                    on failure
+    """
+    if request.method == "POST" and request.form["action"] == "remove":
+        remove_voter_ids = []
+        for key,value in request.form.items():
+            if "[id]" in key:
+                remove_voter_ids.append(value)
+        Voter_List.query.filter(Voter_List.election_id == election_id, 
+                                Voter_List.id.in_(remove_voter_ids)).delete(synchronize_session=False)
+        db.session.commit()
+        return {}
+    else:
+        return {"error":"Only removal from voter list is permitted"}
+
+@app.route('/api/data/candidateList/delete/<election_id>', methods=['GET', 'POST'])
+@AdminPermission()
+def remove_from_candidate_list(election_id):
+    """
+    Description:    Deletes voter records from the candidate list
+    Endpoint:       /api/data/candidateList/delete/<election_id>
+    Parameters:     election_id (Type: String)
+    Returns:        {} on success and {"error":"Only removal from voter list is permitted"}
+                    on failure
+    """
+    if request.method == "POST" and request.form["action"] == "remove":
+        print(request.form)
+        remove_candidate_ids = []
+        for key,value in request.form.items():
+            if "[id]" in key:
+                remove_candidate_ids.append(value)
+        CandidateList.query.filter(CandidateList.election_id == election_id, 
+                               CandidateList.voter_id.in_(remove_candidate_ids)).delete(synchronize_session=False)
+        db.session.commit()
+        return {}
+    else:
+        return {"error":"Only removal from voter list is permitted"}
 
 @app.route("/index2")
 def index2():
