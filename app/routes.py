@@ -1,6 +1,7 @@
 import os
 import secrets
 import app.election_util as election_util
+import math, random
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
@@ -302,6 +303,14 @@ def view_election(id):
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
 
+# function to generate 6-digit OTP
+def generateOTP() :
+    digits = "0123456789"
+    OTP = ""
+    for _ in range(6) :
+        OTP += digits[math.floor(random.random() * 10)]
+    return OTP
+
 @app.route("/register_voter_and_send_otp/<id>", methods=['GET', 'POST'])
 @login_required
 def register_voter_and_send_otp(id):
@@ -316,11 +325,13 @@ def register_voter_and_send_otp(id):
     curr_voter = Voter_List.query.where(Voter_List.id==current_user.id).first()
     # print("Before: ", curr_voter.is_registered)
     curr_voter.is_registered = True
+    otp = generateOTP()
+    curr_voter.token = otp
     db.session.commit()
     # print("After: ", Voter_List.query.where(Voter_List.id==current_user.id).first().is_registered)
     # Send an OTP to their registered e-mail address
     flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
-    return render_template("register_voter_and_send_otp.html", otp="405319", election_title=curr_election.election_title, start_date=curr_election.start_date)
+    return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
 
 @app.route("/publish_results")
 @AdminPermission()
