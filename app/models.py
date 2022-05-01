@@ -23,14 +23,37 @@ class Voter(db.Model, UserMixin):
     def __repr__(self):
         return f"Voter('{self.name}', '{self.cin}')"
 
-class Candidate(db.Model):
+    def to_dict(self):
+        return {
+            'id' : self.id,
+            'cin': self.cin,
+            'name': self.name,
+            'email': self.email,
+            'dept': self.dept,
+            'imagefile': self.imagefile,
+            'join_year': self.join_year,
+            'is_admin': self.is_admin
+        }
+
+class CandidateList(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
-    candidate_id = db.Column(db.String(5), primary_key=True, nullable=False)
-    id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True, nullable=False)
+    voter_id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
     voters = db.relationship('Voter', backref='vote', lazy=True) # one candidate can get votes from many voters, so One-To-Many relationship
 
     def __repr__(self):
-        return f"Candidate('{self.candidate_id}', '{self.id}')"
+        return f"Candidate('{self.candidate_id}', '{self.voter_id}')"
+    
+    @classmethod
+    def getCandidatesInList(cls, election_id):
+        return Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id)).all()
+
+    def to_dict(self):
+        return {
+            'id' : self.id,
+            'election_id': self.election_id,
+            'voter_id': self.voter_id,
+        }
 
 class Election(db.Model):
     election_id = db.Column(db.String(5), primary_key=True, nullable=False)
@@ -46,6 +69,10 @@ class Election(db.Model):
 
     def __repr__(self):
         return f"Election('{self.election_id}', '{self.election_title}', '{self.start_date}', '{self.end_date}'"
+    
+    @classmethod
+    def getElectionRecord(cls, election_id):
+        return Election.query.where(Election.election_id == election_id).first()
 
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -63,7 +90,11 @@ class Voter_List(db.Model):
     is_registered = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
-        return f"Voter_List('{self.election_id}', '{self.id}')"
+        return f"VoterList('{self.election_id}', '{self.id}')"
+
+    @classmethod
+    def getVotersInList(cls, election_id):
+        return Voter.query.join(Voter_List.query.filter(Voter_List.election_id == election_id)).all()
 
 class Department(db.Model):
     dept_code = db.Column(db.String(4), primary_key=True, nullable=False)
