@@ -18,12 +18,14 @@
             <a class="btn btn-outline-info btn-block" href="{{ url_for('home') }}">Home</a>
         </div>
         <div class="col">
+            
+            <a class="btn btn-outline-success btn-block" href="{{ url_for('register_voter_and_send_otp', id=election_id) }}">Register for vote!</a>
+            
             {% raw %}
-            <!-- <a class="btn btn-outline-success btn-block"  data-toggle="modal" data-target="#registerModal" href="{{ url_for('home') }}">Register for vote!</a> -->
-            {% endraw %}
-            <button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#registerModal">
+            <!-- <button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#registerModal">
                 Register for vote!
-            </button>
+            </button> -->
+            {% endraw %}
         </div>
     </div>
 
