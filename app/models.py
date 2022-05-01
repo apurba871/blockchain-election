@@ -59,7 +59,7 @@ class Voter_List(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
     tries = db.Column(db.Integer, default=0, nullable=False)
-    token = db.Column(db.String(255), unique=True, nullable=False)
+    token = db.Column(db.String(255), unique=True, nullable=True)
     is_registered = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
