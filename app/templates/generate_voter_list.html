@@ -4,14 +4,59 @@
     <form id="gen-voter-list" action="" method="POST">
       
       <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Generate Voter List</legend>
+        <legend class="border-bottom mb-4">
+          {% if view_only is not defined %}
+            Generate 
+          {% endif %}
+          Voter List
+        </legend>
         {% if not (existing_voter_list is none) %}
           <div class="form-group mt-2">
             <label class="form-control-label" for="data">Current Voter List</label>
             {% block current_voter_list %}
-              <table id="existing-voters" class="table table-striped">
+              <table id="existing-voters" class="table table-striped responsive">
                 <thead>
                   <tr>
+                    {% if view_only is not defined %}
+                      <th></th>
+                    {% endif %}
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    {% if view_only is not defined %}
+                      <th></th>
+                    {% endif %}
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    {% if view_only is not defined %}
+                      <th></th>
+                    {% endif %}
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    {% if view_only is not defined %}
+                      <th></th>
+                    {% endif %}
+                  </tr>
+                </tfoot>
+              </table>
+            {% endblock current_voter_list %}
+          </div>
+        {% endif %}
+        {% if view_only is not defined %}
+          <div class="form-group mt-2">
+            <label class="form-control-label" for="data">Add Students to Voter List</label>
+            {% block datatable %}
+              <table id="add-voters" class="table table-striped responsive">
+                <thead>
+                  <tr>
+                    <th></th>
                     <th></th>
                     <th>CIN</th>
                     <th>Name</th>
@@ -24,6 +69,7 @@
                 <tfoot>
                   <tr>
                     <th></th>
+                    <th></th>
                     <th>CIN</th>
                     <th>Name</th>
                     <th>Department</th>
@@ -31,41 +77,39 @@
                   </tr>
                 </tfoot>
               </table>
-            {% endblock current_voter_list %}
+            {% endblock datatable %}
           </div>
-        {% endif %}
-        <div class="form-group mt-2">
-          <label class="form-control-label" for="data">Add Students to Voter List</label>
-          {% block datatable %}
-            <table id="add-voters" class="table table-striped">
-              <thead>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>CIN</th>
-                  <th>Name</th>
-                  <th>Department</th>
-                  <th>Joining Year</th>
-                </tr>
-              </thead>
-              <tbody>
-              </tbody>
-              <tfoot>
-                <tr>
-                  <th></th>
-                  <th></th>
-                  <th>CIN</th>
-                  <th>Name</th>
-                  <th>Department</th>
-                  <th>Joining Year</th>
-                </tr>
-              </tfoot>
-            </table>
-          {% endblock datatable %}
-        </div>
+          {% endif %}
       </fieldset>
       <div class="form-group mt-3">
-        <input type="submit" class="btn btn-outline-info" value="Add Voters">
+        <div class="row"> 
+          <div class="col">
+            {% if view_only is not defined %}
+              <input type="submit" class="btn btn-outline-info btn-block" value="Add Voters">
+            {% else %}
+              <a class="btn btn-outline-info btn-block" href="{{ url_for('view_election', id=election_id) }}" role="button">
+                View Election Details
+              </a>
+            {% endif %}
+          </div>
+          <div class="col">
+            <a class="btn btn-outline-secondary btn-block" href="{{ url_for('home') }}" role="button">Home</a>
+          </div>
+          <div class="col">
+            {% if view_only is not defined %}
+              <a  class="btn btn-outline-warning btn-block" 
+                  href="{{ url_for('gen_candidate_list', election_id=election_id) }}" 
+                  role="button">Generate Candidate List
+              </a>
+            {% else %}
+              <a  class="btn btn-outline-warning btn-block" 
+                  href="{{ url_for('gen_candidate_list', election_id=election_id) }}" role="button">
+                  View Candidate List
+              </a>
+            {% endif %}
+          </div>
+        </div>
+        <!-- <input type="submit" class="btn btn-outline-info" value="Add Voters"> -->
       </div>
     </form>
   </div>
@@ -73,85 +117,191 @@
 
 {% block scripts %}
   <script>
+    var editor;
     $(document).ready(function () {
       {% if not (existing_voter_list is none) %}
+        {% if view_only is not defined %}
+          editor = new $.fn.dataTable.Editor({
+              ajax: "/api/data/voterList/delete/{{election_id}}",
+              table: '#existing-voters',
+              fields: [
+                {
+                  label: "Voter ID",
+                  name: "id"
+                },
+                {
+                  label: "CIN",
+                  name: "cin"
+                },
+                {
+                  label: "Name",
+                  name: "name"
+                },
+                {
+                  label: "Department",
+                  name: "dept"
+                },
+                {
+                  label: "Joining Year",
+                  name: "join_year"
+                },
+              ],
+              idSrc:  'id',
+              rowId: 'id',
+            });
+
+          $('#existing-voters').on('click', 'td.editor-delete', function (e) {
+              e.preventDefault();
+              editor.remove( $(this).closest('tr'), {
+                  title: 'Delete record',
+                  message: 'Are you sure you wish to remove this record for ' + 
+                            $(this).closest('tr').find('td:eq(2)')[0].innerText +  
+                            ' ?',
+                  buttons: 'Delete'
+              } );
+          } );
+
+          editor.on('postSubmit', function(e, json, data){
+            if ( window.history.replaceState ) {
+                window.history.replaceState( null, null, window.location.href );
+            }
+            window.location = window.location.href;
+          });
+        {% endif %}
+
+
         var existingVotersTable = $('#existing-voters').DataTable({
+          initComplete: function(){
+            this.api().columns().every(function(colIndex){
+                var column = this;
+                if(column.header().textContent === 'Department' || 
+                  column.header().textContent === 'Joining Year'){
+                  var select = $('<select><option value=""></option></select>')
+                              .appendTo($(column.footer()).empty())
+                              .on('change', function(){
+                                var val =  $.fn.dataTable.util.escapeRegex(
+                                              $(this).val()
+                                          );
+                                column
+                                      .search( val ? '^'+val+'$' : '', true, false )
+                                      .draw();
+                              });
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+                }
+              }
+            );
+          },
           data: {{ existing_voter_list|tojson }}["data"],
           columns: [
+          {% if view_only is not defined %}
+            {data: 'id'},
+          {% endif %}
+            {data: 'cin'},
+            {data: 'name', searchable: true},
+            {data: 'dept', orderable: true, searchable: true},
+            {data: 'join_year', orderable: true, searchable: true},
+            {% if view_only is not defined %}
+              {
+                data: null,
+                className: "dt-center editor-delete",
+                defaultContent: '<button type="button" class="btn btn-danger">Remove</button>'
+              },
+            {% endif %}
+          ],
+          {% if view_only is not defined %}
+            columnDefs: [
+              {
+                targets: 0,
+                checkboxes: {
+                  selectRow: true,
+                }
+              }
+            ],
+            select: {
+              style: 'multi'
+            },
+          {% endif %}
+        });
+
+        new $.fn.dataTable.Buttons( existingVotersTable, [
+            { extend: "remove", editor: editor, className: "btn btn-danger", text:"Remove Selected" }
+        ] );
+        
+        {% if view_only is not defined %}
+          existingVotersTable.buttons().container()
+                            .appendTo( $('.col-md-6:eq(0)', existingVotersTable.table().container() ) );
+        {% endif %}
+      {% endif %}
+      {% if view_only is not defined %}
+        var addVotersTable = $('#add-voters').DataTable({
+          initComplete: function(){
+            this.api().columns().every(function(colIndex){
+                var column = this;
+                if(column.header().textContent === 'Department' || 
+                  column.header().textContent === 'Joining Year'){
+                  var select = $('<select><option value=""></option></select>')
+                              .appendTo($(column.footer()).empty())
+                              .on('change', function(){
+                                var val =  $.fn.dataTable.util.escapeRegex(
+                                              $(this).val()
+                                          );
+                                column
+                                      .search( val ? '^'+val+'$' : '', true, false )
+                                      .draw();
+                              });
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+                }
+              }
+            );
+          },
+          ajax: '/api/data/voters/{{election_id}}',
+          responsive: {
+              details: {
+                  type: 'column',
+                  target: 'tr'
+              }
+          },
+          columnDefs: [
+            {
+              targets: 0,
+              checkboxes: {
+                selectRow: true,
+              }
+            }
+          ],
+          columns: [
+            {data: 'id'},
             {data: 'id', visible:false},
             {data: 'cin'},
             {data: 'name', searchable: true},
             {data: 'dept', orderable: true, searchable: true},
             {data: 'join_year', orderable: true, searchable: true},
           ],
+          select: {
+            style: 'multi'
+          },
+          order: [[1, 'asc']]
+        });
+        $("#gen-voter-list").on('submit', function(e){
+          // e.preventDefault();
+          var form = this;
+          $(form).find('input[name="id"]').remove();
+          var rowSelection = addVotersTable.column(0).checkboxes.selected();
+          $.each(rowSelection, function(index, rowId){
+            $(form).append(
+              $('<input>')
+                        .attr('type', 'hidden')
+                        .attr('name', 'id')
+                        .val(rowId)
+            );
+          });
+          // $("#gen-voter-list").first()[0].submit();
         });
       {% endif %}
-      var addVotersTable = $('#add-voters').DataTable({
-        initComplete: function(){
-          this.api().columns().every(function(colIndex){
-              var column = this;
-              if(column.header().textContent === 'Department' || 
-                 column.header().textContent === 'Joining Year'){
-                var select = $('<select><option value=""></option></select>')
-                            .appendTo($(column.footer()).empty())
-                            .on('change', function(){
-                              var val =  $.fn.dataTable.util.escapeRegex(
-                                            $(this).val()
-                                        );
-                              column
-                                    .search( val ? '^'+val+'$' : '', true, false )
-                                    .draw();
-                            });
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-              }
-            }
-          );
-        },
-        ajax: '/api/data/voters',
-        responsive: {
-            details: {
-                type: 'column',
-                target: 'tr'
-            }
-        },
-        columnDefs: [
-          {
-            targets: 0,
-            checkboxes: {
-              selectRow: true,
-            }
-          }
-        ],
-        columns: [
-          {data: 'id'},
-          {data: 'id', visible:false},
-          {data: 'cin'},
-          {data: 'name', searchable: true},
-          {data: 'dept', orderable: true, searchable: true},
-          {data: 'join_year', orderable: true, searchable: true},
-        ],
-        select: {
-          style: 'multi'
-        },
-        order: [[1, 'asc']]
-      });
-      $("#gen-voter-list").on('submit', function(e){
-        // e.preventDefault();
-        var form = this;
-        $(form).find('input[name="id"]').remove();
-        var rowSelection = addVotersTable.column(0).checkboxes.selected();
-        $.each(rowSelection, function(index, rowId){
-          $(form).append(
-            $('<input>')
-                      .attr('type', 'hidden')
-                      .attr('name', 'id')
-                      .val(rowId)
-          );
-        });
-        // $("#gen-voter-list").first()[0].submit();
-      });
     });
   </script>
 {% endblock scripts %}
