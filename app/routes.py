@@ -6,7 +6,7 @@ import app.election_util as election_util
 import math, random
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
-from app import app, db, bcrypt
+from app import app, db, bcrypt, mail
 from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
 from flask_login import login_user, current_user, logout_user, login_required
