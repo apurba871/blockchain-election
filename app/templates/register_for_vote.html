@@ -1,0 +1,59 @@
+{% extends 'home_base.html' %} 
+
+{% block content %}
+
+<div class="content-section">
+    <legend class="border-bottom mb-4">Information</legend>
+    <div class="spacing"><span class="spn"><span class="spn-special">Election Title:</span> {{ election_title }}</span></div>
+    <div class="spacing"><span class="spn"><span class="spn-special">Election Start Time:</span> {{ start_date }}</span></div>
+    <div class="spacing"><span class="spn"><span class="spn-special">Status:</span> Register for vote!</span></div>
+    {% raw %}
+    <!-- <center class="top-space">
+        <a class="btn btn-outline-info" href="{{ url_for('home') }}">Home</a>
+        <a class="btn btn-outline-success" href="{{ url_for('home') }}">Register for vote!</a>
+    </center> -->
+    {% endraw %}
+    <div class="row top-space">
+        <div class="col">
+            <a class="btn btn-outline-info btn-block" href="{{ url_for('home') }}">Home</a>
+        </div>
+        <div class="col">
+            
+            <a class="btn btn-outline-success btn-block" href="{{ url_for('register_voter_and_send_otp', id=election_id) }}">Register for vote!</a>
+            
+            {% raw %}
+            <!-- <button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#registerModal">
+                Register for vote!
+            </button> -->
+            {% endraw %}
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">You are registered for this election!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              An O.T.P. has been mailed to you at your registered e-mail id.
+              <br><br>
+              You will require this O.T.P. for casting your vote!
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-outline-info btn-block" href="{{ url_for('home') }}">Home</a>
+              {% raw %}
+              <!-- {{ form.delete_election(class="btn btn-outline-danger") }} -->
+              <!-- <input type="submit" class="btn btn-primary" name="delete_election" value="Save Changes"> -->
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              {% endraw %}
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+{% endblock %}

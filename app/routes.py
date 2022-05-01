@@ -3,12 +3,14 @@ import secrets
 
 from flask_sqlalchemy import SQLAlchemy
 import app.election_util as election_util
+import math, random
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt
 from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
 from flask_login import login_user, current_user, logout_user, login_required
+from flask_mail import Message
 from .permissions import AdminPermission
 from datetime import datetime
 
@@ -273,12 +275,26 @@ def view_election(id):
     # will start on the start_date, only if the user is eligible for this election.
     # If the user is not eligible for this election, display the appropriate error message.
     elif not current_user.is_admin and curr_election.election_state == 'upcoming':
-        start_date = curr_election.start_date
-        election_title = curr_election.election_title
-        # TODO: Use the above two variables to display a suitable message in a template
-        # TODO: Also, display the registration form to the voter, if they haven't registered
-        # TODO: for the vote yet. Else display the below message.
-        return "Election will start shortly. Please come back later"
+        # Check if the admin has generated the voter list
+        is_voter_list_generated = Voter_List.query.filter_by(election_id=curr_election.election_id).first()
+        if not is_voter_list_generated:
+            # Show him the election name and start time and inform that the admin has not yet generated
+            # the voter list and that he will be able to vote if the votre list has his name and he has
+            # registered for voting
+            return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+        else:
+            # If the voter list is generated, check if the voter is in the list
+            is_voter_in_voter_list = Voter_List.query.filter_by(id=current_user.id).first()
+            # print(is_voter_in_voter_list)
+            if not is_voter_in_voter_list:
+                return render_template("voter_not_in_voterlist.html")
+            else:
+                # if the voter has not registered for the vote, show him the register_for_vote.html page
+                if is_voter_in_voter_list.is_registered == False:
+                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
+                # else show him that he has registered for the vote and the election start time
+                else:
+                    return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
     # If the user is a non-admin user, and election is ongoing, check if the user has registered
     # for the vote, if not, display the registration page, only if the user is eligible for voting.
     # After the voter eligibility is verified, redirect to the voting screen. If the voter is not
@@ -290,6 +306,50 @@ def view_election(id):
     elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
+
+# function to generate 6-digit OTP
+def generateOTP() :
+    digits = "0123456789"
+    OTP = ""
+    for _ in range(6) :
+        OTP += digits[math.floor(random.random() * 10)]
+    return OTP
+
+@app.route("/register_voter_and_send_otp/<id>", methods=['GET', 'POST'])
+@login_required
+def register_voter_and_send_otp(id):
+    """
+    Description:    Register the current voter in the selected election and send an OTP to their registered e-mail address
+    Endpoint:       /register_voter_and_send_otp
+    Parameters:     id (Type: String)
+    Uses Template:  register_voter_and_send_otp.html
+    """
+    curr_election = Election.query.where(Election.election_id==id).first()
+    # Register the current voter
+    curr_voter = Voter_List.query.where(Voter_List.id==current_user.id).first()
+    # print("Before: ", curr_voter.is_registered)
+    if curr_voter is None:
+        return render_template("voter_not_in_voterlist.html")
+    elif curr_voter.is_registered:
+        return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+    elif not curr_voter.is_registered:
+        curr_voter.is_registered = True
+        otp = generateOTP()
+        curr_voter.token = otp
+        db.session.commit()
+        # print("After: ", Voter_List.query.where(Voter_List.id==current_user.id).first().is_registered)
+        # Send an OTP to their registered e-mail address
+        user_email = Voter.query.where(Voter.id==curr_voter.id).first().email
+        # print(user_email)
+        msg = Message('Secret OTP for voting', sender = 'blockchainvoting7@gmail.com', recipients = [user_email])
+        msg.html = f'''<h1>Election Title: {curr_election.election_title}</h1><br/> 
+                    <h1>Election Start Time: {curr_election.start_date}</h1><br/> 
+                    <h1>Status: You are registered for the election.</h1><br/> 
+                    <h1>Your OTP: {otp}</h1><br/> 
+                    '''
+        mail.send(msg)
+        flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
+        return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
 
 @app.route("/publish_results")
 @AdminPermission()
