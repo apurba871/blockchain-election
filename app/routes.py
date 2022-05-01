@@ -270,12 +270,26 @@ def view_election(id):
     # will start on the start_date, only if the user is eligible for this election.
     # If the user is not eligible for this election, display the appropriate error message.
     elif not current_user.is_admin and curr_election.election_state == 'upcoming':
-        start_date = curr_election.start_date
-        election_title = curr_election.election_title
-        # TODO: Use the above two variables to display a suitable message in a template
-        # TODO: Also, display the registration form to the voter, if they haven't registered
-        # TODO: for the vote yet. Else display the below message.
-        return "Election will start shortly. Please come back later"
+        # Check if the admin has generated the voter list
+        is_voter_list_generated = Voter_List.query.filter_by(election_id=curr_election.election_id).first()
+        if not is_voter_list_generated:
+            # Show him the election name and start time and inform that the admin has not yet generated
+            # the voter list and that he will be able to vote if the votre list has his name and he has
+            # registered for voting
+            return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+        else:
+            # If the voter list is generated, check if the voter is in the list
+            is_voter_in_voter_list = Voter_List.query.filter_by(id=current_user.id).first()
+            # print(is_voter_in_voter_list)
+            if not is_voter_in_voter_list:
+                return render_template("voter_not_in_voterlist.html")
+            else:
+                # if the voter has not registered for the vote, show him the register_for_vote.html page
+                if is_voter_in_voter_list.is_registered == False:
+                    return render_template("register_for_vote.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+                # else show him that he has registered for the vote and the election start time
+                else:
+                    return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
     # If the user is a non-admin user, and election is ongoing, check if the user has registered
     # for the vote, if not, display the registration page, only if the user is eligible for voting.
     # After the voter eligibility is verified, redirect to the voting screen. If the voter is not
