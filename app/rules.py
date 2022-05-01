@@ -1,7 +1,7 @@
 from flask import render_template, url_for, flash, redirect, request, abort
 from flask_login import login_user, current_user, logout_user, login_required
 from app import app, db, bcrypt
-from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
+from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm, GenVoterListForm
 from permission import Rule
 
