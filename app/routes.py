@@ -76,7 +76,7 @@ def logout():
     Uses Template:  None
     """
     logout_user()
-    return redirect(url_for("index"))
+    return redirect(url_for("home"))
 
 def save_picture(form_picture):
     """
@@ -470,7 +470,7 @@ def index():
     """
     elections = elections = Election.query.order_by(Election.start_date.desc()).all()
     election_util.update_election_state()
-    return render_template("index.html", elections=elections)
+    return render_template("index2.html", elections=elections)
 
 @app.route("/home")
 def home():
