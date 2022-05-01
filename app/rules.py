@@ -1,8 +1,6 @@
-from flask import render_template, url_for, flash, redirect, request, abort
-from flask_login import login_user, current_user, logout_user, login_required
-from app import app, db, bcrypt
-from app.models import Voter, Candidate, Election, Casted_Vote, Voter_List, Department
-from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm, GenVoterListForm
+from flask import url_for,redirect, abort
+from flask_login import current_user
+from app.models import Voter
 from permission import Rule
 
 # Rule to check if any user is currently logged in or not

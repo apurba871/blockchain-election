@@ -1,20 +1,20 @@
 {% extends "meta.html" %} 
 {% block content %}
   <div class="content-section">
-    <form id="gen-voter-list" action="" method="POST">
+    <form id="gen-candidate-list" action="" method="POST">
       
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">
           {% if view_only is not defined %}
             Generate 
           {% endif %}
-          Voter List
+          Candidate List
         </legend>
-        {% if not (existing_voter_list is none) %}
+        {% if not (existing_candidate_list is none) %}
           <div class="form-group mt-2">
-            <label class="form-control-label" for="data">Current Voter List</label>
-            {% block current_voter_list %}
-              <table id="existing-voters" class="table table-striped responsive">
+            <label class="form-control-label" for="data">Current Candidate List</label>
+            {% block current_candidate_list %}
+              <table id="existing-candidates" class="table table-striped responsive">
                 <thead>
                   <tr>
                     {% if view_only is not defined %}
@@ -46,14 +46,14 @@
                   </tr>
                 </tfoot>
               </table>
-            {% endblock current_voter_list %}
+            {% endblock current_candidate_list %}
           </div>
         {% endif %}
         {% if view_only is not defined %}
           <div class="form-group mt-2">
-            <label class="form-control-label" for="data">Add Students to Voter List</label>
+            <label class="form-control-label" for="data">Add Students to Candidate List</label>
             {% block datatable %}
-              <table id="add-voters" class="table table-striped responsive">
+              <table id="add-candidates" class="table table-striped responsive">
                 <thead>
                   <tr>
                     <th></th>
@@ -85,7 +85,7 @@
         <div class="row"> 
           <div class="col">
             {% if view_only is not defined %}
-              <input type="submit" class="btn btn-outline-info btn-block" value="Add Voters">
+              <input type="submit" class="btn btn-outline-info btn-block" value="Add Candidates">
             {% else %}
               <a class="btn btn-outline-info btn-block" href="{{ url_for('view_election', id=election_id) }}" role="button">
                 View Election Details
@@ -95,19 +95,15 @@
           <div class="col">
             <a class="btn btn-outline-secondary btn-block" href="{{ url_for('home') }}" role="button">Home</a>
           </div>
-          <div class="col">
+          {% raw %}
+          <!-- <div class="col">
             {% if view_only is not defined %}
-              <a  class="btn btn-outline-warning btn-block" 
-                  href="{{ url_for('gen_candidate_list', election_id=election_id) }}" 
-                  role="button">Generate Candidate List
-              </a>
+              <a class="btn btn-outline-warning btn-block" href="#" role="button">Generate Candidate List</a>
             {% else %}
-              <a  class="btn btn-outline-warning btn-block" 
-                  href="{{ url_for('gen_candidate_list', election_id=election_id) }}" role="button">
-                  View Candidate List
-              </a>
+              <a class="btn btn-outline-warning btn-block" href="#" role="button">View Candidate List</a>
             {% endif %}
-          </div>
+          </div> -->
+          {% endraw %}
         </div>
         <!-- <input type="submit" class="btn btn-outline-info" value="Add Voters"> -->
       </div>
@@ -119,11 +115,11 @@
   <script>
     var editor;
     $(document).ready(function () {
-      {% if not (existing_voter_list is none) %}
+      {% if not (existing_candidate_list is none) %}
         {% if view_only is not defined %}
           editor = new $.fn.dataTable.Editor({
-              ajax: "/api/data/voterList/delete/{{election_id}}",
-              table: '#existing-voters',
+              ajax: "/api/data/candidateList/delete/{{election_id}}",
+              table: '#existing-candidates',
               fields: [
                 {
                   label: "Voter ID",
@@ -150,7 +146,7 @@
               rowId: 'id',
             });
 
-          $('#existing-voters').on('click', 'td.editor-delete', function (e) {
+          $('#existing-candidates').on('click', 'td.editor-delete', function (e) {
               e.preventDefault();
               editor.remove( $(this).closest('tr'), {
                   title: 'Delete record',
@@ -170,7 +166,7 @@
         {% endif %}
 
 
-        var existingVotersTable = $('#existing-voters').DataTable({
+        var existingCandidatesTable = $('#existing-candidates').DataTable({
           initComplete: function(){
             this.api().columns().every(function(colIndex){
                 var column = this;
@@ -193,7 +189,7 @@
               }
             );
           },
-          data: {{ existing_voter_list|tojson }}["data"],
+          data: {{ existing_candidate_list|tojson }}["data"],
           columns: [
           {% if view_only is not defined %}
             {data: 'id'},
@@ -225,17 +221,17 @@
           {% endif %}
         });
 
-        new $.fn.dataTable.Buttons( existingVotersTable, [
+        new $.fn.dataTable.Buttons( existingCandidatesTable, [
             { extend: "remove", editor: editor, className: "btn btn-danger", text:"Remove Selected" }
         ] );
         
         {% if view_only is not defined %}
-          existingVotersTable.buttons().container()
-                            .appendTo( $('.col-md-6:eq(0)', existingVotersTable.table().container() ) );
+          existingCandidatesTable.buttons().container()
+                            .appendTo( $('.col-md-6:eq(0)', existingCandidatesTable.table().container() ) );
         {% endif %}
       {% endif %}
       {% if view_only is not defined %}
-        var addVotersTable = $('#add-voters').DataTable({
+        var addCandidatesTable = $('#add-candidates').DataTable({
           initComplete: function(){
             this.api().columns().every(function(colIndex){
                 var column = this;
@@ -258,7 +254,7 @@
               }
             );
           },
-          ajax: '/api/data/voters/{{election_id}}',
+          ajax: '/api/data/candidates/{{election_id}}',
           responsive: {
               details: {
                   type: 'column',
@@ -286,11 +282,11 @@
           },
           order: [[1, 'asc']]
         });
-        $("#gen-voter-list").on('submit', function(e){
+        $("#gen-candidate-list").on('submit', function(e){
           // e.preventDefault();
           var form = this;
           $(form).find('input[name="id"]').remove();
-          var rowSelection = addVotersTable.column(0).checkboxes.selected();
+          var rowSelection = addCandidatesTable.column(0).checkboxes.selected();
           $.each(rowSelection, function(index, rowId){
             $(form).append(
               $('<input>')
@@ -299,7 +295,7 @@
                         .val(rowId)
             );
           });
-          // $("#gen-voter-list").first()[0].submit();
+          // $("#gen-candidate-list").first()[0].submit();
         });
       {% endif %}
     });

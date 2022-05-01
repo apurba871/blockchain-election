@@ -90,13 +90,14 @@
       <div class="row">
         {% if election_state == "upcoming" %}
           <div class="col">
+            <!-- Save and proceed to generate candidate list -->
             {{ form.submit(class="btn btn-outline-info btn-block") }}
           </div>
           <div class="col">
             {{ form.generate_keys(class="btn btn-outline-warning btn-block") }}
           </div>
           <div class="col mt-4 text-center">
-            <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal">
+            <button type="button" class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#deleteModal">
               Delete Election
             </button>
           </div>
@@ -106,17 +107,57 @@
           </div> -->
           {% endraw %}
         {% elif election_state == "ongoing" %}
-          <div class="col">
-            {{ form.home(class="btn btn-outline-info btn-block") }}
+          <div class="row">
+            <div class="col">
+              {{ form.home(class="btn btn-outline-info btn-block") }}
+            </div>
+            <div class="col">
+              {{ form.end_election(class="btn btn-outline-danger btn-block") }}
+            </div>
           </div>
-          <div class="col">
-            {{ form.end_election(class="btn btn-outline-danger btn-block") }}
+          <div class="row">
+            <div class="col">
+              <a  class="btn btn-outline-success btn-block" 
+                  href="{{ url_for('gen_voter_list', election_id=election_id) }}" role="button">
+                  View Voter List
+              </a>
+            </div>
+            <div class="col">
+              <a  class="btn btn-outline-warning btn-block" 
+                  href="{{ url_for('gen_candidate_list', election_id=election_id) }}" role="button">
+                  View Candidate List
+              </a>
+            </div>
           </div>
         {% elif election_state == "over" %}
+          <div class="col">
+            <a  class="btn btn-outline-success btn-block" 
+                href="{{ url_for('gen_voter_list', election_id=election_id) }}" role="button">
+                View Voter List
+            </a>
+          </div>
+          <div class="col">
+            <a  class="btn btn-outline-warning btn-block" 
+                href="{{ url_for('gen_candidate_list', election_id=election_id) }}" role="button">
+                View Candidate List
+            </a>
+          </div>
           <div class="col">
             {{ form.start_counting(class="btn btn-outline-info btn-block") }}
           </div>
         {% elif election_state == "counting_finished" %}
+          <div class="col">
+            <a  class="btn btn-outline-success btn-block" 
+                href="{{ url_for('gen_voter_list', election_id=election_id) }}" role="button">
+                View Voter List
+            </a>
+          </div>
+          <div class="col">
+            <a  class="btn btn-outline-warning btn-block" 
+                href="{{ url_for('gen_candidate_list', election_id=election_id) }}" role="button">
+                View Candidate List
+            </a>
+          </div>
           <div class="col">
             {{ form.publish_results(class="btn btn-outline-primary btn-block") }}
           </div>
