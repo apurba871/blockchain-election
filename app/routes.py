@@ -4,10 +4,11 @@ import app.election_util as election_util
 import math, random
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
-from app import app, db, bcrypt
+from app import app, db, bcrypt, mail
 from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm, GenVoterListForm
 from flask_login import login_user, current_user, logout_user, login_required
+from flask_mail import Message
 from .permissions import AdminPermission
 from datetime import datetime
 
@@ -324,14 +325,28 @@ def register_voter_and_send_otp(id):
     # Register the current voter
     curr_voter = Voter_List.query.where(Voter_List.id==current_user.id).first()
     # print("Before: ", curr_voter.is_registered)
-    curr_voter.is_registered = True
-    otp = generateOTP()
-    curr_voter.token = otp
-    db.session.commit()
-    # print("After: ", Voter_List.query.where(Voter_List.id==current_user.id).first().is_registered)
-    # Send an OTP to their registered e-mail address
-    flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
-    return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
+    if curr_voter is None:
+        return render_template("voter_not_in_voterlist.html")
+    elif curr_voter.is_registered:
+        return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+    elif not curr_voter.is_registered:
+        curr_voter.is_registered = True
+        otp = generateOTP()
+        curr_voter.token = otp
+        db.session.commit()
+        # print("After: ", Voter_List.query.where(Voter_List.id==current_user.id).first().is_registered)
+        # Send an OTP to their registered e-mail address
+        user_email = Voter.query.where(Voter.id==curr_voter.id).first().email
+        # print(user_email)
+        msg = Message('Secret OTP for voting', sender = 'blockchainvoting7@gmail.com', recipients = [user_email])
+        msg.html = f'''<h1>Election Title: {curr_election.election_title}</h1><br/> 
+                    <h1>Election Start Time: {curr_election.start_date}</h1><br/> 
+                    <h1>Status: You are registered for the election.</h1><br/> 
+                    <h1>Your OTP: {otp}</h1><br/> 
+                    '''
+        mail.send(msg)
+        flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
+        return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
 
 @app.route("/publish_results")
 @AdminPermission()
