@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail, Message
+from app.election_util import update_election_state
+from apscheduler.schedulers.background import BackgroundScheduler
 # import flask_mail
 
 # from flask_wtf import FlaskForm
@@ -36,5 +38,9 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
+
+scheduler = BackgroundScheduler()
+job = scheduler.add_job(update_election_state, 'interval', minutes=1)
+scheduler.start()
 
 from app import routes
