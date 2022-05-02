@@ -435,8 +435,10 @@ def gen_candidate_list(election_id):
     if election.election_state == 'upcoming':
         if request.method == 'POST':
             for vid in request.form.getlist('id'):
-                candidate_list_entry = CandidateList(election_id=election_id, 
-                                            voter_id=vid)
+                candidate_id = CandidateList.getCandidateCount(election_id) + 1
+                candidate_list_entry = CandidateList(election_id=election_id,
+                                                    id=candidate_id, 
+                                                    voter_id=vid)
                 db.session.add(candidate_list_entry)
             db.session.commit()
             flash('Candidate List Updated Successfully!', 'success')
