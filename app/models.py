@@ -43,14 +43,22 @@ class CandidateList(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     voter_id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
-    voters = db.relationship('Voter', backref='vote', lazy=True) # one candidate can get votes from many voters, so One-To-Many relationship
+    voter = db.relationship('Voter', backref='vote', lazy=True) # one candidate refers to one voter details
 
     def __repr__(self):
-        return f"Candidate('{self.candidate_id}', '{self.voter_id}')"
+        return f"Candidate('{self.id}', '{self.voter_id}')"
     
     @classmethod
     def getCandidatesInList(cls, election_id):
         return Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id)).all()
+    
+    @classmethod
+    def getAllCandidates(cls, election_id):
+        return ( CandidateList.query 
+                            .filter(CandidateList.election_id == election_id) 
+                            .join(Voter)
+                            .order_by(CandidateList.id.asc())
+                            .all() )
 
     def to_dict(self):
         return {
