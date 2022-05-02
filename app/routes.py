@@ -546,11 +546,14 @@ def user_crud():
     if request.method == "POST":
         if "action" in request.form:
             if request.form["action"] == "create":
-                pass
+                print(request.form)
+                return {"error": "Not implemented"}
             elif request.form["action"] == "edit":
-                pass
+                print(request.form)
+                return {"error": "Not implemented"}
             elif request.form["action"] == "remove":
-                pass
+                print(request.form)
+                return {"error": "Not implemented"}
             else:
                 return {"error":"Unsuported action"}
         else:
