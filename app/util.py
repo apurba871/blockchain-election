@@ -1,5 +1,5 @@
 from app import db
-from app.models import Voter_List, Election
+from app.models import Voter_List, Election, CandidateList
 from flask import redirect, url_for, render_template
 from flask_login import current_user
 
@@ -13,9 +13,11 @@ def checkDebarStatus(election_id, voter_id):
 def checkOTPAndRedirect(user_otp, election_id):
     otp = Voter_List.getVoterToken(election_id, current_user.id)
     tries = Voter_List.getVoterTries(election_id, current_user.id)
+    candidates = CandidateList.getAllCandidates(election_id)
     if user_otp == otp:
         # if valid then take him to the voting page
-        return render_template("cast_your_vote.html")
+        count = 1
+        return render_template("cast_your_vote.html", candidates=candidates)
     else:
         # increase tries count by 1 and ask him to enter the correct token again until tries reaches max_attempts
         curr_election = Election.query.where(Election.election_id==election_id).first()
