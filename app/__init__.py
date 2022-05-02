@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
@@ -39,8 +40,9 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
-scheduler = BackgroundScheduler()
-job = scheduler.add_job(update_election_state, 'interval', minutes=1)
-scheduler.start()
+if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
+  scheduler = BackgroundScheduler()
+  job = scheduler.add_job(update_election_state, 'interval', minutes=1)
+  scheduler.start()
 
 from app import routes
