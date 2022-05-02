@@ -1,6 +1,6 @@
 import os
 import secrets
-
+import app.util as util
 from flask_sqlalchemy import SQLAlchemy
 import app.election_util as election_util
 import math, random
@@ -284,7 +284,7 @@ def view_election(id):
             return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
         else:
             # If the voter list is generated, check if the voter is in the list
-            is_voter_in_voter_list = Voter_List.query.filter_by(id=current_user.id).first()
+            is_voter_in_voter_list = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
             # print(is_voter_in_voter_list)
             if not is_voter_in_voter_list:
                 return render_template("voter_not_in_voterlist.html")
@@ -309,7 +309,7 @@ def view_election(id):
             return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
         else:
             # If the voter list is generated, check if the voter is in the list
-            is_voter_in_voter_list = Voter_List.query.filter_by(id=current_user.id).first()
+            is_voter_in_voter_list = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
             # print(is_voter_in_voter_list)
             if not is_voter_in_voter_list:
                 return render_template("voter_not_in_voterlist.html")
@@ -317,35 +317,85 @@ def view_election(id):
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
                     return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
-                # else show him that he has registered for the vote and the election start time
+                # else authenticate the voter by asking for the OTP
                 else:
-                    # TODO: Create the voting screen template
-                    return "Click here to go to voting page"
+                    return redirect(url_for("cast_vote", election_id=curr_election.election_id))
+                    # curr_voter = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
+                    # return render_template("enter_otp.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, tries=curr_voter.tries, max_attempt=curr_election.max_attempt)
     # If the user is non-admin, and the election is over, display a message that it is over.
     elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
         return "Results are yet to be published"
 
+@app.route("/cast_vote/<election_id>", methods=['GET', 'POST'])
+@login_required
+def cast_vote(election_id):
+    """
+    Description:    Voting page, enables a registered voter to cast their vote
+    Endpoint:       /cast_vote/<election_id>
+    Parameters:     election_id (Type: String)
+    Uses Template:  cast_your_vote.html, debar_from_voting.html
+    """
+    if request.method == "GET":
+        if util.checkDebarStatus(election_id, current_user.id):
+            # if max_attempt reached then debar him from the voting process
+            return render_template("debar_from_voting.html")
+        else:
+            curr_voter = Voter_List.getVoterRecord(election_id, current_user.id)
+            curr_election = Election.getElectionRecord(election_id)
+            return render_template("enter_otp.html", 
+                                    election_id=curr_election.election_id, 
+                                    election_title=curr_election.election_title, 
+                                    start_date=curr_election.start_date, 
+                                    tries=curr_voter.tries, 
+                                    max_attempt=curr_election.max_attempt)
+    elif request.method == "POST":
+        # Check if the OTP entered by the voter is valid
+        user_otp = request.form['user_otp']
+        return util.checkOTPAndRedirect(user_otp, election_id)
+    # # print("OTP: ", user_otp)
+    # # otp = Voter_List.query.where(Voter_List.id==current_user.id).first().token
+    # otp = Voter_List.getVoterToken(current_user.id)
+    # # tries = Voter_List.query.where(Voter_List.id==current_user.id).first().tries
+    # tries = Voter_List.getVoterTries(current_user.id)
+    # if user_otp == otp:
+    #     # Voter_List.query.where(Voter_List.id==current_user.id).first().tries += 1
+    #     # db.session.commit()
+    #     # if valid then take him to the voting page
+    #     return render_template("cast_your_vote.html")
+    # else:
+    #     # increase tries count by 1 and ask him to enter the correct token again until tries reaches max_attempts
+    #     curr_election = Election.query.where(Election.election_id==election_id).first()
+    #     # Voter_List.query.where(Voter_List.id==current_user.id).first().tries += 1
+    #     Voter_List.incrementVoterTries(current_user.id)
+    #     util.checkTriesAndRedirect(tries, curr_election)
+        # if tries < curr_election.max_attempt:
+        #     db.session.commit()
+        #     return redirect(url_for("view_election", id=curr_election.election_id))
+        # else:
+        #     # if max_attempt reached then debar him from the voting process
+        #     return render_template("debar_from_voting.html")
+
 # function to generate 6-digit OTP
-def generateOTP() :
+def generateOTP():
     digits = "0123456789"
     OTP = ""
     for _ in range(6) :
         OTP += digits[math.floor(random.random() * 10)]
     return OTP
 
-@app.route("/register_voter_and_send_otp/<id>", methods=['GET', 'POST'])
+@app.route("/register_voter_and_send_otp/<election_id>", methods=['GET', 'POST'])
 @login_required
-def register_voter_and_send_otp(id):
+def register_voter_and_send_otp(election_id):
     """
     Description:    Register the current voter in the selected election and send an OTP to their registered e-mail address
     Endpoint:       /register_voter_and_send_otp
-    Parameters:     id (Type: String)
+    Parameters:     election_id (Type: String)
     Uses Template:  register_voter_and_send_otp.html
     """
-    curr_election = Election.query.where(Election.election_id==id).first()
+    curr_election = Election.getElectionRecord(election_id=election_id)
     # Register the current voter
-    curr_voter = Voter_List.query.where(Voter_List.id==current_user.id).first()
+    curr_voter = Voter_List.getVoterRecord(election_id=curr_election.election_id, voter_id=current_user.id)
     # print("Before: ", curr_voter.is_registered)
     if curr_voter is None:
         return render_template("voter_not_in_voterlist.html")
@@ -358,7 +408,7 @@ def register_voter_and_send_otp(id):
         db.session.commit()
         # print("After: ", Voter_List.query.where(Voter_List.id==current_user.id).first().is_registered)
         # Send an OTP to their registered e-mail address
-        user_email = Voter.query.where(Voter.id==curr_voter.id).first().email
+        user_email = Voter.getVoterRecord(current_user.id).email
         # print(user_email)
         msg = Message('Secret OTP for voting', sender = 'blockchainvoting7@gmail.com', recipients = [user_email])
         msg.html = f'''<h1>Election Title: {curr_election.election_title}</h1><br/> 
