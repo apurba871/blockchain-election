@@ -376,6 +376,19 @@ def cast_vote(election_id):
         #     # if max_attempt reached then debar him from the voting process
         #     return render_template("debar_from_voting.html")
 
+@app.route("/thanks", methods=['GET', 'POST'])
+@login_required
+def thanks():
+    """
+    Description:    Show a message, thanks for voting a particular candidate
+    Endpoint:       /thanks
+    Parameters:     None
+    Uses Template:  thanks.html
+    """
+    print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
+    return render_template("thanks.html", candidate_id=request.form["selected-candidate-id"], 
+                            candidate_name=request.form["selected-candidate-name"])
+
 # function to generate 6-digit OTP
 def generateOTP():
     digits = "0123456789"
