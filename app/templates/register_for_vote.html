@@ -19,7 +19,7 @@
         </div>
         <div class="col">
             
-            <a class="btn btn-outline-success btn-block" href="{{ url_for('register_voter_and_send_otp', id=election_id) }}">Register for vote!</a>
+            <a class="btn btn-outline-success btn-block" href="{{ url_for('register_voter_and_send_otp', election_id=election_id) }}">Register for vote!</a>
             
             {% raw %}
             <!-- <button type="button" class="btn btn-outline-success btn-block" data-toggle="modal" data-target="#registerModal">
