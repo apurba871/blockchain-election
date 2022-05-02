@@ -300,8 +300,27 @@ def view_election(id):
     # After the voter eligibility is verified, redirect to the voting screen. If the voter is not
     # eligible for the current election, display an appropriate error message.
     elif not current_user.is_admin and curr_election.election_state == 'ongoing':
-        # TODO: Create the voting screen template
-        return "Click here to go to voting page"
+        # Check if the admin has generated the voter list
+        is_voter_list_generated = Voter_List.query.filter_by(election_id=curr_election.election_id).first()
+        if not is_voter_list_generated:
+            # Show him the election name and start time and inform that the admin has not yet generated
+            # the voter list and that he will be able to vote if the votre list has his name and he has
+            # registered for voting
+            return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+        else:
+            # If the voter list is generated, check if the voter is in the list
+            is_voter_in_voter_list = Voter_List.query.filter_by(id=current_user.id).first()
+            # print(is_voter_in_voter_list)
+            if not is_voter_in_voter_list:
+                return render_template("voter_not_in_voterlist.html")
+            else:
+                # if the voter has not registered for the vote, show him the register_for_vote.html page
+                if is_voter_in_voter_list.is_registered == False:
+                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
+                # else show him that he has registered for the vote and the election start time
+                else:
+                    # TODO: Create the voting screen template
+                    return "Click here to go to voting page"
     # If the user is non-admin, and the election is over, display a message that it is over.
     elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
