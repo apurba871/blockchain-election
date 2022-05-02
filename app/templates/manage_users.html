@@ -1,0 +1,201 @@
+{% extends "meta.html" %} 
+{% block content %}
+  <div class="content-section">
+    <form id="gen-candidate-list" action="" method="POST">
+      
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+          Manage Users
+        </legend>
+          <div class="form-group mt-2">
+            {% block current_candidate_list %}
+              <table id="existing-candidates" class="table table-striped responsive">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    <th>Is Admin?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    <th>Is Admin?</th>
+                  </tr>
+                </tfoot>
+              </table>
+            {% endblock current_candidate_list %}
+          </div>
+      <div class="form-group mt-3">
+        <div class="row"> 
+          <div class="col">
+            <a class="btn btn-outline-secondary btn-block" href="{{ url_for('home') }}" role="button">Home</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+  <script>
+    var editor;
+    $(document).ready(function () {
+      editor = new $.fn.dataTable.Editor({
+          ajax: {
+            "url": "/api/data/user/manage",
+            "type": "POST"
+          },
+          table: '#existing-candidates',
+          fields: [
+            {
+              label: "Voter ID",
+              name: "id"
+            },
+            {
+              label: "CIN",
+              name: "cin"
+            },
+            {
+              label: "Name",
+              name: "name"
+            },
+            {
+              label: "Department",
+              name: "dept"
+            },
+            {
+              label: "Joining Year",
+              name: "join_year"
+            },
+            {
+              label: "Is Admin?",
+              name: "is_admin"
+            }
+          ],
+          idSrc:  'id',
+          rowId: 'id',
+        });
+
+      editor.on('postSubmit', function(e, json, data){
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+        window.location = window.location.href;
+      });
+
+    var existingCandidatesTable = $('#existing-candidates').DataTable({
+      ajax: {
+            "url": "/api/data/user/manage",
+            "type": "POST"
+      },
+      columns: [
+        {data: 'id'},
+        {data: 'cin'},
+        {data: 'name', searchable: true},
+        {data: 'dept', orderable: true, searchable: true},
+        {data: 'join_year', orderable: true, searchable: true},
+        {
+          data: "is_admin",
+          render: function(data, type, row) {
+            if (type === "filter"){
+              return data ? "Admin" : "Non-Admin";
+            }
+            else if(type === "sort") {
+              return data ? 0 : 1;
+            }
+            else if(type === "type"){
+              return "num";
+            }
+            else if(type === "display"){
+              if (data === true) {
+                return '<input type="checkbox" checked="true" class="editor-active" onclick="return false;">';
+              } else {
+                return '<input type="checkbox" onclick="return false;" class="editor-active">';
+              }
+            }
+            return data;
+          },
+          className: "text-center",
+          orderable: true, 
+          searchable: true,
+        }
+      ],
+      columnDefs: [
+        {
+          targets: 0,
+          checkboxes: {
+            selectRow: true,
+          }
+        }
+      ],
+      select: {
+        style: 'multi'
+      },
+    });
+
+    new $.fn.dataTable.Buttons( existingCandidatesTable, [
+        { extend: "remove", editor: editor, className: "btn btn-danger", text:"Remove Selected" }
+    ] );
+
+    $('#existing-candidates').on('init.dt', function(){
+      buildSelect(existingCandidatesTable);;
+    });
+
+    $('#existing-candidates').on( 'draw.dt', function () {
+      buildSelect(existingCandidatesTable);
+    } );
+    
+    function buildSelect( table ) {
+      table.columns().every( function () {
+        var column = table.column( this, {search: 'applied'} );
+        if( column.header().textContent === 'Department' || 
+            column.header().textContent === 'Joining Year' || 
+            column.header().textContent === 'Is Admin?'){
+          var select = $('<select><option value="">All</option></select>')
+          .appendTo( $(column.footer()).empty() )
+          .on( 'change', function () {
+            var val = $.fn.dataTable.util.escapeRegex(
+              $(this).val()
+            );
+
+            column
+            .search( val ? '^'+val+'$' : '', true, false )
+            .draw();
+          } );
+          
+          if(column.header().textContent === 'Is Admin?'){
+            column.data().unique().sort().each( function ( d, j ) {
+              if(d === true){
+                d = "Admin"
+              } else {
+                d = "Non-Admin"
+              }
+              select.append( '<option value="'+d+'">'+d+'</option>' );
+            } );
+          }
+          else {
+            column.data().unique().sort().each( function ( d, j ) {
+              select.append( '<option value="'+d+'">'+d+'</option>' );
+            } );
+          }
+        }
+        // The rebuild will clear the exisiting select, so it needs to be repopulated
+        var currSearch = column.search();
+        if ( currSearch ) {
+          select.val( currSearch.substring(1, currSearch.length-1) );
+        }
+      } );
+    }
+  });
+  </script>
+{% endblock scripts %}
