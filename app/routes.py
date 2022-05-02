@@ -460,7 +460,7 @@ def get_voters(election_id):
                     ]}
     """
     existing_voters = Voter.query.join(Voter_List.query.filter(Voter_List.election_id == election_id))
-    voter_data = {'data': [voter.to_dict() for voter in Voter.query.except_(existing_voters)]}
+    voter_data = {'data': [voter.to_dict() for voter in Voter.query.except_(existing_voters).filter(Voter.is_admin == False)]}
     return voter_data
 
 @app.route('/api/data/candidates/<election_id>')
@@ -481,7 +481,7 @@ def get_candidates(election_id):
                     ]}
     """
     existing_candidates = Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id))
-    candidate_data = {'data': [candidate.to_dict() for candidate in Voter.query.except_(existing_candidates)]}
+    candidate_data = {'data': [candidate.to_dict() for candidate in Voter.query.except_(existing_candidates).filter(Voter.is_admin == False)]}
     return candidate_data
 
 @app.route('/api/data/voterList/delete/<election_id>', methods=['GET', 'POST'])
