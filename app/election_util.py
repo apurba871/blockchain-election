@@ -1,8 +1,7 @@
-from app.models import Election
-from app import db
-from datetime import datetime
-
 def update_election_state():
+    from app import db
+    from app.models import Election
+    from datetime import datetime
     elections = Election.query.all()
     for election in elections:
         if election.election_state == 'counting_finished':
@@ -16,3 +15,4 @@ def update_election_state():
         elif datetime.now() > election.end_date and election.results_published == True:
             election.election_state = 'past'
     db.session.commit()
+    print("Election states updated at", datetime.now())
