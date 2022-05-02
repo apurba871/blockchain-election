@@ -34,6 +34,10 @@ class Voter(db.Model, UserMixin):
             'join_year': self.join_year,
             'is_admin': self.is_admin
         }
+    
+    @classmethod
+    def getVoterRecord(cls, voter_id):
+        return Voter.query.where(Voter.id==voter_id).first()
 
 class CandidateList(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -74,9 +78,6 @@ class Election(db.Model):
     def getElectionRecord(cls, election_id):
         return Election.query.where(Election.election_id == election_id).first()
 
-    @classmethod
-    def getElectionRecord(cls, election_id):
-        return Election.query.where(Election.election_id == election_id).first()
 
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -99,6 +100,23 @@ class Voter_List(db.Model):
     @classmethod
     def getVotersInList(cls, election_id):
         return Voter.query.join(Voter_List.query.filter(Voter_List.election_id == election_id)).all()
+
+    @classmethod
+    def getVoterRecord(cls, election_id, voter_id):
+        return Voter_List.query.filter_by(id=voter_id, election_id = election_id).first()
+
+    @classmethod
+    def getVoterToken(cls, election_id, voter_id):
+        return Voter_List.query.filter_by(id=voter_id,election_id=election_id).first().token
+
+    @classmethod
+    def getVoterTries(cls, election_id, voter_id):
+        print(f"election_id: {election_id}, voter_id:{voter_id}")
+        return Voter_List.query.filter_by(id=voter_id,election_id=election_id).first().tries
+
+    @classmethod
+    def incrementVoterTries(cls, election_id, voter_id):
+        Voter_List.getVoterRecord(election_id, voter_id).tries += 1
 
 class Department(db.Model):
     dept_code = db.Column(db.String(4), primary_key=True, nullable=False)
