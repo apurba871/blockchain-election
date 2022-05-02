@@ -540,6 +540,25 @@ def remove_from_candidate_list(election_id):
     else:
         return {"error":"Only removal from voter list is permitted"}
 
+@app.route('/api/data/user/manage', methods=['GET', 'POST'])
+@AdminPermission()
+def user_crud():
+    if request.method == "POST":
+        if "action" in request.form:
+            if request.form["action"] == "create":
+                pass
+            elif request.form["action"] == "edit":
+                pass
+            elif request.form["action"] == "remove":
+                pass
+            else:
+                return {"error":"Unsuported action"}
+        else:
+            user_data = {'data': [voter.to_dict() for voter in Voter.query]}
+            return user_data
+    elif request.method == "GET":
+        return render_template("manage_users.html")
+
 @app.route("/index2")
 def index2():
     """
