@@ -48,6 +48,10 @@ class CandidateList(db.Model):
     def getCandidatesInList(cls, election_id):
         return Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id)).all()
 
+    @classmethod
+    def getCandidateCount(cls, election_id):
+        return CandidateList.query.filter_by(election_id=election_id).count()
+
     def to_dict(self):
         return {
             'id' : self.id,
