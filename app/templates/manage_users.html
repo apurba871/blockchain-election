@@ -58,7 +58,7 @@
           table: '#existing-candidates',
           fields: [
             {
-              label: "Voter ID",
+              label: "ID",
               name: "id"
             },
             {
@@ -86,18 +86,12 @@
           rowId: 'id',
         });
 
-      editor.on('postSubmit', function(e, json, data){
-        if ( window.history.replaceState ) {
-            window.history.replaceState( null, null, window.location.href );
-        }
-        window.location = window.location.href;
-      });
-
     var existingCandidatesTable = $('#existing-candidates').DataTable({
       ajax: {
             "url": "/api/data/user/manage",
             "type": "POST"
       },
+      dom: "Bfrtip",
       columns: [
         {data: 'id'},
         {data: 'cin'},
@@ -141,11 +135,15 @@
       select: {
         style: 'multi'
       },
+      buttons: [
+          { extend: 'create', editor: editor },
+          { extend: 'edit',   editor: editor },
+          { extend: 'remove', editor: editor },
+      ]
     });
 
-    new $.fn.dataTable.Buttons( existingCandidatesTable, [
-        { extend: "remove", editor: editor, className: "btn btn-danger", text:"Remove Selected" }
-    ] );
+    existingCandidatesTable.buttons().container()
+          .appendTo( $('.col-sm-6:eq(0)', existingCandidatesTable.table().container() ) );
 
     $('#existing-candidates').on('init.dt', function(){
       buildSelect(existingCandidatesTable);;
