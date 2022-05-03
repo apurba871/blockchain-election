@@ -130,7 +130,7 @@ def account():
     return render_template("account.html", title="Account", image_file=image_file, form=form)
 
 @app.route("/election/new", methods=['GET', 'POST'])
-# @login_required
+@login_required
 @AdminPermission()
 def new_election():
     """
@@ -380,8 +380,8 @@ def register_voter_and_send_otp(id):
         return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
 
 @app.route("/publish_results")
+@login_required
 @AdminPermission()
-# @login_required
 def publish_results():
     """
     Description:    Shows those elections for which results need to be published
@@ -393,8 +393,8 @@ def publish_results():
     return render_template("results.html", elections=elections)
 
 @app.route("/election/<election_id>/generate/voter_list", methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
-# @login_required
 def gen_voter_list(election_id):
     """
     Description:    Generate Voter List page, admin can use this to generate the voter list
@@ -423,6 +423,7 @@ def gen_voter_list(election_id):
                                 view_only=True)
 
 @app.route("/election/<election_id>/generate/candidate_list", methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
 def gen_candidate_list(election_id):
     """
@@ -454,6 +455,7 @@ def gen_candidate_list(election_id):
                                 view_only=True)
 
 @app.route('/api/data/voters/<election_id>')
+@login_required
 @AdminPermission()
 def get_voters(election_id):
     """
@@ -475,6 +477,7 @@ def get_voters(election_id):
     return voter_data
 
 @app.route('/api/data/candidates/<election_id>')
+@login_required
 @AdminPermission()
 def get_candidates(election_id):
     """
@@ -541,6 +544,7 @@ def remove_from_candidate_list(election_id):
         return {"error":"Only removal from voter list is permitted"}
 
 @app.route('/api/data/user/manage', methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
 def user_crud():
     if request.method == "POST":
@@ -628,8 +632,8 @@ def candidate(id):
     return render_template("candidate.html", candidate_id=id)
 
 @app.route("/admin")
+@login_required
 @AdminPermission()
-# @login_required
 def admin():
     """
     Description:    Admin page, shows content of home.html along with option to Add New User, Create Election, Publish Results
@@ -642,8 +646,8 @@ def admin():
     return render_template("admin.html", elections=elections)
 
 @app.route("/admin/new", methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
-# @login_required
 def new_admin():
     """
     Description:    New admin/user registration page, only be accessed by an existing admin
