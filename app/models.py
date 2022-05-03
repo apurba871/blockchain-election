@@ -126,6 +126,10 @@ class Voter_List(db.Model):
     def incrementVoterTries(cls, election_id, voter_id):
         Voter_List.getVoterRecord(election_id, voter_id).tries += 1
 
+    @classmethod
+    def getElectionsForVoter(cls, voter_id):
+        return Election.query.join(Voter_List.query.filter(Voter_List.id == voter_id)).all()
+
 class Department(db.Model):
     dept_code = db.Column(db.String(4), primary_key=True, nullable=False)
     dept_name = db.Column(db.String(50), unique=True, nullable=False)
