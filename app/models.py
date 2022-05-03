@@ -59,6 +59,10 @@ class CandidateList(db.Model):
                             .join(Voter)
                             .order_by(CandidateList.id.asc())
                             .all() )
+    
+    @classmethod
+    def getElectionsWhereVoterIsInCandidateList(cls, voter_id):
+        return Election.query.join(CandidateList.query.filter(CandidateList.voter_id == voter_id)).all()
 
     def to_dict(self):
         return {
