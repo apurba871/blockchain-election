@@ -4,7 +4,7 @@ from flask import redirect, url_for, render_template
 from flask_login import current_user
 
 
-# Returns True if voter_id is debaared from election_id, False otherwise
+# Returns True if voter_id is debarred from election_id, False otherwise
 def checkDebarStatus(election_id, voter_id):
     voter_tries = Voter_List.getVoterTries(election_id, voter_id)
     election_max_attempt = Election.getElectionRecord(election_id).max_attempt
@@ -27,4 +27,4 @@ def checkOTPAndRedirect(user_otp, election_id):
             return redirect(url_for("view_election", id=curr_election.election_id))
         else:
             # if max_attempt reached then debar him from the voting process
-            return render_template("debar_from_voting.html")
+            return render_template("debar_from_voting.html", voter_id=current_user.id)
