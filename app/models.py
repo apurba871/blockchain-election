@@ -102,6 +102,10 @@ class CandidateList(db.Model):
     def getElectionsWhereVoterIsInCandidateList(cls, voter_id):
         return Election.query.join(CandidateList.query.filter(CandidateList.voter_id == voter_id)).all()
 
+    @classmethod
+    def getCandidateCount(cls, election_id):
+        return CandidateList.query.filter_by(election_id=election_id).count()
+
     def to_dict(self):
         return {
             'id' : self.id,
@@ -115,7 +119,7 @@ class Election(db.Model):
     create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     start_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     end_date = db.Column(db.DateTime, db.CheckConstraint("end_date > start_date"), nullable=False)
-    public_key = db.Column(db.String(255), nullable=False, unique=True)
+    public_key = db.Column(db.Text, nullable=False, unique=True)
     max_attempt = db.Column(db.Integer, nullable=False, default=3)
     election_state = db.Column(db.String(30), db.CheckConstraint("election_state in ('upcoming', 'ongoing', 'over', 'counting_finished','past')"))
     results_published = db.Column(db.Boolean, nullable=False, default=False)

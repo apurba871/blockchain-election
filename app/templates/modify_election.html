@@ -56,22 +56,49 @@
               <span>{{ error }}</span>
               {% endfor %}
             </div>
-          {% else %} 
-            {{ form.public_key(class="form-control form-control-lg form-control") }} 
+          {% else %}
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">N</span>
+              </div>
+              {{ form.public_key(class="form-control form-control-lg form-control") }} 
+            </div>
           {% endif %}
         </div>
         <div class="form-group mt-2">
-          {{ form.private_key.label(class="form-control-label") }} 
-          {% if form.private_key.errors %} 
-            {{ form.private_key(class="form-control form-control-lg is-invalid") }}
+          {{ form.private_key_p.label(class="form-control-label") }} 
+          {% if form.private_key_p.errors %} 
+            {{ form.private_key_p(class="form-control form-control-lg is-invalid") }}
             <div class="invalid-feedback">
-              {% for error in form.private_key.errors %}
+              {% for error in form.private_key_p.errors %}
               <span>{{ error }}</span>
               {% endfor %}
             </div>
           {% else %} 
-            {{ form.private_key(class="form-control form-control-lg") }} 
-            {% endif %}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">P</span>
+            </div>
+            {{ form.private_key_p(class="form-control form-control-lg") }} 
+          </div>
+          {% endif %}
+        </div>
+        <div class="form-group mt-2">
+          {% if form.private_key_q.errors %} 
+            {{ form.private_key_q(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.private_key_q.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %} 
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Q</span>
+            </div>
+            {{ form.private_key_q(class="form-control form-control-lg") }} 
+          </div>
+          {% endif %}
         </div>
         <div class="form-group mt-2">
           {{ form.max_attempt.label(class="form-control-label") }} 
@@ -90,17 +117,29 @@
       <div class="row">
         {% if election_state == "upcoming" %}
           <div class="col">
+          {% if private_key is defined %}
+            <a class="btn btn-outline-success btn-block" href="data:text/json;charset=utf-8,{{ private_key }}" download="PRIVATE_KEY_{{ election_id }}.json">
+              Download PRIVATE KEY
+            </a>
+          {% endif %}
             <!-- Save and proceed to generate candidate list -->
             {{ form.submit(class="btn btn-outline-info btn-block") }}
           </div>
           <div class="col">
             {{ form.generate_keys(class="btn btn-outline-warning btn-block") }}
-          </div>
-          <div class="col mt-4 text-center">
+            {% if private_key is defined %}
             <button type="button" class="btn btn-outline-danger btn-block" data-toggle="modal" data-target="#deleteModal">
               Delete Election
             </button>
+            {% endif %}
           </div>
+          {% if private_key is not defined %}
+          <div class="col">
+            <button type="button" class="btn btn-outline-danger mt-4 btn-block" data-toggle="modal" data-target="#deleteModal">
+              Delete Election
+            </button>
+          </div>
+          {% endif %}
           {% raw %}
           <!-- <div class="col mt-4">
             {{ form.delete_election(class="btn btn-outline-danger btn-block", **{'data-toggle': 'modal', 'data-target':'#deleteModal'}) }}

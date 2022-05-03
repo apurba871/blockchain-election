@@ -167,28 +167,6 @@
 
 
         var existingCandidatesTable = $('#existing-candidates').DataTable({
-          initComplete: function(){
-            this.api().columns().every(function(colIndex){
-                var column = this;
-                if(column.header().textContent === 'Department' || 
-                  column.header().textContent === 'Joining Year'){
-                  var select = $('<select><option value=""></option></select>')
-                              .appendTo($(column.footer()).empty())
-                              .on('change', function(){
-                                var val =  $.fn.dataTable.util.escapeRegex(
-                                              $(this).val()
-                                          );
-                                column
-                                      .search( val ? '^'+val+'$' : '', true, false )
-                                      .draw();
-                              });
-                  column.data().unique().sort().each( function ( d, j ) {
-                      select.append( '<option value="'+d+'">'+d+'</option>' )
-                  } );
-                }
-              }
-            );
-          },
           data: {{ existing_candidate_list|tojson }}["data"],
           columns: [
           {% if view_only is not defined %}
@@ -224,6 +202,12 @@
         new $.fn.dataTable.Buttons( existingCandidatesTable, [
             { extend: "remove", editor: editor, className: "btn btn-danger", text:"Remove Selected" }
         ] );
+
+        buildSelect(existingCandidatesTable);
+  
+        $('#existing-candidates').on( 'draw.dt', function () {
+          buildSelect(existingCandidatesTable);
+        } );
         
         {% if view_only is not defined %}
           existingCandidatesTable.buttons().container()
@@ -232,28 +216,6 @@
       {% endif %}
       {% if view_only is not defined %}
         var addCandidatesTable = $('#add-candidates').DataTable({
-          initComplete: function(){
-            this.api().columns().every(function(colIndex){
-                var column = this;
-                if(column.header().textContent === 'Department' || 
-                  column.header().textContent === 'Joining Year'){
-                  var select = $('<select><option value=""></option></select>')
-                              .appendTo($(column.footer()).empty())
-                              .on('change', function(){
-                                var val =  $.fn.dataTable.util.escapeRegex(
-                                              $(this).val()
-                                          );
-                                column
-                                      .search( val ? '^'+val+'$' : '', true, false )
-                                      .draw();
-                              });
-                  column.data().unique().sort().each( function ( d, j ) {
-                      select.append( '<option value="'+d+'">'+d+'</option>' )
-                  } );
-                }
-              }
-            );
-          },
           ajax: '/api/data/candidates/{{election_id}}',
           responsive: {
               details: {
@@ -282,6 +244,15 @@
           },
           order: [[1, 'asc']]
         });
+
+        $('#add-candidates').on('init.dt', function(){
+          buildSelect(addCandidatesTable);
+        });
+
+        $('#add-candidates').on( 'draw.dt', function () {
+          buildSelect(addCandidatesTable);
+        } );
+
         $("#gen-candidate-list").on('submit', function(e){
           // e.preventDefault();
           var form = this;
@@ -299,5 +270,34 @@
         });
       {% endif %}
     });
+
+    function buildSelect( table ) {
+      table.columns().every( function () {
+        var column = table.column( this, {search: 'applied'} );
+        if(column.header().textContent === 'Department' || 
+        column.header().textContent === 'Joining Year'){
+          var select = $('<select><option value="">All</option></select>')
+          .appendTo( $(column.footer()).empty() )
+          .on( 'change', function () {
+            var val = $.fn.dataTable.util.escapeRegex(
+              $(this).val()
+            );
+
+            column
+            .search( val ? '^'+val+'$' : '', true, false )
+            .draw();
+          } );
+
+          column.data().unique().sort().each( function ( d, j ) {
+            select.append( '<option value="'+d+'">'+d+'</option>' );
+          } );
+        }
+        // The rebuild will clear the exisiting select, so it needs to be repopulated
+        var currSearch = column.search();
+        if ( currSearch ) {
+          select.val( currSearch.substring(1, currSearch.length-1) );
+        }
+      } );
+    }
   </script>
 {% endblock scripts %}

@@ -1,3 +1,4 @@
+APScheduler==3.9.1
 bcrypt==3.2.0
 blinker==1.4
 cffi==1.15.0
@@ -21,8 +22,12 @@ permission==0.4.1
 phe==1.4.0
 Pillow==9.1.0
 pycparser==2.21
+pytz==2022.1
+pytz-deprecation-shim==0.1.0.post0
 six==1.16.0
 SQLAlchemy==1.4.35
+tzdata==2022.1
+tzlocal==4.2
 Werkzeug==2.1.1
 WTForms==3.0.1
 WTForms-SQLAlchemy==0.3

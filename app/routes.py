@@ -3,7 +3,8 @@ import secrets
 import app.util as util
 from flask_sqlalchemy import SQLAlchemy
 import app.election_util as election_util
-import math, random
+import app.paillier_utils as paillier
+import math, random, json
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt, mail
@@ -189,16 +190,20 @@ def new_election():
     Parameters:     None
     Uses Template:  create_election.html
     """
+    num_elections = Election.query.count()
+    election_id = num_elections + 1
+    prefixed_election_id = 'E' + str(election_id) 
     form = NewElectionForm()
     if request.method == 'GET':
         flash('Please Save the Private Key before proceeding.', 'info')
-        form.public_key.data = secrets.token_urlsafe(16)
-        form.private_key.data = secrets.token_urlsafe(16)
+        pubkey, privkey = paillier.generate_key_pair()
+        pubkey_json = json.loads(pubkey)
+        privkey_json = json.loads(privkey)
+        form.public_key.data = pubkey_json["n"]
+        form.private_key_p.data = privkey_json["p"]
+        form.private_key_q.data = privkey_json["q"]
     # Validate the form on submit and check if submit button was clicked
-    if form.validate_on_submit() and form.submit.data:
-        num_elections = Election.query.count()
-        election_id = num_elections + 1
-        prefixed_election_id = 'E' + str(election_id)   
+    if form.validate_on_submit() and form.submit.data:  
         new_election = Election(election_id=prefixed_election_id, 
                                 election_title=form.election_title.data, 
                                 start_date=form.start_date.data, 
@@ -213,7 +218,7 @@ def new_election():
         # After the election has been created, the admin is redirected to the generate_voter_list
         # route
         return redirect(url_for('gen_voter_list', election_id=prefixed_election_id))
-    return render_template("create_election.html", title="New Election", form=form)
+    return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
 
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
@@ -253,9 +258,13 @@ def view_election(id):
                 return redirect(url_for('gen_voter_list', election_id=curr_election.election_id))
             # If the generate_keys button was pressed, generate new keys and display them
             elif form.generate_keys.data:
-                form.public_key.data = secrets.token_urlsafe(16)
-                form.private_key.data = secrets.token_urlsafe(16)
-                return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+                pubkey, privkey = paillier.generate_key_pair()
+                pubkey_json = json.loads(pubkey)
+                privkey_json = json.loads(privkey)
+                form.public_key.data = pubkey_json["n"]
+                form.private_key_p.data = privkey_json["p"]
+                form.private_key_q.data = privkey_json["q"]
+                return render_template("modify_election.html", private_key=privkey, election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
             # If the delete_election button was pressed from modal, delete that election and commit changes to DB 
             elif form.delete_election.data:
                 Election.query.filter_by(election_id=curr_election.election_id).delete()
@@ -540,8 +549,10 @@ def gen_candidate_list(election_id):
     if election.election_state == 'upcoming':
         if request.method == 'POST':
             for vid in request.form.getlist('id'):
-                candidate_list_entry = CandidateList(election_id=election_id, 
-                                            voter_id=vid)
+                candidate_id = CandidateList.getCandidateCount(election_id) + 1
+                candidate_list_entry = CandidateList(election_id=election_id,
+                                                    id=candidate_id, 
+                                                    voter_id=vid)
                 db.session.add(candidate_list_entry)
             db.session.commit()
             flash('Candidate List Updated Successfully!', 'success')
@@ -574,7 +585,7 @@ def get_voters(election_id):
                     ]}
     """
     existing_voters = Voter.query.join(Voter_List.query.filter(Voter_List.election_id == election_id))
-    voter_data = {'data': [voter.to_dict() for voter in Voter.query.except_(existing_voters)]}
+    voter_data = {'data': [voter.to_dict() for voter in Voter.query.except_(existing_voters).filter(Voter.is_admin == False)]}
     return voter_data
 
 @app.route('/api/data/candidates/<election_id>')
@@ -595,7 +606,7 @@ def get_candidates(election_id):
                     ]}
     """
     existing_candidates = Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id))
-    candidate_data = {'data': [candidate.to_dict() for candidate in Voter.query.except_(existing_candidates)]}
+    candidate_data = {'data': [candidate.to_dict() for candidate in Voter.query.except_(existing_candidates).filter(Voter.is_admin == False)]}
     return candidate_data
 
 @app.route('/api/data/voterList/delete/<election_id>', methods=['GET', 'POST'])
