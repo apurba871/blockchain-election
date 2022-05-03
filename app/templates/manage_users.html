@@ -2,7 +2,6 @@
 {% block content %}
   <div class="content-section">
     <form id="gen-candidate-list" action="" method="POST">
-      
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">
           Manage Users
@@ -69,23 +68,45 @@
               label: "Name",
               name: "name"
             },
+            // {
+            //   label: "Department",
+            //   name: "dept"
+            // },
             {
-              label: "Department",
-              name: "dept"
+                label: "Department",
+                name: "dept",
+                type: "select",
+                options: {{ departments | safe }},
+                placeholder: 'Select department',
+                def: 'BAGG - B.A. General'
             },
             {
               label: "Joining Year",
               name: "join_year"
             },
             {
-              label: "Is Admin?",
-              name: "is_admin"
+              label: "Admin Rights",
+              name: "is_admin",
+              type: "select",
+              options: [{label:"Admin", value:true}, {label:"Non-Admin", value:false}],
+              placeholder: 'Select Admin Rights',
+              def: 'Admin'
             }
           ],
           idSrc:  'id',
           rowId: 'id',
         });
+        
 
+      editor.on('initCreate', function(e, json, data){
+        editor.hide('id');
+      });
+
+      editor.on('initEdit', function(e, json, data){
+        editor.show('id');
+        editor.field('dept').placeholder = '';
+        editor.field('id').disable();
+      });
     var existingCandidatesTable = $('#existing-candidates').DataTable({
       ajax: {
             "url": "/api/data/user/manage",
