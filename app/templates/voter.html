@@ -65,6 +65,7 @@
 
 {% block sidebar %}
 
+{% if voter_elections %}
 <div class="col-md-4">
   <div class="content-section">
     <h3>Competing in</h3>
@@ -91,4 +92,5 @@
     </p>
   </div>
 </div>
+{% endif %}
 {% endblock sidebar %}

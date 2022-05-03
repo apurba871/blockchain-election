@@ -34,7 +34,7 @@ def reset_request():
         if current_user.is_admin:
             return redirect(url_for("home"))
         else:
-            return redirect(url_for("voter", voter_id=current_user.id))
+            return redirect(url_for("voter"))
     form = RequestResetForm()
     if form.validate_on_submit():
         user = Voter.query.filter_by(email=form.email.data).first()
@@ -50,7 +50,7 @@ def reset_token(token):
         if current_user.is_admin:
             return redirect(url_for("home"))
         else:
-            return redirect(url_for("voter", voter_id=current_user.id))
+            return redirect(url_for("voter"))
     elif request.method == "GET":
         reset_data = ResetPassword.verify_reset_token(token)
         if reset_data["status"] == False:
@@ -109,14 +109,14 @@ def login():
                 if next_page == "/election/new":
                     flash("Please login as admin to access this page", "danger")
                 else:
-                    return redirect(next_page) if next_page else redirect(url_for('voter', voter_id=user.id))
+                    return redirect(next_page) if next_page else redirect(url_for('voter'))
             elif user and bcrypt.check_password_hash(user.password, form.password.data): # new users login
                 login_user(user, remember=form.remember.data)
                 next_page = request.args.get('next')
                 if next_page == "/election/new":
                     flash("Please login as admin to access this page", "danger")
                 else:
-                    return redirect(next_page) if next_page else redirect(url_for('voter', voter_id=user.id))
+                    return redirect(next_page) if next_page else redirect(url_for('voter'))
             else:
                 flash('Login Unsuccessful. Please check CIN and Password', 'danger')
     return render_template("login.html", title="Login", form=form)
@@ -699,27 +699,31 @@ def about():
     """
     return render_template("about.html")
 
-@app.route("/voter/<int:voter_id>")
-def voter(voter_id):
+# @app.route("/voter/<int:voter_id>")
+@app.route("/voter")
+@login_required
+def voter():
     """
     Description:    Home page of a particular user, shows only those elections in which he is/was eligible
-    Endpoint:       /voter/<voter_id>
-    Parameters:     voter_id (Type: int)
+    Endpoint:       /voter
+    Parameters:     None
     Uses Template:  voter.html
     """
-    elections = Voter_List.getElectionsForVoter(voter_id)
-    voter_elections = CandidateList.getElectionsWhereVoterIsInCandidateList(voter_id)
+    elections = Voter_List.getElectionsForVoter(current_user.id)
+    voter_elections = CandidateList.getElectionsWhereVoterIsInCandidateList(current_user.id)
     return render_template("voter.html", elections=elections, voter_elections=voter_elections)
 
-@app.route("/candidate/<id>")
-def candidate(id):
+# @app.route("/candidate/<id>")
+@app.route("/candidate")
+@login_required
+def candidate():
     """
     Description:    Candidate page of a particular user
-    Endpoint:       /candidate/<candidate_id>
-    Parameters:     id (Type: String)
+    Endpoint:       /candidate
+    Parameters:     None
     Uses Template:  candidate.html
     """
-    return render_template("candidate.html", candidate_id=id)
+    return render_template("candidate.html", candidate_id=current_user.id)
 
 @app.route("/admin")
 @AdminPermission()
