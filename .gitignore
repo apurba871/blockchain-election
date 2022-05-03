@@ -3,3 +3,4 @@ venv
 __pycache__
 app/__pycache__/*
 todo.txt
+app/site.db

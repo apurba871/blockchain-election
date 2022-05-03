@@ -1,0 +1,252 @@
+{% extends "base_manage_users.html" %} 
+{% block content %}
+  <div class="content-section w-75 h-75">
+    <form id="gen-candidate-list" action="" method="POST">
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+          Manage Users
+        </legend>
+          <div class="form-group mt-2">
+            {% block current_candidate_list %}
+              <table id="existing-candidates" class="table table-striped responsive">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    <th>Is Admin?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th></th>
+                    <th>CIN</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Joining Year</th>
+                    <th>Is Admin?</th>
+                  </tr>
+                </tfoot>
+              </table>
+            {% endblock current_candidate_list %}
+          </div>
+      <div class="form-group">
+        <div class="row"> 
+          <div class="col">
+            <a class="btn btn-lg btn-outline-secondary" href="{{ url_for('home') }}" role="button">Home</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+  <script>
+    var editor;
+    $(document).ready(function () {
+      editor = new $.fn.dataTable.Editor({
+          ajax: {
+            "url": "/api/data/user/manage",
+            "type": "POST"
+          },
+          table: '#existing-candidates',
+          fields: [
+            {
+              label: "ID",
+              name: "id"
+            },
+            {
+              label: "CIN",
+              name: "cin",
+              attr: {
+                required: true
+              }
+            },
+            {
+              label: "Name",
+              name: "name",
+              attr: {
+                required: true
+              }
+            },
+            {
+              label: "Email ID",
+              name: "email",
+            },
+            {
+              label: "Password",
+              name: "password",
+              def: "password"
+            },
+            // {
+            //   label: "Department",
+            //   name: "dept"
+            // },
+            {
+              label: "Department",
+              name: "dept",
+              type: "select",
+              options: {{ departments | safe }},
+              placeholder: 'Select department',
+              def: 'BAGG - B.A. General',
+              attr: {
+                required: true
+              }
+            },
+            {
+              label: "Joining Year",
+              name: "join_year",
+              attr: {
+                required: true
+              }
+            },
+            {
+              label: "Admin Rights",
+              name: "is_admin",
+              type: "select",
+              options: [{label:"Admin", value:true}, {label:"Non-Admin", value:false}],
+              placeholder: 'Select Admin Rights',
+              def: 'Admin',
+              attr: {
+                required: true
+              }
+            }
+          ],
+          idSrc:  'id',
+          rowId: 'id',
+        });
+        
+
+      editor.on('initCreate', function(e, json, data){
+        editor.hide('id');
+      });
+
+      editor.on('initEdit', function(e, json, data){
+        editor.show('id');
+        editor.field('dept').placeholder = '';
+        editor.field('id').disable();
+      });
+
+    var existingCandidatesTable = $('#existing-candidates').DataTable({
+      ajax: {
+            "url": "/api/data/user/manage",
+            "type": "POST"
+      },
+      dom: "Bfrtip",
+      columns: [
+        {data: 'id'},
+        {data: 'cin'},
+        {data: 'name', searchable: true},
+        {data: 'email', searchable: true},
+        {data: 'dept', orderable: true, searchable: true},
+        {data: 'join_year', orderable: true, searchable: true},
+        {
+          data: "is_admin",
+          render: function(data, type, row) {
+            if (type === "filter"){
+              return data ? "Admin" : "Non-Admin";
+            }
+            else if(type === "sort") {
+              return data ? 0 : 1;
+            }
+            else if(type === "type"){
+              return "num";
+            }
+            else if(type === "display"){
+              if (data === true) {
+                return '<input type="checkbox" checked="true" class="editor-active" onclick="return false;">';
+              } else {
+                return '<input type="checkbox" onclick="return false;" class="editor-active">';
+              }
+            }
+            return data;
+          },
+          className: "text-center",
+          orderable: true, 
+          searchable: true,
+        }
+      ],
+      columnDefs: [
+        {
+          targets: 0,
+          checkboxes: {
+            selectRow: true,
+          }
+        }
+      ],
+      select: {
+        style: 'multi'
+      },
+      buttons: [
+          { extend: 'create', editor: editor, text:'<i class="fa fa-plus" aria-hidden="true"></i> New', className: "btn btn-success mr-2"},
+          { extend: 'edit',   editor: editor, text:'<i class="fa fa-pencil" aria-hidden="true"></i> Edit', className: "btn btn-warning mr-2"},
+          { extend: 'remove', editor: editor, text:'<i class="fa fa-trash" aria-hidden="true"></i> Delete', className: "btn btn-danger"},
+      ]
+    });
+
+    existingCandidatesTable.buttons().container()
+          .appendTo( $('.col-sm-6:eq(0)', existingCandidatesTable.table().container() ) );
+
+    editor.on('postEdit', function(e, json, data){
+      existingCandidatesTable.rows().deselect();
+    });
+
+    $('#existing-candidates').on('init.dt', function(){
+      buildSelect(existingCandidatesTable);;
+    });
+
+    $('#existing-candidates').on( 'draw.dt', function () {
+      buildSelect(existingCandidatesTable);
+    } );
+    
+    function buildSelect( table ) {
+      table.columns().every( function () {
+        var column = table.column( this, {search: 'applied'} );
+        if( column.header().textContent === 'Department' || 
+            column.header().textContent === 'Joining Year' || 
+            column.header().textContent === 'Is Admin?'){
+          var select = $('<select><option value="">All</option></select>')
+          .appendTo( $(column.footer()).empty() )
+          .on( 'change', function () {
+            var val = $.fn.dataTable.util.escapeRegex(
+              $(this).val()
+            );
+
+            column
+            .search( val ? '^'+val+'$' : '', true, false )
+            .draw();
+          } );
+          
+          if(column.header().textContent === 'Is Admin?'){
+            column.data().unique().sort().each( function ( d, j ) {
+              if(d === true){
+                d = "Admin"
+              } else {
+                d = "Non-Admin"
+              }
+              select.append( '<option value="'+d+'">'+d+'</option>' );
+            } );
+          }
+          else {
+            column.data().unique().sort().each( function ( d, j ) {
+              select.append( '<option value="'+d+'">'+d+'</option>' );
+            } );
+          }
+        }
+        // The rebuild will clear the exisiting select, so it needs to be repopulated
+        var currSearch = column.search();
+        if ( currSearch ) {
+          select.val( currSearch.substring(1, currSearch.length-1) );
+        }
+      } );
+    }
+  });
+  </script>
+{% endblock scripts %}

@@ -77,6 +77,14 @@ class Voter(db.Model, UserMixin):
     def getVoterRecord(cls, voter_id):
         return Voter.query.where(Voter.id==voter_id).first()
 
+    @classmethod    
+    def getVoterByEmail(cls, email):
+        return Voter.query.filter_by(email=email).first()
+    
+    @classmethod
+    def getVoterByID(cls, id):
+        return Voter.query.filter_by(id=id).first()
+
 class CandidateList(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, primary_key=True, nullable=False)
@@ -182,6 +190,13 @@ class Department(db.Model):
 
     def __repr__(self):
         return f"Department('{self.dept_code}', '{self.dept_name}')"
+
+    @classmethod
+    def getAllDepartments(cls):
+        return Department.query.all()
+
+    def getDepartmentString(self):
+        return f"{self.dept_code}    -    {self.dept_name}"
 
 class Results(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)

@@ -1,3 +1,5 @@
+import email
+from ntpath import join
 import os
 import secrets
 import app.util as util
@@ -6,7 +8,7 @@ import app.election_util as election_util
 import app.paillier_utils as paillier
 import math, random, json
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request
+from flask import jsonify, render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt, mail
 from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department, ResetPassword
 from app.forms import (RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, 
@@ -181,7 +183,7 @@ def account():
     return render_template("account.html", title="Account", image_file=image_file, form=form)
 
 @app.route("/election/new", methods=['GET', 'POST'])
-# @login_required
+@login_required
 @AdminPermission()
 def new_election():
     """
@@ -202,8 +204,9 @@ def new_election():
         form.public_key.data = pubkey_json["n"]
         form.private_key_p.data = privkey_json["p"]
         form.private_key_q.data = privkey_json["q"]
+        return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
     # Validate the form on submit and check if submit button was clicked
-    if form.validate_on_submit() and form.submit.data:  
+    elif request.method == 'POST' and form.validate_on_submit() and form.submit.data:  
         new_election = Election(election_id=prefixed_election_id, 
                                 election_title=form.election_title.data, 
                                 start_date=form.start_date.data, 
@@ -218,8 +221,7 @@ def new_election():
         # After the election has been created, the admin is redirected to the generate_voter_list
         # route
         return redirect(url_for('gen_voter_list', election_id=prefixed_election_id))
-    return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
-
+    return "Bad request", 400
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
 def view_election(id):
@@ -494,8 +496,8 @@ def register_voter_and_send_otp(election_id):
         return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
 
 @app.route("/publish_results")
+@login_required
 @AdminPermission()
-# @login_required
 def publish_results():
     """
     Description:    Shows those elections for which results need to be published
@@ -507,8 +509,8 @@ def publish_results():
     return render_template("results.html", elections=elections)
 
 @app.route("/election/<election_id>/generate/voter_list", methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
-# @login_required
 def gen_voter_list(election_id):
     """
     Description:    Generate Voter List page, admin can use this to generate the voter list
@@ -537,6 +539,7 @@ def gen_voter_list(election_id):
                                 view_only=True)
 
 @app.route("/election/<election_id>/generate/candidate_list", methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
 def gen_candidate_list(election_id):
     """
@@ -654,6 +657,80 @@ def remove_from_candidate_list(election_id):
     else:
         return {"error":"Only removal from voter list is permitted"}
 
+@app.route('/api/data/user/manage', methods=['GET', 'POST'])
+@AdminPermission()
+def user_crud():
+    if request.method == "POST":
+        print(request.form)
+        if "action" in request.form:
+            if request.form["action"] == "create":
+                cin = request.form["data[0][cin]"]
+                name = request.form["data[0][name]"]
+                dept = request.form["data[0][dept]"]
+                password = request.form["data[0][password]"]
+                email = request.form["data[0][email]"]
+                join_year = request.form["data[0][join_year]"]
+                is_admin = request.form["data[0][is_admin]"] 
+                field_errors = election_util.validateFields(cin, name, dept, join_year, is_admin, email, password)
+                if len(field_errors) == 0:
+                    voter = Voter(  
+                                    cin=cin, 
+                                    name=name, 
+                                    email=email,
+                                    dept=dept,
+                                    password=bcrypt.generate_password_hash(password).decode('utf-8'),
+                                    join_year=join_year,
+                                    is_admin=True if is_admin == 'true' else False
+                                )
+                    db.session.add(voter)
+                    db.session.commit()
+                    print("Saved to DB")
+                    return jsonify({"data": [ Voter.getVoterByEmail(email).to_dict() ]})
+                else:
+                    return jsonify({"fieldErrors": field_errors})
+            elif request.form["action"] == "edit":
+                for key, value in request.form.items():
+                    if "[id]" in key:
+                        voter_id = value
+                        break
+                cin = request.form[f"data[{voter_id}][cin]"]
+                name = request.form[f"data[{voter_id}][name]"]
+                dept = request.form[f"data[{voter_id}][dept]"]
+                password = request.form[f"data[{voter_id}][password]"]
+                email = request.form[f"data[{voter_id}][email]"]
+                join_year = request.form[f"data[{voter_id}][join_year]"]
+                is_admin = request.form[f"data[{voter_id}][is_admin]"] 
+                field_errors = election_util.validateFields(cin, name, dept, join_year, is_admin, email, password, existence=False)
+                if len(field_errors) == 0:
+                    voter = Voter.getVoterByID(voter_id)
+                    voter.cin=cin 
+                    voter.name=name 
+                    voter.email=email
+                    voter.dept=dept
+                    voter.password=bcrypt.generate_password_hash(password).decode('utf-8')
+                    voter.join_year=join_year
+                    voter.is_admin=True if is_admin == 'true' else False
+                    db.session.commit()
+                    print("Saved to DB")
+                    return jsonify({"data": [ Voter.getVoterByEmail(email).to_dict() ]})
+                else:
+                    return jsonify({"fieldErrors": field_errors})
+            elif request.form["action"] == "remove":
+                remove_user_ids = []
+                for key,value in request.form.items():
+                    if "[id]" in key:
+                        remove_user_ids.append(value)
+                Voter.query.filter(Voter.id.in_(remove_user_ids)).delete(synchronize_session=False)
+                db.session.commit()
+                return {}
+            else:
+                return {"error":"Unsuported action"}
+        else:
+            user_data = {'data': [voter.to_dict() for voter in Voter.query]}
+            return user_data
+    elif request.method == "GET":
+        return render_template("manage_users.html", departments=[{"label": department.getDepartmentString(), "value":department.dept_code} for department in Department.getAllDepartments()])
+
 @app.route("/index2")
 def index2():
     """
@@ -726,8 +803,8 @@ def candidate():
     return render_template("candidate.html", candidate_id=current_user.id)
 
 @app.route("/admin")
+@login_required
 @AdminPermission()
-# @login_required
 def admin():
     """
     Description:    Admin page, shows content of home.html along with option to Add New User, Create Election, Publish Results
@@ -740,8 +817,8 @@ def admin():
     return render_template("admin.html", elections=elections)
 
 @app.route("/admin/new", methods=['GET', 'POST'])
+@login_required
 @AdminPermission()
-# @login_required
 def new_admin():
     """
     Description:    New admin/user registration page, only be accessed by an existing admin

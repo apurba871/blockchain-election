@@ -12,6 +12,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     /> -->
+    <script src="https://kit.fontawesome.com/d7753de408.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" >
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.bootstrap4.min.css') }}">
     <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/d7753de408.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
     {% if title %}
@@ -42,9 +44,9 @@
   </head>
   <body>
     {% include 'navbar.html' %}
-    <main role="main" class="container">
+    <main role="main" class="container-md">
         <div class="center">
-          <div class="col-md-12">
+          <div class="col">
             <div class="row justify-content-center">
               <div class="col-md-12">
                 {% with messages = get_flashed_messages(with_categories=true) %}
@@ -58,8 +60,10 @@
                 {% endwith %}
               </div>
             </div>
-            {% block content %}
-            {% endblock %}
+            <div class="row justify-content-center">
+              {% block content %}
+              {% endblock %}
+            </div>
           </div>
         </div>
       </main>

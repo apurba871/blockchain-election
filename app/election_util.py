@@ -16,3 +16,57 @@ def update_election_state():
             election.election_state = 'past'
     db.session.commit()
     print("Election states updated at", datetime.now())
+
+def validate_cin(cin):
+    from app.models import Voter
+    user = Voter.query.filter_by(cin=cin).first()
+    if user:
+        return False
+    else:
+        return True
+
+def validate_email(email):
+    from app.models import Voter
+    user = Voter.query.filter_by(email=email).first()
+    if user:
+        return False
+    else:
+        return True
+
+def validateFields(cin, name, dept, join_year, is_admin, email, password, existence=True):
+    import validators
+    field_errors = []
+    if cin == '':
+        field_errors.append({'name':'cin', 'status':'Please fill out this field.'})
+    elif existence and not validate_cin(cin):
+        field_errors.append({'name':'cin', 'status':'CIN already in use. Please enter a different one.'})
+
+    if name == '':
+        field_errors.append({'name':'name', 'status':'Please fill out this field.'})
+    elif not validators.length(name, min=3, max=255):
+        field_errors.append({'name':'name', 'status':'Name length not between 3 and 255'})
+    
+    if dept == '':
+        field_errors.append({'name':'dept', 'status':'Please select a department.'})
+    
+    if join_year == '':
+        field_errors.append({'name':'join_year', 'status':'Please fill out this field.'})
+    elif not join_year.isdecimal():
+        field_errors.append({'name':'join_year', 'status':'Joining year should be a number'})
+    elif not validators.between(int(join_year), min=2016, max=2020):
+        field_errors.append({'name':'join_year', 'status':'Joining year should be between 2016 and 2020'})
+    
+    if is_admin == '':
+        field_errors.append({'name':'is_admin', 'status':'Please select an admin right.'})
+    
+    if email == '':
+        field_errors.append({'name':'email', 'status':'Please fill out this field.'})
+    elif existence and not validate_email(email):
+        field_errors.append({'name':'email', 'status':'This email is already taken. Please enter a new one.'})
+    elif not validators.email(email):
+        field_errors.append({'name':'email', 'status':'Please enter a valid email.'})
+    
+    if password == '':
+        field_errors.append({'name':'password', 'status':'Please fill out this field.'})
+
+    return field_errors
