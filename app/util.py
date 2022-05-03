@@ -3,7 +3,6 @@ from app.models import Voter_List, Election, CandidateList
 from flask import redirect, url_for, render_template
 from flask_login import current_user
 
-
 # Returns True if voter_id is debarred from election_id, False otherwise
 def checkDebarStatus(election_id, voter_id):
     voter_tries = Voter_List.getVoterTries(election_id, voter_id)
@@ -16,7 +15,6 @@ def checkOTPAndRedirect(user_otp, election_id):
     candidates = CandidateList.getAllCandidates(election_id)
     if user_otp == otp:
         # if valid then take him to the voting page
-        count = 1
         return render_template("cast_your_vote.html", candidates=candidates)
     else:
         # increase tries count by 1 and ask him to enter the correct token again until tries reaches max_attempts
