@@ -1,6 +1,6 @@
-{% extends "meta.html" %} 
+{% extends "base_manage_users.html" %} 
 {% block content %}
-  <div class="content-section">
+  <div class="content-section w-75 h-75">
     <form id="gen-candidate-list" action="" method="POST">
       <fieldset class="form-group">
         <legend class="border-bottom mb-4">
@@ -14,6 +14,7 @@
                     <th></th>
                     <th>CIN</th>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>Department</th>
                     <th>Joining Year</th>
                     <th>Is Admin?</th>
@@ -26,6 +27,7 @@
                     <th></th>
                     <th>CIN</th>
                     <th>Name</th>
+                    <th>Email</th>
                     <th>Department</th>
                     <th>Joining Year</th>
                     <th>Is Admin?</th>
@@ -34,10 +36,10 @@
               </table>
             {% endblock current_candidate_list %}
           </div>
-      <div class="form-group mt-3">
+      <div class="form-group">
         <div class="row"> 
           <div class="col">
-            <a class="btn btn-outline-secondary btn-block" href="{{ url_for('home') }}" role="button">Home</a>
+            <a class="btn btn-lg btn-outline-secondary" href="{{ url_for('home') }}" role="button">Home</a>
           </div>
         </div>
       </div>
@@ -62,27 +64,48 @@
             },
             {
               label: "CIN",
-              name: "cin"
+              name: "cin",
+              attr: {
+                required: true
+              }
             },
             {
               label: "Name",
-              name: "name"
+              name: "name",
+              attr: {
+                required: true
+              }
+            },
+            {
+              label: "Email ID",
+              name: "email",
+            },
+            {
+              label: "Password",
+              name: "password",
+              def: "password"
             },
             // {
             //   label: "Department",
             //   name: "dept"
             // },
             {
-                label: "Department",
-                name: "dept",
-                type: "select",
-                options: {{ departments | safe }},
-                placeholder: 'Select department',
-                def: 'BAGG - B.A. General'
+              label: "Department",
+              name: "dept",
+              type: "select",
+              options: {{ departments | safe }},
+              placeholder: 'Select department',
+              def: 'BAGG - B.A. General',
+              attr: {
+                required: true
+              }
             },
             {
               label: "Joining Year",
-              name: "join_year"
+              name: "join_year",
+              attr: {
+                required: true
+              }
             },
             {
               label: "Admin Rights",
@@ -90,7 +113,10 @@
               type: "select",
               options: [{label:"Admin", value:true}, {label:"Non-Admin", value:false}],
               placeholder: 'Select Admin Rights',
-              def: 'Admin'
+              def: 'Admin',
+              attr: {
+                required: true
+              }
             }
           ],
           idSrc:  'id',
@@ -107,6 +133,7 @@
         editor.field('dept').placeholder = '';
         editor.field('id').disable();
       });
+
     var existingCandidatesTable = $('#existing-candidates').DataTable({
       ajax: {
             "url": "/api/data/user/manage",
@@ -117,6 +144,7 @@
         {data: 'id'},
         {data: 'cin'},
         {data: 'name', searchable: true},
+        {data: 'email', searchable: true},
         {data: 'dept', orderable: true, searchable: true},
         {data: 'join_year', orderable: true, searchable: true},
         {
@@ -157,14 +185,18 @@
         style: 'multi'
       },
       buttons: [
-          { extend: 'create', editor: editor },
-          { extend: 'edit',   editor: editor },
-          { extend: 'remove', editor: editor },
+          { extend: 'create', editor: editor, text:'<i class="fa fa-plus" aria-hidden="true"></i> New', className: "btn btn-success mr-2"},
+          { extend: 'edit',   editor: editor, text:'<i class="fa fa-pencil" aria-hidden="true"></i> Edit', className: "btn btn-warning mr-2"},
+          { extend: 'remove', editor: editor, text:'<i class="fa fa-trash" aria-hidden="true"></i> Delete', className: "btn btn-danger"},
       ]
     });
 
     existingCandidatesTable.buttons().container()
           .appendTo( $('.col-sm-6:eq(0)', existingCandidatesTable.table().container() ) );
+
+    editor.on('postEdit', function(e, json, data){
+      existingCandidatesTable.rows().deselect();
+    });
 
     $('#existing-candidates').on('init.dt', function(){
       buildSelect(existingCandidatesTable);;
