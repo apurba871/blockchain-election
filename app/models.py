@@ -1,12 +1,50 @@
 from datetime import datetime
-
-from app import db, login_manager
+import itsdangerous
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from app import db, login_manager, app
 from flask_login import UserMixin
+
 # from sqlalchemy import CheckConstraint
 
 @login_manager.user_loader
 def load_user(user_id):
     return Voter.query.get(int(user_id))
+
+class ResetPassword(db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    token = db.Column(db.Text, primary_key=True, nullable=False)
+    is_valid = db.Column(db.Boolean, default=True, nullable=False)
+
+    @classmethod
+    def get_reset_token(cls, user, expires_sec=1800):
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        timestamp = datetime.utcnow()
+        token_data = {'user_id':user.id, 'timestamp':timestamp.strftime('%Y-%m-%dT%H:%M')}
+        token = s.dumps(token_data).decode('utf-8')
+        reset_obj = ResetPassword(user_id=token_data['user_id'], timestamp=timestamp, token=token)
+        db.session.add(reset_obj)
+        db.session.commit()
+        return token
+
+    @classmethod
+    def getToken(cls, user_id, token):
+        return ResetPassword.query.filter_by(user_id=user_id, token=token).first()
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(app.config['SECRET_KEY'])
+        try:
+            token_data = s.loads(token)
+            token_from_db = ResetPassword.getToken(token_data['user_id'], token)
+            if not token_from_db.is_valid:
+                return {"status": False, "message":"Reset token has already been used.", "user":Voter.getVoterRecord(token_data['user_id'])}
+            else:
+                token_from_db.is_valid = False
+                db.session.commit()
+        except itsdangerous.exc.SignatureExpired:
+            return {"status": False, "message":"Reset token has expired.", "user":None}
+        return {"status":True, "message":"Password reset successful!", "user":Voter.getVoterRecord(token_data['user_id'])}
 
 class Voter(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
