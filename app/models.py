@@ -111,6 +111,13 @@ class Department(db.Model):
     def __repr__(self):
         return f"Department('{self.dept_code}', '{self.dept_name}')"
 
+    @classmethod
+    def getAllDepartments(cls):
+        return Department.query.all()
+
+    def getDepartmentString(self):
+        return f"{self.dept_code}    -    {self.dept_name}"
+
 class Results(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), primary_key=True, nullable=False)
