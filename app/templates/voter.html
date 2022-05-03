@@ -1,3 +1,96 @@
-{% extends 'base.html' %} {% block content %}
-<h1>Hello voter {{ voter_id }}</h1>
-{% endblock %}
+{% extends "admin_base.html" %}
+
+{% block content %}
+    {% include 'ongoing_elections.html' %}
+    {% block ongoing_elections %}
+    {% endblock ongoing_elections %}
+    {% raw %}
+    <!-- <div class="content-section">
+        <h1>Ongoing Elections</h1>
+        <p class='text-muted'>Elections currently happening:
+        <ul class="list-group">
+          {% for election in elections %}
+          {% if election.election_state == 'ongoing' %}
+              <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
+          {% endif %}
+      {% endfor %}
+        </ul>
+        </p>
+    </div> -->
+    {% endraw %}
+    
+    {% include 'upcoming_elections.html' %}
+    {% block upcoming_elections %}
+    {% endblock upcoming_elections %}
+
+    {% raw %}
+    <!-- <div class="content-section">
+        <h1>Upcoming Elections</h1>
+        <p class='text-muted'>Future Elections:
+        <ul class="list-group">
+            {% for election in elections %}
+                {% if election.election_state == 'upcoming' %}
+                    <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        </p>
+    </div> -->
+    {% endraw %}
+    
+    {% include 'over_elections.html' %}
+    {% block over_elections %}
+    {% endblock over_elections %}
+
+    {% raw %}
+    <!-- <div class="content-section">
+        <h1>Previous Elections</h1>
+        <p class='text-muted'>Past Elections:
+        <ul class="list-group">
+            {% for election in elections %}
+                {% if election.election_state == 'past' %}
+                    <li class="list-group-item list-group-item-light"><a href="#">{{ election.election_title }}</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        </p>
+    </div> -->
+    {% endraw %}
+
+    {% include 'past_elections.html' %}
+    {% block past_elections %}
+    {% endblock past_elections %}
+
+{% endblock content %}
+
+{% block sidebar %}
+
+{% if voter_elections %}
+<div class="col-md-4">
+  <div class="content-section">
+    <h3>Competing in</h3>
+    <p class='text-muted'>Click to go to Voting page
+      <ul class="list-group">
+        {% for election in voter_elections %}
+          {% if election.election_state == 'ongoing' %}
+              <li class="list-group-item list-group-item-light"><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+  <div class="content-section">
+    <h3>Competition History</h3>
+    <p class='text-muted'>Click to go to Summary page
+      <ul class="list-group">
+        {% for election in voter_elections %}
+          {% if election.election_state == 'past' %}
+              <li class="list-group-item list-group-item-light"><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </p>
+  </div>
+</div>
+{% endif %}
+{% endblock sidebar %}

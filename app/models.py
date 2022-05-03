@@ -1,12 +1,50 @@
 from datetime import datetime
-
-from app import db, login_manager
+import itsdangerous
+from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
+from app import db, login_manager, app
 from flask_login import UserMixin
+
 # from sqlalchemy import CheckConstraint
 
 @login_manager.user_loader
 def load_user(user_id):
     return Voter.query.get(int(user_id))
+
+class ResetPassword(db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
+    timestamp = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    token = db.Column(db.Text, primary_key=True, nullable=False)
+    is_valid = db.Column(db.Boolean, default=True, nullable=False)
+
+    @classmethod
+    def get_reset_token(cls, user, expires_sec=1800):
+        s = Serializer(app.config['SECRET_KEY'], expires_sec)
+        timestamp = datetime.utcnow()
+        token_data = {'user_id':user.id, 'timestamp':timestamp.strftime('%Y-%m-%dT%H:%M')}
+        token = s.dumps(token_data).decode('utf-8')
+        reset_obj = ResetPassword(user_id=token_data['user_id'], timestamp=timestamp, token=token)
+        db.session.add(reset_obj)
+        db.session.commit()
+        return token
+
+    @classmethod
+    def getToken(cls, user_id, token):
+        return ResetPassword.query.filter_by(user_id=user_id, token=token).first()
+
+    @staticmethod
+    def verify_reset_token(token):
+        s = Serializer(app.config['SECRET_KEY'])
+        try:
+            token_data = s.loads(token)
+            token_from_db = ResetPassword.getToken(token_data['user_id'], token)
+            if not token_from_db.is_valid:
+                return {"status": False, "message":"Reset token has already been used.", "user":Voter.getVoterRecord(token_data['user_id'])}
+            else:
+                token_from_db.is_valid = False
+                db.session.commit()
+        except itsdangerous.exc.SignatureExpired:
+            return {"status": False, "message":"Reset token has expired.", "user":None}
+        return {"status":True, "message":"Password reset successful!", "user":Voter.getVoterRecord(token_data['user_id'])}
 
 class Voter(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,19 +72,35 @@ class Voter(db.Model, UserMixin):
             'join_year': self.join_year,
             'is_admin': self.is_admin
         }
+    
+    @classmethod
+    def getVoterRecord(cls, voter_id):
+        return Voter.query.where(Voter.id==voter_id).first()
 
 class CandidateList(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     id = db.Column(db.Integer, primary_key=True, nullable=False)
     voter_id = db.Column(db.Integer, db.ForeignKey('voter.id'), primary_key=True, nullable=False)
-    voters = db.relationship('Voter', backref='vote', lazy=True) # one candidate can get votes from many voters, so One-To-Many relationship
+    voter = db.relationship('Voter', backref='vote', lazy=True) # one candidate refers to one voter details
 
     def __repr__(self):
-        return f"Candidate('{self.candidate_id}', '{self.voter_id}')"
+        return f"Candidate('{self.id}', '{self.voter_id}')"
     
     @classmethod
     def getCandidatesInList(cls, election_id):
         return Voter.query.join(CandidateList.query.filter(CandidateList.election_id == election_id)).all()
+    
+    @classmethod
+    def getAllCandidates(cls, election_id):
+        return ( CandidateList.query 
+                            .filter(CandidateList.election_id == election_id) 
+                            .join(Voter)
+                            .order_by(CandidateList.id.asc())
+                            .all() )
+    
+    @classmethod
+    def getElectionsWhereVoterIsInCandidateList(cls, voter_id):
+        return Election.query.join(CandidateList.query.filter(CandidateList.voter_id == voter_id)).all()
 
     @classmethod
     def getCandidateCount(cls, election_id):
@@ -78,9 +132,6 @@ class Election(db.Model):
     def getElectionRecord(cls, election_id):
         return Election.query.where(Election.election_id == election_id).first()
 
-    @classmethod
-    def getElectionRecord(cls, election_id):
-        return Election.query.where(Election.election_id == election_id).first()
 
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -103,6 +154,27 @@ class Voter_List(db.Model):
     @classmethod
     def getVotersInList(cls, election_id):
         return Voter.query.join(Voter_List.query.filter(Voter_List.election_id == election_id)).all()
+
+    @classmethod
+    def getVoterRecord(cls, election_id, voter_id):
+        return Voter_List.query.filter_by(id=voter_id, election_id = election_id).first()
+
+    @classmethod
+    def getVoterToken(cls, election_id, voter_id):
+        return Voter_List.query.filter_by(id=voter_id,election_id=election_id).first().token
+
+    @classmethod
+    def getVoterTries(cls, election_id, voter_id):
+        print(f"election_id: {election_id}, voter_id:{voter_id}")
+        return Voter_List.query.filter_by(id=voter_id,election_id=election_id).first().tries
+
+    @classmethod
+    def incrementVoterTries(cls, election_id, voter_id):
+        Voter_List.getVoterRecord(election_id, voter_id).tries += 1
+
+    @classmethod
+    def getElectionsForVoter(cls, voter_id):
+        return Election.query.join(Voter_List.query.filter(Voter_List.id == voter_id)).all()
 
 class Department(db.Model):
     dept_code = db.Column(db.String(4), primary_key=True, nullable=False)

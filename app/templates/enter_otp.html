@@ -1,0 +1,30 @@
+{% extends 'home_base.html' %} 
+
+{% block content %}
+
+<div class="content-section">
+    <form action="/cast_vote/{{ election_id }}" method="POST">
+        <legend class="border-bottom mb-4">Authenticate</legend>
+        <div class="spacing"><span class="spn"><span class="spn-special">Election Title:</span> {{ election_title }}</span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special">Election Start Time:</span> {{ start_date }}</span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special">No. of unsuccessful tries:</span> {{ tries }}</span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special">Max Tries Allowed:</span> {{ max_attempt }}</span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special">Enter Your O.T.P.:</span> 
+        <input type="text" name="user_otp" id="user_otp" maxlength="6" onkeypress="return restrictAlphabets(event)">
+        </span></div>
+
+        <center class="top-space">
+            {% raw %}
+            <!-- <a class="btn btn-outline-info" href="{{ url_for('cast_vote') }}">Submit</a> -->
+            {% endraw %}
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </center>
+    </form>
+</div>
+<div class="border-top pt-3">
+    <center><small class="text-muted">
+      You would be debarred from the voting process if your unsuccessful tries exceeds the maximum allowed tries!
+    </small></center>
+</div>
+
+{% endblock %}
