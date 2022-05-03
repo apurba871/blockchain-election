@@ -646,7 +646,8 @@ def voter(voter_id):
     Uses Template:  voter.html
     """
     elections = Voter_List.getElectionsForVoter(voter_id)
-    return render_template("voter.html", elections=elections)
+    voter_elections = CandidateList.getElectionsWhereVoterIsInCandidateList(voter_id)
+    return render_template("voter.html", elections=elections, voter_elections=voter_elections)
 
 @app.route("/candidate/<id>")
 def candidate(id):
