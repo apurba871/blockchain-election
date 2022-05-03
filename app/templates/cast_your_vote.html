@@ -1,0 +1,49 @@
+{% extends "meta.html" %} 
+{% block content %}
+  <div class="content-section">
+    <form id="voting-form" action="/thanks" method="POST">
+      
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">
+          Select a Candidate
+        </legend>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Photo</th>
+                <th scope="col">Candidate Name</th>
+                <th scope="col">Vote</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for candidate in candidates %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td><img class="rounded-circle account-img-small" src="/static/profile_pics/{{ candidate.voter.imagefile }}"></td>
+                        <td>{{ candidate.voter.name }}</td>
+                        <td>
+                            <input data-candidate-id="{{ candidate.id }}" data-candidate-name="{{ candidate.voter.name }}" type="button" class="btn btn-primary" value="Vote">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+      </fieldset>
+      <input type="hidden" name="selected-candidate-id" value="">
+      <input type="hidden" name="selected-candidate-name" value="">
+    </form>
+  </div>
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    $('input[type="button"]').on("click", function(){
+        $('input[name="selected-candidate-id"]').attr("value", $(this).attr("data-candidate-id"));
+        $('input[name="selected-candidate-name"]').attr("value", $(this).attr("data-candidate-name"));
+        $("#voting-form").submit();
+    });
+</script>
+{% endblock scripts %}

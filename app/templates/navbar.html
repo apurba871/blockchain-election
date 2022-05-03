@@ -30,7 +30,7 @@
           {% elif current_user.is_authenticated %}
           <img class="rounded-circle account-img-small" src="/static/profile_pics/{{ current_user.imagefile }}">
           <a class="navbar-brand disabled ml-2" style="cursor: default;">Welcome, {{ current_user.cin }}</a>
-          <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+          <a class="nav-item nav-link" href="{{ url_for('voter', voter_id=current_user.id) }}">Home</a>
           <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
           <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
           {% else %}
