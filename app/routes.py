@@ -1,3 +1,5 @@
+import email
+from ntpath import join
 import os
 import secrets
 
@@ -6,7 +8,7 @@ import app.election_util as election_util
 import app.paillier_utils as paillier
 import math, random, json
 from PIL import Image
-from flask import render_template, url_for, flash, redirect, request
+from flask import jsonify, render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt, mail
 from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department
 from app.forms import RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, NewAdminForm
@@ -455,7 +457,6 @@ def gen_candidate_list(election_id):
                                 view_only=True)
 
 @app.route('/api/data/voters/<election_id>')
-@login_required
 @AdminPermission()
 def get_voters(election_id):
     """
@@ -477,7 +478,6 @@ def get_voters(election_id):
     return voter_data
 
 @app.route('/api/data/candidates/<election_id>')
-@login_required
 @AdminPermission()
 def get_candidates(election_id):
     """
@@ -544,20 +544,71 @@ def remove_from_candidate_list(election_id):
         return {"error":"Only removal from voter list is permitted"}
 
 @app.route('/api/data/user/manage', methods=['GET', 'POST'])
-@login_required
 @AdminPermission()
 def user_crud():
     if request.method == "POST":
+        print(request.form)
         if "action" in request.form:
             if request.form["action"] == "create":
-                print(request.form)
-                return {"error": "Not implemented"}
+                cin = request.form["data[0][cin]"]
+                name = request.form["data[0][name]"]
+                dept = request.form["data[0][dept]"]
+                password = request.form["data[0][password]"]
+                email = request.form["data[0][email]"]
+                join_year = request.form["data[0][join_year]"]
+                is_admin = request.form["data[0][is_admin]"] 
+                field_errors = election_util.validateFields(cin, name, dept, join_year, is_admin, email, password)
+                if len(field_errors) == 0:
+                    voter = Voter(  
+                                    cin=cin, 
+                                    name=name, 
+                                    email=email,
+                                    dept=dept,
+                                    password=bcrypt.generate_password_hash(password).decode('utf-8'),
+                                    join_year=join_year,
+                                    is_admin=True if is_admin == 'true' else False
+                                )
+                    db.session.add(voter)
+                    db.session.commit()
+                    print("Saved to DB")
+                    return jsonify({"data": [ Voter.getVoterByEmail(email).to_dict() ]})
+                else:
+                    return jsonify({"fieldErrors": field_errors})
             elif request.form["action"] == "edit":
-                print(request.form)
-                return {"error": "Not implemented"}
+                for key, value in request.form.items():
+                    if "[id]" in key:
+                        voter_id = value
+                        break
+                cin = request.form[f"data[{voter_id}][cin]"]
+                name = request.form[f"data[{voter_id}][name]"]
+                dept = request.form[f"data[{voter_id}][dept]"]
+                password = request.form[f"data[{voter_id}][password]"]
+                email = request.form[f"data[{voter_id}][email]"]
+                join_year = request.form[f"data[{voter_id}][join_year]"]
+                is_admin = request.form[f"data[{voter_id}][is_admin]"] 
+                field_errors = election_util.validateFields(cin, name, dept, join_year, is_admin, email, password, existence=False)
+                if len(field_errors) == 0:
+                    voter = Voter.getVoterByID(voter_id)
+                    voter.cin=cin 
+                    voter.name=name 
+                    voter.email=email
+                    voter.dept=dept
+                    voter.password=bcrypt.generate_password_hash(password).decode('utf-8')
+                    voter.join_year=join_year
+                    voter.is_admin=True if is_admin == 'true' else False
+                    db.session.commit()
+                    print("Saved to DB")
+                    return jsonify({"data": [ Voter.getVoterByEmail(email).to_dict() ]})
+                else:
+                    return jsonify({"fieldErrors": field_errors})
             elif request.form["action"] == "remove":
-                print(request.form)
-                return {"error": "Not implemented"}
+                remove_user_ids = []
+                for key,value in request.form.items():
+                    if "[id]" in key:
+                        remove_user_ids.append(value)
+                Voter.query.filter(Voter.id.in_(remove_user_ids)).delete(synchronize_session=False)
+                db.session.commit()
+                return {}
             else:
                 return {"error":"Unsuported action"}
         else:
