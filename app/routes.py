@@ -57,14 +57,14 @@ def login():
                 if next_page == "/election/new":
                     flash("Please login as admin to access this page", "danger")
                 else:
-                    return redirect(next_page) if next_page else redirect(url_for('voter', id=user.id))
+                    return redirect(next_page) if next_page else redirect(url_for('voter', voter_id=user.id))
             elif user and bcrypt.check_password_hash(user.password, form.password.data): # new users login
                 login_user(user, remember=form.remember.data)
                 next_page = request.args.get('next')
                 if next_page == "/election/new":
                     flash("Please login as admin to access this page", "danger")
                 else:
-                    return redirect(next_page) if next_page else redirect(url_for('voter', id=user.id))
+                    return redirect(next_page) if next_page else redirect(url_for('voter', voter_id=user.id))
             else:
                 flash('Login Unsuccessful. Please check CIN and Password', 'danger')
     return render_template("login.html", title="Login", form=form)
@@ -637,15 +637,16 @@ def about():
     """
     return render_template("about.html")
 
-@app.route("/voter/<int:id>")
-def voter(id):
+@app.route("/voter/<int:voter_id>")
+def voter(voter_id):
     """
-    Description:    Voter page of a particular user
+    Description:    Home page of a particular user, shows only those elections in which he is/was eligible
     Endpoint:       /voter/<voter_id>
-    Parameters:     id (Type: int)
+    Parameters:     voter_id (Type: int)
     Uses Template:  voter.html
     """
-    return render_template("voter.html", voter_id=id)
+    elections = Voter_List.getElectionsForVoter(voter_id)
+    return render_template("voter.html", elections=elections)
 
 @app.route("/candidate/<id>")
 def candidate(id):
