@@ -281,20 +281,20 @@ def view_election(id):
             # Show him the election name and start time and inform that the admin has not yet generated
             # the voter list and that he will be able to vote if the votre list has his name and he has
             # registered for voting
-            return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+            return render_template("voterlist_not_generated.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
         else:
             # If the voter list is generated, check if the voter is in the list
             is_voter_in_voter_list = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
             # print(is_voter_in_voter_list)
             if not is_voter_in_voter_list:
-                return render_template("voter_not_in_voterlist.html")
+                return render_template("voter_not_in_voterlist.html", voter_id=current_user.id)
             else:
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
                     return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
                 # else show him that he has registered for the vote and the election start time
                 else:
-                    return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+                    return render_template("already_registered.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
     # If the user is a non-admin user, and election is ongoing, check if the user has registered
     # for the vote, if not, display the registration page, only if the user is eligible for voting.
     # After the voter eligibility is verified, redirect to the voting screen. If the voter is not
@@ -306,13 +306,13 @@ def view_election(id):
             # Show him the election name and start time and inform that the admin has not yet generated
             # the voter list and that he will be able to vote if the votre list has his name and he has
             # registered for voting
-            return render_template("voterlist_not_generated.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+            return render_template("voterlist_not_generated.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
         else:
             # If the voter list is generated, check if the voter is in the list
             is_voter_in_voter_list = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
             # print(is_voter_in_voter_list)
             if not is_voter_in_voter_list:
-                return render_template("voter_not_in_voterlist.html")
+                return render_template("voter_not_in_voterlist.html", voter_id=current_user.id)
             else:
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
@@ -339,7 +339,7 @@ def cast_vote(election_id):
     if request.method == "GET":
         if util.checkDebarStatus(election_id, current_user.id):
             # if max_attempt reached then debar him from the voting process
-            return render_template("debar_from_voting.html")
+            return render_template("debar_from_voting.html", voter_id=current_user.id)
         else:
             curr_voter = Voter_List.getVoterRecord(election_id, current_user.id)
             curr_election = Election.getElectionRecord(election_id)
@@ -386,7 +386,7 @@ def thanks():
     Uses Template:  thanks.html
     """
     print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
-    return render_template("thanks.html", candidate_id=request.form["selected-candidate-id"], 
+    return render_template("thanks.html", voter_id=current_user.id, candidate_id=request.form["selected-candidate-id"], 
                             candidate_name=request.form["selected-candidate-name"])
 
 # function to generate 6-digit OTP
@@ -411,9 +411,9 @@ def register_voter_and_send_otp(election_id):
     curr_voter = Voter_List.getVoterRecord(election_id=curr_election.election_id, voter_id=current_user.id)
     # print("Before: ", curr_voter.is_registered)
     if curr_voter is None:
-        return render_template("voter_not_in_voterlist.html")
+        return render_template("voter_not_in_voterlist.html", voter_id=current_user.id)
     elif curr_voter.is_registered:
-        return render_template("already_registered.html", election_title=curr_election.election_title, start_date=curr_election.start_date)
+        return render_template("already_registered.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
     elif not curr_voter.is_registered:
         curr_voter.is_registered = True
         otp = generateOTP()
