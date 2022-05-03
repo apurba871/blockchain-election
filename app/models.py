@@ -34,6 +34,14 @@ class Voter(db.Model, UserMixin):
             'join_year': self.join_year,
             'is_admin': self.is_admin
         }
+    
+    @classmethod
+    def getVoterByEmail(cls, email):
+        return Voter.query.filter_by(email=email).first()
+    
+    @classmethod
+    def getVoterByID(cls, id):
+        return Voter.query.filter_by(id=id).first()
 
 class CandidateList(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
