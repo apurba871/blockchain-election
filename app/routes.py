@@ -151,8 +151,9 @@ def new_election():
         form.public_key.data = pubkey_json["n"]
         form.private_key_p.data = privkey_json["p"]
         form.private_key_q.data = privkey_json["q"]
+        return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
     # Validate the form on submit and check if submit button was clicked
-    if form.validate_on_submit() and form.submit.data:  
+    elif request.method == 'POST' and form.validate_on_submit() and form.submit.data:  
         new_election = Election(election_id=prefixed_election_id, 
                                 election_title=form.election_title.data, 
                                 start_date=form.start_date.data, 
@@ -167,8 +168,7 @@ def new_election():
         # After the election has been created, the admin is redirected to the generate_voter_list
         # route
         return redirect(url_for('gen_voter_list', election_id=prefixed_election_id))
-    return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
-
+    return "Bad request", 400
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
 def view_election(id):
@@ -564,7 +564,7 @@ def user_crud():
             user_data = {'data': [voter.to_dict() for voter in Voter.query]}
             return user_data
     elif request.method == "GET":
-        return render_template("manage_users.html")
+        return render_template("manage_users.html", departments=[{"label": department.getDepartmentString(), "value":department.dept_code} for department in Department.getAllDepartments()])
 
 @app.route("/index2")
 def index2():
