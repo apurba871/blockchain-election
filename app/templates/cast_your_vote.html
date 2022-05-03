@@ -10,7 +10,8 @@
         <table class="table table-striped">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
                 <th scope="col">Photo</th>
                 <th scope="col">Candidate Name</th>
                 <th scope="col">Vote</th>
@@ -19,7 +20,8 @@
             <tbody>
                 {% for candidate in candidates %}
                     <tr>
-                        <th scope="row">{{ candidate.id }}</th>
+                        <td></td>
+                        <td></td>
                         <td><img class="rounded-circle account-img-small" src="/static/profile_pics/{{ candidate.voter.imagefile }}"></td>
                         <td>{{ candidate.voter.name }}</td>
                         <td>
