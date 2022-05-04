@@ -432,6 +432,8 @@ def cast_vote(election_id):
         if util.checkDebarStatus(election_id, current_user.id):
             # if max_attempt reached then debar him from the voting process
             return render_template("debar_from_voting.html", voter_id=current_user.id)
+        elif util.checkIfAlreadyVoted(election_id, current_user.id):
+            return render_template("already_casted_vote.html")
         else:
             curr_voter = Voter_List.getVoterRecord(election_id, current_user.id)
             curr_election = Election.getElectionRecord(election_id)
@@ -510,6 +512,8 @@ def register_voter_and_send_otp(election_id):
         return render_template("voter_not_in_voterlist.html", voter_id=current_user.id)
     elif curr_voter.is_registered:
         return render_template("already_registered.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
+    elif util.checkIfAlreadyVoted(election_id, current_user.id):
+        return render_template("already_casted_vote.html")
     elif not curr_voter.is_registered:
         curr_voter.is_registered = True
         otp = generateOTP()
@@ -963,4 +967,9 @@ def create_multi_step_election():
         # route
         return redirect(url_for('admin'))
     return "Bad request", 400
-    
+
+# Ensure responses aren't cached
+@app.after_request
+def after_request(response):
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+    return response

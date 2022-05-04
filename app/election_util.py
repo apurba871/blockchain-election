@@ -21,13 +21,13 @@ def get_new_election_id():
     from app import db
     from app.models import Election
     last_record = Election.getLastElectionRecord()
-    numeric_id = int(last_record.election_id[1:])
+    numeric_id = int(0 if last_record is None else last_record.election_id[1:])
     return f'E{numeric_id+1}'
 
 def get_new_candidate_id(election_id):
     from app import db
     from app.models import CandidateList
-    return CandidateList.getLastCandidateRecord(election_id).id + 1
+    return (0 if CandidateList.getLastCandidateRecord(election_id) is None else CandidateList.getLastCandidateRecord(election_id).id) + 1
 
 def validate_cin(cin):
     from app.models import Voter
