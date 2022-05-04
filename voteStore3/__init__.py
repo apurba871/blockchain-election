@@ -14,4 +14,4 @@ app.config['SECRET_KEY'] = '6ed92a393d113812533944e21b26b07a'
 db = SQLAlchemy(app)
 
 
-from voteStore1 import routes
+from voteStore3 import routes
