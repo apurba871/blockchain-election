@@ -353,7 +353,7 @@ def view_election(id):
             else:
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
-                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
+                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
                 # else show him that he has registered for the vote and the election start time
                 else:
                     return render_template("already_registered.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
@@ -378,7 +378,7 @@ def view_election(id):
             else:
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
-                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date)
+                    return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
                 # else authenticate the voter by asking for the OTP
                 else:
                     return redirect(url_for("cast_vote", election_id=curr_election.election_id))
@@ -449,7 +449,7 @@ def thanks():
     """
     print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
     return render_template("thanks.html", voter_id=current_user.id, candidate_id=request.form["selected-candidate-id"], 
-                            candidate_name=request.form["selected-candidate-name"])
+                            candidate_name=request.form["selected-candidate-name"], candidate_cin=request.form["selected-candidate-cin"])
 
 # function to generate 6-digit OTP
 def generateOTP():
@@ -493,7 +493,7 @@ def register_voter_and_send_otp(election_id):
                     '''
         mail.send(msg)
         flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
-        return render_template("register_voter_and_send_otp.html", otp=otp, election_title=curr_election.election_title, start_date=curr_election.start_date)
+        return render_template("register_voter_and_send_otp.html", otp=otp, election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
 
 @app.route("/publish_results")
 @login_required
