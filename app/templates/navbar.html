@@ -23,8 +23,10 @@
           {% if current_user.is_admin %}
           <img class="rounded-circle account-img-small" src="/static/profile_pics/{{ current_user.imagefile }}">
           <a class="navbar-brand disabled ml-2" style="cursor: default;">Welcome, {{ current_user.cin }}</a>
-          <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-          <a class="nav-item nav-link" href="{{ url_for('admin') }}">Admin</a>
+          {% raw %}
+          <!-- <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a> -->
+          {% endraw %}
+          <a class="nav-item nav-link" href="{{ url_for('admin') }}">Home</a>
           <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
           <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
           {% elif current_user.is_authenticated %}

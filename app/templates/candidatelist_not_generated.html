@@ -6,7 +6,7 @@
     <legend class="border-bottom mb-4">Information</legend>
     <div class="spacing"><span class="spn"><span class="spn-special">Election Title:</span> {{ election_title }}</span></div>
     <div class="spacing"><span class="spn"><span class="spn-special">Election Start Time:</span> {{ start_date }}</span></div>
-    <div class="spacing"><span class="spn"><span class="spn-special">Status:</span> Admin has not yet generated the voter list</span></div>
+    <div class="spacing"><span class="spn"><span class="spn-special">Status:</span> Admin has not yet generated the candidate list</span></div>
     <center class="top-space">
         {% if election_state == 'upcoming' %}
             <h4>Please come back later!</h4>
@@ -15,11 +15,6 @@
         {% endif %}
         <a class="btn btn-outline-info" href="{{ url_for('voter') }}">Home</a>
     </center>
-</div>
-<div class="border-top pt-3">
-    <center><small class="text-muted">
-      You would be able to vote if the Voter List has your name and you have registered for voting.
-    </small></center>
 </div>
 
 {% endblock %}
