@@ -86,5 +86,14 @@ def validateFields(cin, name, dept, join_year, is_admin, email, password, existe
 
     return field_errors
 
+def transform_vote(election_id, candidate_id):
+    from app.models import Voter_List
+    voter_count = Voter_List.getVotersInList(election_id)
+    max_dig = len(str(voter_count))
+    return 10 ** (max_dig * (candidate_id - 1))
+
+def encrypt_vote(election_id):
+    pass
+
 if __name__ == "__main__":
     print(get_new_election_id())
