@@ -775,7 +775,8 @@ def user_crud():
             user_data = {'data': [voter.to_dict() for voter in Voter.query]}
             return user_data
     elif request.method == "GET":
-        return render_template("manage_users.html", departments=[{"label": department.getDepartmentString(), "value":department.dept_code} for department in Department.getAllDepartments()])
+        years_till_now = [{"label": year, "value": year} for year in range(2016,int(datetime.now().strftime("%Y")) + 1)]
+        return render_template("manage_users.html", years_till_now=years_till_now, departments=[{"label": department.getDepartmentString(), "value":department.dept_code} for department in Department.getAllDepartments()])
 
 @app.route("/index2")
 def index2():
