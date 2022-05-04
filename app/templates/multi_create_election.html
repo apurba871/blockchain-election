@@ -247,6 +247,7 @@ var addCandidatesTable;
     yourDate = new Date(yourDate.getTime() - (offset*60*1000))
     var today = yourDate.toISOString().slice(0, 16);
     document.getElementsByName("start_date")[0].min = today;
+    // document.getElementsByName("start_date")[0].value = today;
     document.getElementsByName("end_date")[0].min = today;
     //* Form js
     function verificationForm(){

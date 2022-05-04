@@ -886,7 +886,7 @@ def create_multi_step_election():
     election_id = num_elections + 1
     prefixed_election_id = 'E' + str(election_id) 
     form = NewElectionForm()
-    print(request.form)
+    print(form.start_date.data)
     if request.method == 'GET':
         # flash('Please Save the Private Key before proceeding.', 'info')
         pubkey, privkey = paillier.generate_key_pair()

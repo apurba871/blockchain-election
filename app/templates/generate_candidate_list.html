@@ -109,11 +109,48 @@
       </div>
     </form>
   </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><span class="text-danger">Error</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Candidate list must contain atleast 1 candidate. Cannot delete the current row.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><span class="text-danger">Error</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Candidate list must contain atleast 1 candidate. Cannot delete all the rows.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock content %}
 
 {% block scripts %}
   <script>
     var editor;
+    var existingCandidatesTable;
     $(document).ready(function () {
       {% if not (existing_candidate_list is none) %}
         {% if view_only is not defined %}
@@ -145,9 +182,31 @@
               idSrc:  'id',
               rowId: 'id',
             });
+            
+            // $('#existing-candidates').on( 'select.dt', function ( e, dt, type, indexes ) {
+            //     console.log("selected")
+            //     if ( type === 'row' ) {
+            //         console.log("selected")
+            //         var data = existingCandidatesTable.rows( indexes ).data().pluck( 'id' );
+                    // var rowSelection = existingCandidatesTable.column(0).checkboxes.selected();
+                    // if(existingCandidatesTable.rows().count() === rowSelection.length){
+                    //     e.preventDefault();
+                    //     existingCandidatesTable.button(0).disable();
+                    //     $('#exampleModal').modal('show');
+                    //     return false;
+                    // }
+                    
+            //         // do something with the ID of the selected items
+            //     }
+            // } );
+
 
           $('#existing-candidates').on('click', 'td.editor-delete', function (e) {
               e.preventDefault();
+              if(existingCandidatesTable.rows().count() === 1){
+                $('#exampleModal').modal('show');
+                return false;
+              }
               editor.remove( $(this).closest('tr'), {
                   title: 'Delete record',
                   message: 'Are you sure you wish to remove this record for ' + 
@@ -163,10 +222,11 @@
             }
             window.location = window.location.href;
           });
+
         {% endif %}
 
 
-        var existingCandidatesTable = $('#existing-candidates').DataTable({
+        existingCandidatesTable = $('#existing-candidates').DataTable({
           data: {{ existing_candidate_list|tojson }}["data"],
           columns: [
           {% if view_only is not defined %}
@@ -200,7 +260,32 @@
         });
 
         new $.fn.dataTable.Buttons( existingCandidatesTable, [
-            { extend: "remove", editor: editor, className: "btn btn-danger", text:"Remove Selected" }
+            { 
+              extend: "remove", 
+              editor: editor, 
+              className: "btn btn-danger", 
+              text:"Remove Selected",
+              action: function ( e, dt, node, config ) {
+                var rowSelection = existingCandidatesTable.column(0).checkboxes.selected();
+                  if(existingCandidatesTable.rows().count() === rowSelection.length){
+                      e.preventDefault();
+                      // existingCandidatesTable.button(0).disable();
+                      $('#exampleModal1').modal('show');
+                      return false;
+                }
+                else{  
+                editor.remove(dt.rows({selected: true}).indexes(), {
+                    title: '<span class="text-danger">Delete Records</span>',
+                    message: 'Are you sure you wish to remove  ' + 
+                              dt.rows({selected: true}).count() +  
+                              ' rows ?',
+                    buttons: [
+                      { text: 'Delete', className: 'btn btn-danger' },
+                    ]
+                  });
+                }
+              }
+            }
         ] );
 
         buildSelect(existingCandidatesTable);
