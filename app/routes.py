@@ -18,6 +18,7 @@ from flask_mail import Message
 from .permissions import AdminPermission
 from datetime import datetime
 
+# Send a password reset link to user's registered e-mail
 def send_reset_email(user, expires_sec=1800):
     token = ResetPassword.get_reset_token(user)
     msg = Message('Password Reset Request', 
@@ -32,6 +33,12 @@ def send_reset_email(user, expires_sec=1800):
 
 @app.route("/reset_password", methods=['GET', 'POST'])
 def reset_request():
+    """
+    Description:    Request a password reset
+    Endpoint:       /reset_password
+    Parameters:     None
+    Uses Template:  reset_request.html
+    """
     if current_user.is_authenticated:
         if current_user.is_admin:
             return redirect(url_for("home"))
@@ -47,6 +54,12 @@ def reset_request():
 
 @app.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
+    """
+    Description:    Form to set new password
+    Endpoint:       /reset_password/<token>
+    Parameters:     token (Type: Str)
+    Uses Template:  reset_token.html
+    """
     form = ResetPasswordForm()
     if current_user.is_authenticated:
         if current_user.is_admin:
