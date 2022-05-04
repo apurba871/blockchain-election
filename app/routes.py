@@ -6,6 +6,7 @@ import app.util as util
 from flask_sqlalchemy import SQLAlchemy
 import app.election_util as election_util
 import app.paillier_utils as paillier
+import app.cast_vote_util as cast_vote_util
 import math, random, json
 from PIL import Image
 from flask import jsonify, render_template, url_for, flash, redirect, request
@@ -317,8 +318,9 @@ def view_election(id):
         for field in form:
             field.render_kw = {"readonly": True}
         # Show the current status of the election
-        # TODO: Generate the current vote count dynamically in admin_ongoing_election.html page
-        return render_template("admin_ongoing_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
+        votes_casted = cast_vote_util.countVotesInBallot(curr_election.election_id)
+        total_voters = len(Voter_List.getVotersInList(curr_election.election_id))
+        return render_template("admin_ongoing_election.html", votes_casted=votes_casted, total_voters=total_voters, election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
 
     # If the current user is admin and the election is over, flash a message that the voting phase
     # is over and ask to start the counting phase
@@ -407,8 +409,9 @@ def view_election(id):
                     return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
                 # else check if he has already casted his vote, if yes show him corresponding message in a template else ask for his otp
                 else:
-                    already_casted = Casted_Vote.query.filter_by(election_id=curr_election.election_id, id=current_user.id).first()
-                    if already_casted:
+                    # already_casted = Casted_Vote.query.filter_by(election_id=curr_election.election_id, id=current_user.id).first()
+                    # if already_casted:
+                    if util.checkIfAlreadyVoted(election_id=curr_election.election_id, voter_id=current_user.id):
                         return render_template("already_casted_vote.html")
                     else:
                         return redirect(url_for("cast_vote", election_id=curr_election.election_id))
@@ -481,9 +484,10 @@ def thanks(election_id):
     """
     print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
     # Register his vote in the database and thereby invalidate him from casting further votes in the same election
-    record = Casted_Vote(election_id=election_id, id=current_user.id)
-    db.session.add(record)
-    db.session.commit()
+    # record = Casted_Vote(election_id=election_id, id=current_user.id)
+    # db.session.add(record)
+    # db.session.commit()
+    cast_vote_util.addCastedVote(voter_id = int(current_user.id), election_id=election_id)
     return render_template("thanks.html", voter_id=current_user.id, candidate_id=request.form["selected-candidate-id"], 
                             candidate_name=request.form["selected-candidate-name"], candidate_cin=request.form["selected-candidate-cin"])
 
@@ -833,6 +837,7 @@ def voter():
     Parameters:     None
     Uses Template:  voter.html
     """
+    election_util.update_election_state()
     elections = Voter_List.getElectionsForVoter(current_user.id)
     voter_elections = CandidateList.getElectionsWhereVoterIsInCandidateList(current_user.id)
     return render_template("voter.html", elections=elections, voter_elections=voter_elections)
@@ -847,6 +852,7 @@ def candidate():
     Parameters:     None
     Uses Template:  candidate.html
     """
+    election_util.update_election_state()
     return render_template("candidate.html", candidate_id=current_user.id)
 
 @app.route("/admin")

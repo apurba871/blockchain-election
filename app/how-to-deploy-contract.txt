@@ -1,0 +1,7 @@
+0. Run Ganache and create and save an Workspace
+
+1. Set the value of the constants from the Ganache to constants.py
+
+2. Run blockchain-election> python .\app\my_deploy.py and copy the contract address
+
+3. Paste the contract address in constants.py
