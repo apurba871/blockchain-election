@@ -109,6 +109,10 @@
             {
               label: "Joining Year",
               name: "join_year",
+              type: "select",
+              options: {{ years_till_now | safe }},
+              placeholder: 'Select joining year',
+              def: '2016',
               attr: {
                 required: true
               }

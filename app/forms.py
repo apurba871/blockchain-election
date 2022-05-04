@@ -21,7 +21,9 @@ class RegistrationForm(FlaskForm):
     for each_dept in all_depts:
         list_of_depts.append(each_dept.dept_code + "    -    " + each_dept.dept_name)
     dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
-    join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
+    # join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
+    # join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=int(datetime.now().strftime("%Y")))])
+    join_year = SelectField('Join Year', choices=[year for year in range(2016,int(datetime.now().strftime("%Y")) + 1)], validators=[DataRequired()])
     is_admin = False
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
@@ -120,7 +122,9 @@ class NewAdminForm(FlaskForm):
         list_of_depts.append(each_dept.dept_code + "    -    " + each_dept.dept_name)
     dept = SelectField('Dept Code', choices=list_of_depts, validators=[DataRequired()])
     # dept = StringField('Dept Code', validators=[DataRequired(), Length(min=4, max=4)])
-    join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
+    # join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=2020)])
+    # join_year = IntegerField('Join Year', validators=[DataRequired(), NumberRange(min=2016, max=int(datetime.now().strftime("%Y")))])
+    join_year = SelectField('Join Year', choices=[year for year in range(2016,int(datetime.now().strftime("%Y")) + 1)], validators=[DataRequired()])
     is_admin = RadioField('Is Admin?', coerce=int, choices=[(1,'Yes'), (0,'No')])
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
