@@ -6,19 +6,20 @@ import voteStore3.util as util
 @app.route("/storeVote", methods=["POST"])
 def store_vote():
   election_id = None
-  part_no = None
+  # part_no = None
   share = None
   if "election_id" in request.args:
     election_id = request.args["election_id"]
-  if "part_no" in request.args:
-    part_no = request.args["part_no"]
+  # if "part_no" in request.args:
+  #   part_no = request.args["part_no"]
   if "share" in request.args:
     share = request.args["share"]
   
-  if election_id is None or part_no is None or share is None:
+  # if election_id is None or part_no is None or share is None:
+  if election_id is None or share is None:
     return {"success":False, "message":"Wrong parameters passed"}
   else:
-    util.store_vote_helper(election_id, part_no, share)
+    util.store_vote_helper(election_id, share)
     return {"success":True}
   
 @app.route("/getVote", methods=["POST"])
@@ -28,7 +29,7 @@ def get_vote():
     if Access.is_present(election_id):
       if Access.get_has_access(election_id):
         share = util.get_vote_helper(election_id)
-        return {"success":True, "election_id": election_id, "part_no":share.part_no, "share":share.share}
+        return {"success":True, "election_id": election_id, "share":share.share}
       else:
         return {"success":False, "message":"Access not granted"}
     else:

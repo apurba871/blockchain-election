@@ -22,7 +22,7 @@ class Access(db.Model):
 
 class Share(db.Model):
   election_id = db.Column(db.String(5),  db.ForeignKey('access.election_id'), primary_key=True, nullable=False)
-  part_no = db.Column(db.Integer, nullable=False, primary_key=True)
+  # part_no = db.Column(db.Integer, nullable=False, primary_key=True)
   share = db.Column(db.Text, nullable=False)
 
   @classmethod
