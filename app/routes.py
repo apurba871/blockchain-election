@@ -539,8 +539,8 @@ def register_voter_and_send_otp(election_id):
 def publish_results():
     """
     Description:    Shows those elections for which results need to be published
-    Endpoint:       /publish_results
-    Parameters:     None
+    Endpoint:       /publish_results/<election_id>
+    Parameters:     election_id (Type: String)
     Uses Template:  results.html
     """
     elections = Election.query.order_by(Election.create_date.desc()).all()
