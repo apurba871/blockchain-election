@@ -3,10 +3,15 @@
 {% block content %}
 
 <div class="content-section">
-    <div class="spacing"><span class="spn">Thank You for voting {{ candidate_name }} (#{{ candidate_id }})!</span></div>
+    <div class="spacing"><span class="spn">Thank You for voting <b>{{ candidate_name }}</b> <br/>(CIN: {{ candidate_cin }})!</span></div>
     <center class="top-space">
-        <a class="btn btn-outline-info" href="{{ url_for('voter', voter_id=voter_id) }}">Home</a>
+        <a class="btn btn-outline-info" href="{{ url_for('voter') }}">Home</a>
     </center>
 </div>
+<div class="border-top pt-3">
+    <center><small class="text-muted">
+      Your vote has been recorded, you can go to the Home page.
+    </small></center>
+  </div>
 
 {% endblock %}
