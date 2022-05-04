@@ -102,9 +102,16 @@ def envec_load_json(R_json):
     ]
     return pubkey_d, values_d
 
+def convert_to_paillier_obj(ciphertext, exp, pub_jwk):
+    pub_key=publickey_load_jwk(pub_jwk)
+    return paillier.EncryptedNumber(pub_key, ciphertext=base64_to_int(ciphertext), exponent=exp)
+
 def generate_key_pair(length=2048):
   pubkey, privkey = paillier.generate_paillier_keypair(n_length=length)
   return keypair_dump_jwk(pubkey, privkey)
+
+def paillier_obj_to_tuple(x):
+    return (int_to_base64(x.ciphertext()), x.exponent)
 
 def encrypt_value(pub_jwk, value):
     pub_key=publickey_load_jwk(pub_jwk)
