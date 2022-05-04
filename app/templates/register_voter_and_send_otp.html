@@ -10,7 +10,11 @@
     <div class="spacing"><span class="spn"><span class="spn-special">Your O.T.P.:</span> {{ otp }}</span></div>
 
     <center class="top-space">
-        <a class="btn btn-outline-info" href="{{ url_for('home') }}">Home</a>
+        {% if election_state == 'upcoming' %}
+            <a class="btn btn-outline-info" href="{{ url_for('home') }}">Home</a>
+        {% else %}
+            <a class="btn btn-outline-info" href="{{ url_for('cast_vote', election_id=election_id) }}">Proceed</a>
+        {% endif %}
     </center>
 </div>
 <div class="border-top pt-3">
