@@ -15,7 +15,7 @@ def checkOTPAndRedirect(user_otp, election_id):
     candidates = CandidateList.getAllCandidates(election_id)
     if user_otp == otp:
         # if valid then take him to the voting page
-        return render_template("cast_your_vote.html", candidates=candidates)
+        return render_template("cast_your_vote.html", candidates=candidates, election_id=election_id)
     else:
         # increase tries count by 1 and ask him to enter the correct token again until tries reaches max_attempts
         curr_election = Election.query.where(Election.election_id==election_id).first()
