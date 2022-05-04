@@ -25,14 +25,14 @@ def store_vote():
     util.store_vote_helper(election_id, exponent, share)
     return {"success":True}
   
-@app.route("/getVote", methods=["POST"])
-def get_vote():
+@app.route("/getVotes", methods=["POST"])
+def get_votes():
   if "election_id" in request.args:
     election_id = request.args["election_id"]
     if Access.is_present(election_id):
       if Access.get_has_access(election_id):
-        share = util.get_vote_helper(election_id)
-        return {"success":True, "election_id": election_id, "exponent":share.exponent, "share":share.share}
+        share_list, exponent = util.get_vote_helper(election_id)
+        return {"success":True, "election_id": election_id, "exponent":exponent, "shares":share_list}
       else:
         return {"success":False, "message":"Access not granted"}
     else:

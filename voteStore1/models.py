@@ -1,4 +1,5 @@
 from voteStore1 import db
+from datetime import datetime
 
 class Access(db.Model):
   election_id = db.Column(db.String(5),primary_key=True, nullable=False)
@@ -21,11 +22,13 @@ class Access(db.Model):
     return Access.query.filter_by(election_id=election_id).first()
 
 class Share(db.Model):
-  election_id = db.Column(db.String(5),  db.ForeignKey('access.election_id'), primary_key=True, nullable=False)
+  share_id = db.Column(db.Integer, primary_key=True)
+  election_id = db.Column(db.String(5),  db.ForeignKey('access.election_id'), nullable=False)
   # part_no = db.Column(db.Integer, nullable=False, primary_key=True)
   exponent = db.Column(db.Integer, nullable=False)
   share = db.Column(db.Text, nullable=False)
+  create_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
   @classmethod
   def getShares(cls, election_id):
-    return Share.query.filter_by(election_id=election_id).first()
+    return Share.query.filter_by(election_id=election_id).order_by(Share.share_id.asc()).all()
