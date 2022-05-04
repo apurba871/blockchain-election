@@ -205,9 +205,10 @@ def new_election():
     Parameters:     None
     Uses Template:  create_election.html
     """
-    num_elections = Election.query.count()
-    election_id = num_elections + 1
-    prefixed_election_id = 'E' + str(election_id) 
+    # num_elections = Election.query.count()
+    # election_id = num_elections + 1
+    # prefixed_election_id = 'E' + str(election_id) 
+    prefixed_election_id = election_util.get_new_election_id()
     form = NewElectionForm()
     if request.method == 'GET':
         flash('Please Save the Private Key before proceeding.', 'info')
@@ -584,7 +585,7 @@ def gen_candidate_list(election_id):
     if election.election_state == 'upcoming':
         if request.method == 'POST':
             for vid in request.form.getlist('id'):
-                candidate_id = CandidateList.getCandidateCount(election_id) + 1
+                candidate_id = election_util.get_new_candidate_id(election_id)
                 candidate_list_entry = CandidateList(election_id=election_id,
                                                     id=candidate_id, 
                                                     voter_id=vid)
@@ -906,9 +907,10 @@ def server_error(e):
 @login_required
 @AdminPermission()
 def create_multi_step_election():
-    num_elections = Election.query.count()
-    election_id = num_elections + 1
-    prefixed_election_id = 'E' + str(election_id) 
+    # num_elections = Election.query.count()
+    # election_id = num_elections + 1
+    # prefixed_election_id = 'E' + str(election_id) 
+    prefixed_election_id = election_util.get_new_election_id()
     form = NewElectionForm()
     print(form.start_date.data)
     if request.method == 'GET':
@@ -938,7 +940,7 @@ def create_multi_step_election():
             db.session.add(voter_list_entry)
         
         for vid in request.form.getlist('candidate-id'):
-            candidate_id = CandidateList.getCandidateCount(election_id) + 1
+            candidate_id = election_util.get_new_candidate_id(prefixed_election_id)
             candidate_list_entry = CandidateList(election_id=prefixed_election_id,
                                                 id=candidate_id, 
                                                 voter_id=vid)

@@ -114,6 +114,10 @@ class CandidateList(db.Model):
     def getCandidateCount(cls, election_id):
         return CandidateList.query.filter_by(election_id=election_id).count()
 
+    @classmethod
+    def getLastCandidateRecord(cls, election_id):
+        return CandidateList.query.filter_by(election_id=election_id).order_by(CandidateList.id.desc()).first()
+
     def to_dict(self):
         return {
             'id' : self.id,
@@ -139,6 +143,10 @@ class Election(db.Model):
     @classmethod
     def getElectionRecord(cls, election_id):
         return Election.query.where(Election.election_id == election_id).first()
+    
+    @classmethod
+    def getLastElectionRecord(cls):
+        return Election.query.order_by(Election.election_id.desc(), Election.create_date.desc()).first()
 
 
 class Casted_Vote(db.Model):
