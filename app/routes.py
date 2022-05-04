@@ -377,17 +377,20 @@ def view_election(id):
     elif not current_user.is_admin and curr_election.election_state == 'ongoing':
         # Check if the admin has generated the voter list
         is_voter_list_generated = Voter_List.query.filter_by(election_id=curr_election.election_id).first()
+        is_candidate_list_generated = CandidateList.query.filter_by(election_id=curr_election.election_id).first()
         if not is_voter_list_generated:
             # Show him the election name and start time and inform that the admin has not yet generated
             # the voter list and that he will be able to vote if the votre list has his name and he has
             # registered for voting
-            return render_template("voterlist_not_generated.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date)
+            return render_template("voterlist_not_generated.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
         else:
             # If the voter list is generated, check if the voter is in the list
             is_voter_in_voter_list = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
             # print(is_voter_in_voter_list)
             if not is_voter_in_voter_list:
                 return render_template("voter_not_in_voterlist.html", voter_id=current_user.id)
+            elif not is_candidate_list_generated:
+                return render_template("candidatelist_not_generated.html", voter_id=current_user.id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
             else:
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
