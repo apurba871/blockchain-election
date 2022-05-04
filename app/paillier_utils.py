@@ -118,11 +118,11 @@ def encrypt_value(pub_jwk, value):
     x = pub_key.encrypt(value)
     return (int_to_base64(x.ciphertext()), x.exponent)
 
-def decrypt_value(priv_jwk, pub_jwk, enc_value):
+def decrypt_value(priv_jwk, pub_jwk, enc_value, exponent):
     pub_key, priv_key = keypair_load_jwk(pub_jwk, priv_jwk)
     x = paillier.EncryptedNumber(pub_key, 
-                                ciphertext=base64_to_int(enc_value[0]), 
-                                exponent=int(enc_value[1]))
+                                ciphertext=base64_to_int(enc_value), 
+                                exponent=exponent)
     dec_value = priv_key.decrypt(x)
     return dec_value
 
@@ -130,10 +130,10 @@ if __name__ == "__main__":
     plain_text = 5
     pubkey, privkey = generate_key_pair()
     (cipher_text, exp) = encrypt_value(pubkey, plain_text)
-    decrypted_cipher_text = decrypt_value(privkey, pubkey, (cipher_text, exp))
+    # decrypted_cipher_text = decrypt_value(privkey, pubkey, (cipher_text, exp))
     print("plain_text:",plain_text)
     print("public_key:",pubkey)
     print("private_key:",privkey)
     print("cipher_text:",cipher_text)
     print("exp:",exp)
-    print("decrypted_cipher_text:",decrypted_cipher_text)
+    # print("decrypted_cipher_text:",decrypted_cipher_text)

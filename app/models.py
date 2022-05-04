@@ -214,3 +214,7 @@ class Results(db.Model):
 
     def __repr__(self):
         return f"Results('{self.election_id}', '{self.candidate_id}', '{self.total_votes}')"
+
+class EncryptedResult(db.Model):
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
+    encrypted_count = 

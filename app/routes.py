@@ -949,7 +949,7 @@ def create_multi_step_election():
                                 election_title=form.election_title.data, 
                                 start_date=form.start_date.data, 
                                 end_date=form.end_date.data, 
-                                public_key=form.public_key.data, 
+                                public_key=json.dumps(paillier.n_to_pub_jwk(form.public_key.data)),
                                 max_attempt=form.max_attempt.data, 
                                 election_state='upcoming')
         db.session.add(new_election)
