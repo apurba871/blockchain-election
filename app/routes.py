@@ -92,7 +92,8 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Voter(cin=form.cin.data, name=form.name.data, email=form.email.data, dept=form.dept.data, password=hashed_password, join_year=form.join_year.data, is_admin=False)
+        dept_code = form.dept.data[:form.dept.data.index(' ')]
+        user = Voter(cin=form.cin.data, name=form.name.data, email=form.email.data, dept=dept_code, password=hashed_password, join_year=form.join_year.data, is_admin=False)
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You are now able to log in', 'success')
@@ -872,11 +873,12 @@ def new_admin():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         # print(form.is_admin.data)
         # print(request.form)
-        user = Voter(cin=form.cin.data, name=form.name.data, email=form.email.data, dept=form.dept.data, imagefile='default.jpg', password=hashed_password, join_year=form.join_year.data, is_admin=form.is_admin.data)
+        dept_code = form.dept.data[:form.dept.data.index(' ')]
+        user = Voter(cin=form.cin.data, name=form.name.data, email=form.email.data, dept=dept_code, imagefile='default.jpg', password=hashed_password, join_year=form.join_year.data, is_admin=form.is_admin.data)
         db.session.add(user)
         db.session.commit()
-        flash('Your account has been created! You are now able to log in', 'success')
-        # return redirect(url_for('login'))
+        flash('The account has been created successfully!', 'success')
+        return redirect(url_for('admin'))
     return render_template("new_admin.html", title="Add New Admin", form=form)
 
 @app.errorhandler(404)
