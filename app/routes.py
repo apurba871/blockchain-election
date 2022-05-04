@@ -693,6 +693,12 @@ def remove_from_candidate_list(election_id):
 @app.route('/api/data/user/manage', methods=['GET', 'POST'])
 @AdminPermission()
 def user_crud():
+    """
+    Description:    Page for performing CRUD operations on user records
+    Endpoint:       /api/data/user/manage
+    Parameters:     None
+    Uses Template:  manage_users.html
+    """
     if request.method == "POST":
         print(request.form)
         if "action" in request.form:
