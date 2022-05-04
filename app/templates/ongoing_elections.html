@@ -6,7 +6,32 @@
   <ul class="list-group">
       {% for election in elections %}
           {% if election.election_state == 'ongoing' %}
-              <li class="list-group-item list-group-item-light"><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></li>
+              <!-- <li class="list-group-item list-group-item-light"><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></li> -->
+              <ul class="list-group mb-3">
+                <li class="list-group-item list-group-item-light">
+                    <div class="row">
+                        <div class="col">
+                            <span class="list-group-item-label">Title: </span>
+                        </div>
+                        <div class="col">
+                            <span><a href="{{ url_for('view_election', id=election.election_id) }}">{{ election.election_title }}</a></span>
+                        </div>
+                    </div>
+                
+                </li>
+                <li class="list-group-item list-group-item-light">
+                    <div class="row">
+                        <div class="col"><span class="list-group-item-label">Start Time: </span></div>
+                        <div class="col"><span class="font-weight-bold">{{ election.start_date.strftime('%d %B, %Y %I:%M %p') }}</span></div>
+                    </div>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                    <div class="row">
+                        <div class="col"><span class="list-group-item-label">End Time: </span></div>
+                        <div class="col"><span class="font-weight-bold">{{ election.end_date.strftime('%d %B, %Y %I:%M %p') }}</span></div>
+                    </div>
+                </li>
+            </ul>
           {% endif %}
       {% endfor %}
   </ul>
