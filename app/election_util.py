@@ -1,5 +1,7 @@
 from datetime import datetime
 import requests
+import threading
+import concurrent.futures
 
 def update_election_state():
     from app import db
@@ -194,14 +196,25 @@ def count_and_return_encrypted_total(votes, exp, election_id):
 
 # This will be called for starting the counting process
 def start_counting_process(election_id):
+    from app.models import RunningCountTasks
+    from app import db
     item1, item2 = get_all_combined_votes(election_id)
+    running_task = RunningCountTasks.getRow(election_id)
     if item1 == "most_offline":
+        running_task.error_encountered = True
+        running_task.message = f"{item2} server(s) are offline. Need a minimum of 2 servers to fetch data from."
+        db.session.commit()
         return f"{item2} server(s) are offline. Need a minimum of 2 servers to fetch data from.", False
     elif item1 == "access_denied":
+        running_task.error_encountered = True
+        running_task.message = f"{item2} server(s) are access restricted. Need a minimum of 2 servers to fetch data from."
+        db.session.commit()
         return f"{item2} server(s) are access restricted. Need a minimum of 2 servers to fetch data from.", False
     else:
         votes, exponent = item1, item2
         count_and_return_encrypted_total(votes, exponent, election_id)
+        db.session.delete(running_task)
+        db.session.commit()
         return "Counting process is over", True
 
 
@@ -237,6 +250,35 @@ def save_results_in_db(election_id, private_key):
     election_obj.results_published = True
     election_record.election_state = 'past'
     db.session.commit()
+
+def start_counting_process_wrapper(election_id: int):
+    from app.models import RunningCountTasks
+    thread_name = "Thread_Election_" + election_id
+    # Check if a thread is already running for this user
+    thread_exists = False
+    for thread in threading.enumerate():
+        if thread.getName() == thread_name:
+            print("Thread already exists! " + thread_name)
+            thread_exists = True
+            break
+    if not thread_exists:
+        x = threading.Thread(name=thread_name ,target=start_counting_process, args=(election_id))
+        x.start()
+        return "The counting process has started"
+    return "Please wait, for the counting process to finish"
+
+def get_count_status(election_id):
+    from app.models import RunningCountTasks, EncryptedResult
+    from app import db
+    enc_result = EncryptedResult.getRow(election_id)
+    count_task = RunningCountTasks.getRow(election_id)
+    if enc_result:
+        return "counting_finished"
+    elif count_task:
+        return "task_running"
+    else:
+        return "not_running"
+
 
 if __name__ == "__main__":
     import json

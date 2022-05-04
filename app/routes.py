@@ -331,6 +331,7 @@ def view_election(id):
             return redirect(url_for('home'))
         elif form.start_counting.data:
             # TODO: Write code for starting the counting process
+            message = election_util.start_counting_process_wrapper(curr_election.election_id)
             return "Start Counting"
         # Disable all the form fields
         for field in form:
