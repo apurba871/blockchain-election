@@ -327,12 +327,23 @@ def view_election(id):
     elif current_user.is_admin and curr_election.election_state == 'over':
         # Display the form with existing data
         form = NewElectionForm(obj=curr_election)
-        if form.home.data:
-            return redirect(url_for('home'))
-        elif form.start_counting.data:
-            # TODO: Write code for starting the counting process
-            message = election_util.start_counting_process_wrapper(curr_election.election_id)
-            return "Start Counting"
+        count_status = election_util.get_count_status(curr_election.election_id)
+        if count_status == "not_running":
+            if form.home.data:
+                return redirect(url_for('home'))
+            elif form.start_counting.data:
+                # TODO: Write code for starting the counting process
+                message = election_util.start_counting_process_wrapper(curr_election.election_id)
+                return render_template("message_printer", message=message)
+        elif count_status == "counting_finished":
+            for field in form:
+                field.render_kw = {"readonly": True}
+            flash('Counting phase has finished. Please publish the results.', 'warning')
+            return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+        elif count_status == "task_running":
+            return render_template("message_printer", message="Counting is going on. Please come back later") 
+        else:
+            return render_template("message_printer", message=count_status, danger=True) 
         # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}
@@ -348,7 +359,7 @@ def view_election(id):
         elif form.publish_results.data:
             # TODO: Write code for publishing the results by accepting the PRIVATE KEY as input in a form
             # and write the logic to decrypt the count 
-            return "Publishing results"
+            return "Redirect to the page for accepting file as input"
         # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}

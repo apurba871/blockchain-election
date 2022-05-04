@@ -222,13 +222,14 @@ class EncryptedResult(db.Model):
 
     @classmethod
     def getRow(cls, election_id):
-        return EncryptedResult.query.find_by(election_id=election_id).first()
+        return EncryptedResult.query.filter_by(election_id=election_id).first()
 
 class RunningCountTasks(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
     error_encountered = db.Column(db.Boolean, default=False, nullable=False)
     message = db.Column(db.Text)
+    is_complete = db.Column(db.Boolean, default=False, nullable=False)
 
     @classmethod
     def getRow(cls, election_id):
-        return RunningCountTasks.query.find_by(election_id=election_id).first()
+        return RunningCountTasks.query.filter_by(election_id=election_id).first()

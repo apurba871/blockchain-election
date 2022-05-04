@@ -213,6 +213,7 @@ def start_counting_process(election_id):
     else:
         votes, exponent = item1, item2
         count_and_return_encrypted_total(votes, exponent, election_id)
+        running_task.is_complete = True
         db.session.delete(running_task)
         db.session.commit()
         return "Counting process is over", True
@@ -262,7 +263,7 @@ def start_counting_process_wrapper(election_id: int):
             thread_exists = True
             break
     if not thread_exists:
-        x = threading.Thread(name=thread_name ,target=start_counting_process, args=(election_id))
+        x = threading.Thread(name=thread_name ,target=start_counting_process, args=(election_id,))
         x.start()
         return "The counting process has started"
     return "Please wait, for the counting process to finish"
@@ -274,8 +275,10 @@ def get_count_status(election_id):
     count_task = RunningCountTasks.getRow(election_id)
     if enc_result:
         return "counting_finished"
-    elif count_task:
+    elif not count_task.error_encountered:
         return "task_running"
+    elif count_task.error_encountered:
+        return count_task.message
     else:
         return "not_running"
 
