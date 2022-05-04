@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <!-- <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    /> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap4.min.css" >
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.4/css/select.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.bootstrap4.min.css') }}">
+    <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <style>
+      @charset "UTF-8";
+      /* Targets the rows which have been selected and applied background color */
+      table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
+          background-color: #5aaaff;
+      }
+      /*font Variables*/
+      /*Color Variables*/
+      /* @import url("https://fonts.googleapis.com/css?family=Roboto:300i,400,400i,500,700,900"); */
+      .multi_step_form {
+        background: #f6f9fb;
+        display: block;
+        overflow: hidden;
+        /* max-width: 800px; */
+      }
+      .multi_step_form #msform {
+        text-align: center;
+        position: relative;
+        padding-top: 50px;
+        min-height: 820px;
+        /* max-width: 1700px; */
+        margin: 0 auto;
+        background: #ffffff;
+        z-index: 1;
+      }
+      .multi_step_form #msform .tittle {
+        text-align: center;
+        padding-bottom: 55px;
+      }
+      .multi_step_form #msform .tittle h2 {
+        font: 500 24px/35px "Roboto", sans-serif;
+        color: #3f4553;
+        padding-bottom: 5px;
+      }
+      .multi_step_form #msform .tittle p {
+        font: 400 16px/28px "Roboto", sans-serif;
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset {
+        border: 0;
+        padding: 20px 105px 0;
+        position: relative;
+        /* width: 100%; */
+        left: 0;
+        right: 0;
+      }
+      .multi_step_form #msform fieldset:not(:first-of-type) {
+        display: none;
+      }
+      .multi_step_form #msform fieldset h3 {
+        font: 500 18px/35px "Roboto", sans-serif;
+        color: #3f4553;
+      }
+      .multi_step_form #msform fieldset h6 {
+        font: 400 15px/28px "Roboto", sans-serif;
+        color: #5f6771;
+        padding-bottom: 30px;
+      }
+      .multi_step_form #msform fieldset .intl-tel-input {
+        display: block;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        outline: none;
+      }
+      .multi_step_form #msform fieldset .intl-tel-input .flag-container .selected-flag {
+        padding: 0 20px;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+        outline: none;
+        width: 65px;
+      }
+      .multi_step_form #msform fieldset .intl-tel-input .flag-container .selected-flag .iti-arrow {
+        border: 0;
+      }
+      .multi_step_form #msform fieldset .intl-tel-input .flag-container .selected-flag .iti-arrow:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        font: normal normal normal 24px/7px Ionicons;
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset #phone {
+        padding-left: 80px;
+      }
+      .multi_step_form #msform fieldset .form-group {
+        padding: 0 10px;
+      }
+      .multi_step_form #msform fieldset .fg_2, .multi_step_form #msform fieldset .fg_3 {
+        padding-top: 10px;
+        display: block;
+        overflow: hidden;
+      }
+      .multi_step_form #msform fieldset .fg_3 {
+        padding-bottom: 70px;
+      }
+      .multi_step_form #msform fieldset .form-control, .multi_step_form #msform fieldset .product_select {
+        border-radius: 3px;
+        border: 1px solid #d8e1e7;
+        padding: 0 20px;
+        height: auto;
+        font: 400 21px/48px "Roboto", sans-serif;
+        color: #5f6771;
+        box-shadow: none;
+        outline: none;
+        width: 100%;
+      }
+      .multi_step_form #msform fieldset .form-control.placeholder, .multi_step_form #msform fieldset .product_select.placeholder {
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .form-control:-moz-placeholder, .multi_step_form #msform fieldset .product_select:-moz-placeholder {
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .form-control::-moz-placeholder, .multi_step_form #msform fieldset .product_select::-moz-placeholder {
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .form-control::-webkit-input-placeholder, .multi_step_form #msform fieldset .product_select::-webkit-input-placeholder {
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .form-control:hover, .multi_step_form #msform fieldset .form-control:focus, .multi_step_form #msform fieldset .product_select:hover, .multi_step_form #msform fieldset .product_select:focus {
+        border-color: #5cb85c;
+      }
+      .multi_step_form #msform fieldset .form-control:focus.placeholder, .multi_step_form #msform fieldset .product_select:focus.placeholder {
+        color: transparent;
+      }
+      .multi_step_form #msform fieldset .form-control:focus:-moz-placeholder, .multi_step_form #msform fieldset .product_select:focus:-moz-placeholder {
+        color: transparent;
+      }
+      .multi_step_form #msform fieldset .form-control:focus::-moz-placeholder, .multi_step_form #msform fieldset .product_select:focus::-moz-placeholder {
+        color: transparent;
+      }
+      .multi_step_form #msform fieldset .form-control:focus::-webkit-input-placeholder, .multi_step_form #msform fieldset .product_select:focus::-webkit-input-placeholder {
+        color: transparent;
+      }
+      .multi_step_form #msform fieldset .product_select:after {
+        display: none;
+      }
+      .multi_step_form #msform fieldset .product_select:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 20px;
+        font: normal normal normal 24px/48px Ionicons;
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .product_select .list {
+        width: 100%;
+      }
+      .multi_step_form #msform fieldset .done_text {
+        padding-top: 40px;
+      }
+      .multi_step_form #msform fieldset .done_text .don_icon {
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        font-size: 22px;
+        margin-bottom: 10px;
+        background: #5cb85c;
+        display: inline-block;
+        border-radius: 50%;
+        color: #ffffff;
+        text-align: center;
+      }
+      .multi_step_form #msform fieldset .done_text h6 {
+        line-height: 23px;
+      }
+      .multi_step_form #msform fieldset .code_group {
+        margin-bottom: 60px;
+      }
+      .multi_step_form #msform fieldset .code_group .form-control {
+        border: 0;
+        border-bottom: 1px solid #a1a7ac;
+        border-radius: 0;
+        display: inline-block;
+        width: 30px;
+        font-size: 30px;
+        color: #5f6771;
+        padding: 0;
+        margin-right: 7px;
+        text-align: center;
+        line-height: 1;
+      }
+      .multi_step_form #msform fieldset .passport {
+        margin-top: -10px;
+        padding-bottom: 30px;
+        position: relative;
+      }
+      .multi_step_form #msform fieldset .passport .don_icon {
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        font-size: 22px;
+        position: absolute;
+        top: 4px;
+        right: 0;
+        background: #5cb85c;
+        display: inline-block;
+        border-radius: 50%;
+        color: #ffffff;
+        text-align: center;
+      }
+      .multi_step_form #msform fieldset .passport h4 {
+        font: 500 15px/23px "Roboto", sans-serif;
+        color: #5f6771;
+        padding: 0;
+      }
+      /* .multi_step_form #msform fieldset .input-group {
+        padding-bottom: 40px;
+      } */
+      .multi_step_form #msform fieldset .input-group .custom-file {
+        width: 100%;
+        height: auto;
+      }
+      .multi_step_form #msform fieldset .input-group .custom-file .custom-file-label {
+        width: 168px;
+        border-radius: 5px;
+        cursor: pointer;
+        font: 700 14px/40px "Roboto", sans-serif;
+        border: 1px solid #99a2a8;
+        text-align: center;
+        transition: all 300ms linear 0s;
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .input-group .custom-file .custom-file-label i {
+        font-size: 20px;
+        padding-right: 10px;
+      }
+      .multi_step_form #msform fieldset .input-group .custom-file .custom-file-label:hover, .multi_step_form #msform fieldset .input-group .custom-file .custom-file-label:focus {
+        background: #5cb85c;
+        border-color: #5cb85c;
+        color: #fff;
+      }
+      .multi_step_form #msform fieldset .input-group .custom-file input {
+        display: none;
+      }
+      .multi_step_form #msform fieldset .file_added {
+        text-align: left;
+        padding-left: 190px;
+        padding-bottom: 60px;
+      }
+      .multi_step_form #msform fieldset .file_added li {
+        font: 400 15px/28px "Roboto", sans-serif;
+        color: #5f6771;
+      }
+      .multi_step_form #msform fieldset .file_added li a {
+        color: #5cb85c;
+        font-weight: 500;
+        display: inline-block;
+        position: relative;
+        padding-left: 15px;
+      }
+      .multi_step_form #msform fieldset .file_added li a i {
+        font-size: 22px;
+        padding-right: 8px;
+        position: absolute;
+        left: 0;
+        transform: rotate(20deg);
+      }
+      .multi_step_form #msform #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+      .multi_step_form #msform #progressbar li {
+        list-style-type: none;
+        color: #99a2a8;
+        font-size: 9px;
+        width: calc(100%/3);
+        float: left;
+        position: relative;
+        font: 500 13px/1 "Roboto", sans-serif;
+      }
+      .multi_step_form #msform #progressbar li:nth-child(2):before {
+        content: "\f381";
+      }
+      .multi_step_form #msform #progressbar li:nth-child(3):before {
+        content: "\f2d9";
+      }
+      .multi_step_form #msform #progressbar li:before {
+        content: "\f37e";
+        font: normal normal normal 30px/50px Ionicons;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        display: block;
+        background: #eaf0f4;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+      }
+      .multi_step_form #msform #progressbar li:after {
+        content: "";
+        width: 100%;
+        height: 10px;
+        background: #eaf0f4;
+        position: absolute;
+        left: -50%;
+        top: 21px;
+        z-index: -1;
+      }
+      .multi_step_form #msform #progressbar li:last-child:after {
+        width: 150%;
+      }
+      .multi_step_form #msform #progressbar li.active {
+        color: #5cb85c;
+      }
+      .multi_step_form #msform #progressbar li.active:before, .multi_step_form #msform #progressbar li.active:after {
+        background: #5cb85c;
+        color: white;
+      }
+      .multi_step_form #msform .action-button {
+        background: #5cb85c;
+        color: white;
+        border: 0 none;
+        border-radius: 5px;
+        cursor: pointer;
+        min-width: 130px;
+        font: 700 14px/40px "Roboto", sans-serif;
+        border: 1px solid #5cb85c;
+        margin: 0 5px;
+        text-transform: uppercase;
+        display: inline-block;
+      }
+      .multi_step_form #msform .action-button:hover, .multi_step_form #msform .action-button:focus {
+        background: #405867;
+        border-color: #405867;
+      }
+      .multi_step_form #msform .previous_button {
+        background: transparent;
+        color: #99a2a8;
+        border-color: #99a2a8;
+      }
+      .multi_step_form #msform .previous_button:hover, .multi_step_form #msform .previous_button:focus {
+        background: #405867;
+        border-color: #405867;
+        color: #fff;
+      }
+
+      #add-voters_length {
+          padding-left: 0px;
+          width: 187px;
+      }
+
+      #add-voters_filter {
+          width: 359px;
+      }
+
+      #add-candidates_length {
+        padding-left: 0px;
+        width: 187px;
+      }
+
+      #add-candidates_filter {
+          width: 359px;
+      }
+
+      /* #add-voters {
+        margin-right: 0px;
+        width: 955px;
+        position: relative;
+        left: -30px;
+      } */
+    </style>
+    {% if title %}
+    <title>BlockchainElection - {{ title }}</title>
+    {% else %}
+    <title>BlockchainElection</title>
+    {% endif %}
+  </head>
+  <body>
+    {% include "navbar.html" %}
+
+    <main role="main" class="container">
+        <div class="row h-100 justify-content-center">
+          <div class="col-md-12">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+            {% block content %}
+            {% endblock %}
+          </div>
+          {% block sidebar %}
+          {% endblock sidebar %}
+        </div>
+      </main>
+  
+      <!-- Optional JavaScript; choose one of the two! -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+      <script src="{{ url_for('static', filename='js/jquery.easing.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/intlTelInput.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+      <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+      <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
+      <script src="https://cdn.datatables.net/select/1.3.4/js/dataTables.select.min.js"></script>
+      <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+      <script src="{{ url_for('static', filename='js/dataTables.buttons.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/buttons.bootstrap4.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/dataTables.editor.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/editor.bootstrap4.js') }}"></script>
+      <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+      {% block scripts %}{% endblock scripts %}
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <!-- <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"
+      ></script> -->
+  
+      <!-- Option 2: Separate Popper and Bootstrap JS -->
+      <!--
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+      -->
+    </body>
+  </html>
+      
