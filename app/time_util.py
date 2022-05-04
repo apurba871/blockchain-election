@@ -12,6 +12,6 @@ def hour_rounder(t):
             +delta)
 
 if __name__ == "__main__":
-    now = datetime(2022,4,17,23,55)
+    now = datetime(2022,5,4,11,9)
     print(hour_rounder(now))
     print(hour_rounder(datetime.now()))

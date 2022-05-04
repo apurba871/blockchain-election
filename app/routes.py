@@ -219,7 +219,7 @@ def new_election():
         form.private_key_q.data = privkey_json["q"]
         return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
     # Validate the form on submit and check if submit button was clicked
-    elif request.method == 'POST' and form.validate_on_submit() and form.submit.data:  
+    elif form.validate_on_submit() and form.submit.data:  
         new_election = Election(election_id=prefixed_election_id, 
                                 election_title=form.election_title.data, 
                                 start_date=form.start_date.data, 
@@ -234,7 +234,15 @@ def new_election():
         # After the election has been created, the admin is redirected to the generate_voter_list
         # route
         return redirect(url_for('gen_voter_list', election_id=prefixed_election_id))
-    return "Bad request", 400
+    pubkey, privkey = paillier.generate_key_pair()
+    pubkey_json = json.loads(pubkey)
+    privkey_json = json.loads(privkey)
+    form.public_key.data = pubkey_json["n"]
+    form.private_key_p.data = privkey_json["p"]
+    form.private_key_q.data = privkey_json["q"]
+    flash('New key-pair generated. Please re-download PRIVATE key!', 'warning')
+    return render_template("create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
+
 @app.route("/election/<id>/view", methods=['GET', 'POST'])
 @login_required
 def view_election(id):
@@ -893,3 +901,54 @@ def server_error(e):
     return render_template("500.html"), 500
 
 # TODO: Add a template for handling 403 Forbidden Access
+
+@app.route('/create-election/multi', methods=["GET", "POST"])
+@login_required
+@AdminPermission()
+def create_multi_step_election():
+    num_elections = Election.query.count()
+    election_id = num_elections + 1
+    prefixed_election_id = 'E' + str(election_id) 
+    form = NewElectionForm()
+    print(form.start_date.data)
+    if request.method == 'GET':
+        # flash('Please Save the Private Key before proceeding.', 'info')
+        pubkey, privkey = paillier.generate_key_pair()
+        pubkey_json = json.loads(pubkey)
+        privkey_json = json.loads(privkey)
+        form.public_key.data = pubkey_json["n"]
+        form.private_key_p.data = privkey_json["p"]
+        form.private_key_q.data = privkey_json["q"]
+        return render_template("multi_create_election.html", title="New Election", form=form, private_key=privkey, election_id=prefixed_election_id)
+    # Validate the form on submit and check if submit button was clicked
+    elif request.method == 'POST' and form.validate_on_submit() and form.submit.data:  
+        new_election = Election(election_id=prefixed_election_id, 
+                                election_title=form.election_title.data, 
+                                start_date=form.start_date.data, 
+                                end_date=form.end_date.data, 
+                                public_key=form.public_key.data, 
+                                max_attempt=form.max_attempt.data, 
+                                election_state='upcoming')
+        db.session.add(new_election)
+        db.session.commit()
+
+        for vid in request.form.getlist('voter-id'):
+            voter_list_entry = Voter_List(election_id=prefixed_election_id, 
+                                        id=vid)
+            db.session.add(voter_list_entry)
+        
+        for vid in request.form.getlist('candidate-id'):
+            candidate_id = CandidateList.getCandidateCount(election_id) + 1
+            candidate_list_entry = CandidateList(election_id=prefixed_election_id,
+                                                id=candidate_id, 
+                                                voter_id=vid)
+            db.session.add(candidate_list_entry)
+
+        db.session.commit()        
+        # print(new_election)
+        flash('Election Created Successfully!', 'success')
+        # After the election has been created, the admin is redirected to the generate_voter_list
+        # route
+        return redirect(url_for('home'))
+    return "Bad request", 400
+    
