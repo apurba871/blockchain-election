@@ -359,7 +359,7 @@ def view_election(id):
         elif form.publish_results.data:
             # TODO: Write code for publishing the results by accepting the PRIVATE KEY as input in a form
             # and write the logic to decrypt the count 
-            return "Redirect to the page for accepting file as input"
+            return redirect(url_for("generate_result", election_id=curr_election.election_id))
         # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}
@@ -559,7 +559,7 @@ def publish_results():
     Parameters:     election_id (Type: String)
     Uses Template:  results.html
     """
-    elections = Election.query.order_by(Election.create_date.desc()).all()
+    elections = Election.getElectionRecordsPendingResults()
     return render_template("results.html", elections=elections)
 
 @app.route("/election/<election_id>/generate/voter_list", methods=['GET', 'POST'])
@@ -922,7 +922,7 @@ def bad_request(e):
     Parameters:     None
     Uses Template:  400.html
     """
-    return render_template("400.html"), 400
+    return "Error Code 400", 400
 
 @app.errorhandler(500)
 def server_error(e):
@@ -932,7 +932,7 @@ def server_error(e):
     Parameters:     None
     Uses Template:  500.html
     """
-    return render_template("500.html"), 500
+    return "Error Code 500", 500
 
 # TODO: Add a template for handling 403 Forbidden Access
 
@@ -986,6 +986,29 @@ def create_multi_step_election():
         # route
         return redirect(url_for('admin'))
     return "Bad request", 400
+
+@app.route('/generateResult/<election_id>', methods=["GET", "POST"])
+@login_required
+@AdminPermission()
+def generate_result(election_id):
+    election_record = Election.getElectionRecord(election_id);
+    if request.method == "GET":
+        return render_template("submit_private_key.html", election_id=election_id, election_title=election_record.election_title)
+    elif request.method == "POST":
+        if request.files['file'].filename == '':
+            flash('Please upload the PRIVATE KEY', 'danger')
+            return render_template("submit_private_key.html", election_id=election_id, election_title=election_record.election_title)
+        else:
+            file = request.files['file']  
+            file.seek(0)      
+            private_key = file.read()
+            election_util.save_results_in_db(election_id, private_key)
+            return 'redirect to the summary page'
+
+@app.route('/generateResult/<election_id>', methods=["GET"])
+@login_required
+def show_summary(election_id):
+    pass
 
 # Ensure responses aren't cached
 @app.after_request

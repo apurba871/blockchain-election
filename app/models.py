@@ -149,6 +149,10 @@ class Election(db.Model):
     def getLastElectionRecord(cls):
         return Election.query.order_by(Election.election_id.desc(), Election.create_date.desc()).first()
 
+    @classmethod
+    def getElectionRecordsPendingResults(cls):
+        return Election.query.filter_by(election_state='counting_finished').order_by(Election.create_date.desc()).all()
+
 
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)

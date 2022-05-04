@@ -1,0 +1,44 @@
+{% extends 'home_base.html' %} 
+
+{% block content %}
+
+<div class="content-section">
+    <form id="fileUploadForm" action="/generateResult/{{ election_id }}" method="POST" enctype="multipart/form-data">
+        <legend class="border-bottom mb-4">Authenticate</legend>
+        <div class="spacing"><span class="spn"><span class="spn-special">Election ID:</span> {{ election_id }}</span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special">Election Title:</span> {{ election_title }}</span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special"></span></span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special"></span></span></div>
+        <div class="spacing"><span class="spn"><span class="spn-special">Please upload your PRIVATE KEY</span> 
+        <input type="file" name="file" class="form-control-file" id="exampleFormControlFile1">
+        <input id="json-input" type="hidden" name="json-content"value="">
+        </span></div>
+
+        <center class="top-space">
+            {% raw %}
+            <!-- <a class="btn btn-outline-info" href="{{ url_for('cast_vote') }}">Submit</a> -->
+            {% endraw %}
+            <input id="submitButton" class="btn btn-primary" type="submit" value="Submit">
+        </center>
+    </form>
+</div>
+<div class="border-top pt-3">
+    <center><small class="text-muted">
+      Please upload the correct PRIVATE KEY pertaining to this election.
+    </small></center>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+$(document).ready(function () {
+  $("#fileUploadForm").on('submit', function(e){
+    if($('exampleFormControlFile1')[0].files.length === 0){
+      e.preventDefault();
+      alert("Please select a file")
+    }
+  });
+});
+</script>
+{% endblock scripts %}
