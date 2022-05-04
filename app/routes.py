@@ -949,6 +949,6 @@ def create_multi_step_election():
         flash('Election Created Successfully!', 'success')
         # After the election has been created, the admin is redirected to the generate_voter_list
         # route
-        return redirect(url_for('home'))
+        return redirect(url_for('admin'))
     return "Bad request", 400
     
