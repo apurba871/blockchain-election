@@ -1,0 +1,614 @@
+{% extends "base_multi_step_form.html" %}
+{% block content %}
+
+    <!-- Multi step form --> 
+    <section class="multi_step_form pb-2">  
+      <form id="msform" action="" method="POST"> 
+        {{ form.hidden_tag() }}
+        <!-- Tittle -->
+        <div class="tittle">
+          <h2>Election Creation Process</h2>
+          <p>In order to create an election, you have to complete the below process</p>
+        </div>
+        <!-- progressbar -->
+        <ul id="progressbar">
+          <li class="active">Create New Election</li>  
+          <li>Generate Voter List</li> 
+          <li>Generate Candidate List</li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset id="create-new-election" class="mb-4 pb-4">
+          <h5>Create New Election</h3>
+          <h4>Please save the PRIVATE KEY before proceeding.</h6> 
+          <div>
+          <div class="form-group"> 
+              {{ form.election_title.label(class="form-control-label") }} 
+              {% if form.election_title.errors%} 
+                {{ form.election_title(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.election_title.errors %}
+                  <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% else %} 
+                {{ form.election_title(class="form-control form-control-lg") }} 
+                <div class="invalid-feedback">
+                  <span id="electionTitleError"></span>
+                </div>
+              {% endif %}
+            </div>  
+          <div class="form-group">
+            {{ form.start_date.label(class="form-control-label") }} 
+            {% if form.start_date.errors %} 
+              {{ form.start_date(class="datetime form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.start_date.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %} 
+            {{ form.start_date(class="datetime form-control form-control-lg") }} 
+            <div class="invalid-feedback">
+              <span id="startDateError"></span>
+            </div>
+            {% endif %}
+          </div>
+  
+          <div class="form-group">
+            {{ form.end_date.label(class="form-control-label") }} 
+            {% if form.end_date.errors %} 
+              {{ form.end_date(class="datetime form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.end_date.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %} 
+              {{ form.end_date(class="datetime form-control form-control-lg") }} 
+              <div class="invalid-feedback">
+                <span id="endDateError"></span>
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.public_key.label(class="form-control-label") }} 
+            {% if form.public_key.errors %} 
+              {{ form.public_key(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.public_key.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %}
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">N</span>
+                </div>
+                {{ form.public_key(class="form-control form-control-lg form-control") }} 
+              </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.private_key_p.label(class="form-control-label") }} 
+            {% if form.private_key_p.errors %} 
+              {{ form.private_key_p(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.private_key_p.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %} 
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">P</span>
+              </div>
+              {{ form.private_key_p(class="form-control form-control-lg") }} 
+            </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {% if form.private_key_q.errors %} 
+              {{ form.private_key_q(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.private_key_q.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %} 
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Q</span>
+              </div>
+              {{ form.private_key_q(class="form-control form-control-lg") }} 
+            </div>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            {{ form.max_attempt.label(class="form-control-label") }} 
+            {% if form.max_attempt.errors %} 
+              {{ form.max_attempt(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.max_attempt.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+              </div>
+            {% else %} 
+              {{ form.max_attempt(class="form-control form-control-lg") }} 
+              {% endif %}
+          </div>
+        </div>
+          <div class="form-group">
+            <a class="btn btn-outline-success" href="data:text/json;charset=utf-8,{{ private_key }}" download="PRIVATE_KEY_{{ election_id }}.json">
+              Download PRIVATE KEY
+            </a>
+          </div>
+          <!-- <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info btn-block") }}
+          </div> -->
+          <button id="step-1" type="button" class="next action-button">Continue</button>  
+        </fieldset>
+        <fieldset>
+          <h5>Generate Voter List</h3>
+          <h4>Please select atleast 1 student to add to the voter list.</h6>
+          <div class="form-group w-100">
+            <table id="add-voters" class="table table-striped" style="margin-right:0px; width:100%">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>CIN</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Joining Year</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>CIN</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Joining Year</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <button type="button" class="action-button previous previous_button">Back</button>
+          <button id="step-2" type="button" class="next action-button">Continue</button>  
+        </fieldset>  
+        <fieldset>
+          <h5>Generate Candidate List</h3>
+          <h4>Please select atleast 1 candidate to add to the candidate list.</h6>
+          <div class="form-group w-100">
+            <table id="add-candidates" class="table table-striped" style="margin-right:0px; width:100%">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>CIN</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Joining Year</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>CIN</th>
+                  <th>Name</th>
+                  <th>Department</th>
+                  <th>Joining Year</th>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+          <button type="button" class="action-button previous previous_button">Back</button>
+          <input type="submit" id="submit" name="submit" value="Finish" class="action-button"> 
+          <!-- <a href="#" class="action-button">Finish</a>  -->
+        </fieldset>  
+      </form>  
+    </section> 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"><span class="text-danger">Error</span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Please select atleast 1 student row to continue.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Multi step form -->   
+{% endblock content %}
+
+{% block scripts %}
+<script>
+var addVotersTable;
+var addCandidatesTable;
+(function($) {
+    "use strict";  
+    var yourDate = new Date()
+    var offset = yourDate.getTimezoneOffset()
+    yourDate = new Date(yourDate.getTime() - (offset*60*1000))
+    var today = yourDate.toISOString().slice(0, 16);
+    document.getElementsByName("start_date")[0].min = today;
+    document.getElementsByName("end_date")[0].min = today;
+    //* Form js
+    function verificationForm(){
+        //jQuery time
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var left, opacity, scale; //fieldset properties which we will animate
+        var animating; //flag to prevent quick multi-click glitches
+
+        $(".next").click(function () {
+            if($(this).attr("id") === "step-1"){
+              console.log("Step-1 Continue button clicked")
+              if(!validateFieldsOfStep1()){ 
+                return false; 
+              }
+            }
+            else if($(this).attr("id") === "step-2") {
+              console.log("Step-2 Continue button clicked")
+              if(!validateFieldsOfStep2()){ 
+                return false; 
+              }
+            }
+
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            next_fs = $(this).parent().next();
+
+            //activate next step on progressbar using the index of next_fs
+            $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+            //show the next fieldset
+            next_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({
+                opacity: 0
+            }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale current_fs down to 80%
+                    scale = 1 - (1 - now) * 0.2;
+                    //2. bring next_fs from the right(50%)
+                    left = (now * 50) + "%";
+                    //3. increase opacity of next_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'position': 'absolute'
+                    });
+                    next_fs.css({
+                        'left': left,
+                        'opacity': opacity
+                    });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".previous").click(function () {
+            if (animating) return false;
+            animating = true;
+
+            current_fs = $(this).parent();
+            previous_fs = $(this).parent().prev();
+
+            //de-activate current step on progressbar
+            $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+            //show the previous fieldset
+            previous_fs.show();
+            //hide the current fieldset with style
+            current_fs.animate({
+                opacity: 0
+            }, {
+                step: function (now, mx) {
+                    //as the opacity of current_fs reduces to 0 - stored in "now"
+                    //1. scale previous_fs from 80% to 100%
+                    scale = 0.8 + (1 - now) * 0.2;
+                    //2. take current_fs to the right(50%) - from 0%
+                    left = ((1 - now) * 50) + "%";
+                    //3. increase opacity of previous_fs to 1 as it moves in
+                    opacity = 1 - now;
+                    current_fs.css({
+                        'left': left
+                    });
+                    previous_fs.css({
+                        'transform': 'scale(' + scale + ')',
+                        'opacity': opacity
+                    });
+                },
+                duration: 800,
+                complete: function () {
+                    current_fs.hide();
+                    animating = false;
+                    previous_fs.removeAttr("style");
+                    previous_fs.attr("style", "display:block;");
+                },
+                //this comes from the custom easing plugin
+                easing: 'easeInOutBack'
+            });
+        });
+
+        $(".submit").click(function () {
+            return false;
+        })
+    }; 
+    
+    function validateFieldsOfStep1(){
+      console.log("Starting validation")
+      if($("#election_title").val() === ""){
+        console.log('$("#election_title").val() === ""')
+        $("#electionTitleError").html("Please fill out this field.");
+        $("#electionTitleError").parent().addClass("d-block");
+        return false;
+      }
+      else {
+        console.log('$("#election_title").val() === "" else')
+        $("#electionTitleError").parent().removeClass("d-block");
+      }
+      if($("#start_date").val() === ""){
+        console.log('$("#start_date").val() === ""')
+        $("#startDateError").html("Please fill out this field.");
+        $("#startDateError").parent().addClass("d-block");
+        return false;
+      }
+      else {
+        console.log('$("#start_date").val() === "" else')
+        $("#startDateError").parent().removeClass("d-block");
+      }
+      if($("#end_date").val() === ""){
+        console.log('$("#end_date").val() === ""')
+        $("#endDateError").html("Please fill out this field.");
+        $("#endDateError").parent().addClass("d-block");
+        return false;
+      }
+      else {
+        console.log('$("#end_date").val() === "" else')
+        $("#endDateError").parent().removeClass("d-block");
+      }
+      var start_date = new Date($('input[name="start_date"]').val());
+      var end_date = new Date($('input[name="end_date"]').val());
+      if(start_date.getTime() >= end_date.getTime()){
+        console.log("start_date.getTime()" + start_date.getTime())
+        console.log("end_date.getTime()" + end_date.getTime())
+        console.log('start_date.getTime() >= end_date.getTime()')
+        $("#startDateError").parent().removeClass("d-block");
+        $("#startDateError").html("Start date/time cannot be greater than End date/time!");
+        $("#startDateError").parent().addClass("d-block");
+        return false;
+      } else if(start_date.getTime() <= new Date().getTime()){
+        console.log('start_date.getTime() <= end_date.getTime()')
+        $("#startDateError").parent().removeClass("d-block");
+        $("#startDateError").html("New elections can only be set for future.");
+        $("#startDateError").parent().addClass("d-block");
+        return false;
+      } else {
+        console.log('start_date.getTime() >= end_date.getTime() else')
+        $("#startDateError").parent().removeClass("d-block");
+      }
+
+      if(end_date.getTime() <= start_date.getTime()){
+        console.log('end_date.getTime() <= start_date.getTime()')
+        $("#endDateError").html("End date/time must be greater than Current date/time!");
+        $("#endDateError").parent().addClass("d-block");
+        return false;
+      } else {
+        console.log('end_date.getTime() <= start_date.getTime() else')
+        $("#endDateError").parent().removeClass("d-block");
+      }
+      return true;
+    }
+    
+    function validateFieldsOfStep2(){
+      var rowSelection = addVotersTable.column(0).checkboxes.selected();
+      console.log("rowSelection.length " + rowSelection.length);
+      if(rowSelection.length === 0){
+        $('#exampleModal').modal('show');
+        return false;
+      }
+      return true;
+    }
+
+    function validateFieldsOfStep3(){
+      var rowSelection = addCandidatesTable.column(0).checkboxes.selected();
+      console.log("rowSelection.length " + rowSelection.length);
+      if(rowSelection.length === 0){
+        $('#exampleModal').modal('show');
+        return false;
+      }
+      return true;
+    }
+
+    $("#msform").on('submit', function(e){
+        if(!validateFieldsOfStep3()){
+          e.preventDefault();
+        }
+    });
+    //* Add Phone no select
+    // function phoneNoselect(){
+    //     if ( $('#msform').length ){   
+    //         $("#phone").intlTelInput(); 
+    //         $("#phone").intlTelInput("setNumber", "+880"); 
+    //     };
+    // }; 
+    //* Select js
+    // function nice_Select(){
+    //     if ( $('.product_select').length ){ 
+    //         $('select').niceSelect();
+    //     };
+    // }; 
+    /*Function Calls*/  
+    verificationForm ();
+    // phoneNoselect ();
+    // nice_Select ();
+})(jQuery); 
+
+$(document).ready(function () {
+
+    addVotersTable = $('#add-voters').DataTable({
+      ajax: '/api/data/voters/{{election_id}}',
+      responsive: {
+          details: {
+              type: 'column',
+              target: 'tr'
+          }
+      },
+      columnDefs: [
+        {
+          targets: 0,
+          checkboxes: {
+            selectRow: true,
+          }
+        }
+      ],
+      columns: [
+        {data: 'id'},
+        {data: 'id', visible:false},
+        {data: 'cin'},
+        {data: 'name', searchable: true},
+        {data: 'dept', orderable: true, searchable: true},
+        {data: 'join_year', orderable: true, searchable: true},
+      ],
+      select: {
+        style: 'multi'
+      },
+      order: [[1, 'asc']]
+    });
+
+    $('#add-voters').on('init.dt', function(){
+      buildSelect(addVotersTable);
+    });
+
+    $('#add-voters').on( 'draw.dt', function () {
+      buildSelect( addVotersTable );
+    } );
+
+    $("#msform").on('submit', function(e){
+      // e.preventDefault();
+      console.log('Creating hidden fields')
+      var form = this;
+      $(form).find('input[name="id"]').remove();
+      var rowSelection = addVotersTable.column(0).checkboxes.selected();
+      $.each(rowSelection, function(index, rowId){
+        $(form).append(
+          $('<input>')
+                    .attr('type', 'hidden')
+                    .attr('name', 'voter-id')
+                    .val(rowId)
+        );
+      });
+      // $("#gen-voter-list").first()[0].submit();
+    });
+});
+
+addCandidatesTable = $('#add-candidates').DataTable({
+          ajax: '/api/data/candidates/{{election_id}}',
+          responsive: {
+              details: {
+                  type: 'column',
+                  target: 'tr'
+              }
+          },
+          columnDefs: [
+            {
+              targets: 0,
+              checkboxes: {
+                selectRow: true,
+              }
+            }
+          ],
+          columns: [
+            {data: 'id'},
+            {data: 'id', visible:false},
+            {data: 'cin'},
+            {data: 'name', searchable: true},
+            {data: 'dept', orderable: true, searchable: true},
+            {data: 'join_year', orderable: true, searchable: true},
+          ],
+          select: {
+            style: 'multi'
+          },
+          order: [[1, 'asc']]
+        });
+
+        $('#add-candidates').on('init.dt', function(){
+          buildSelect(addCandidatesTable);
+        });
+
+        $('#add-candidates').on( 'draw.dt', function () {
+          buildSelect(addCandidatesTable);
+        } );
+
+        $("#msform").on('submit', function(e){
+          // e.preventDefault();
+          console.log("Creating hidden fields #2")
+          var form = this;
+          $(form).find('input[name="id"]').remove();
+          var rowSelection = addCandidatesTable.column(0).checkboxes.selected();
+          $.each(rowSelection, function(index, rowId){
+            $(form).append(
+              $('<input>')
+                        .attr('type', 'hidden')
+                        .attr('name', 'candidate-id')
+                        .val(rowId)
+            );
+          });
+          // $("#gen-candidate-list").first()[0].submit();
+        });
+
+function buildSelect( table ) {
+  table.columns().every( function () {
+    var column = table.column( this, {search: 'applied'} );
+    if(column.header().textContent === 'Department' || 
+    column.header().textContent === 'Joining Year'){
+      var select = $('<select><option value="">All</option></select>')
+      .appendTo( $(column.footer()).empty() )
+      .on( 'change', function () {
+        var val = $.fn.dataTable.util.escapeRegex(
+          $(this).val()
+        );
+
+        column
+        .search( val ? '^'+val+'$' : '', true, false )
+        .draw();
+      } );
+
+      column.data().unique().sort().each( function ( d, j ) {
+        select.append( '<option value="'+d+'">'+d+'</option>' );
+      } );
+    }
+    // The rebuild will clear the exisiting select, so it needs to be repopulated
+    var currSearch = column.search();
+    if ( currSearch ) {
+      select.val( currSearch.substring(1, currSearch.length-1) );
+    }
+  } );
+}
+</script>
+{% endblock scripts %}
