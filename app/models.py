@@ -217,4 +217,5 @@ class Results(db.Model):
 
 class EncryptedResult(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
-    encrypted_count = 
+    encrypted_count = db.Column(db.Text, nullable=False)
+    exponent = db.Column(db.Integer, nullable=False)

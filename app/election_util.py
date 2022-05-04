@@ -152,24 +152,31 @@ def get_all_combined_votes(election_id):
     urls = ["http://127.0.0.1:5100", "http://127.0.0.1:5200", "http://127.0.0.1:5300"]
     end_point = "/getVotes"
     results = []
+    count_offline = 0
     for url in urls:
-        r = requests.post(url+end_point, 
-                        params={'election_id': election_id})
-        results.append(r.json())
+        try:
+            r = requests.post(url+end_point, 
+                            params={'election_id': election_id})
+            results.append(r.json())
+        except requests.exceptions.ConnectionError:
+            count_offline += 1
+            results.append({"success": False})
     count_success = 0
     for result in results:
         if result["success"]:
             count_success += 1
-
-    if count_success < 2:
-        return "access_denied"
+    if count_offline > 1:
+        return "most_offline", count_offline
+    elif count_success < 2:
+        return "access_denied", 3 - count_success
     else:
         return parse_shares([result for result in results if result["success"] == True]), results[0]["exponent"]
 
 # Where votes is a list of encrypted votes
 def count_and_return_encrypted_total(votes, exp, election_id):
     import app.paillier_utils as paillier_utils
-    from app.models import Election
+    from app import db
+    from app.models import Election, EncryptedResult
     election_record = Election.getElectionRecord(election_id)
     total = None
     for vote in votes:
@@ -178,14 +185,33 @@ def count_and_return_encrypted_total(votes, exp, election_id):
             total = pailier_obj
         else:
             total = total + pailier_obj
-    return paillier_utils.paillier_obj_to_tuple(total)
+    enc_count, exponent = paillier_utils.paillier_obj_to_tuple(total)
+    encrypted_result = EncryptedResult(election_id=election_id, encrypted_count=enc_count, exponent=exponent)
+    db.session.add(encrypted_result)
+    election_record.election_state = 'counting_finished'
+    db.session.commit()
+    return enc_count, exponent
+
+# This will be called for starting the counting process
+def start_counting_process(election_id):
+    item1, item2 = get_all_combined_votes(election_id)
+    if item1 == "most_offline":
+        return f"{item2} server(s) are offline. Need a minimum of 2 servers to fetch data from.", False
+    elif item1 == "access_denied":
+        return f"{item2} server(s) are access restricted. Need a minimum of 2 servers to fetch data from.", False
+    else:
+        votes, exponent = item1, item2
+        count_and_return_encrypted_total(votes, exponent, election_id)
+        return "Counting process is over", True
+
 
 # Returns results as [{"id": 1, "votes_recieved": 3}, {"id": 2, "votes_recieved": 4}, ...]
-def get_results(encrypted_count, exponent, election_id, private_key):
+def get_results(election_id, private_key):
     import app.paillier_utils as paillier
-    from app.models import Election
+    from app.models import Election, EncryptedResult
     election_record = Election.getElectionRecord(election_id)
-    decrypted_count = paillier.decrypt_value(private_key, election_record.public_key, encrypted_count, exponent)
+    encrypted_result = EncryptedResult.query.filter_by(election_id=election_id).first()
+    decrypted_count = paillier.decrypt_value(private_key, election_record.public_key, encrypted_result.encrypted_count, encrypted_result.exponent)
     counts = []
     temp = decrypted_count
     from app.models import Voter_List
@@ -199,13 +225,18 @@ def get_results(encrypted_count, exponent, election_id, private_key):
         candidate_id += 1
     return counts
 
-def save_results_in_db(private_key, election_id):
-    # results = get_results(encrypted_count, )
+# Will be called for Publishing Results
+def save_results_in_db(election_id, private_key):
+    results = get_results(election_id=election_id, private_key=private_key)
     from app import db
-    from app.models import Result
+    from app.models import Result, Election
     for result in results:
         new_result = Result(election_id=election_id, candidate_id=result["id"], total_votes=result["votes_recieved"])
-        db.session.commit()
+        db.session.add(new_result)
+    election_obj = Election.getElectionRecord(election_id)
+    election_obj.results_published = True
+    election_record.election_state = 'past'
+    db.session.commit()
 
 if __name__ == "__main__":
     import json
