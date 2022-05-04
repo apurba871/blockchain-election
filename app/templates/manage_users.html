@@ -83,7 +83,13 @@
             {
               label: "Password",
               name: "password",
-              def: "password"
+              def: function(){
+                if ( $('.buttons-edit').hasClass('disabled') && $('.buttons-remove').hasClass('disabled') ){
+                  return 'password';
+                } else {
+                  return '';
+                }
+              }
             },
             // {
             //   label: "Department",
@@ -142,9 +148,9 @@
       dom: "Bfrtip",
       columns: [
         {data: 'id'},
-        {data: 'cin'},
-        {data: 'name', searchable: true},
-        {data: 'email', searchable: true},
+        {data: 'cin', searchable: true, orderable: true},
+        {data: 'name', searchable: true, orderable: true},
+        {data: 'email', searchable: true, orderable: true},
         {data: 'dept', orderable: true, searchable: true},
         {data: 'join_year', orderable: true, searchable: true},
         {
