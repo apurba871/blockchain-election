@@ -735,18 +735,20 @@ def user_crud():
                 cin = request.form[f"data[{voter_id}][cin]"]
                 name = request.form[f"data[{voter_id}][name]"]
                 dept = request.form[f"data[{voter_id}][dept]"]
-                password = request.form[f"data[{voter_id}][password]"]
+                password = request.form[f"data[{voter_id}][password]"] 
                 email = request.form[f"data[{voter_id}][email]"]
                 join_year = request.form[f"data[{voter_id}][join_year]"]
                 is_admin = request.form[f"data[{voter_id}][is_admin]"] 
-                field_errors = election_util.validateFields(cin, name, dept, join_year, is_admin, email, password, existence=False)
+                field_errors = election_util.validateFields(cin, name, dept, join_year, is_admin, email,password if password != '' else 'password', existence=False)
                 if len(field_errors) == 0:
                     voter = Voter.getVoterByID(voter_id)
                     voter.cin=cin 
                     voter.name=name 
                     voter.email=email
                     voter.dept=dept
-                    voter.password=bcrypt.generate_password_hash(password).decode('utf-8')
+                    # If the password was changed
+                    if password != '':
+                        voter.password=bcrypt.generate_password_hash(password).decode('utf-8')
                     voter.join_year=join_year
                     voter.is_admin=True if is_admin == 'true' else False
                     db.session.commit()
