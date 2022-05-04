@@ -17,6 +17,18 @@ def update_election_state():
     db.session.commit()
     print("Election states updated at", datetime.now())
 
+def get_new_election_id():
+    from app import db
+    from app.models import Election
+    last_record = Election.getLastElectionRecord()
+    numeric_id = int(last_record.election_id[1:])
+    return f'E{numeric_id+1}'
+
+def get_new_candidate_id(election_id):
+    from app import db
+    from app.models import CandidateList
+    return CandidateList.getLastCandidateRecord(election_id).id + 1
+
 def validate_cin(cin):
     from app.models import Voter
     user = Voter.query.filter_by(cin=cin).first()
@@ -70,3 +82,6 @@ def validateFields(cin, name, dept, join_year, is_admin, email, password, existe
         field_errors.append({'name':'password', 'status':'Please fill out this field.'})
 
     return field_errors
+
+if __name__ == "__main__":
+    print(get_new_election_id())
