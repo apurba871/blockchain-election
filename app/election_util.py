@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 def update_election_state():
     from app import db
     from app.models import Election
@@ -65,7 +68,7 @@ def validateFields(cin, name, dept, join_year, is_admin, email, password, existe
         field_errors.append({'name':'join_year', 'status':'Please fill out this field.'})
     elif not join_year.isdecimal():
         field_errors.append({'name':'join_year', 'status':'Joining year should be a number'})
-    elif not validators.between(int(join_year), min=2016, max=2020):
+    elif not validators.between(int(join_year), min=2016, max=int(datetime.now().strftime("%Y"))):
         field_errors.append({'name':'join_year', 'status':'Joining year should be between 2016 and 2020'})
     
     if is_admin == '':
