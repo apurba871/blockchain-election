@@ -529,14 +529,14 @@ def register_voter_and_send_otp(election_id):
         flash('An O.T.P. has been sent to your registered e-mail address.', 'success')
         return render_template("register_voter_and_send_otp.html", otp=otp, election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
 
-@app.route("/publish_results")
+@app.route("/publish_results/<election_id>")
 @login_required
 @AdminPermission()
-def publish_results():
+def publish_results(election_id):
     """
     Description:    Shows those elections for which results need to be published
-    Endpoint:       /publish_results
-    Parameters:     None
+    Endpoint:       /publish_results/<election_id>
+    Parameters:     election_id (Type: String)
     Uses Template:  results.html
     """
     elections = Election.query.order_by(Election.create_date.desc()).all()
