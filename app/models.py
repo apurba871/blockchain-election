@@ -209,7 +209,7 @@ class Department(db.Model):
 
 class Results(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
-    candidate_id = db.Column(db.String(5), db.ForeignKey('candidate.candidate_id'), primary_key=True, nullable=False)
+    candidate_id = db.Column(db.String(5), db.ForeignKey('candidate_list.id'), primary_key=True, nullable=False)
     total_votes = db.Column(db.Integer, nullable=False, default=0)
 
     def __repr__(self):
