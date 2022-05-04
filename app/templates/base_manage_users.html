@@ -82,6 +82,11 @@
       <script src="{{ url_for('static', filename='js/dataTables.editor.min.js') }}"></script>
       <script src="{{ url_for('static', filename='js/editor.bootstrap4.js') }}"></script>
       <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/js/dataTables.checkboxes.min.js"></script>
+      <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
       {% block scripts %}{% endblock scripts %}
       <!-- Option 1: Bootstrap Bundle with Popper -->
       <!-- <script

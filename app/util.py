@@ -9,6 +9,11 @@ def checkDebarStatus(election_id, voter_id):
     election_max_attempt = Election.getElectionRecord(election_id).max_attempt
     return voter_tries == election_max_attempt
 
+def checkIfAlreadyVoted(election_id, voter_id):
+    from app.models import Casted_Vote
+    vote_exists_in_ballot = Casted_Vote.query.filter_by(election_id=election_id, id=voter_id).first()
+    return True if vote_exists_in_ballot else False
+
 def checkOTPAndRedirect(user_otp, election_id):
     otp = Voter_List.getVoterToken(election_id, current_user.id)
     tries = Voter_List.getVoterTries(election_id, current_user.id)
