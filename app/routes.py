@@ -395,9 +395,13 @@ def view_election(id):
                 # if the voter has not registered for the vote, show him the register_for_vote.html page
                 if is_voter_in_voter_list.is_registered == False:
                     return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
-                # else authenticate the voter by asking for the OTP
+                # else check if he has already casted his vote, if yes show him corresponding message in a template else ask for his otp
                 else:
-                    return redirect(url_for("cast_vote", election_id=curr_election.election_id))
+                    already_casted = Casted_Vote.query.filter_by(election_id=curr_election.election_id, id=current_user.id).first()
+                    if already_casted:
+                        return render_template("already_casted_vote.html")
+                    else:
+                        return redirect(url_for("cast_vote", election_id=curr_election.election_id))
                     # curr_voter = Voter_List.getVoterRecord(curr_election.election_id, current_user.id)
                     # return render_template("enter_otp.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, tries=curr_voter.tries, max_attempt=curr_election.max_attempt)
     # If the user is non-admin, and the election is over, display a message that it is over.
@@ -454,16 +458,20 @@ def cast_vote(election_id):
         #     # if max_attempt reached then debar him from the voting process
         #     return render_template("debar_from_voting.html")
 
-@app.route("/thanks", methods=['GET', 'POST'])
+@app.route("/thanks/<election_id>", methods=['GET', 'POST'])
 @login_required
-def thanks():
+def thanks(election_id):
     """
     Description:    Show a message, thanks for voting a particular candidate
-    Endpoint:       /thanks
-    Parameters:     None
+    Endpoint:       /thanks/<election_id>
+    Parameters:     election_id (Type: String)
     Uses Template:  thanks.html
     """
     print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
+    # Register his vote in the database and thereby invalidate him from casting further votes in the same election
+    record = Casted_Vote(election_id=election_id, id=current_user.id)
+    db.session.add(record)
+    db.session.commit()
     return render_template("thanks.html", voter_id=current_user.id, candidate_id=request.form["selected-candidate-id"], 
                             candidate_name=request.form["selected-candidate-name"], candidate_cin=request.form["selected-candidate-cin"])
 
