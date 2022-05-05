@@ -1,4 +1,5 @@
 import email
+import itertools
 from ntpath import join
 import os
 import secrets
@@ -1016,7 +1017,7 @@ def show_summary(election_id):
     total_voters = len(Voter_List.getVotersInList(election_id))
     candidates = CandidateList.getAllCandidates(election_id)
     results = Results.getAllResults(election_id)
-    return render_template("summary.html", data=zip(candidates, results), total_voters=total_voters, page='admin' if current_user.is_admin else 'voter')
+    return render_template("summary.html", data=list(itertools.zip_longest(candidates, results)), total_voters=total_voters, page='admin' if current_user.is_admin else 'voter')
 # Ensure responses aren't cached
 @app.after_request
 def after_request(response):

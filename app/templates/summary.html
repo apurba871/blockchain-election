@@ -22,7 +22,11 @@
                         <td>{{ candidate.voter.name }}</td>
                         <td>{{ candidate.voter.cin }}</td>
                         <td class="text-center">
+                        {% if result %}
                             {{ result.total_votes }} / {{ total_voters }}
+                        {% else %}
+                            0 / {{ total_voters }}
+                        {% endif %}
                         </td>
                     </tr>
                 {% endfor %}
