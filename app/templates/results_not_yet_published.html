@@ -1,0 +1,13 @@
+{% extends 'home_base.html' %} 
+
+{% block content %}
+
+<div class="content-section">
+    <div class="spacing"><span class="spn"><span class="spn-special">Info:</span> Results not yet published.</span></div>
+    <div class="spacing"><span class="spn"><span class="spn-special"></span> Please come back later</span></div>
+    <center class="top-space">
+        <a class="btn btn-outline-info" href="{{ url_for('voter') }}">Home</a>
+    </center>
+</div>
+
+{% endblock %}

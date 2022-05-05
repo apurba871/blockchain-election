@@ -243,13 +243,13 @@ def get_results(election_id, private_key):
 def save_results_in_db(election_id, private_key):
     results = get_results(election_id=election_id, private_key=private_key)
     from app import db
-    from app.models import Result, Election
+    from app.models import Results, Election
     for result in results:
-        new_result = Result(election_id=election_id, candidate_id=result["id"], total_votes=result["votes_recieved"])
+        new_result = Results(election_id=election_id, candidate_id=result["id"], total_votes=result["votes_recieved"])
         db.session.add(new_result)
     election_obj = Election.getElectionRecord(election_id)
     election_obj.results_published = True
-    election_record.election_state = 'past'
+    election_obj.election_state = 'past'
     db.session.commit()
 
 def start_counting_process_wrapper(election_id: int):
@@ -275,12 +275,12 @@ def get_count_status(election_id):
     count_task = RunningCountTasks.getRow(election_id)
     if enc_result:
         return "counting_finished"
+    elif count_task is None:
+        return "not_running"
     elif not count_task.error_encountered:
         return "task_running"
     elif count_task.error_encountered:
         return count_task.message
-    else:
-        return "not_running"
 
 
 if __name__ == "__main__":

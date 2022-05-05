@@ -1,6 +1,9 @@
 {% extends "meta.html" %} 
 {% block content %}
   <div class="content-section">
+    <legend class="border-bottom mb-4">
+      Election Summary
+    </legend>
         <table class="table table-striped">
             <thead>
               <tr>
@@ -8,33 +11,23 @@
                 <th scope="col">Photo</th>
                 <th scope="col">Candidate Name</th>
                 <th scope="col">Candidate CIN</th>
-                <th scope="col">Vote</th>
+                <th scope="col" class="text-center">Recieved Votes / Total Votes</th>
               </tr>
             </thead>
             <tbody>
-                {% for candidate in candidates %}
+                {% for candidate,result in data %}
                     <tr>
                         <td></td>
                         <td><img class="rounded-circle account-img-small" src="/static/profile_pics/{{ candidate.voter.imagefile }}"></td>
                         <td>{{ candidate.voter.name }}</td>
                         <td>{{ candidate.voter.cin }}</td>
-                        <td>
-                            <input data-candidate-id="{{ candidate.id }}" data-candidate-name="{{ candidate.voter.name }}" data-candidate-cin="{{ candidate.voter.cin }}" type="button" name="voted-candidate" class="btn btn-primary" value="Vote">
+                        <td class="text-center">
+                            {{ result.total_votes }} / {{ total_voters }}
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
           </table>
+          <a class="btn btn-outline-info" href="{{ url_for('home') }}">Home</a>
   </div>
 {% endblock content %}
-
-{% block scripts %}
-<script>
-    $('input[type="button"]').on("click", function(){
-        $('input[name="selected-candidate-id"]').attr("value", $(this).attr("data-candidate-id"));
-        $('input[name="selected-candidate-name"]').attr("value", $(this).attr("data-candidate-name"));
-        $('input[name="selected-candidate-cin"]').attr("value", $(this).attr("data-candidate-cin"));
-        $("#voting-form").submit();
-    });
-</script>
-{% endblock scripts %}

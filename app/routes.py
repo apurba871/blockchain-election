@@ -11,7 +11,7 @@ import math, random, json
 from PIL import Image
 from flask import jsonify, render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt, mail
-from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department, ResetPassword
+from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department, ResetPassword, Results
 from app.forms import (RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, 
                         NewAdminForm, RequestResetForm, ResetPasswordForm)
 from flask_login import login_user, current_user, logout_user, login_required
@@ -368,7 +368,7 @@ def view_election(id):
     # If the current user is admin or non-admin, display the summary page
     elif curr_election.election_state == 'past':
         # TODO: Create summary page template
-        return "Summary page"
+        return redirect(url_for('show_summary', election_id=curr_election.election_id))
     # If the current user is non-admin, and election is upcoming, display a registration
     # form if the user isn't registered yet, otherwise display a message that the election
     # will start on the start_date, only if the user is eligible for this election.
@@ -432,7 +432,7 @@ def view_election(id):
     # If the user is non-admin, and the election is over, display a message that it is over.
     elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
-        return "Results are yet to be published"
+        return render_template("results_not_yet_published.html")
 
 @app.route("/cast_vote/<election_id>", methods=['GET', 'POST'])
 @login_required
@@ -992,7 +992,10 @@ def create_multi_step_election():
 @AdminPermission()
 def generate_result(election_id):
     election_record = Election.getElectionRecord(election_id);
-    if request.method == "GET":
+    result = Results.getAllResults(election_id)
+    if result:
+        return redirect(url_for('show_summary', election_id=election_id))
+    elif request.method == "GET":
         return render_template("submit_private_key.html", election_id=election_id, election_title=election_record.election_title)
     elif request.method == "POST":
         if request.files['file'].filename == '':
@@ -1003,13 +1006,15 @@ def generate_result(election_id):
             file.seek(0)      
             private_key = file.read()
             election_util.save_results_in_db(election_id, private_key)
-            return 'redirect to the summary page'
+            return redirect(url_for('show_summary', election_id=election_id))
 
-@app.route('/generateResult/<election_id>', methods=["GET"])
+@app.route('/showSummary/<election_id>', methods=["GET"])
 @login_required
 def show_summary(election_id):
-    pass
-
+    total_voters = len(Voter_List.getVotersInList(election_id))
+    candidates = CandidateList.getAllCandidates(election_id)
+    results = Results.getAllResults(election_id)
+    return render_template("summary.html", data=zip(candidates, results), total_voters=total_voters, page='admin' if current_user.is_admin else 'voter')
 # Ensure responses aren't cached
 @app.after_request
 def after_request(response):

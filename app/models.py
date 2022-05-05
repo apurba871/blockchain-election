@@ -218,6 +218,10 @@ class Results(db.Model):
 
     def __repr__(self):
         return f"Results('{self.election_id}', '{self.candidate_id}', '{self.total_votes}')"
+    
+    @classmethod
+    def getAllResults(cls, election_id):
+        return Results.query.filter_by(election_id=election_id).order_by(Results.candidate_id.asc()).all()
 
 class EncryptedResult(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
