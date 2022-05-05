@@ -106,6 +106,7 @@ def encrypt_vote(election_id, t_vote):
     from app.models import Election
     election_record = Election.getElectionRecord(election_id)
     (cipher_text, exp) = paillier_utils.encrypt_value(election_record.public_key, t_vote)
+    print("encrypt_vote(), cipher_text:", cipher_text, "exp:", exp)
     return cipher_text, exp 
 
 def create_shares(election_id, candidate_id):
@@ -114,12 +115,15 @@ def create_shares(election_id, candidate_id):
     from phe.util import int_to_base64, base64_to_int
     t_vote = transform_vote(election_id, candidate_id)
     cipher_text, exp = encrypt_vote(election_id, t_vote)
-    print("cipher_text -",base64_to_int(cipher_text))
-    shares = SecretSharer.split_secret(str(base64_to_int(cipher_text)), 2, 3)
+    # print("cipher_text -",base64_to_int(cipher_text))
+    # shares = SecretSharer.split_secret(str(base64_to_int(cipher_text)), 2, 3)
+    shares = SecretSharer.split_secret(str(cipher_text), 2, 3)
+    print("create_shares(), shares:", shares, "exp:", exp)
     return shares, exp
 
 def combine_shares(shares):
     from secretsharing import SecretSharer
+    print("combine_shares(), SecretSharer.recover_secret(shares):", SecretSharer.recover_secret(shares))
     return SecretSharer.recover_secret(shares)
 
 def save_shares(election_id, candidate_id):
@@ -156,6 +160,7 @@ def parse_shares(results):
     # encrypted_votes = [int_to_base64(int(combine_shares(list(share)))) for share in zip(shares1, shares2, shares3)]
     # encrypted_votes = [int_to_base64(int(combine_shares(list(share)))) for share in zip(*shares)]
     encrypted_votes = [combine_shares(list(share)) for share in zip(*shares)]
+    print("parse_shares(), encrypted_votes:", encrypted_votes)
     return encrypted_votes
 
 def get_all_combined_votes(election_id):
@@ -180,23 +185,26 @@ def get_all_combined_votes(election_id):
     elif count_success < 2:
         return "access_denied", 3 - count_success
     else:
+        print('parse_shares(), parse_shares([result for result in results if result["success"] == True]):', parse_shares([result for result in results if result["success"] == True]))
         return parse_shares([result for result in results if result["success"] == True]), results[0]["exponent"]
 
 # Where votes is a list of encrypted votes
 def count_and_return_encrypted_total(votes, exp, election_id):
+    print("votes: ", votes, "exp:", exp, "election_id:", election_id)
     import app.paillier_utils as paillier_utils
     from app import db
     from app.models import Election, EncryptedResult
     election_record = Election.getElectionRecord(election_id)
     total = None
     for vote in votes:
+        print("line 193", vote)
         pailier_obj = paillier_utils.convert_to_paillier_obj(vote, exp, election_record.public_key)
         if total is None:
             total = pailier_obj
         else:
             total = total + pailier_obj
     enc_count, exponent = paillier_utils.paillier_obj_to_tuple(total)
-    encrypted_result = EncryptedResult(election_id=election_id, encrypted_count=enc_count, exponent=exponent)
+    encrypted_result = EncryptedResult(election_id=election_id, encrypted_count=str(enc_count), exponent=exponent)
     db.session.add(encrypted_result)
     election_record.election_state = 'counting_finished'
     db.session.commit()
@@ -221,6 +229,7 @@ def start_counting_process(election_id):
         return f"{item2} server(s) are access restricted. Need a minimum of 2 servers to fetch data from.", False
     else:
         votes, exponent = item1, item2
+        print("votes: ", votes, "exponent:", exponent)
         count_and_return_encrypted_total(votes, exponent, election_id)
         running_task.is_complete = True
         db.session.delete(running_task)
@@ -234,7 +243,7 @@ def get_results(election_id, private_key):
     from app.models import Election, EncryptedResult
     election_record = Election.getElectionRecord(election_id)
     encrypted_result = EncryptedResult.query.filter_by(election_id=election_id).first()
-    decrypted_count = paillier.decrypt_value(private_key, election_record.public_key, encrypted_result.encrypted_count, encrypted_result.exponent)
+    decrypted_count = paillier.decrypt_value(private_key, election_record.public_key, int(encrypted_result.encrypted_count), encrypted_result.exponent)
     counts = []
     temp = decrypted_count
     from app.models import Voter_List

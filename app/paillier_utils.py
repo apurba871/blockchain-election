@@ -113,24 +113,31 @@ def envec_load_json(R_json):
 
 def convert_to_paillier_obj(ciphertext, exp, pub_jwk):
     pub_key=publickey_load_jwk(pub_jwk)
-    return paillier.EncryptedNumber(pub_key, ciphertext=base64_to_int(ciphertext), exponent=exp)
+    # return paillier.EncryptedNumber(pub_key, ciphertext=base64_to_int(ciphertext), exponent=exp)
+    # return paillier.EncryptedNumber(pub_key, ciphertext=ciphertext, exponent=exp)
+    return paillier.EncryptedNumber(pub_key, ciphertext=int(ciphertext), exponent=exp)
 
 def generate_key_pair(length=2048):
   pubkey, privkey = paillier.generate_paillier_keypair(n_length=length)
   return keypair_dump_jwk(pubkey, privkey)
 
 def paillier_obj_to_tuple(x):
-    return (int_to_base64(x.ciphertext()), x.exponent)
+    # return (int_to_base64(x.ciphertext()), x.exponent)
+    return (x.ciphertext(), x.exponent)
 
 def encrypt_value(pub_jwk, value):
     pub_key=publickey_load_jwk(pub_jwk)
     x = pub_key.encrypt(value)
-    return (int_to_base64(x.ciphertext()), x.exponent)
+    # return (int_to_base64(x.ciphertext()), x.exponent)
+    return (x.ciphertext(), x.exponent)
 
 def decrypt_value(priv_jwk, pub_jwk, enc_value, exponent):
     pub_key, priv_key = keypair_load_jwk(pub_jwk, priv_jwk)
+    # x = paillier.EncryptedNumber(pub_key, 
+    #                             ciphertext=base64_to_int(enc_value), 
+    #                             exponent=exponent)
     x = paillier.EncryptedNumber(pub_key, 
-                                ciphertext=base64_to_int(enc_value), 
+                                ciphertext=int(enc_value), 
                                 exponent=exponent)
     dec_value = priv_key.decrypt(x)
     return dec_value
