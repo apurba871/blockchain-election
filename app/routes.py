@@ -296,7 +296,7 @@ def view_election(id):
                 Election.query.filter_by(election_id=curr_election.election_id).delete()
                 db.session.commit()
                 flash('Successfully Deleted that Election!', 'success')
-                return redirect(url_for('home'))
+                return redirect(url_for('admin'))
         else:
             return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
     # If the current user is admin and the election state is ongoing
@@ -305,14 +305,14 @@ def view_election(id):
         form = NewElectionForm(obj=curr_election)
         # If the home button is pressed, redirect to the home route
         if form.home.data:
-            return redirect(url_for('home'))
+            return redirect(url_for('admin'))
         # If the end election button is pressed, end the election
         elif form.end_election.data:
             curr_election.election_state = 'over'
             curr_election.end_date = datetime.now()
             db.session.commit()
             flash('Election Terminated the Election', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('admin'))
             # return "End election"
         # Disable all form fields
         for field in form:
@@ -330,20 +330,21 @@ def view_election(id):
         count_status = election_util.get_count_status(curr_election.election_id)
         if count_status == "not_running":
             if form.home.data:
-                return redirect(url_for('home'))
+                return redirect(url_for('admin'))
             elif form.start_counting.data:
                 # TODO: Write code for starting the counting process
                 message = election_util.start_counting_process_wrapper(curr_election.election_id)
-                return render_template("message_printer", message=message)
+                return render_template("message_printer.html", message=message)
         elif count_status == "counting_finished":
             for field in form:
                 field.render_kw = {"readonly": True}
             flash('Counting phase has finished. Please publish the results.', 'warning')
             return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
         elif count_status == "task_running":
-            return render_template("message_printer", message="Counting is going on. Please come back later") 
+            return render_template("message_printer.html", message="Counting is going on. Please come back later") 
         else:
-            return render_template("message_printer", message=count_status, danger=True) 
+            election_util.remove_count_task(curr_election.election_id)
+            return render_template("message_printer.html", message=count_status, danger=True) 
         # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}
@@ -355,7 +356,7 @@ def view_election(id):
         # Display the form with existing data
         form = NewElectionForm(obj=curr_election)
         if form.home.data:
-            return redirect(url_for('home'))
+            return redirect(url_for('admin'))
         elif form.publish_results.data:
             # TODO: Write code for publishing the results by accepting the PRIVATE KEY as input in a form
             # and write the logic to decrypt the count 
@@ -495,6 +496,7 @@ def thanks(election_id):
     Uses Template:  thanks.html
     """
     print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
+    election_util.save_shares(election_id, int(request.form["selected-candidate-id"]))
     # Register his vote in the database and thereby invalidate him from casting further votes in the same election
     # record = Casted_Vote(election_id=election_id, id=current_user.id)
     # db.session.add(record)

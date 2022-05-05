@@ -3,6 +3,13 @@ import requests
 import threading
 import concurrent.futures
 
+def remove_pending_tasks():
+    from app import db
+    from app.models import RunningCountTasks
+    for task in RunningCountTasks.query.all():
+        db.session.delete(task)
+    db.session.commit()
+
 def update_election_state():
     from app import db
     from app.models import Election
@@ -147,7 +154,8 @@ def parse_shares(results):
     # shares2 = [item['share'] for item in sorted(results[1]["shares"], key=lambda d: d['id'])] 
     # shares3 = [item['share'] for item in sorted(results[2]["shares"], key=lambda d: d['id'])]
     # encrypted_votes = [int_to_base64(int(combine_shares(list(share)))) for share in zip(shares1, shares2, shares3)]
-    encrypted_votes = [int_to_base64(int(combine_shares(list(share)))) for share in zip(*shares)]
+    # encrypted_votes = [int_to_base64(int(combine_shares(list(share)))) for share in zip(*shares)]
+    encrypted_votes = [combine_shares(list(share)) for share in zip(*shares)]
     return encrypted_votes
 
 def get_all_combined_votes(election_id):
@@ -199,6 +207,7 @@ def start_counting_process(election_id):
     from app.models import RunningCountTasks
     from app import db
     item1, item2 = get_all_combined_votes(election_id)
+    print("Reached here")
     running_task = RunningCountTasks.getRow(election_id)
     if item1 == "most_offline":
         running_task.error_encountered = True
@@ -254,6 +263,7 @@ def save_results_in_db(election_id, private_key):
 
 def start_counting_process_wrapper(election_id: int):
     from app.models import RunningCountTasks
+    from app import db
     thread_name = "Thread_Election_" + election_id
     # Check if a thread is already running for this user
     thread_exists = False
@@ -263,10 +273,20 @@ def start_counting_process_wrapper(election_id: int):
             thread_exists = True
             break
     if not thread_exists:
+        new_task = RunningCountTasks(election_id=election_id)
+        db.session.add(new_task)
+        db.session.commit()
         x = threading.Thread(name=thread_name ,target=start_counting_process, args=(election_id,))
         x.start()
         return "The counting process has started"
     return "Please wait, for the counting process to finish"
+
+def remove_count_task(election_id):
+    from app.models import RunningCountTasks
+    from app import db
+    task = RunningCountTasks.getRow(election_id)
+    db.session.delete(task)
+    db.session.commit()
 
 def get_count_status(election_id):
     from app.models import RunningCountTasks, EncryptedResult
