@@ -1,4 +1,5 @@
 import email
+import itertools
 from ntpath import join
 import os
 import secrets
@@ -6,11 +7,12 @@ import app.util as util
 from flask_sqlalchemy import SQLAlchemy
 import app.election_util as election_util
 import app.paillier_utils as paillier
+import app.cast_vote_util as cast_vote_util
 import math, random, json
 from PIL import Image
 from flask import jsonify, render_template, url_for, flash, redirect, request
 from app import app, db, bcrypt, mail
-from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department, ResetPassword
+from app.models import Voter, CandidateList, Election, Casted_Vote, Voter_List, Department, ResetPassword, Results
 from app.forms import (RegistrationForm, LoginForm, UpdateAccountForm, NewElectionForm, 
                         NewAdminForm, RequestResetForm, ResetPasswordForm)
 from flask_login import login_user, current_user, logout_user, login_required
@@ -295,7 +297,7 @@ def view_election(id):
                 Election.query.filter_by(election_id=curr_election.election_id).delete()
                 db.session.commit()
                 flash('Successfully Deleted that Election!', 'success')
-                return redirect(url_for('home'))
+                return redirect(url_for('admin'))
         else:
             return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state,title="Modify Election", form=form)
     # If the current user is admin and the election state is ongoing
@@ -304,32 +306,46 @@ def view_election(id):
         form = NewElectionForm(obj=curr_election)
         # If the home button is pressed, redirect to the home route
         if form.home.data:
-            return redirect(url_for('home'))
+            return redirect(url_for('admin'))
         # If the end election button is pressed, end the election
         elif form.end_election.data:
             curr_election.election_state = 'over'
             curr_election.end_date = datetime.now()
             db.session.commit()
             flash('Election Terminated the Election', 'success')
-            return redirect(url_for('home'))
+            return redirect(url_for('admin'))
             # return "End election"
         # Disable all form fields
         for field in form:
             field.render_kw = {"readonly": True}
         # Show the current status of the election
-        # TODO: Generate the current vote count dynamically in admin_ongoing_election.html page
-        return render_template("admin_ongoing_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
+        votes_casted = cast_vote_util.countVotesInBallot(curr_election.election_id)
+        total_voters = len(Voter_List.getVotersInList(curr_election.election_id))
+        return render_template("admin_ongoing_election.html", votes_casted=votes_casted, total_voters=total_voters, election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Ongoing Election", form=form)
 
     # If the current user is admin and the election is over, flash a message that the voting phase
     # is over and ask to start the counting phase
     elif current_user.is_admin and curr_election.election_state == 'over':
         # Display the form with existing data
         form = NewElectionForm(obj=curr_election)
-        if form.home.data:
-            return redirect(url_for('home'))
-        elif form.start_counting.data:
-            # TODO: Write code for starting the counting process
-            return "Start Counting"
+        count_status = election_util.get_count_status(curr_election.election_id)
+        if count_status == "not_running":
+            if form.home.data:
+                return redirect(url_for('admin'))
+            elif form.start_counting.data:
+                # TODO: Write code for starting the counting process
+                message = election_util.start_counting_process_wrapper(curr_election.election_id)
+                return render_template("message_printer.html", message=message)
+        elif count_status == "counting_finished":
+            for field in form:
+                field.render_kw = {"readonly": True}
+            flash('Counting phase has finished. Please publish the results.', 'warning')
+            return render_template("modify_election.html", election_id=curr_election.election_id, bg_color_election_state=bg_color_election_state, election_state=curr_election.election_state, title="Modify Election", form=form)
+        elif count_status == "task_running":
+            return render_template("message_printer.html", message="Counting is going on. Please come back later") 
+        else:
+            election_util.remove_count_task(curr_election.election_id)
+            return render_template("message_printer.html", message=count_status, danger=True) 
         # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}
@@ -341,11 +357,11 @@ def view_election(id):
         # Display the form with existing data
         form = NewElectionForm(obj=curr_election)
         if form.home.data:
-            return redirect(url_for('home'))
+            return redirect(url_for('admin'))
         elif form.publish_results.data:
             # TODO: Write code for publishing the results by accepting the PRIVATE KEY as input in a form
             # and write the logic to decrypt the count 
-            return "Publishing results"
+            return redirect(url_for("generate_result", election_id=curr_election.election_id))
         # Disable all the form fields
         for field in form:
             field.render_kw = {"readonly": True}
@@ -354,7 +370,7 @@ def view_election(id):
     # If the current user is admin or non-admin, display the summary page
     elif curr_election.election_state == 'past':
         # TODO: Create summary page template
-        return "Summary page"
+        return redirect(url_for('show_summary', election_id=curr_election.election_id))
     # If the current user is non-admin, and election is upcoming, display a registration
     # form if the user isn't registered yet, otherwise display a message that the election
     # will start on the start_date, only if the user is eligible for this election.
@@ -407,8 +423,9 @@ def view_election(id):
                     return render_template("register_for_vote.html", election_id=curr_election.election_id, election_title=curr_election.election_title, start_date=curr_election.start_date, election_state=curr_election.election_state)
                 # else check if he has already casted his vote, if yes show him corresponding message in a template else ask for his otp
                 else:
-                    already_casted = Casted_Vote.query.filter_by(election_id=curr_election.election_id, id=current_user.id).first()
-                    if already_casted:
+                    # already_casted = Casted_Vote.query.filter_by(election_id=curr_election.election_id, id=current_user.id).first()
+                    # if already_casted:
+                    if util.checkIfAlreadyVoted(election_id=curr_election.election_id, voter_id=current_user.id):
                         return render_template("already_casted_vote.html")
                     else:
                         return redirect(url_for("cast_vote", election_id=curr_election.election_id))
@@ -417,7 +434,7 @@ def view_election(id):
     # If the user is non-admin, and the election is over, display a message that it is over.
     elif not current_user.is_admin and curr_election.election_state == 'over' or curr_election.election_state == 'counting_finished':
         # TODO: Create the template to display the below message
-        return "Results are yet to be published"
+        return render_template("results_not_yet_published.html")
 
 @app.route("/cast_vote/<election_id>", methods=['GET', 'POST'])
 @login_required
@@ -480,10 +497,12 @@ def thanks(election_id):
     Uses Template:  thanks.html
     """
     print(request.form["selected-candidate-id"], request.form["selected-candidate-name"])
+    election_util.save_shares(election_id, int(request.form["selected-candidate-id"]))
     # Register his vote in the database and thereby invalidate him from casting further votes in the same election
-    record = Casted_Vote(election_id=election_id, id=current_user.id)
-    db.session.add(record)
-    db.session.commit()
+    # record = Casted_Vote(election_id=election_id, id=current_user.id)
+    # db.session.add(record)
+    # db.session.commit()
+    cast_vote_util.addCastedVote(voter_id = int(current_user.id), election_id=election_id)
     return render_template("thanks.html", voter_id=current_user.id, candidate_id=request.form["selected-candidate-id"], 
                             candidate_name=request.form["selected-candidate-name"], candidate_cin=request.form["selected-candidate-cin"])
 
@@ -543,7 +562,7 @@ def publish_results():
     Parameters:     election_id (Type: String)
     Uses Template:  results.html
     """
-    elections = Election.query.order_by(Election.create_date.desc()).all()
+    elections = Election.getElectionRecordsPendingResults()
     return render_template("results.html", elections=elections)
 
 @app.route("/election/<election_id>/generate/voter_list", methods=['GET', 'POST'])
@@ -833,6 +852,7 @@ def voter():
     Parameters:     None
     Uses Template:  voter.html
     """
+    election_util.update_election_state()
     elections = Voter_List.getElectionsForVoter(current_user.id)
     voter_elections = CandidateList.getElectionsWhereVoterIsInCandidateList(current_user.id)
     return render_template("voter.html", elections=elections, voter_elections=voter_elections)
@@ -847,6 +867,7 @@ def candidate():
     Parameters:     None
     Uses Template:  candidate.html
     """
+    election_util.update_election_state()
     return render_template("candidate.html", candidate_id=current_user.id)
 
 @app.route("/admin")
@@ -904,7 +925,7 @@ def bad_request(e):
     Parameters:     None
     Uses Template:  400.html
     """
-    return render_template("400.html"), 400
+    return "Error Code 400", 400
 
 @app.errorhandler(500)
 def server_error(e):
@@ -914,7 +935,7 @@ def server_error(e):
     Parameters:     None
     Uses Template:  500.html
     """
-    return render_template("500.html"), 500
+    return "Error Code 500", 500
 
 # TODO: Add a template for handling 403 Forbidden Access
 
@@ -943,7 +964,7 @@ def create_multi_step_election():
                                 election_title=form.election_title.data, 
                                 start_date=form.start_date.data, 
                                 end_date=form.end_date.data, 
-                                public_key=form.public_key.data, 
+                                public_key=json.dumps(paillier.n_to_pub_jwk(form.public_key.data)),
                                 max_attempt=form.max_attempt.data, 
                                 election_state='upcoming')
         db.session.add(new_election)
@@ -969,6 +990,34 @@ def create_multi_step_election():
         return redirect(url_for('admin'))
     return "Bad request", 400
 
+@app.route('/generateResult/<election_id>', methods=["GET", "POST"])
+@login_required
+@AdminPermission()
+def generate_result(election_id):
+    election_record = Election.getElectionRecord(election_id);
+    result = Results.getAllResults(election_id)
+    if result:
+        return redirect(url_for('show_summary', election_id=election_id))
+    elif request.method == "GET":
+        return render_template("submit_private_key.html", election_id=election_id, election_title=election_record.election_title)
+    elif request.method == "POST":
+        if request.files['file'].filename == '':
+            flash('Please upload the PRIVATE KEY', 'danger')
+            return render_template("submit_private_key.html", election_id=election_id, election_title=election_record.election_title)
+        else:
+            file = request.files['file']  
+            file.seek(0)      
+            private_key = file.read()
+            election_util.save_results_in_db(election_id, private_key)
+            return redirect(url_for('show_summary', election_id=election_id))
+
+@app.route('/showSummary/<election_id>', methods=["GET"])
+@login_required
+def show_summary(election_id):
+    total_voters = len(Voter_List.getVotersInList(election_id))
+    candidates = CandidateList.getAllCandidates(election_id)
+    results = Results.getAllResults(election_id)
+    return render_template("summary.html", data=list(itertools.zip_longest(candidates, results)), total_voters=total_voters, page='admin' if current_user.is_admin else 'voter')
 # Ensure responses aren't cached
 @app.after_request
 def after_request(response):

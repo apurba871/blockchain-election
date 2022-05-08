@@ -1,4 +1,5 @@
 from app import db
+import app.cast_vote_util as cast_vote_util
 from app.models import Voter_List, Election, CandidateList
 from flask import redirect, url_for, render_template
 from flask_login import current_user
@@ -11,8 +12,10 @@ def checkDebarStatus(election_id, voter_id):
 
 def checkIfAlreadyVoted(election_id, voter_id):
     from app.models import Casted_Vote
-    vote_exists_in_ballot = Casted_Vote.query.filter_by(election_id=election_id, id=voter_id).first()
-    return True if vote_exists_in_ballot else False
+    # vote_exists_in_ballot = Casted_Vote.query.filter_by(election_id=election_id, id=voter_id).first()
+    # return True if vote_exists_in_ballot else False
+    return cast_vote_util.checkIfPresent(voter_id=int(voter_id), election_id=election_id)
+
 
 def checkOTPAndRedirect(user_otp, election_id):
     otp = Voter_List.getVoterToken(election_id, current_user.id)

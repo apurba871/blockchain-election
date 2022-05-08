@@ -45,4 +45,6 @@ if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
   job = scheduler.add_job(update_election_state, 'interval', minutes=1)
   scheduler.start()
 
+
+
 from app import routes
