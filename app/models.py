@@ -149,6 +149,10 @@ class Election(db.Model):
     def getLastElectionRecord(cls):
         return Election.query.order_by(Election.election_id.desc(), Election.create_date.desc()).first()
 
+    @classmethod
+    def getElectionRecordsPendingResults(cls):
+        return Election.query.filter_by(election_state='counting_finished').order_by(Election.create_date.desc()).all()
+
 
 class Casted_Vote(db.Model):
     election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
@@ -214,3 +218,26 @@ class Results(db.Model):
 
     def __repr__(self):
         return f"Results('{self.election_id}', '{self.candidate_id}', '{self.total_votes}')"
+    
+    @classmethod
+    def getAllResults(cls, election_id):
+        return Results.query.filter_by(election_id=election_id).order_by(Results.candidate_id.asc()).all()
+
+class EncryptedResult(db.Model):
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
+    encrypted_count = db.Column(db.Text, nullable=False)
+    exponent = db.Column(db.Integer, nullable=False)
+
+    @classmethod
+    def getRow(cls, election_id):
+        return EncryptedResult.query.filter_by(election_id=election_id).first()
+
+class RunningCountTasks(db.Model):
+    election_id = db.Column(db.String(5), db.ForeignKey('election.election_id'), primary_key=True, nullable=False)
+    error_encountered = db.Column(db.Boolean, default=False, nullable=False)
+    message = db.Column(db.Text)
+    is_complete = db.Column(db.Boolean, default=False, nullable=False)
+
+    @classmethod
+    def getRow(cls, election_id):
+        return RunningCountTasks.query.filter_by(election_id=election_id).first()

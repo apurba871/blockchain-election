@@ -1,0 +1,37 @@
+{% extends "meta.html" %} 
+{% block content %}
+  <div class="content-section">
+    <legend class="border-bottom mb-4">
+      Election Summary
+    </legend>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Photo</th>
+                <th scope="col">Candidate Name</th>
+                <th scope="col">Candidate CIN</th>
+                <th scope="col" class="text-center">Recieved Votes / Total Votes</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for candidate,result in data %}
+                    <tr>
+                        <td></td>
+                        <td><img class="rounded-circle account-img-small" src="/static/profile_pics/{{ candidate.voter.imagefile }}"></td>
+                        <td>{{ candidate.voter.name }}</td>
+                        <td>{{ candidate.voter.cin }}</td>
+                        <td class="text-center">
+                        {% if result %}
+                            {{ result.total_votes }} / {{ total_voters }}
+                        {% else %}
+                            0 / {{ total_voters }}
+                        {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+          <a class="btn btn-outline-info" href="{{ url_for('home') }}">Home</a>
+  </div>
+{% endblock content %}
